@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 3</title>
+    <style>
+        :root {
+            --primary-color: #d35400; /* Laranja queimado para resposta bacteriana/aguda */
+            --secondary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --success-color: #27ae60;
+            --warning-color: #f1c40f;
+            --bg-light: #fdf2e9;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-top: 8px solid var(--primary-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px dashed var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            font-size: 2.4em;
+        }
+
+        h2 {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+
+        .risk-card {
+            border: 2px solid #eee;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .risk-card:hover {
+            transform: scale(1.01);
+        }
+
+        .high-risk { border-left: 8px solid #c0392b; }
+        .med-risk { border-left: 8px solid var(--warning-color); }
+        .low-risk { border-left: 8px solid var(--success-color); }
+
+        .risk-title {
+            font-weight: 800;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .q-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .q-statement {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: #f8f9fa;
+        }
+
+        .options li:hover {
+            border-color: var(--primary-color);
+            background-color: var(--bg-light);
+        }
+
+        .summary-box {
+            background-color: #ebf5fb;
+            border: 2px solid #3498db;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+            background: white;
+        }
+
+        .concept-table th, .concept-table td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .concept-table th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        .gabarito-section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .g-item {
+            background: #34495e;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid #5d6d7e;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 3 (Ricardo Martins)</h1>
+    <p><strong>Cenário Clínico:</strong> Jovem de 19 anos com Pneumonia Bacteriana aguda (febre alta, escarro purulento, leucocitose com neutrofilia).</p>
+    <p><strong>Foco Teórico:</strong> Imunidade Humoral (Células B e Anticorpos), Sistema Complemento e Memória Imunológica.</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        
+        <div class="risk-card high-risk">
+            <span class="risk-title">🔥 Alto Risco (Obrigatório Dominar)</span>
+            <ul>
+                <li><strong>Sistema Complemento:</strong> Mecanismos das 3 vias (Clássica, Alternativa, Lectina), formação da C3 convertase, funções (Opsonização, Inflamação, Lise/MAC).</li>
+                <li><strong>Imunidade Humoral:</strong> Ativação de Linfócitos B (T-dependente vs T-independente), cooperação B-T (CD40-CD40L).</li>
+                <li><strong>Classes de Imunoglobulinas:</strong> Funções específicas de <strong>IgM</strong> (aguda, complemento), <strong>IgG</strong> (memória, opsonização, placenta), <strong>IgA</strong> (mucosas).</li>
+                <li><strong>Memória Imunológica:</strong> Diferenças cinéticas e qualitativas entre Resposta Primária (IgM > IgG, baixa afinidade) e Secundária (IgG > IgM, alta afinidade, rápida).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <span class="risk-title">⚠️ Médio Risco (Importante)</span>
+            <ul>
+                <li><strong>Subversão Imune Bacteriana:</strong> Cápsula (evita fagocitose), variação antigênica e inibição do complemento.</li>
+                <li><strong>Tipos de Imunidade:</strong> Ativa (Natural/Artificial) vs Passiva (Natural/Artificial).</li>
+                <li><strong>Fisiopatologia da Pneumonia:</strong> Relação entre infiltrado inflamatório (neutrófilos/exsudato) e os sintomas (estertores, hepatização).</li>
+                <li><strong>Sinais de Infecção Bacteriana:</strong> Interpretação de Neutrofilia e Desvio à Esquerda.</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <span class="risk-title">❄️ Baixo Risco (Leitura Complementar)</span>
+            <ul>
+                <li>Física detalhada da formação de Raios-X (cátodo/ânodo). O foco é o achado clínico (infiltrado).</li>
+                <li>Detalhes moleculares profundos da via de sinalização JAK-STAT (o foco é o resultado da polarização).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda focado nos mecanismos de defesa contra bactérias extracelulares.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - Resposta a Bactérias Extracelulares</div>
+            <div class="q-statement">Ricardo apresenta uma pneumonia bacteriana. O principal mecanismo da imunidade ADAPTATIVA HUMORAL para combater bactérias extracelulares encapsuladas (como o Pneumococo) é:</div>
+            <ul class="options">
+                <li>A) Citotoxicidade por células CD8+.</li>
+                <li>B) Produção de anticorpos opsonizantes (IgG) e neutralizantes.</li>
+                <li>C) Formação de granulomas por células Th1.</li>
+                <li>D) Ação direta de células NK.</li>
+                <li>E) Degranulação de mastócitos mediada por IgE.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Ativação do Complemento</div>
+            <div class="q-statement">A via Clássica do Sistema Complemento, fundamental na defesa contra a infecção de Ricardo, é iniciada pela ligação da proteína C1 a:</div>
+            <ul class="options">
+                <li>A) Superfícies bacterianas diretamente (LPS).</li>
+                <li>B) Resíduos de manose na parede bacteriana.</li>
+                <li>C) Complexos Antígeno-Anticorpo (Imunocomplexos) contendo IgM ou IgG.</li>
+                <li>D) Citocinas inflamatórias como IL-6.</li>
+                <li>E) Ácido siálico.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Opsonização</div>
+            <div class="q-statement">Qual fragmento do sistema complemento se deposita na superfície da bactéria e funciona como uma potente opsonina, facilitando a fagocitose por neutrófilos e macrófagos?</div>
+            <ul class="options">
+                <li>A) C3a.</li>
+                <li>B) C5a.</li>
+                <li>C) C3b.</li>
+                <li>D) C1q.</li>
+                <li>E) MAC (C5b-9).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Anafilatoxinas</div>
+            <div class="q-statement">Além da opsonização, a ativação do complemento gera pequenos peptídeos (C3a e C5a) que são cruciais para a inflamação aguda observada no pulmão do paciente. A principal função do C5a é:</div>
+            <ul class="options">
+                <li>A) Lisar a bactéria diretamente.</li>
+                <li>B) Atuar como quimioatraente potente para recrutar neutrófilos.</li>
+                <li>C) Neutralizar toxinas bacterianas.</li>
+                <li>D) Inibir a ativação de macrófagos.</li>
+                <li>E) Formar o poro de membrana.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Células B e IgM</div>
+            <div class="q-statement">No início da infecção (fase aguda), qual é a primeira classe de imunoglobulina secretada pelos plasmócitos na resposta primária?</div>
+            <ul class="options">
+                <li>A) IgG (monomérica).</li>
+                <li>B) IgA (dimérica).</li>
+                <li>C) IgE.</li>
+                <li>D) IgM (pentamérica).</li>
+                <li>E) IgD.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Troca de Isótipo</div>
+            <div class="q-statement">Para que uma célula B troque a produção de anticorpos de IgM para IgG, IgA ou IgE (Class Switch), ela necessita obrigatoriamente de sinais fornecidos por:</div>
+            <ul class="options">
+                <li>A) Células T CD4+ Auxiliares (interação CD40-CD40L e citocinas).</li>
+                <li>B) Células T CD8+ Citotóxicas.</li>
+                <li>C) Células NK.</li>
+                <li>D) Contato direto com a bactéria (Antígeno T-independente).</li>
+                <li>E) Sistema Complemento.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - Antígenos T-Independentes</div>
+            <div class="q-statement">Algumas bactérias possuem cápsulas polissacarídicas que podem ativar células B sem a ajuda de células T. A resposta a esses antígenos T-independentes é caracterizada por:</div>
+            <ul class="options">
+                <li>A) Alta afinidade e intensa memória imunológica.</li>
+                <li>B) Produção exclusiva de IgG.</li>
+                <li>C) Produção predominante de IgM, baixa afinidade e pouca/nenhuma memória.</li>
+                <li>D) Ativação intensa de células T CD8+.</li>
+                <li>E) Dependência exclusiva de IL-4.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Memória Imunológica</div>
+            <div class="q-statement">Caso Ricardo seja vacinado ou reexposto à mesma bactéria no futuro, a resposta secundária será diferente da primária. Uma característica marcante da resposta secundária é:</div>
+            <ul class="options">
+                <li>A) Período de latência (lag) mais longo.</li>
+                <li>B) Predomínio de IgM.</li>
+                <li>C) Títulos de anticorpos mais baixos.</li>
+                <li>D) Produção rápida de IgG com alta afinidade pelo antígeno.</li>
+                <li>E) Ausência de ativação de células T.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Evasão Bacteriana (Cápsula)</div>
+            <div class="q-statement">Muitas bactérias causadoras de pneumonia (como *Streptococcus pneumoniae*) possuem uma cápsula polissacarídica espessa. O principal mecanismo de evasão imune conferido pela cápsula é:</div>
+            <ul class="options">
+                <li>A) Inibição da produção de anticorpos.</li>
+                <li>B) Resistência à fagocitose (ação antifagocítica).</li>
+                <li>C) Destruição de células T CD4+.</li>
+                <li>D) Bloqueio da apresentação de antígeno via MHC I.</li>
+                <li>E) Degradação de IgA secretora.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Via Alternativa</div>
+            <div class="q-statement">A Via Alternativa do complemento é um componente da imunidade inata. Ela é ativada por:</div>
+            <ul class="options">
+                <li>A) Ligação de anticorpos.</li>
+                <li>B) Hidrólise espontânea de C3 (Tickover) e estabilização na superfície microbiana.</li>
+                <li>C) Ligação de lectinas a manose.</li>
+                <li>D) Ação de citocinas.</li>
+                <li>E) Dano tecidual estéril.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - MAC (Complexo de Ataque à Membrana)</div>
+            <div class="q-statement">O estágio final da ativação do complemento é a formação do MAC (C5b-9). Sua função é:</div>
+            <ul class="options">
+                <li>A) Atrair neutrófilos.</li>
+                <li>B) Opsonizar a bactéria.</li>
+                <li>C) Criar poros na membrana bacteriana, causando lise osmótica.</li>
+                <li>D) Ativar células B.</li>
+                <li>E) Solubilizar imunocomplexos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Imunidade Passiva Artificial</div>
+            <div class="q-statement">Se Ricardo recebesse uma injeção de soro contendo anticorpos prontos (antitoxinas) contra uma bactéria, que tipo de imunidade isso representaria?</div>
+            <ul class="options">
+                <li>A) Ativa Natural.</li>
+                <li>B) Ativa Artificial.</li>
+                <li>C) Passiva Natural.</li>
+                <li>D) Passiva Artificial.</li>
+                <li>E) Inata.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - IgA</div>
+            <div class="q-statement">No trato respiratório, a principal imunoglobulina responsável pela imunidade de mucosa (neutralizando bactérias antes que elas invadam o epitélio) é:</div>
+            <ul class="options">
+                <li>A) IgG.</li>
+                <li>B) IgE.</li>
+                <li>C) IgA Secretora (dímero).</li>
+                <li>D) IgM.</li>
+                <li>E) IgD.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Centro Germinativo</div>
+            <div class="q-statement">A maturação da afinidade dos anticorpos (hipermutação somática) ocorre em uma estrutura específica dos órgãos linfoides secundários. Que estrutura é essa?</div>
+            <ul class="options">
+                <li>A) Zona T (Paracórtex).</li>
+                <li>B) Centro Germinativo do Folículo Linfoide.</li>
+                <li>C) Polpa Vermelha do Baço.</li>
+                <li>D) Medula Óssea.</li>
+                <li>E) Córtex Tímico.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Via das Lectinas</div>
+            <div class="q-statement">A Via das Lectinas é ativada pelo reconhecimento de:</div>
+            <ul class="options">
+                <li>A) Ácidos nucleicos virais.</li>
+                <li>B) Carboidratos microbianos (como manose) pela MBL.</li>
+                <li>C) Anticorpos IgG.</li>
+                <li>D) Proteínas do choque térmico.</li>
+                <li>E) Peptídeos apresentados no MHC.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - C3 Convertase</div>
+            <div class="q-statement">Qual é o complexo enzimático central formado nas vias Clássica e da Lectina, responsável por clivar C3?</div>
+            <ul class="options">
+                <li>A) C3bBb.</li>
+                <li>B) C4b2a.</li>
+                <li>C) C5b-9.</li>
+                <li>D) C1qrs.</li>
+                <li>E) C3aC5a.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Superantígenos</div>
+            <div class="q-statement">Algumas bactérias (como *Staphylococcus*) produzem toxinas chamadas superantígenos. O mecanismo de agressão dessas toxinas envolve:</div>
+            <ul class="options">
+                <li>A) Destruição direta da membrana celular.</li>
+                <li>B) Inibição da síntese proteica.</li>
+                <li>C) Ativação inespecífica e maciça de linfócitos T (ligando MHC II e TCR fora da fenda), causando tempestade de citocinas.</li>
+                <li>D) Bloqueio da transmissão neuromuscular.</li>
+                <li>E) Indução de apoptose em macrófagos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - Imunidade Neonatal</div>
+            <div class="q-statement">A transferência de IgG da mãe para o feto via placenta é o único exemplo fisiológico de:</div>
+            <ul class="options">
+                <li>A) Imunidade Ativa Natural.</li>
+                <li>B) Imunidade Passiva Natural.</li>
+                <li>C) Imunidade Inata.</li>
+                <li>D) Imunidade Passiva Artificial.</li>
+                <li>E) Tolerância Imunológica.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - Plasmócitos</div>
+            <div class="q-statement">Após a ativação, os linfócitos B se diferenciam em plasmócitos. A principal característica funcional do plasmócito é:</div>
+            <ul class="options">
+                <li>A) Fagocitose de bactérias.</li>
+                <li>B) Secreção massiva de anticorpos solúveis.</li>
+                <li>C) Apresentação de antígenos para CD8+.</li>
+                <li>D) Citotoxicidade direta.</li>
+                <li>E) Migração para o timo.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - Imunidade Cruzada</div>
+            <div class="q-statement">O conceito de imunidade cruzada refere-se a:</div>
+            <ul class="options">
+                <li>A) Transferência de anticorpos entre indivíduos.</li>
+                <li>B) Capacidade de um anticorpo gerado contra um antígeno reagir com um antígeno diferente, mas estruturalmente semelhante.</li>
+                <li>C) Ativação simultânea de células T e B.</li>
+                <li>D) Cooperação entre imunidade inata e adaptativa.</li>
+                <li>E) Reação alérgica a múltiplos alérgenos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - Vacinas (Ativa Artificial)</div>
+            <div class="q-statement">As vacinas funcionam mimetizando uma infecção para gerar proteção sem doença. Qual é o principal objetivo imunológico da vacinação?</div>
+            <ul class="options">
+                <li>A) Aumentar o número de neutrófilos circulantes.</li>
+                <li>B) Gerar células de memória (B e T) e anticorpos de longa duração.</li>
+                <li>C) Ativar o sistema complemento de forma crônica.</li>
+                <li>D) Induzir tolerância ao patógeno.</li>
+                <li>E) Fornecer anticorpos passivos temporários.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - Proteína C-Reativa (PCR)</div>
+            <div class="q-statement">Ricardo provavelmente apresenta PCR elevada. A PCR é uma proteína de fase aguda que funciona como uma opsonina e também pode ativar qual via do complemento?</div>
+            <ul class="options">
+                <li>A) Via Alternativa.</li>
+                <li>B) Via Clássica (ao se ligar a C1q).</li>
+                <li>C) Via das Lectinas.</li>
+                <li>D) Via Lítica direta.</li>
+                <li>E) Nenhuma, ela apenas sinaliza inflamação.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - Regulação do Complemento</div>
+            <div class="q-statement">Para evitar que o sistema complemento destrua as células do próprio hospedeiro, existem proteínas reguladoras. Qual proteína de membrana impede a formação do MAC nas células humanas?</div>
+            <ul class="options">
+                <li>A) C1-INH.</li>
+                <li>B) Fator H.</li>
+                <li>C) CD59 (Protectina).</li>
+                <li>D) DAF (CD55).</li>
+                <li>E) Properdina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Variação Antigênica</div>
+            <div class="q-statement">Algumas bactérias, como *Neisseria gonorrhoeae*, alteram periodicamente a estrutura de seus antígenos de superfície (pilina). Esse mecanismo de evasão imune visa:</div>
+            <ul class="options">
+                <li>A) Aumentar a toxicidade.</li>
+                <li>B) Tornar os anticorpos previamente produzidos ineficazes contra a nova variante.</li>
+                <li>C) Inibir a fagocitose.</li>
+                <li>D) Induzir apoptose de linfócitos.</li>
+                <li>E) Bloqueio do MHC.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - Exsudato na Pneumonia</div>
+            <div class="q-statement">A radiografia de Ricardo mostra "infiltrado pulmonar", que corresponde histologicamente a um exsudato inflamatório preenchendo os alvéolos. Esse exsudato é rico em:</div>
+            <ul class="options">
+                <li>A) Linfócitos T e macrófagos espumosos.</li>
+                <li>B) Neutrófilos, bactérias, fibrina e fluido rico em proteínas (pus).</li>
+                <li>C) Apenas transudato (líquido pobre em proteínas).</li>
+                <li>D) Eosinófilos e cristais de Charcot-Leyden.</li>
+                <li>E) Fibroblastos e colágeno.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Th17 e Bactérias Extracelulares</div>
+            <div class="q-statement">Na defesa contra bactérias extracelulares (como a da pneumonia), a resposta Th17 é crucial. A citocina IL-17 atua principalmente:</div>
+            <ul class="options">
+                <li>A) Ativando a produção de IgE.</li>
+                <li>B) Induzindo a produção de quimiocinas para recrutar neutrófilos massivamente.</li>
+                <li>C) Ativando macrófagos para matar bactérias intracelulares.</li>
+                <li>D) Suprimindo a inflamação.</li>
+                <li>E) Promovendo a diferenciação de células NK.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Febre e Frequência Cardíaca</div>
+            <div class="q-statement">Ricardo tem febre e taquicardia (104 bpm). A taquicardia na febre é uma resposta fisiológica devido a:</div>
+            <ul class="options">
+                <li>A) Ação direta das bactérias no coração.</li>
+                <li>B) Aumento da demanda metabólica (efeito Q10) e vasodilatação periférica que requer maior débito cardíaco.</li>
+                <li>C) Inibição do sistema simpático.</li>
+                <li>D) Liberação de histamina.</li>
+                <li>E) Hipotermia reflexa.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - IgE</div>
+            <div class="q-statement">Embora não seja o foco na pneumonia bacteriana típica, a IgE é especializada na defesa contra:</div>
+            <ul class="options">
+                <li>A) Vírus.</li>
+                <li>B) Bactérias encapsuladas.</li>
+                <li>C) Parasitas helmintos (vermes) e alérgenos.</li>
+                <li>D) Fungos intracelulares.</li>
+                <li>E) Células tumorais.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - Função do Baço (Remoção)</div>
+            <div class="q-statement">O baço é o principal órgão para fagocitose de bactérias opsonizadas que atingem o sangue. A opsonização nesse caso é mediada principalmente por:</div>
+            <ul class="options">
+                <li>A) IgA.</li>
+                <li>B) IgG e C3b.</li>
+                <li>C) IgE.</li>
+                <li>D) TNF-α.</li>
+                <li>E) C5a.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Raio-X (Densidade)</div>
+            <div class="q-statement">Na radiografia, o infiltrado inflamatório (pus/líquido) substitui o ar nos alvéolos. Como isso aparece na imagem radiográfica (densidade)?</div>
+            <ul class="options">
+                <li>A) Radiotransparente (Preto), igual ao ar normal.</li>
+                <li>B) Radiopaco (Branco/Cinza), com densidade de partes moles/líquido.</li>
+                <li>C) Radiopaco intenso (Branco brilhante), com densidade de metal.</li>
+                <li>D) Não aparece no Raio-X.</li>
+                <li>E) Como uma cavitação vazia.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado: Defesa Humoral e Complemento</h2>
+        
+        <h3>1. Imunidade Humoral (Linfócitos B e Anticorpos)</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Classe</th>
+                    <th>Estrutura</th>
+                    <th>Principais Funções</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>IgM</strong></td>
+                    <td>Pentâmero</td>
+                    <td><strong>Primeira resposta (aguda)</strong>, ativação potente do <strong>Complemento</strong> (Via Clássica), receptor de célula B virgem.</td>
+                </tr>
+                <tr>
+                    <td><strong>IgG</strong></td>
+                    <td>Monômero</td>
+                    <td><strong>Memória (resposta secundária)</strong>, <strong>Opsonização</strong>, Neutralização, Atravessa Placenta (imunidade neonatal), ADCC.</td>
+                </tr>
+                <tr>
+                    <td><strong>IgA</strong></td>
+                    <td>Dímero</td>
+                    <td>Imunidade de <strong>Mucosas</strong> (TGI, Respiratório), neutralização, presente no leite materno.</td>
+                </tr>
+                <tr>
+                    <td><strong>IgE</strong></td>
+                    <td>Monômero</td>
+                    <td>Defesa contra <strong>Parasitas (helmintos)</strong> e Alergias (ativa mastócitos).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2. Sistema Complemento (As 3 Vias)</h3>
+        <p>Todas convergem para a formação da <strong>C3 Convertase</strong> → Clivagem de C3 em C3a e C3b.</p>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Via</th>
+                    <th>Gatilho (Ativador)</th>
+                    <th>Mecanismo Inicial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Clássica</strong></td>
+                    <td><strong>Anticorpos</strong> (IgM ou IgG) ligados ao antígeno.</td>
+                    <td>Complexo <strong>C1</strong> (C1q) se liga à porção Fc do anticorpo.</td>
+                </tr>
+                <tr>
+                    <td><strong>Lectina</strong></td>
+                    <td>Carboidratos microbianos (ex: <strong>Manose</strong>).</td>
+                    <td><strong>MBL</strong> (Lectina Ligante de Manose) reconhece açúcares.</td>
+                </tr>
+                <tr>
+                    <td><strong>Alternativa</strong></td>
+                    <td>Superfície microbiana direta.</td>
+                    <td>Hidrólise espontânea de C3 ("Tickover") e estabilização.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Consequências Finais:</strong></p>
+        <ul>
+            <li><strong>Opsonização (C3b):</strong> "Tempero" para fagocitose.</li>
+            <li><strong>Inflamação (C3a, C5a):</strong> Recrutamento de leucócitos (anafilatoxinas).</li>
+            <li><strong>Lise (MAC C5b-9):</strong> Poros na membrana da bactéria.</li>
+        </ul>
+
+        <h3>3. Memória Imunológica</h3>
+        <ul>
+            <li><strong>Primária:</strong> Lenta (dias), predomínio de IgM, baixa afinidade.</li>
+            <li><strong>Secundária:</strong> Rápida (horas/dias), predomínio de IgG, alta afinidade (maturação), títulos elevados. Base das vacinas.</li>
+        </ul>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div class="g-item">01 - B</div>
+            <div class="g-item">02 - C</div>
+            <div class="g-item">03 - C</div>
+            <div class="g-item">04 - B</div>
+            <div class="g-item">05 - D</div>
+            <div class="g-item">06 - A</div>
+            <div class="g-item">07 - C</div>
+            <div class="g-item">08 - D</div>
+            <div class="g-item">09 - B</div>
+            <div class="g-item">10 - B</div>
+            <div class="g-item">11 - C</div>
+            <div class="g-item">12 - D</div>
+            <div class="g-item">13 - C</div>
+            <div class="g-item">14 - B</div>
+            <div class="g-item">15 - B</div>
+            <div class="g-item">16 - B</div>
+            <div class="g-item">17 - C</div>
+            <div class="g-item">18 - B</div>
+            <div class="g-item">19 - B</div>
+            <div class="g-item">20 - B</div>
+            <div class="g-item">21 - B</div>
+            <div class="g-item">22 - B</div>
+            <div class="g-item">23 - C</div>
+            <div class="g-item">24 - B</div>
+            <div class="g-item">25 - B</div>
+            <div class="g-item">26 - B</div>
+            <div class="g-item">27 - B</div>
+            <div class="g-item">28 - C</div>
+            <div class="g-item">29 - B</div>
+            <div class="g-item">30 - B</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

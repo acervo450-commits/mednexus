@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila: Fisiologia da Gestação e Assistência Obstétrica</title>
+    <style>
+        :root {
+            --primary-color: #2e86c1;    /* Azul Forte */
+            --secondary-color: #884ea0;  /* Roxo (Obstetrícia) */
+            --tertiary-color: #16a085;   /* Verde Água */
+            --highlight-bg: #ebf5fb;
+            --text-color: #2c3e50;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        /* Títulos */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 26pt;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, var(--primary-color), #5dade2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin-top: 50px;
+            font-size: 18pt;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            border-left: 6px solid #d7bde2;
+            padding-left: 15px;
+            margin-top: 35px;
+            font-size: 15pt;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: var(--tertiary-color);
+            font-weight: bold;
+            font-size: 12pt;
+            margin-top: 25px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #a2d9ce;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 11pt;
+        }
+
+        /* Caixas e Destaques */
+        .highlight-box {
+            background-color: var(--highlight-bg);
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .alert-box {
+            background-color: #fdedec;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 25px 0;
+            color: #922b21;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Listas */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Referências */
+        .ref {
+            font-size: 0.75em;
+            vertical-align: super;
+            color: #7f8c8d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; max-width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .highlight-box, .alert-box, thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Fisiologia da Gestação e Assistência Obstétrica</h1>
+    <p style="text-align: center; font-style: italic;">Adaptações Maternas, Pré-Natal e Parto</p>
+
+    <!-- OBJETIVO 1: MODIFICAÇÕES FISIOLÓGICAS -->
+    <h2>1. Modificações Fisiológicas e Anatômicas Maternas</h2>
+    <p>A gravidez impõe uma adaptação sistêmica profunda para suprir as demandas metabólicas do feto e preparar o organismo materno para o parto e a lactação.</p>
+
+    <h3>1.1. Sistema Cardiovascular e Hematológico</h3>
+    <p>Ocorre uma <strong>hipervolemia</strong> significativa (aumento de 40-45% do volume sanguíneo), necessária para perfundir o útero e proteger contra perdas sanguíneas no parto. O volume plasmático aumenta mais que a massa eritrocitária, resultando em <strong>hemodiluição</strong> (anemia fisiológica da gravidez) <span class="ref">[1][2]</span>.</p>
+    <ul>
+        <li><strong>Débito Cardíaco:</strong> Aumenta em 30-50%, atingindo pico no final do segundo trimestre. A frequência cardíaca eleva-se em 10-15 bpm.</li>
+        <li><strong>Pressão Arterial:</strong> Tende a diminuir no 1º e 2º trimestres devido à vasodilatação periférica (ação da progesterona e óxido nítrico), retornando aos níveis pré-gravídicos no 3º trimestre.</li>
+        <li><strong>Síndrome da Hipotensão Supina:</strong> O útero gravídico comprime a veia cava inferior em decúbito dorsal, reduzindo o retorno venoso e causando hipotensão e tontura.</li>
+        <li><strong>Coagulação:</strong> Estado de hipercoagulabilidade fisiológica (aumento de fibrinogênio e fatores VII, VIII, X) para prevenir hemorragia, mas aumentando o risco de tromboembolismo <span class="ref">[1]</span>.</li>
+    </ul>
+
+    <h3>1.2. Sistema Respiratório</h3>
+    <p>A elevação do diafragma pelo útero reduz o volume residual, mas a capacidade inspiratória aumenta. Ocorre <strong>hiperventilação</strong> induzida pela progesterona, levando a uma alcalose respiratória compensada (queda da PCO2), o que facilita a transferência de CO2 do feto para a mãe <span class="ref">[1][3]</span>.</p>
+
+    <h3>1.3. Sistema Renal e Urinário</h3>
+    <p>A Taxa de Filtração Glomerular (TFG) aumenta em até 50%, reduzindo os níveis séricos de creatinina e ureia. A retenção de sódio é mediada pelo sistema renina-angiotensina-aldosterona (hiperaldosteronismo secundário) para expandir o volume plasmático.</p>
+    <div class="alert-box">
+        <strong>Atenção Clínica:</strong> A dilatação ureteral (hidronefrose fisiológica), causada pela compressão uterina e relaxamento muscular (progesterona), predispõe a <strong>estase urinária</strong> e infecções do trato urinário (pielonefrite), mais comum à direita <span class="ref">[2]</span>.
+    </div>
+
+    <h3>1.4. Sistema Digestório e Metabólico</h3>
+    <ul>
+        <li><strong>Gastrointestinal:</strong> Relaxamento do esfíncter esofágico inferior (pirose/refluxo) e redução da motilidade intestinal (constipação) devido à progesterona. Maior risco de cálculos biliares (estase da vesícula) <span class="ref">[2]</span>.</li>
+        <li><strong>Carboidratos:</strong> Efeito <strong>diabetogênico</strong> na segunda metade da gestação. Hormônios contrainsulínicos (hPL, cortisol, progesterona) aumentam a resistência à insulina materna para garantir aporte de glicose ao feto <span class="ref">[1]</span>.</li>
+        <li><strong>Cálcio:</strong> A absorção intestinal de cálcio dobra, mediada pelo aumento da Vitamina D (1,25-dihidroxivitamina D3), para suprir a ossificação fetal sem descalcificar a mãe <span class="ref">[1]</span>.</li>
+    </ul>
+
+    <h3>1.5. Modificações Locais e Semiológicas</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Sinal/Fenômeno</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Sinal de Hegar</strong></td>
+                <td>Amolecimento do istmo uterino (segmento inferior), permitindo mobilidade entre colo e corpo.</td>
+            </tr>
+            <tr>
+                <td><strong>Sinal de Chadwick/Jacquemier</strong></td>
+                <td>Coloração violácea/cianótica da mucosa vaginal e vulvar devido à hiperemia.</td>
+            </tr>
+            <tr>
+                <td><strong>Sinal de Goodell</strong></td>
+                <td>Amolecimento da cérvice uterina (consistência labial vs. cartilaginosa).</td>
+            </tr>
+            <tr>
+                <td><strong>Sinal de Piskacek</strong></td>
+                <td>Assimetria uterina no local da nidação.</td>
+            </tr>
+            <tr>
+                <td><strong>Sinal de Nobile-Budin</strong></td>
+                <td>Preenchimento dos fundos de saco vaginais pelo útero globoso.</td>
+            </tr>
+            <tr>
+                <td><strong>Mamas</strong></td>
+                <td>Tubérculos de Montgomery (glândulas sebáceas hipertrofiadas), Rede de Haller (venosa visível), Sinal de Hunter (aréola secundária).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- OBJETIVO 2: PRÉ-NATAL -->
+    <h2>2. Assistência Pré-Natal</h2>
+    <p>O objetivo é assegurar o nascimento de uma criança saudável, garantindo a saúde materna. O Ministério da Saúde recomenda no mínimo <strong>6 consultas</strong>, com início precoce (até a 12ª semana).</p>
+
+    <h3>2.1. Cronograma e Cálculos Obstétricos</h3>
+    <ul>
+        <li><strong>Frequência:</strong> Mensal (até 28ª sem) → Quinzenal (28ª-36ª sem) → Semanal (36ª-41ª sem).</li>
+        <li><strong>Idade Gestacional (IG):</strong> Calculada a partir do 1º dia da Última Menstruação (DUM).
+            <ul>
+                <li>Se DUM desconhecida: Usar USG de 1º trimestre (Comprimento Cabeça-Nádega - CCN) como padrão-ouro para datação.</li>
+            </ul>
+        </li>
+        <li><strong>Data Provável do Parto (DPP) - Regra de Naegele:</strong> DUM + 7 dias / Mês - 3 (ou +9).</li>
+    </ul>
+
+    <h3>2.2. Rotina de Exames Laboratoriais (MS)</h3>
+    <div class="highlight-box">
+        <h4>1º Trimestre (Entrada no Pré-Natal)</h4>
+        <ul>
+            <li>Tipagem Sanguínea e Fator Rh (+ Coombs Indireto se Rh negativo).</li>
+            <li>Hemograma completo.</li>
+            <li>Glicemia em jejum.</li>
+            <li>Sorologias: VDRL (Sífilis), Anti-HIV, HBsAg (Hepatite B), Toxoplasmose (IgM e IgG).</li>
+            <li>Urina tipo I (EAS) e Urocultura (tratar bacteriúria assintomática).</li>
+            <li>Citopatológico (se necessário).</li>
+        </ul>
+        <h4>2º Trimestre</h4>
+        <ul>
+            <li><strong>TOTG 75g (24ª a 28ª semana):</strong> Rastreio universal de Diabetes Gestacional.</li>
+            <li>Coombs Indireto (se Rh negativo).</li>
+        </ul>
+        <h4>3º Trimestre</h4>
+        <ul>
+            <li>Repetição de Hemograma, Glicemia, VDRL, Anti-HIV, Hepatite B.</li>
+            <li>Pesquisa de Estreptococo do Grupo B (35ª-37ª sem) - Cultura vaginal/anal.</li>
+        </ul>
+    </div>
+
+    <h3>2.3. Vacinação na Gestação</h3>
+    <ul>
+        <li><strong>Influenza:</strong> Dose única anual (qualquer IG).</li>
+        <li><strong>Hepatite B:</strong> 3 doses (se não vacinada anteriormente).</li>
+        <li><strong>dTpa (Difteria, Tétano e Coqueluche):</strong> A partir da 20ª semana a cada gestação. Objetivo principal: transferir anticorpos contra coqueluche para o feto.</li>
+        <li><strong>Contraindicação Absoluta:</strong> Vacinas de vírus vivos (Tríplice Viral, Varicela, Febre Amarela - salvo risco epidemiológico altíssimo) <span class="ref">[4]</span>.</li>
+    </ul>
+
+    <!-- OBJETIVO 3: RISCO E ADOLESCÊNCIA -->
+    <h2>3. Gravidez na Adolescência (Alto Risco)</h2>
+    <p>Definida entre 10 e 19 anos. Considerada de alto risco devido à imaturidade biológica e vulnerabilidade psicossocial.</p>
+    <ul>
+        <li><strong>Riscos Biológicos:</strong> Maior incidência de Toxemia Gravídica (Pré-eclâmpsia), Anemia, Desproporção Céfalo-Pélvica (bacia ainda em crescimento em <15 anos) e Prematuridade/Baixo Peso ao Nascer <span class="ref">[3]</span>.</li>
+        <li><strong>Impacto Social:</strong> Abandono escolar, perpetuação do ciclo de pobreza e maior risco de mortalidade materna (especialmente por complicações de aborto inseguro e hipertensão).</li>
+    </ul>
+
+    <!-- OBJETIVO 4: PARTO -->
+    <h2>4. Vias de Parto: Vaginal e Cesárea</h2>
+
+    <h3>4.1. Parto Vaginal (Normal)</h3>
+    <p>Via preferencial fisiológica. Benefícios incluem recuperação rápida, menor risco de infecção/hemorragia materna, expulsão de líquido pulmonar fetal (compressão torácica) e colonização por microbiota vaginal benéfica.</p>
+    <ul>
+        <li><strong>Lacerações Perineais:</strong>
+            <ul>
+                <li><strong>1º Grau:</strong> Pele e mucosa (sutura opcional).</li>
+                <li><strong>2º Grau:</strong> Músculos perineais (requer sutura).</li>
+                <li><strong>3º Grau:</strong> Esfíncter anal externo.</li>
+                <li><strong>4º Grau:</strong> Mucosa retal (risco de incontinência fecal).</li>
+            </ul>
+        </li>
+        <li><strong>Contraindicações Absolutas:</strong> Placenta prévia total, Herpes genital com lesão ativa, Prolapso de cordão, Situação transversa <span class="ref">[2]</span>.</li>
+    </ul>
+
+    <h3>4.2. Parto Cesárea</h3>
+    <p>Cirurgia abdominal para extração fetal. Fundamental quando há risco materno-fetal, mas associada a maior morbidade (hemorragia, infecção, trombose).</p>
+    <ul>
+        <li><strong>Indicações Reais:</strong> Sofrimento fetal agudo, Descolamento Prematuro de Placenta (DPP), Placenta Prévia Total, Apresentação Pélvica (em alguns casos), HIV com carga viral elevada (>1.000 cópias), Iteratividade (2 ou mais cesáreas prévias - risco de rotura uterina).</li>
+        <li><strong>Complicações:</strong> Endometrite (infecção pós-parto), hemorragia, lesão de bexiga/ureter, acretismo placentário em gestações futuras <span class="ref">[4]</span>.</li>
+    </ul>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>[1] CUNNINGHAM, F. G. et al. <strong>Obstetrícia de Williams</strong>. 24ª Ed. Porto Alegre: AMGH, 2016.</p>
+        <p>[2] ZUGAIB, M.; FRANCISCO, R. <strong>Zugaib Obstetrícia</strong>. 3ª Ed. São Paulo: Manole, 2016.</p>
+        <p>[3] REZENDE FILHO, J.; MONTENEGRO, C.A. <strong>Rezende Obstetrícia</strong>. 13ª Ed. Rio de Janeiro: Guanabara Koogan, 2014.</p>
+        <p>[4] BRASIL. Ministério da Saúde. <strong>Atenção ao pré-natal de baixo risco</strong>. Cadernos de Atenção Básica, n. 32. Brasília, 2013.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

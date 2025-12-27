@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila: Embriologia Clínica e Patologia Obstétrica</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;    /* Azul Petróleo Escuro */
+            --secondary-color: #c0392b;  /* Vermelho Escuro (Patologia) */
+            --tertiary-color: #27ae60;   /* Verde (Fisiologia) */
+            --highlight-bg: #fdfefe;
+            --text-color: #333;
+            --box-bg: #ecf0f1;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px 60px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            text-align: justify;
+        }
+
+        /* Títulos */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 24pt;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 40px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16pt;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            border-left: 5px solid #bdc3c7;
+            padding-left: 10px;
+            margin-top: 30px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14pt;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: var(--tertiary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 11pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 11pt;
+        }
+
+        /* Referências no texto */
+        .ref {
+            font-size: 0.75em;
+            vertical-align: super;
+            color: #7f8c8d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* Caixas de Destaque */
+        .clinical-box {
+            background-color: #fcf3cf;
+            border: 1px solid #f1c40f;
+            border-left: 5px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        .bio-box {
+            background-color: #e8f8f5;
+            border: 1px solid #a2d9ce;
+            border-left: 5px solid #16a085;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9em;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        /* Bibliografia */
+        .bibliography {
+            margin-top: 60px;
+            border-top: 2px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .bibliography p {
+            font-size: 10pt;
+            margin-bottom: 8px;
+            text-indent: -20px;
+            padding-left: 20px;
+        }
+
+        /* Impressão */
+        @media print {
+            body { background-color: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; padding: 0; width: 100%; max-width: 100%; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact;}
+            h2:first-of-type { page-break-before: auto; }
+            .clinical-box, .bio-box, th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Tratado de Embriologia Clínica e Patologia Obstétrica</h1>
+    <p style="text-align: center; font-style: italic;">Material consolidado sobre Gametogênese, Desenvolvimento Embrionário Inicial, Teratologia e Abortamento.</p>
+
+    <!-- SEÇÃO 1 -->
+    <h2>1. Gametogênese e Biologia da Fecundação</h2>
+    
+    <p>A perpetuação da espécie humana depende de processos celulares complexos que preparam as células germinativas para a concepção. A gametogênese envolve a conversão de células germinativas primitivas em gametas morfologicamente maduros e geneticamente haploides.</p>
+
+    <h3>1.1. Gametogênese Comparada</h3>
+    <p>Na <strong>espermatogênese</strong>, o processo é contínuo a partir da puberdade. As espermatogônias sofrem mitose e meiose para formar espermatócitos primários (4n), que se dividem em espermatócitos secundários (2n) e, finalmente, em quatro espermátides (1n). Estas sofrem espermiogênese (maturação estrutural) para se tornarem espermatozoides móveis <span class="ref">[1][2]</span>.</p>
+
+    <p>A <strong>ovogênese</strong> difere significativamente por seus períodos de "parada". As ovogônias proliferam por mitose apenas na vida fetal. No 5º mês fetal, inicia-se a meiose, que é interrompida na Prófase I. Este estado de latência dura até a puberdade. A cada ciclo, um ovócito primário completa a Meiose I, gerando um ovócito secundário e o primeiro corpúsculo polar. A Meiose II inicia-se mas é interrompida na Metáfase II, sendo completada <em>exclusivamente</em> se houver fertilização <span class="ref">[1][3]</span>.</p>
+
+    <h3>1.2. Fecundação: A Cascata Molecular</h3>
+    <p>A fecundação ocorre preferencialmente na ampola da tuba uterina. De 150 a 600 milhões de espermatozoides ejaculados, apenas 50 a 100 alcançam o local da fertilização, impulsionados não apenas pela motilidade flagelar, mas por contrações uterinas estimuladas por prostaglandinas do plasma seminal <span class="ref">[3]</span>.</p>
+
+    <div class="bio-box">
+        <strong>Fases Críticas da Interação Gamética:</strong>
+        <ol>
+            <li><strong>Capacitação:</strong> Fenômeno fisiológico (durando cerca de 7 horas) onde ocorre a remoção de glicoproteínas da membrana plasmática do espermatozoide, permitindo a reação acrossômica. Sem isso, o gameta é incapaz de fertilizar <span class="ref">[2]</span>.</li>
+            <li><strong>Reação Acrossômica:</strong> Mediada pela ligação ao receptor ZP3 na zona pelúcida. Ocorre a liberação de enzimas (hialuronidase e <strong>acrosina</strong>) que digerem a matriz extracelular, permitindo a penetração <span class="ref">[3]</span>.</li>
+            <li><strong>Bloqueio à Polispermia:</strong> Após a fusão das membranas, ocorre a <em>Reação Cortical</em> (ou Zonal): grânulos corticais do ovócito liberam enzimas lisossomais no espaço perivitelino, alterando a estrutura da zona pelúcida e tornando-a impermeável a outros espermatozoides <span class="ref">[2]</span>.</li>
+        </ol>
+    </div>
+
+    <p>Após a entrada do espermatozoide, o ovócito termina a segunda divisão meiótica. Os pronúcleos masculino e feminino aumentam de volume, replicam seu DNA e fundem-se, restabelecendo a diploidia (46 cromossomos) e formando o <strong>zigoto</strong> <span class="ref">[1]</span>.</p>
+
+    <!-- SEÇÃO 2 -->
+    <h2>2. Embriogênese Humana: Da 1ª à 8ª Semana</h2>
+    
+    <h3>2.1. Primeira Semana: Segmentação e Implantação</h3>
+    <p>O zigoto sofre clivagens sucessivas enquanto migra pela tuba. No 3º dia, forma-se a <strong>Mórula</strong> (16 células). Ao entrar no útero (4º dia), surge uma cavidade cheia de fluido (blastocele), definindo o estágio de <strong>Blastocisto</strong>. As células diferenciam-se em:</p>
+    <ul>
+        <li><strong>Embrioblasto:</strong> Massa celular interna (originará o embrião).</li>
+        <li><strong>Trofoblasto:</strong> Camada externa (originará a placenta) <span class="ref">[2]</span>.</li>
+    </ul>
+    <p>Por volta do 6º dia, o trofoblasto diferencia-se em citotrofoblasto e sinciciotrofoblasto, iniciando a invasão do endométrio (nidação) <span class="ref">[3]</span>.</p>
+
+    <h3>2.2. Segunda Semana: O Disco Bilaminar</h3>
+    <p>Conhecida como a "semana dos pares". O embrioblasto diferencia-se em dois folhetos (disco bilaminar):</p>
+    <ul>
+        <li><strong>Epiblasto:</strong> Relacionado à cavidade amniótica em formação.</li>
+        <li><strong>Hipoblasto:</strong> Relacionado à vesícula vitelina primitiva.</li>
+    </ul>
+    <p>Estabelece-se a circulação uteroplacentária primitiva através das lacunas trofoblásticas que se enchem de sangue materno <span class="ref">[2]</span>.</p>
+
+    <h3>2.3. Terceira Semana: Gastrulação</h3>
+    <p>O evento marco é a <strong>Gastrulação</strong>, que converte o disco bilaminar em trilaminar (Ectoderma, Mesoderma e Endoderma). Inicia-se com a formação da <em>Linha Primitiva</em>. Células do epiblasto migram e invaginam, formando os tecidos que darão origem a todos os órgãos.</p>
+    <p>Simultaneamente, ocorre a <strong>Neurulação</strong>: a notocorda induz o ectoderma sobrejacente a espessar-se (placa neural) e invaginar-se para formar o Tubo Neural (SNC). Células da crista neural migram para formar gânglios e melanócitos <span class="ref">[2][3]</span>.</p>
+
+    <h3>2.4. Quarta à Oitava Semana: Organogênese</h3>
+    <p>Período crítico de morfogênese. Ocorre o dobramento do embrião nos eixos cefalocaudal e lateral. Brotos dos membros surgem na 4ª semana. Ao final da 8ª semana, a apoptose separa os dedos (que eram unidos por membranas), a cauda desaparece e o embrião adquire aparência humana distinta. A ossificação primária do fêmur inicia-se <span class="ref">[3]</span>.</p>
+
+    <!-- SEÇÃO 3 -->
+    <h2>3. Teratologia Clínica e Anomalias Congênitas</h2>
+
+    <h3>3.1. Classificação das Anomalias</h3>
+    <p>É fundamental diferenciar os mecanismos de erro no desenvolvimento:</p>
+    <ul>
+        <li><strong>Malformação:</strong> Defeito intrínseco na programação do desenvolvimento (ex: Fenda palatina, Polidactilia).</li>
+        <li><strong>Disrupção:</strong> Destruição de tecido previamente normal por forças extrínsecas (ex: Amputação por bandas amnióticas).</li>
+        <li><strong>Deformidade:</strong> Alteração da forma por forças mecânicas (ex: Pé torto por oligodramnia).</li>
+        <li><strong>Síndrome:</strong> Padrão de anomalias múltiplas com uma causa patológica única conhecida (ex: Síndrome de Down) <span class="ref">[1][2]</span>.</li>
+    </ul>
+
+    <h3>3.2. Agentes Teratogênicos e o Período Crítico</h3>
+    <p>A suscetibilidade é máxima durante a organogênese (3ª a 8ª semana). Exposição prévia (1ª-2ª semana) geralmente resulta em perda gestacional ("tudo ou nada"), enquanto exposição tardia (fetal) afeta crescimento e função <span class="ref">[1]</span>.</p>
+
+    <div class="clinical-box">
+        <strong>Infecções Congênitas (Complexo TORCH+Z):</strong>
+        <ul>
+            <li><strong>Toxoplasmose:</strong> Causada pelo <em>T. gondii</em>. A "Tríade de Sabin" clássica inclui hidrocefalia, calcificações intracranianas difusas e coriorretinite.</li>
+            <li><strong>Rubéola:</strong> O vírus causa a Síndrome da Rubéola Congênita, caracterizada pela "Tríade de Gregg": Catarata/microftalmia, Surdez neurossensorial e Cardiopatia (persistência do canal arterial). O risco é de 47% se a infecção ocorrer no 1º mês <span class="ref">[3]</span>.</li>
+            <li><strong>Citomegalovírus (CMV):</strong> Principal causa viral de retardo mental e surdez congênita. Associa-se a microcefalia e calcificações periventriculares.</li>
+            <li><strong>Sífilis:</strong> O <em>T. pallidum</em> causa lesões destrutivas tardias (dentes de Hutchinson, nariz em sela), pois a espiroqueta geralmente só ultrapassa a barreira placentária após a atrofia do citotrofoblasto (16ª-20ª semana) <span class="ref">[3]</span>.</li>
+            <li><strong>Zika Vírus:</strong> Neurotropismo intenso, causando microcefalia grave, artrogripose e calcificações subcorticais <span class="ref">[3]</span>.</li>
+        </ul>
+    </div>
+
+    <!-- SEÇÃO 4 -->
+    <h2>4. Patologia Obstétrica: A Síndrome do Abortamento</h2>
+
+    <h3>4.1. Definições e Epidemiologia</h3>
+    <p><strong>Aborto</strong> refere-se ao produto da concepção eliminado, enquanto <strong>Abortamento</strong> é o processo clínico. Define-se como a interrupção da gravidez antes da viabilidade fetal (IG < 20-22 semanas ou peso < 500g). Cerca de 80% ocorrem no primeiro trimestre, sendo as anomalias cromossômicas (aneuploidias) responsáveis por 60% destes casos. A <strong>Síndrome de Turner (45,X0)</strong> é a anomalia cromossômica isolada mais frequente em abortos <span class="ref">[4][5]</span>.</p>
+
+    <h3>4.2. Classificação Clínica e Manejo</h3>
+    <p>O diagnóstico diferencial baseia-se no exame especular (colo aberto/fechado) e ultrassonografia.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Forma Clínica</th>
+                <th>Colo Uterino</th>
+                <th>Sinais Clínicos</th>
+                <th>Conduta Terapêutica</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ameaça</strong></td>
+                <td>Fechado</td>
+                <td>Sangramento discreto ("borra de café"), cólica leve. Embrião vivo.</td>
+                <td>Repouso relativo, abstinência sexual, antiespasmódicos.</td>
+            </tr>
+            <tr>
+                <td><strong>Inevitável</strong></td>
+                <td>Aberto</td>
+                <td>Sangramento vivo, cólicas rítmicas, ruptura de membranas.</td>
+                <td>Esvaziamento uterino (AMIU/Curetagem) ou Ocitocina (se >12 sem).</td>
+            </tr>
+            <tr>
+                <td><strong>Incompleto</strong></td>
+                <td>Aberto</td>
+                <td>Expulsão parcial. Útero menor que a IG. Sangramento contínuo.</td>
+                <td>Esvaziamento uterino cirúrgico imediato para evitar infecção.</td>
+            </tr>
+            <tr>
+                <td><strong>Retido</strong></td>
+                <td>Fechado</td>
+                <td>Regressão de sintomas gravídicos. Ausência de BCF ao USG.</td>
+                <td>Expectante (até 4 sem), medicamentosa (Misoprostol) ou cirúrgica.</td>
+            </tr>
+            <tr>
+                <td><strong>Infectado</strong></td>
+                <td>Variável</td>
+                <td>Febre, secreção purulenta, dor à mobilização.</td>
+                <td>Antibioticoterapia (Clindamicina + Gentamicina) + Esvaziamento <span class="ref">[4]</span>.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.3. Abortamento Habitual</h3>
+    <p>Definido classicamente como três ou mais perdas consecutivas, mas modernamente investigado após duas perdas. Etiologias incluem insuficiência istmo-cervical (perdas tardias indolores), Síndrome Antifosfolipídio (SAF), translocações cromossômicas balanceadas nos pais e malformações uterinas (útero septado) <span class="ref">[4]</span>.</p>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>[1] MOORE, K. L.; PERSAUD, T.V.N. <strong>Embriologia Clínica</strong>. 8ª Ed. Rio de Janeiro: Elsevier, 2008.</p>
+        <p>[2] LANGMAN, J. <strong>Embriologia Médica</strong>. Milano: Edra Masson, 2020.</p>
+        <p>[3] GARCIA, S. M. L.; FERNANDEZ, C. G. <strong>Embriologia</strong>. 3ª Ed. Porto Alegre: Artmed, 2012.</p>
+        <p>[4] REZENDE FILHO, J.; MONTENEGRO, C.A. <strong>Rezende Obstetrícia</strong>. 13ª Ed. Rio de Janeiro: Guanabara Koogan, 2014.</p>
+        <p>[5] FERNANDES, C. E. <strong>Tratado de Obstetrícia Febrasgo</strong>. 1ª Ed. Elsevier.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

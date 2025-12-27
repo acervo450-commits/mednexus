@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 6</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad; /* Roxo para sistema nervoso/complexidade */
+            --secondary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-light: #f4f6f7;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-top: 8px solid var(--primary-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            border-left: 6px solid var(--primary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            background: #fdfefe;
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .risk-card {
+            border: 1px solid #e0e0e0;
+            border-left-width: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .high-risk { border-left-color: var(--accent-color); }
+        .med-risk { border-left-color: var(--warning-color); }
+        .low-risk { border-left-color: var(--success-color); }
+
+        .risk-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            border-color: var(--primary-color);
+        }
+
+        .q-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .q-statement {
+            font-size: 1.15em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .options li:hover {
+            background-color: #e8daef; /* Tom lilás claro */
+            border-color: var(--primary-color);
+        }
+
+        .summary-box {
+            background-color: #f4ecf7;
+            border: 2px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .concept-table th, .concept-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .concept-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .gabarito-section {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .g-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 6 (Mariana Castro)</h1>
+    <p><strong>Cenário Clínico:</strong> Paciente com Neurocisticercose (crises convulsivas, cefaleia), teníase intestinal e discussão sobre estresse/agressão psicológica.</p>
+    <p><strong>Fontes:</strong> P6.pdf (Foco em Tratamento) e RELATÓRIO P6.pdf (Foco em Agressão Psicológica).</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        
+        <div class="risk-card high-risk">
+            <span class="risk-title">🔥 Alto Risco (Parasitologia & Imunologia)</span>
+            <ul>
+                <li><strong>Neurocisticercose vs. Teníase:</strong> Diferença vital no modo de transmissão (ingestão de ovos = cisticercose; ingestão de larvas/carne = teníase). Fases do cisticerco (vesicular, coloidal, calcificado) e a resposta inflamatória associada à morte do parasita.</li>
+                <li><strong>Resposta Imune Th1 vs Th2:</strong>
+                    <ul>
+                        <li><strong>Th2 (Helmintos):</strong> IgE, Eosinófilos, Mastócitos, IL-4, IL-5, IL-13. Mecanismo de expulsão.</li>
+                        <li><strong>Th1 (Protozoários Intracelulares):</strong> Ativação de macrófagos via IFN-γ, destruição intracelular (NO/ROS).</li>
+                    </ul>
+                </li>
+                <li><strong>Patogenia Específica:</strong>
+                    <ul>
+                        <li><em>Strongyloides:</em> Autoinfecção e hiperinfecção em imunossuprimidos (corticoide).</li>
+                        <li><em>Ancylostoma/Necator:</em> Anemia ferropriva (espoliação sanguínea).</li>
+                        <li><em>Schistosoma:</em> Granuloma hepático causado pelos OVOS (imunopatologia).</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <span class="risk-title">⚠️ Médio Risco (Tratamento & Estresse)</span>
+            <ul>
+                <li><strong>Agressão Psicológica (Relatório P6):</strong> Fisiologia do estresse (Eixo HHA: Hipotálamo-Hipófise-Adrenal -> Cortisol). Efeitos sistêmicos do cortisol crônico (imunossupressão, atrofia do hipocampo).</li>
+                <li><strong>Tratamento Antiparasitário (P6):</strong> Mecanismos de ação: Benzimidazólicos (inibem microtúbulos), Praziquantel (paralisia/cálcio).</li>
+                <li><strong>Protozoários Intestinais:</strong> Diferença entre <em>Giardia</em> (tapete/má absorção, não invasiva) e <em>Entamoeba</em> (invasiva, úlcera em botão de camisa, abscesso hepático).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <span class="risk-title">❄️ Baixo Risco (Detalhes Menores)</span>
+            <ul>
+                <li>Detalhes clínicos finos da diferenciação entre tontura e vertigem (foco maior na fisiopatologia da infecção).</li>
+                <li>Nomes comerciais de medicamentos (foco no mecanismo de ação).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda sem consultar. As questões cobrem parasitologia, imunologia e a parte de estresse psicológico.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - Neurocisticercose</div>
+            <div class="q-statement">Mariana foi diagnosticada com neurocisticercose. O mecanismo de aquisição dessa forma clínica específica da infecção por <em>Taenia solium</em> ocorre através de:</div>
+            <ul class="options">
+                <li>A) Ingestão de carne de porco mal cozida contendo cisticercos.</li>
+                <li>B) Penetração ativa de larvas através da pele dos pés.</li>
+                <li>C) Ingestão acidental de ovos da tênia presentes em água ou alimentos contaminados com fezes humanas (autoinfecção ou heteroinfecção).</li>
+                <li>D) Picada de inseto vetor.</li>
+                <li>E) Ingestão de carne de boi contendo a forma adulta.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Imunopatologia da Cisticercose</div>
+            <div class="q-statement">Na neurocisticercose, os sintomas mais graves, como convulsões e edema cerebral, ocorrem predominantemente em qual fase do parasita?</div>
+            <ul class="options">
+                <li>A) Fase Vesicular (cisto vivo e intacto), devido à tolerância imune.</li>
+                <li>B) Fase Coloidal/Granular, quando o parasita morre e degenera, liberando antígenos que desencadeiam intensa inflamação.</li>
+                <li>C) Fase Calcificada, devido à liberação de toxinas ativas.</li>
+                <li>D) No momento exato da entrada da larva no cérebro.</li>
+                <li>E) Apenas se houver infecção bacteriana secundária.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Resposta Imune a Helmintos</div>
+            <div class="q-statement">A defesa imunológica contra helmintos (como <em>Ascaris</em> e <em>Taenia</em>) é mediada pelo perfil Th2. Quais são os principais componentes efetores dessa resposta?</div>
+            <ul class="options">
+                <li>A) Linfócitos T CD8+, Macrófagos e IFN-γ.</li>
+                <li>B) Anticorpos IgM, Sistema Complemento e Neutrófilos.</li>
+                <li>C) Anticorpos IgE, Eosinófilos, Mastócitos e citocinas IL-4, IL-5, IL-13.</li>
+                <li>D) Células NK e Perforinas.</li>
+                <li>E) Granulomas do tipo Th1.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Strongyloides stercoralis</div>
+            <div class="q-statement">O <em>Strongyloides stercoralis</em> possui uma característica única que permite a persistência da infecção por décadas e o risco de hiperinfecção em imunossuprimidos (como usuários de corticoides). Essa característica é:</div>
+            <ul class="options">
+                <li>A) Resistência absoluta a antiparasitários.</li>
+                <li>B) Capacidade de autoinfecção interna (larvas eclodem no intestino e reinvadem a mucosa/circulação).</li>
+                <li>C) Reprodução assexuada no fígado.</li>
+                <li>D) Formação de cistos calcificados no músculo.</li>
+                <li>E) Vetor biológico (mosquito).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Agressão por Ancilostomídeos</div>
+            <div class="q-statement">Os parasitas <em>Ancylostoma duodenale</em> e <em>Necator americanus</em> causam uma patologia sistêmica específica devido ao seu hábito de fixação na mucosa intestinal e hematofagismo. Essa patologia é:</div>
+            <ul class="options">
+                <li>A) Obstrução intestinal (bolo de áscaris).</li>
+                <li>B) Megacólon tóxico.</li>
+                <li>C) Anemia ferropriva (microcítica e hipocrômica).</li>
+                <li>D) Abscesso hepático.</li>
+                <li>E) Prolapso retal.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Patogenia do Schistosoma</div>
+            <div class="q-statement">Na Esquistossomose mansônica, a principal causa da fibrose hepática (Fibrose de Symmers) e da hipertensão portal não é o verme adulto, mas sim:</div>
+            <ul class="options">
+                <li>A) A migração das cercárias pelo parênquima hepático.</li>
+                <li>B) A formação de granulomas inflamatórios ao redor dos OVOS retidos nos capilares portais.</li>
+                <li>C) A toxina liberada pelo verme macho.</li>
+                <li>D) A obstrução mecânica pelos vermes adultos nos grandes vasos.</li>
+                <li>E) A autoimunidade contra hepatócitos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - Protozoários: Giardia vs Entamoeba</div>
+            <div class="q-statement">Diferente da <em>Giardia lamblia</em>, que causa má absorção por atapetamento da mucosa sem invasão, a <em>Entamoeba histolytica</em> caracteriza-se por:</div>
+            <ul class="options">
+                <li>A) Ser um comensal inofensivo em 100% dos casos.</li>
+                <li>B) Invadir a mucosa colônica, causar úlceras em "botão de camisa" e poder atingir o fígado (abscesso).</li>
+                <li>C) Causar anemia megaloblástica.</li>
+                <li>D) Infectar exclusivamente o intestino delgado.</li>
+                <li>E) Não desencadear resposta inflamatória.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Imunidade contra Protozoários Intracelulares</div>
+            <div class="q-statement">Para combater protozoários que vivem dentro de macrófagos (como <em>Leishmania</em>, citado como modelo no texto), o sistema imune deve ativar a resposta Th1. A principal citocina efetora dessa resposta, que ativa o macrófago para matar o parasita, é:</div>
+            <ul class="options">
+                <li>A) IL-4.</li>
+                <li>B) IL-10.</li>
+                <li>C) IFN-γ (Interferon-gama).</li>
+                <li>D) IL-5.</li>
+                <li>E) TGF-β.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Eixo do Estresse (Agressão Psicológica)</div>
+            <div class="q-statement">Diante de uma agressão psicológica crônica, o hipotálamo ativa o eixo HHA (Hipotálamo-Hipófise-Adrenal). O produto final desse eixo, que em excesso causa imunossupressão e danos ao hipocampo, é:</div>
+            <ul class="options">
+                <li>A) Adrenalina.</li>
+                <li>B) Acetilcolina.</li>
+                <li>C) Cortisol.</li>
+                <li>D) Insulina.</li>
+                <li>E) Testosterona.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Síndrome de Loeffler</div>
+            <div class="q-statement">O ciclo de alguns helmintos (Ascaris, Ancylostoma, Strongyloides) envolve uma passagem pulmonar obrigatória. A resposta inflamatória pulmonar a essas larvas, caracterizada por tosse e eosinofilia, é chamada de:</div>
+            <ul class="options">
+                <li>A) Asma brônquica.</li>
+                <li>B) Síndrome de Loeffler.</li>
+                <li>C) Tuberculose miliar.</li>
+                <li>D) Pneumonia bacteriana.</li>
+                <li>E) Enfisema.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - Ascaris lumbricoides</div>
+            <div class="q-statement">Uma complicação aguda grave da ascaridíase maciça, especialmente em crianças, decorrente da ação mecânica dos vermes adultos é:</div>
+            <ul class="options">
+                <li>A) Perfuracão gástrica.</li>
+                <li>B) Obstrução intestinal (bolo de áscaris).</li>
+                <li>C) Cirrose hepática.</li>
+                <li>D) Anemia aplástica.</li>
+                <li>E) Meningite.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Enterobius vermicularis</div>
+            <div class="q-statement">O sintoma clássico da enterobíase (oxiuríase) é o prurido anal noturno. Esse sintoma é causado por:</div>
+            <ul class="options">
+                <li>A) Invasão da mucosa retal pelo macho.</li>
+                <li>B) Migração da fêmea para a região perianal para ovipostura.</li>
+                <li>C) Toxinas sistêmicas liberadas no sangue.</li>
+                <li>D) Formação de cistos na pele.</li>
+                <li>E) Diarreia ácida.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - Tratamento (Mecanismo de Ação)</div>
+            <div class="q-statement">Os benzimidazólicos (como Albendazol e Mebendazol) são amplamente usados contra helmintos. Seu principal mecanismo de ação é:</div>
+            <ul class="options">
+                <li>A) Paralisia espástica por influxo de cálcio.</li>
+                <li>B) Inibição da polimerização dos microtúbulos (ligação à beta-tubulina), impedindo a captação de glicose.</li>
+                <li>C) Bloqueio da síntese de DNA.</li>
+                <li>D) Destruição da parede celular.</li>
+                <li>E) Inibição da síntese de ácido fólico.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Tratamento (Praziquantel)</div>
+            <div class="q-statement">O Praziquantel é a droga de escolha para Esquistossomose e Teníase/Cisticercose. Ele atua causando:</div>
+            <ul class="options">
+                <li>A) Inibição da tubulina.</li>
+                <li>B) Paralisia espástica severa no parasita devido ao aumento da permeabilidade ao cálcio.</li>
+                <li>C) Bloqueio da respiração mitocondrial.</li>
+                <li>D) Inibição da síntese de proteínas.</li>
+                <li>E) Destruição do DNA viral.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Trichuris trichiura</div>
+            <div class="q-statement">A tricuríase maciça em crianças pode levar a uma complicação retal característica, devido ao esforço evacuatório e à inflamação da mucosa. Essa complicação é:</div>
+            <ul class="options">
+                <li>A) Prolapso Retal.</li>
+                <li>B) Fístula perianal.</li>
+                <li>C) Hemorroidas internas.</li>
+                <li>D) Estenose anal.</li>
+                <li>E) Megacólon.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - Agressão Psicológica e Inflamação</div>
+            <div class="q-statement">O estresse psicológico crônico, apesar de elevar o cortisol (que é anti-inflamatório agudo), paradoxalmente leva a um estado de:</div>
+            <ul class="options">
+                <li>A) Imunidade esterilizada.</li>
+                <li>B) Resistência aos glicocorticoides e inflamação crônica de baixo grau (aumento de IL-6, TNF).</li>
+                <li>C) Ausência total de citocinas.</li>
+                <li>D) Hipertrofia do timo.</li>
+                <li>E) Redução do risco cardiovascular.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Sistema Límbico e Estresse</div>
+            <div class="q-statement">Na resposta à agressão psicológica, qual estrutura cerebral atua como "sentinela emocional", detectando ameaças e ativando o hipotálamo antes mesmo da interpretação consciente?</div>
+            <ul class="options">
+                <li>A) Hipocampo.</li>
+                <li>B) Córtex Pré-frontal.</li>
+                <li>C) Amígdala.</li>
+                <li>D) Cerebelo.</li>
+                <li>E) Corpo Caloso.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - Evasão Imune (Variação Antigênica)</div>
+            <div class="q-statement">Protozoários como <em>Giardia</em> e <em>Trypanosoma</em> utilizam a variação antigênica como mecanismo de evasão. Isso significa que eles:</div>
+            <ul class="options">
+                <li>A) Escondem-se dentro de cistos calcificados.</li>
+                <li>B) Alteram periodicamente as proteínas de superfície para escapar dos anticorpos já produzidos pelo hospedeiro.</li>
+                <li>C) Destroem os anticorpos com proteases.</li>
+                <li>D) Impedem a fagocitose.</li>
+                <li>E) Mimetizam células do hospedeiro.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - Corticoides na Neurocisticercose</div>
+            <div class="q-statement">No tratamento da neurocisticercose, corticoides são frequentemente associados aos antiparasitários. O objetivo principal dessa associação é:</div>
+            <ul class="options">
+                <li>A) Matar o parasita mais rápido.</li>
+                <li>B) Reduzir a inflamação e o edema cerebral causados pela morte do cisticerco.</li>
+                <li>C) Evitar a reinfecção.</li>
+                <li>D) Aumentar a imunidade do paciente.</li>
+                <li>E) Prevenir anemia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - Efeito do Estresse no Hipocampo</div>
+            <div class="q-statement">Níveis elevados e crônicos de cortisol são neurotóxicos, afetando especialmente o hipocampo. A consequência funcional dessa lesão é:</div>
+            <ul class="options">
+                <li>A) Melhora da memória de longo prazo.</li>
+                <li>B) Prejuízo na memória e dificuldade em desligar a resposta ao estresse (feedback negativo prejudicado).</li>
+                <li>C) Aumento da acuidade visual.</li>
+                <li>D) Perda da coordenação motora fina.</li>
+                <li>E) Surdez.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - IgE e Mastócitos</div>
+            <div class="q-statement">Na resposta Th2 contra helmintos, a IL-4 estimula a produção de IgE. Qual é o papel da IgE na expulsão dos vermes?</div>
+            <ul class="options">
+                <li>A) Fagocitose direta do verme adulto.</li>
+                <li>B) Ligação a mastócitos e indução de degranulação (histamina), aumentando o peristaltismo e a secreção de muco.</li>
+                <li>C) Ativação da via lítica do complemento.</li>
+                <li>D) Neutralização de toxinas.</li>
+                <li>E) Indução de apoptose no verme.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - Teníase (Verme Adulto)</div>
+            <div class="q-statement">Diferente da cisticercose, a teníase intestinal (presença do verme adulto) causa agressão principalmente por:</div>
+            <ul class="options">
+                <li>A) Destruição maciça da mucosa intestinal.</li>
+                <li>B) Espoliação nutricional (competição por nutrientes) e irritação mecânica leve.</li>
+                <li>C) Invasão do fígado.</li>
+                <li>D) Anemia hemolítica.</li>
+                <li>E) Obstrução biliar frequente.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - IL-5 e Eosinófilos</div>
+            <div class="q-statement">Qual citocina da resposta Th2 é especificamente responsável pela ativação e recrutamento de eosinófilos, células cruciais para a citotoxicidade contra helmintos (ADCC)?</div>
+            <ul class="options">
+                <li>A) IL-4.</li>
+                <li>B) IL-13.</li>
+                <li>C) IL-5.</li>
+                <li>D) IL-10.</li>
+                <li>E) IL-2.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Giardíase e Má Absorção</div>
+            <div class="q-statement">A <em>Giardia lamblia</em> causa diarreia e perda de peso principalmente por:</div>
+            <ul class="options">
+                <li>A) Invadir a corrente sanguínea.</li>
+                <li>B) Tapizar a mucosa duodenal (efeito barreira), atrofiar vilosidades e inibir enzimas digestivas (como lactase).</li>
+                <li>C) Produzir toxinas neurotrópicas.</li>
+                <li>D) Causar úlceras sangrantes.</li>
+                <li>E) Destruir o pâncreas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - Estresse e Sistema Cardiovascular</div>
+            <div class="q-statement">A ativação crônica do sistema nervoso simpático durante o estresse psicológico contribui para doenças cardiovasculares através de:</div>
+            <ul class="options">
+                <li>A) Bradicardia sustentada.</li>
+                <li>B) Vasodilatação generalizada.</li>
+                <li>C) Aumento da variabilidade da frequência cardíaca.</li>
+                <li>D) Hipertensão arterial, taquicardia e aumento da rigidez vascular.</li>
+                <li>E) Redução da agregação plaquetária.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Evasão do Schistosoma</div>
+            <div class="q-statement">O <em>Schistosoma</em> adulto consegue sobreviver anos nos vasos sanguíneos do hospedeiro. Um de seus mecanismos de evasão é:</div>
+            <ul class="options">
+                <li>A) Viver dentro das hemácias.</li>
+                <li>B) Adsorver proteínas do hospedeiro (como antígenos de grupo sanguíneo e MHC) em sua superfície, "mascarando-se".</li>
+                <li>C) Inibir a produção de anticorpos.</li>
+                <li>D) Ter uma cápsula de polissacarídeo.</li>
+                <li>E) Induzir apoptose de todos os linfócitos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Diagnóstico da Neurocisticercose</div>
+            <div class="q-statement">Além da clínica (convulsões), o diagnóstico de neurocisticercose é confirmado fundamentalmente por:</div>
+            <ul class="options">
+                <li>A) Exame de fezes (protoparasitológico).</li>
+                <li>B) Hemograma completo.</li>
+                <li>C) Neuroimagem (TC ou RM) mostrando cistos/calcificações e sorologia.</li>
+                <li>D) Cultura de líquor.</li>
+                <li>E) Biópsia cerebral (rotina).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - Efeito Joule</div>
+            <div class="q-statement">No contexto de lesão física (que também aparece nos textos gerais de agressão), a lesão por eletricidade causa dano por:</div>
+            <ul class="options">
+                <li>A) Congelamento.</li>
+                <li>B) Geração de calor interno (Efeito Joule) e despolarização celular.</li>
+                <li>C) Radiação UV.</li>
+                <li>D) Ação química direta.</li>
+                <li>E) Isquemia por compressão externa.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - Tratamento da Malária (Conceito)</div>
+            <div class="q-statement">Embora não seja o foco do caso, os textos citam o tratamento da malária. A Primaquina é usada especificamente para:</div>
+            <ul class="options">
+                <li>A) Matar as formas sanguíneas.</li>
+                <li>B) Prevenir a picada do mosquito.</li>
+                <li>C) Eliminar hipnozoítos hepáticos (cura radical) do <em>P. vivax</em>.</li>
+                <li>D) Reduzir a febre.</li>
+                <li>E) Tratar a anemia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Resposta Th1 em Protozoários</div>
+            <div class="q-statement">A resposta Th1 é eficaz contra <em>Leishmania</em> porque a IL-12 induz a produção de IFN-γ, que por sua vez:</div>
+            <ul class="options">
+                <li>A) Estimula a produção de muco.</li>
+                <li>B) Ativa a iNOS (Óxido Nítrico Sintase Induzível) no macrófago para matar o parasita intracelular.</li>
+                <li>C) Ativa eosinófilos.</li>
+                <li>D) Induz troca para IgE.</li>
+                <li>E) Bloqueia a entrada do parasita.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado para a Prova</h2>
+        
+        <h3>1. Neurocisticercose vs. Teníase (O Pulo do Gato)</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Doença</th>
+                    <th>Forma Ingerida</th>
+                    <th>Local do Parasita</th>
+                    <th>Sintoma Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Teníase</strong></td>
+                    <td>Larva (Cisticerco) na carne mal cozida.</td>
+                    <td>Intestino (Verme Adulto).</td>
+                    <td>Leve (dor abdominal, fome).</td>
+                </tr>
+                <tr>
+                    <td><strong>Neurocisticercose</strong></td>
+                    <td><strong>OVO</strong> (água/alimentos com fezes humanas).</td>
+                    <td>SNC (Cérebro), Olhos, Músculos.</td>
+                    <td><strong>Convulsões</strong>, Hipertensão Intracraniana.</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Agressão na Neurocisticercose:</strong> O cisto vivo é silencioso (imunomodulação). O cisto <strong>morto/degenerando</strong> libera antígenos -> Inflamação -> Edema -> Convulsão.</p>
+
+        <h3>2. Imunologia: A Batalha Th1 vs Th2</h3>
+        <ul>
+            <li><strong>Helmintos (Vermes):</strong> Resposta <strong>Th2</strong>.
+                <ul>
+                    <li><strong>IL-4/IL-13:</strong> IgE (Mastócitos), Muco, Peristaltismo (Expulsão).</li>
+                    <li><strong>IL-5:</strong> Eosinófilos (grânulos tóxicos).</li>
+                </ul>
+            </li>
+            <li><strong>Protozoários Intracelulares:</strong> Resposta <strong>Th1</strong>.
+                <ul>
+                    <li><strong>IL-12:</strong> Diferencia Th1.</li>
+                    <li><strong>IFN-γ:</strong> Ativa Macrófagos (M1) -> NO/ROS -> Morte do parasita.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Patogenia Específica</h3>
+        <ul>
+            <li><strong>Ascaris:</strong> Ciclo Pulmonar (Loeffler), Obstrução (bolo), Espoliação.</li>
+            <li><strong>Ancylostoma:</strong> Hematofagismo -> Anemia Ferropriva.</li>
+            <li><strong>Strongyloides:</strong> Autoinfecção (crônica) -> Hiperinfecção (Imunossuprimidos/Corticoides).</li>
+            <li><strong>Schistosoma:</strong> Ovos retidos -> Granuloma -> Fibrose Periportal -> Hipertensão Portal.</li>
+        </ul>
+
+        <h3>4. Agressão Psicológica (Fisiologia do Estresse)</h3>
+        <p>Amígdala (medo) -> Hipotálamo (CRH) -> Hipófise (ACTH) -> Adrenal (<strong>Cortisol</strong>).<br>
+        <strong>Efeito Crônico:</strong> Resistência ao cortisol, inflamação sistêmica de baixo grau, atrofia do hipocampo (memória), risco cardiovascular.</p>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div class="g-item">01 - C</div>
+            <div class="g-item">02 - B</div>
+            <div class="g-item">03 - C</div>
+            <div class="g-item">04 - B</div>
+            <div class="g-item">05 - C</div>
+            <div class="g-item">06 - B</div>
+            <div class="g-item">07 - B</div>
+            <div class="g-item">08 - C</div>
+            <div class="g-item">09 - C</div>
+            <div class="g-item">10 - B</div>
+            <div class="g-item">11 - B</div>
+            <div class="g-item">12 - B</div>
+            <div class="g-item">13 - B</div>
+            <div class="g-item">14 - B</div>
+            <div class="g-item">15 - A</div>
+            <div class="g-item">16 - B</div>
+            <div class="g-item">17 - C</div>
+            <div class="g-item">18 - B</div>
+            <div class="g-item">19 - B</div>
+            <div class="g-item">20 - B</div>
+            <div class="g-item">21 - B</div>
+            <div class="g-item">22 - B</div>
+            <div class="g-item">23 - C</div>
+            <div class="g-item">24 - B</div>
+            <div class="g-item">25 - D</div>
+            <div class="g-item">26 - B</div>
+            <div class="g-item">27 - C</div>
+            <div class="g-item">28 - B</div>
+            <div class="g-item">29 - C</div>
+            <div class="g-item">30 - B</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

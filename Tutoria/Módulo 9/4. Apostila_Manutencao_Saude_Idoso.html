@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Manutenção da Saúde do Idoso (ASE 9 - P4)</title>
+    <style>
+        :root {
+            --header-bg: #2e7d32;        /* Verde (Saúde/Prevenção) */
+            --header-text: #ffffff;
+            --primary-color: #1b5e20;    /* Verde Escuro (Tópicos) */
+            --accent-aga: #1565c0;       /* Azul (Avaliação/AGA) */
+            --accent-vac: #e65100;       /* Laranja (Imunização) */
+            --highlight: #fff3e0;        /* Creme (Destaques) */
+            --text-color: #333;
+            --bg-color: #f1f8e9;         /* Fundo verde muito suave */
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 26pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #81c784);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-aga);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .vac-section h3 {
+            color: var(--accent-vac);
+        }
+
+        h4 {
+            color: #555;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .info-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid var(--accent-aga);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .alert-box {
+            background-color: #fff3e0;
+            border-left: 5px solid var(--accent-vac);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+        
+        .frailty-box {
+            background-color: #fce4ec;
+            border-left: 5px solid #c2185b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .info-box, .alert-box, .frailty-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo IX (ASE 9) - Problema 04</span>
+        <h1>Manutenção da Saúde do Idoso</h1>
+        <p style="font-style: italic; color: #555;">Avaliação Geriátrica Ampla, Imunossenescência e Prevenção Quaternária</p>
+    </div>
+
+    <!-- OBJETIVO 1: AVALIAÇÃO GERIÁTRICA AMPLA (AGA) -->
+    <h2>1. Avaliação Geriátrica Ampla (AGA) e Funcionalidade</h2>
+    <p>A AGA é uma abordagem diagnóstica multidimensional e interdisciplinar, desenhada para determinar as capacidades médicas, psicológicas e funcionais de uma pessoa idosa frágil, a fim de desenvolver um plano coordenado e integrado de tratamento e acompanhamento a longo prazo.</p>
+
+    <h3>1.1. Dimensão Funcional: A Base da Geriatria</h3>
+    <p>A funcionalidade é o principal preditor de morbimortalidade, superando diagnósticos isolados. A perda funcional ocorre hierarquicamente das atividades mais complexas para as mais simples.</p>
+    <ul>
+        <li><strong>AVD Instrumentais (AIVD) - Escala de Lawton e Brody:</strong>
+            <br>Avalia a capacidade de viver de forma independente na comunidade. São as primeiras a serem afetadas (fase prodrómica de demência).
+            <br><em>Itens:</em> Usar telefone, fazer compras, preparar refeições, arrumar a casa, lavar roupa, usar transporte, responsabilidade com medicação, gerir finanças.
+            <br><em>Pontuação:</em> Varia de 9 (totalmente dependente) a 27 (independente).</li>
+        <li><strong>AVD Básicas (ABVD) - Índice de Katz:</strong>
+            <br>Avalia o autocuidado. A perda indica dependência grave.
+            <br><em>Hierarquia de Perda:</em> Banho $\to$ Vestir-se $\to$ Uso do Vaso Sanitário $\to$ Transferência $\to$ Continência $\to$ Alimentação.
+            <br><em>Interpretação:</em> Grau A (independente em todas) a Grau G (dependente em todas).</li>
+    </ul>
+
+    <h3>1.2. Dimensão Cognitiva e Humor</h3>
+    <ul>
+        <li><strong>Mini-Exame do Estado Mental (MEEM):</strong> Rastreio global. Pontos de corte ajustados por escolaridade (Brucki et al. no Brasil):
+            <br>Analfabetos: 20 pontos; 1-4 anos: 25 pontos; 5-8 anos: 26 pontos; $\ge$ 9 anos: 28 pontos.</li>
+        <li><strong>Teste do Desenho do Relógio (TDR):</strong> Avalia funções executivas (planeamento, sequência), visuoespaciais e abstração. Muito sensível para lesões parietais e demência precoce.
+            <br><em>Score de Shulman:</em> 5 (perfeito) a 0 (nulo).</li>
+        <li><strong>Escala de Depressão Geriátrica (GDS-15):</strong> Remove sintomas somáticos (sono, apetite) que podem ser confundidos com doenças físicas, focando no afeto (tristeza, desesperança). $\ge$ 6 pontos indica provável depressão.</li>
+    </ul>
+
+    <h3>1.3. Dimensão Física: Mobilidade e Risco de Quedas</h3>
+    <ul>
+        <li><strong>Timed Up and Go (TUG):</strong> Teste cronometrado: levantar da cadeira, andar 3m, virar, voltar e sentar.
+            <br>< 10s: Independente; 10-20s: Frágil/Risco moderado; > 20s: Risco elevado de quedas; > 30s: Dependente.</li>
+        <li><strong>Velocidade de Marcha:</strong> Considerado o "Sexto Sinal Vital". < 0,8 m/s é preditivo de sarcopenia, fragilidade, institucionalização e morte.</li>
+    </ul>
+
+    <h3>1.4. Síndrome da Fragilidade (Fenótipo de Fried)</h3>
+    <div class="frailty-box">
+        Estado de vulnerabilidade fisiológica decorrente da diminuição da reserva homeostática. Diagnóstico (3 ou mais critérios):
+        <ol>
+            <li><strong>Perda de peso não intencional:</strong> > 4,5 kg ou 5% no último ano.</li>
+            <li><strong>Fadiga/Exaustão:</strong> Autorreferida (escala CES-D).</li>
+            <li><strong>Fraqueza Muscular:</strong> Força de preensão palmar (dinamometria) ajustada por IMC/sexo.</li>
+            <li><strong>Lentidão da Marcha:</strong> Avaliada em 4,6 metros.</li>
+            <li><strong>Baixo Nível de Atividade Física:</strong> Gasto calórico semanal reduzido.</li>
+        </ol>
+        <em>Pré-frágil:</em> 1 ou 2 critérios.
+    </div>
+
+    <!-- OBJETIVO 2: IMUNIZAÇÃO -->
+    <div class="vac-section">
+        <h2>2. Imunossenescência e Calendário Vacinal</h2>
+        <p>O envelhecimento do sistema imune (involução do timo, menor diversidade de células T e B, inflamação crónica) reduz a resposta às vacinas, exigindo estratégias específicas.</p>
+
+        <h3>2.1. Influenza (Gripe)</h3>
+        <ul>
+            <li><strong>Recomendação:</strong> Anual. Campanha nacional.</li>
+            <li><strong>Impacto:</strong> A vacina previne a pneumonia primária viral e secundária bacteriana, mas o seu maior impacto é na redução de desfechos cardiovasculares (IAM e AVC isquémico) que ocorrem nas semanas pós-infecção devido ao estado inflamatório e protrombótico da gripe.</li>
+        </ul>
+
+        <h3>2.2. Pneumocócica (Pneumonia)</h3>
+        <div class="alert-box">
+            <strong>Estratégia Sequencial (SBIm/CRIE):</strong> Visa combinar imunidade de memória (células T-dependentes) com ampla cobertura de serotipos.
+            <br>1. <strong>VPC13 (Conjugada):</strong> Primeira dose. Gera resposta T-dependente, memória imunológica duradoura e reduz o estado de portador na nasofaringe.
+            <br>2. <strong>VPP23 (Polissacarídica):</strong> Aplicada 6 a 12 meses após a VPC13. Amplia a cobertura para 23 serotipos. Resposta T-independente (menos robusta, sem memória de longo prazo).
+            <br>3. <strong>Reforço VPP23:</strong> Uma dose única 5 anos após a primeira VPP23. (Nota: Não se repete VPC13).
+        </div>
+
+        <h3>2.3. Herpes Zóster (HZ)</h3>
+        <ul>
+            <li><strong>Fisiopatologia:</strong> Reativação do vírus Varicela-Zóster latente nos gânglios da raiz dorsal devido ao declínio da imunidade celular específica.</li>
+            <li><strong>Vacina Recombinante (Shingrix):</strong> Glicoproteína E + Adjuvante AS01B. Inativada. Eficácia superior a 90% na prevenção de HZ e Neuralgia Pós-Herpética, mesmo em idosos > 70 anos. Esquema: 2 doses (0 e 2-6 meses).</li>
+            <li><strong>Vacina Atenuada (Zostavax):</strong> Vírus vivo. Menor eficácia, contraindicada em imunodeprimidos. Em desuso onde a recombinante está disponível.</li>
+        </ul>
+
+        <h3>2.4. Tétano, Difteria e Coqueluche</h3>
+        <ul>
+            <li><strong>dT (Dupla Adulto):</strong> Reforço a cada 10 anos. Idosos têm altas taxas de anticorpos não-protetores para tétano.</li>
+            <li><strong>dTpa (Acelular):</strong> Recomendada ao menos uma dose na vida adulta/senescência para prevenir coqueluche (o idoso é reservatório e transmite para netos/lactentes).</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO 3: RASTREAMENTO (PREVENÇÃO SECUNDÁRIA) -->
+    <h2>3. Rastreamento e Prevenção Quaternária</h2>
+    <p>O rastreamento visa detectar doenças em fase pré-clínica. Contudo, em geriatria, deve-se aplicar a <strong>Prevenção Quaternária</strong>: evitar intervenções médicas excessivas que tragam mais riscos que benefícios (ex: rastrear câncer em paciente com demência avançada).</p>
+
+    <h3>3.1. Câncer de Mama</h3>
+    <ul>
+        <li><strong>Recomendação (MS):</strong> Mamografia bienal dos 50 aos 69 anos.</li>
+        <li><strong>Geriatria (SBM/Febrasgo):</strong> Individualizar após os 74 anos. Manter rastreio se a expectativa de vida for > 7-10 anos e a idosa for funcional. Interromper em casos de fragilidade grave ou comorbidades limitantes.</li>
+    </ul>
+
+    <h3>3.2. Câncer Colorretal</h3>
+    <ul>
+        <li><strong>Faixa Etária:</strong> 50 a 75 anos.</li>
+        <li><strong>Métodos:</strong> Sangue Oculto nas Fezes (FIT) anualmente ou Colonoscopia a cada 10 anos.</li>
+        <li><strong>76-85 anos:</strong> Decisão individualizada. Raramente indicada após 85 anos (risco de perfuração/sedação supera benefício).</li>
+    </ul>
+
+    <h3>3.3. Câncer de Próstata</h3>
+    <ul>
+        <li><strong>Recomendação (USPSTF/SBU):</strong> Não há recomendação de rastreio populacional sistemático. Decisão compartilhada.</li>
+        <li><strong>Contraindicação:</strong> Não rastrear se expectativa de vida < 10 anos, pois o câncer de próstata é de evolução lenta e o tratamento (cirurgia/bloqueio hormonal) traz sequelas (incontinência, disfunção erétil).</li>
+    </ul>
+
+    <h3>3.4. Câncer de Colo do Útero</h3>
+    <ul>
+        <li><strong>Interrupção:</strong> Aos 64 anos, se houver dois exames negativos consecutivos nos últimos 5 anos. Mulheres idosas nunca rastreadas devem realizar exames antes da alta do programa.</li>
+    </ul>
+
+    <h3>3.5. Rastreamento Cardiovascular e Ósseo</h3>
+    <ul>
+        <li><strong>Aneurisma de Aorta Abdominal (AAA):</strong> Ultrassonografia abdominal (Dose única) para homens entre 65-75 anos tabagistas (ou ex-tabagistas). Reduz mortalidade específica por rotura.</li>
+        <li><strong>Osteoporose:</strong> Densitometria óssea (DEXA) para todas as mulheres $\ge$ 65 anos e homens $\ge$ 70 anos. Rastrear mais cedo se fatores de risco (fratura prévia, corticoide, IMC baixo, tabagismo).</li>
+    </ul>
+
+    <!-- OBJETIVO 4: AUTONOMIA E PREVENÇÃO DE QUEDAS -->
+    <h2>4. Prevenção de Quedas e Promoção da Autonomia</h2>
+
+    <h3>4.1. Fatores de Risco para Quedas</h3>
+    <ul>
+        <li><strong>Intrínsecos:</strong> Sarcopenia, hipotensão ortostática, défices visuais/auditivos, artrose, polifarmácia (psicotrópicos).</li>
+        <li><strong>Extrínsecos (Ambientais):</strong> Tapetes soltos, iluminação fraca, ausência de barras, calçado inadequado (chinelos), pisos escorregadios.</li>
+    </ul>
+
+    <h3>4.2. Estratégias de Intervenção</h3>
+    <ul>
+        <li><strong>Exercício Multicomponente:</strong> Combinação de exercícios de força (resistência), equilíbrio (Tai Chi) e aeróbicos. É a intervenção isolada mais eficaz.</li>
+        <li><strong>Revisão Farmacológica:</strong> Aplicação dos <strong>Critérios de Beers</strong> ou <strong>STOPP/START</strong> para desprescrever medicamentos que aumentam o risco de quedas (benzodiazepínicos, anti-histamínicos sedativos).</li>
+        <li><strong>Vitamina D:</strong> Suplementação se houver deficiência ou alto risco de quedas (melhora a função muscular tipo II).</li>
+    </ul>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>FREITAS, E. V.; PY, L. <strong>Tratado de Geriatria e Gerontologia</strong>. 4ª ed. Rio de Janeiro: Guanabara Koogan, 2016.</p>
+        <p>SBIm. <strong>Calendário de Vacinação Geriatria 2023/2024</strong>. Sociedade Brasileira de Imunizações.</p>
+        <p>MORAES, E. N. <strong>Atenção à saúde do Idoso: Aspectos Conceituais</strong>. Brasília: OPAS, 2012.</p>
+        <p>USPSTF. <strong>Screening for Colorectal Cancer, Breast Cancer, and Prostate Cancer Recommendation Statements</strong>.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 2</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad; /* Roxo para imunopatologia */
+            --secondary-color: #2980b9;
+            --accent-color: #c0392b;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-light: #f4f6f7;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            border-left: 6px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+
+        .analise-section {
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .risk-card {
+            border: 1px solid #e0e0e0;
+            border-left-width: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .high-risk { border-left-color: var(--accent-color); }
+        .med-risk { border-left-color: var(--warning-color); }
+        .low-risk { border-left-color: var(--success-color); }
+
+        .risk-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--text-dark);
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transform: translateY(-3px);
+            border-color: var(--secondary-color);
+        }
+
+        .q-header {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .q-statement {
+            font-size: 1.15em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .options li:hover {
+            background-color: #ecf0f1;
+            border-color: #bdc3c7;
+        }
+
+        .summary-box {
+            background-color: #f9ebea; /* Tom avermelhado suave */
+            border: 2px solid var(--accent-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .summary-box h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .concept-table th, .concept-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .concept-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .gabarito-section {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .g-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 2 (Fernanda Duarte)</h1>
+    <p><strong>Tema Central:</strong> Imunopatologia, Falhas do Sistema Imune e Resposta a Fungos/Vírus.</p>
+    <p><strong>Cenário Clínico:</strong> Paciente com doença autoimune em uso de corticosteroides desenvolve infecção fúngica oportunista.</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        
+        <div class="risk-card high-risk">
+            <span class="risk-title">🔥 Alto Risco (Obrigatório Dominar)</span>
+            <ul>
+                <li><strong>Subpopulações de Linfócitos T CD4+:</strong> Diferenciação, citocinas e funções de <strong>Th1</strong> (vírus/bactérias intracelulares, IFN-γ), <strong>Th2</strong> (parasitas/alergia, IL-4, IL-5), <strong>Th17</strong> (fungos/bactérias extracelulares, IL-17) e <strong>Treg</strong> (imunossupressão, IL-10, TGF-β).</li>
+                <li><strong>Hipersensibilidades (Gell e Coombs):</strong> Diferenciar os 4 tipos (I, II, III, IV) pelos mediadores (IgE, IgG/IgM citotóxica, Imunocomplexos, Células T).</li>
+                <li><strong>Imunodeficiência vs. Imunossupressão:</strong> Entender o conceito de infecção oportunista secundária ao uso de corticoides (imunossupressão iatrogênica).</li>
+                <li><strong>Tolerância Imunológica:</strong> Conceitos de Tolerância Central (Timo/Medula) vs Periférica (Anergia, Supressão).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <span class="risk-title">⚠️ Médio Risco (Importante)</span>
+            <ul>
+                <li><strong>Mecanismos de Ação de Corticosteroides:</strong> Inibição de NF-kB, redução de citocinas inflamatórias.</li>
+                <li><strong>Resposta Fúngica Específica:</strong> Papel da via Th17, neutrófilos e fagocitose. Dectinas como PRRs.</li>
+                <li><strong>Resposta Viral:</strong> Papel de Interferons tipo I (alfa/beta) e Células NK.</li>
+                <li><strong>Definições de Termos:</strong> Autoimunidade (falha da tolerância), Imunidade Cruzada (mimetismo molecular).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <span class="risk-title">❄️ Baixo Risco (Leitura Complementar)</span>
+            <ul>
+                <li>Detalhes moleculares profundos da via STING (embora citada, o foco costuma ser o resultado: IFN tipo I).</li>
+                <li>Classificação detalhada de úlceras (venosa, arterial) fora do contexto imunológico.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda sem consultar. Foco total em Imunopatologia e Resposta Celular.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - Células T e Fungos</div>
+            <div class="q-statement">A paciente Fernanda desenvolveu uma infecção fúngica oportunista. Qual subpopulação de linfócitos T CD4+ é especializada na defesa contra fungos extracelulares e bactérias, recrutando massivamente neutrófilos para o local da infecção?</div>
+            <ul class="options">
+                <li>A) Th1.</li>
+                <li>B) Th2.</li>
+                <li>C) Th17.</li>
+                <li>D) Treg.</li>
+                <li>E) Tfh.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Mecanismo Th17</div>
+            <div class="q-statement">A resposta Th17 é crucial para a defesa antifúngica. Qual é a principal citocina efetora secretada por essas células e qual é sua função primária?</div>
+            <ul class="options">
+                <li>A) IL-4; ativação de eosinófilos.</li>
+                <li>B) IFN-γ; ativação de macrófagos para morte intracelular.</li>
+                <li>C) IL-17; indução de quimiocinas e recrutamento de neutrófilos.</li>
+                <li>D) IL-10; supressão da resposta inflamatória.</li>
+                <li>E) TGF-β; indução de tolerância.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Corticosteroides</div>
+            <div class="q-statement">Fernanda fazia uso prolongado de corticosteroides para uma doença autoimune. O mecanismo pelo qual essa medicação predispõe a infecções oportunistas é classificado como:</div>
+            <ul class="options">
+                <li>A) Imunodeficiência Primária.</li>
+                <li>B) Imunossupressão (Imunodeficiência Secundária/Iatrogênica).</li>
+                <li>C) Autoimunidade induzida.</li>
+                <li>D) Hipersensibilidade Tipo I.</li>
+                <li>E) Tolerância Central.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Definição de Autoimunidade</div>
+            <div class="q-statement">A doença de base da paciente é autoimune. Fundamentalmente, a autoimunidade representa uma falha em qual mecanismo fisiológico do sistema imune?</div>
+            <ul class="options">
+                <li>A) Imunidade Inata.</li>
+                <li>B) Apresentação de antígenos.</li>
+                <li>C) Autotolerância (tolerância ao próprio).</li>
+                <li>D) Expansão clonal.</li>
+                <li>E) Fagocitose.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Hipersensibilidade Tipo I</div>
+            <div class="q-statement">Sobre as reações de hipersensibilidade, o Tipo I (alergia/anafilaxia) é mediado por qual imunoglobulina e qual célula efetora principal?</div>
+            <ul class="options">
+                <li>A) IgG e Neutrófilos.</li>
+                <li>B) IgA e Células M.</li>
+                <li>C) IgM e Linfócitos B.</li>
+                <li>D) IgE e Mastócitos.</li>
+                <li>E) IgD e Basófilos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Hipersensibilidade Tipo II</div>
+            <div class="q-statement">Na hipersensibilidade Tipo II, o dano tecidual é causado por anticorpos (IgG ou IgM) que se ligam a antígenos fixos na superfície celular ou matriz extracelular. Um exemplo clássico desse mecanismo é:</div>
+            <ul class="options">
+                <li>A) Dermatite de Contato.</li>
+                <li>B) Asma Brônquica.</li>
+                <li>C) Anemia Hemolítica Autoimune (lise de hemácias).</li>
+                <li>D) Doença do Soro.</li>
+                <li>E) Choque Anafilático.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - Hipersensibilidade Tipo III</div>
+            <div class="q-statement">A hipersensibilidade Tipo III diferencia-se da Tipo II principalmente pela natureza do antígeno. No Tipo III, ocorre a formação de:</div>
+            <ul class="options">
+                <li>A) Poros na membrana por células T CD8.</li>
+                <li>B) Imunocomplexos (Ag-Ac) solúveis que se depositam nos vasos/tecidos.</li>
+                <li>C) Granulomas gigantes.</li>
+                <li>D) IgE ligada a receptores FcεRI.</li>
+                <li>E) Anticorpos contra receptores celulares fixos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Hipersensibilidade Tipo IV</div>
+            <div class="q-statement">A hipersensibilidade Tipo IV é a única que NÃO é mediada por anticorpos. Ela é mediada por:</div>
+            <ul class="options">
+                <li>A) Sistema Complemento.</li>
+                <li>B) Imunocomplexos.</li>
+                <li>C) Linfócitos T (CD4+ Th1/Th17 ou CD8+).</li>
+                <li>D) Células NK.</li>
+                <li>E) Mastócitos degranulados.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Resposta Th1</div>
+            <div class="q-statement">Diferente da resposta fúngica (Th17), a resposta contra vírus e bactérias intracelulares (como *Mycobacterium*) depende da via Th1. Qual é a principal citocina da Th1 e qual sua função no macrófago?</div>
+            <ul class="options">
+                <li>A) IL-4; diferenciação em M2.</li>
+                <li>B) IL-17; recrutamento de neutrófilos.</li>
+                <li>C) IFN-γ; ativação clássica (M1) e aumento da microbicidalidade.</li>
+                <li>D) TGF-β; inibição da inflamação.</li>
+                <li>E) IL-10; redução de MHC II.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Treg</div>
+            <div class="q-statement">As células T Reguladoras (Treg) são essenciais para prevenir a autoimunidade. Quais são as principais citocinas imunossupressoras produzidas por elas?</div>
+            <ul class="options">
+                <li>A) IL-2 e IFN-γ.</li>
+                <li>B) IL-1 e TNF-α.</li>
+                <li>C) IL-10 e TGF-β.</li>
+                <li>D) IL-17 e IL-22.</li>
+                <li>E) IL-6 e IL-12.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - Tolerância Central</div>
+            <div class="q-statement">Onde ocorre a Tolerância Central dos linfócitos T e qual é o principal mecanismo envolvido na eliminação de clones autorreativos de alta afinidade?</div>
+            <ul class="options">
+                <li>A) Linfonodo; Anergia.</li>
+                <li>B) Medula Óssea; Edição de receptor.</li>
+                <li>C) Timo; Seleção Negativa (Deleção clonal).</li>
+                <li>D) Baço; Ignorância imunológica.</li>
+                <li>E) Timo; Seleção Positiva.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Tolerância Periférica</div>
+            <div class="q-statement">Se um linfócito T autorreativo escapa do timo, ele pode ser controlado na periferia. O que acontece se um linfócito T reconhece um antígeno (Sinal 1) na ausência de coestimulação (Sinal 2)?</div>
+            <ul class="options">
+                <li>A) Ele se torna uma célula de memória.</li>
+                <li>B) Ele entra em anergia (inatividade funcional).</li>
+                <li>C) Ele sofre expansão clonal imediata.</li>
+                <li>D) Ele se diferencia em Th1.</li>
+                <li>E) Ele ativa células B.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - Imunidade Cruzada</div>
+            <div class="q-statement">A Febre Reumática é um exemplo de doença autoimune causada por "mimetismo molecular". Isso significa que:</div>
+            <ul class="options">
+                <li>A) O patógeno destrói diretamente o tecido cardíaco.</li>
+                <li>B) Anticorpos gerados contra o patógeno (ex: estreptococo) reagem cruzadamente com antígenos próprios semelhantes (coração).</li>
+                <li>C) O sistema imune ignora o patógeno devido à tolerância.</li>
+                <li>D) O patógeno se esconde dentro das células do hospedeiro.</li>
+                <li>E) Ocorre ativação policlonal inespecífica de células B.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Resposta Viral Inata</div>
+            <div class="q-statement">Na resposta inata contra vírus, antes da chegada dos linfócitos T citotóxicos, quais moléculas são produzidas pelas células infectadas para induzir um "estado antiviral" nas células vizinhas?</div>
+            <ul class="options">
+                <li>A) Interferons do Tipo I (IFN-α e IFN-β).</li>
+                <li>B) Interleucina-2 (IL-2).</li>
+                <li>C) Anticorpos IgM.</li>
+                <li>D) Perforinas e Granzimas.</li>
+                <li>E) Prostaglandinas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Células NK e Vírus</div>
+            <div class="q-statement">Como as células Natural Killer (NK) identificam uma célula infectada por vírus que está tentando "esconder" sua infecção diminuindo a expressão de MHC I?</div>
+            <ul class="options">
+                <li>A) Pelo reconhecimento de antígenos virais via anticorpos.</li>
+                <li>B) Pela detecção da "perda do próprio" (ausência de sinal inibitório do MHC I).</li>
+                <li>C) Pela fagocitose da célula.</li>
+                <li>D) Pela detecção de PAMPs via TLRs.</li>
+                <li>E) Pela ligação com MHC Classe II.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - Imunodeficiência Primária vs Secundária</div>
+            <div class="q-statement">A infecção pelo HIV e a desnutrição proteico-calórica são exemplos clássicos de:</div>
+            <ul class="options">
+                <li>A) Imunodeficiências Primárias (Congênitas).</li>
+                <li>B) Imunodeficiências Secundárias (Adquiridas).</li>
+                <li>C) Doenças Autoimunes.</li>
+                <li>D) Reações de Hipersensibilidade.</li>
+                <li>E) Falhas na Tolerância Central.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Seleção Positiva Tímica</div>
+            <div class="q-statement">No córtex do timo, ocorre a Seleção Positiva. Qual é o critério para um timócito sobreviver a esta etapa?</div>
+            <ul class="options">
+                <li>A) Não reconhecer nenhum MHC.</li>
+                <li>B) Reconhecer MHC próprio com baixa/moderada afinidade.</li>
+                <li>C) Reconhecer antígenos próprios com alta afinidade.</li>
+                <li>D) Expressar receptores de células B.</li>
+                <li>E) Estar infectado por um vírus.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - CD8+ e Citotoxicidade</div>
+            <div class="q-statement">Os linfócitos T CD8+ (Citotóxicos) matam células infectadas induzindo apoptose. Quais são as principais proteínas contidas em seus grânulos que mediam esse processo?</div>
+            <ul class="options">
+                <li>A) Histamina e Heparina.</li>
+                <li>B) Perforina e Granzimas.</li>
+                <li>C) Defensinas e Catelicidinas.</li>
+                <li>D) C3b e C5a.</li>
+                <li>E) Lisozima e Lactoferrina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - MHC I vs MHC II</div>
+            <div class="q-statement">Os linfócitos T CD8+ são restritos ao MHC Classe ____, que apresenta peptídeos de origem ____ (como vírus).</div>
+            <ul class="options">
+                <li>A) I; citosólica/endógena.</li>
+                <li>B) I; vesicular/exógena.</li>
+                <li>C) II; citosólica/endógena.</li>
+                <li>D) II; vesicular/exógena.</li>
+                <li>E) I; extracelular.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - Resposta Th2</div>
+            <div class="q-statement">A resposta Th2 é direcionada principalmente contra parasitas helmintos. Quais citocinas Th2 estimulam, respectivamente, a produção de IgE e a ativação de eosinófilos?</div>
+            <ul class="options">
+                <li>A) IL-2 e IFN-γ.</li>
+                <li>B) IL-4 e IL-5.</li>
+                <li>C) IL-17 e IL-22.</li>
+                <li>D) IL-10 e TGF-β.</li>
+                <li>E) IL-12 e TNF-α.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - FoxP3</div>
+            <div class="q-statement">Qual fator de transcrição é considerado o "marcador mestre" das células T Reguladoras (Treg) e cuja mutação leva a doenças autoimunes graves (síndrome IPEX)?</div>
+            <ul class="options">
+                <li>A) T-bet.</li>
+                <li>B) GATA-3.</li>
+                <li>C) RORγt.</li>
+                <li>D) FoxP3.</li>
+                <li>E) AIRE.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - DAMPs</div>
+            <div class="q-statement">O sistema imune reconhece sinais de perigo endógenos liberados por células estressadas ou necróticas. Esses sinais são chamados de:</div>
+            <ul class="options">
+                <li>A) PAMPs.</li>
+                <li>B) DAMPs.</li>
+                <li>C) Antígenos.</li>
+                <li>D) Haptenos.</li>
+                <li>E) Epitopos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - Gene AIRE</div>
+            <div class="q-statement">A Tolerância Central no timo depende da expressão de antígenos teciduais periféricos (ex: insulina) nas células epiteliais tímicas. Qual gene regula essa expressão ectópica?</div>
+            <ul class="options">
+                <li>A) RAG1/RAG2.</li>
+                <li>B) MHC.</li>
+                <li>C) AIRE.</li>
+                <li>D) FoxP3.</li>
+                <li>E) CD28.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Teste de Tuberculina (PPD)</div>
+            <div class="q-statement">O teste de Mantoux (PPD) para tuberculose é um exemplo clínico clássico de qual tipo de hipersensibilidade?</div>
+            <ul class="options">
+                <li>A) Tipo I (Imediata).</li>
+                <li>B) Tipo II (Citotóxica).</li>
+                <li>C) Tipo III (Imunocomplexos).</li>
+                <li>D) Tipo IV (Tardia/Celular).</li>
+                <li>E) Tipo V (Estimulatória).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - IL-2</div>
+            <div class="q-statement">A Interleucina-2 (IL-2) é fundamental para a proliferação dos linfócitos T. As células Treg consomem avidamente IL-2 porque expressam constitutivamente altos níveis de:</div>
+            <ul class="options">
+                <li>A) CD4.</li>
+                <li>B) CD25 (Cadeia alfa do receptor de IL-2).</li>
+                <li>C) CD8.</li>
+                <li>D) CTLA-4.</li>
+                <li>E) PD-1.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Lúpus (LES)</div>
+            <div class="q-statement">O Lúpus Eritematoso Sistêmico (LES) é caracterizado pela deposição de complexos antígeno-anticorpo (ex: anti-DNA) em rins e vasos. Isso classifica a lesão tecidual do LES majoritariamente como:</div>
+            <ul class="options">
+                <li>A) Hipersensibilidade Tipo I.</li>
+                <li>B) Hipersensibilidade Tipo II.</li>
+                <li>C) Hipersensibilidade Tipo III.</li>
+                <li>D) Hipersensibilidade Tipo IV.</li>
+                <li>E) Imunodeficiência.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Evasão Viral</div>
+            <div class="q-statement">Alguns vírus tentam evadir a resposta imune bloqueando a apresentação de antígenos aos linfócitos T CD8+. Eles fazem isso inibindo:</div>
+            <ul class="options">
+                <li>A) A via do MHC Classe II.</li>
+                <li>B) A via do MHC Classe I (ex: bloqueio do transportador TAP).</li>
+                <li>C) A produção de anticorpos.</li>
+                <li>D) A fagocitose.</li>
+                <li>E) O sistema complemento.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - IL-12</div>
+            <div class="q-statement">Para que um linfócito T CD4+ virgem se diferencie em uma célula Th1 (essencial contra vírus), a célula dendrítica deve secretar qual citocina polarizadora?</div>
+            <ul class="options">
+                <li>A) IL-4.</li>
+                <li>B) IL-12.</li>
+                <li>C) IL-17.</li>
+                <li>D) TGF-β.</li>
+                <li>E) IL-10.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - Macrófagos M1 vs M2</div>
+            <div class="q-statement">O macrófago ativado pela via clássica (M1), induzido por IFN-γ, produz altos níveis de ______ para matar patógenos, enquanto o M2 está associado ao reparo.</div>
+            <ul class="options">
+                <li>A) Colágeno.</li>
+                <li>B) Óxido Nítrico (NO) e ROS.</li>
+                <li>C) IL-10.</li>
+                <li>D) Histamina.</li>
+                <li>E) Anticorpos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Imunossupressão por Corticoide</div>
+            <div class="q-statement">O uso de corticosteroides em altas doses reduz a inflamação principalmente por inibir a transcrição de genes pró-inflamatórios (como citocinas). Isso leva a uma diminuição da função de:</div>
+            <ul class="options">
+                <li>A) Apenas células B.</li>
+                <li>B) Quase todas as células imunes, incluindo macrófagos e linfócitos T.</li>
+                <li>C) Apenas neutrófilos.</li>
+                <li>D) Apenas células NK.</li>
+                <li>E) Apenas eosinófilos.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado: Perfis Th e Hipersensibilidades</h2>
+        
+        <h3>1. Subpopulações de Células T Helper (CD4+)</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Perfil</th>
+                    <th>Induzido por (APC)</th>
+                    <th>Produz (Citocinas)</th>
+                    <th>Função Principal / Alvo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Th1</strong></td>
+                    <td>IL-12, IFN-γ</td>
+                    <td><strong>IFN-γ</strong></td>
+                    <td>Ativa macrófagos (M1) e IgG. Combate <strong>Vírus</strong> e Bactérias Intracelulares.</td>
+                </tr>
+                <tr>
+                    <td><strong>Th2</strong></td>
+                    <td>IL-4</td>
+                    <td><strong>IL-4, IL-5</strong>, IL-13</td>
+                    <td>Ativa Eosinófilos e Mastócitos. Combate <strong>Helmintos</strong>. Causa Alergia.</td>
+                </tr>
+                <tr>
+                    <td><strong>Th17</strong></td>
+                    <td>IL-6, IL-23, TGF-β</td>
+                    <td><strong>IL-17</strong>, IL-22</td>
+                    <td>Recruta <strong>Neutrófilos</strong>. Combate <strong>Fungos</strong> e Bactérias Extracelulares.</td>
+                </tr>
+                <tr>
+                    <td><strong>Treg</strong></td>
+                    <td>TGF-β</td>
+                    <td><strong>IL-10, TGF-β</strong></td>
+                    <td><strong>Imunossupressão</strong>. Mantém a tolerância e previne autoimunidade.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2. Tipos de Hipersensibilidade (Gell e Coombs)</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Nome</th>
+                    <th>Mediador Imune</th>
+                    <th>Exemplo Clínico</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>I</strong></td>
+                    <td>Imediata / Alérgica</td>
+                    <td><strong>IgE</strong> + Mastócitos</td>
+                    <td>Anafilaxia, Asma, Rinite.</td>
+                </tr>
+                <tr>
+                    <td><strong>II</strong></td>
+                    <td>Citotóxica</td>
+                    <td><strong>IgG/IgM</strong> (contra antígeno fixo)</td>
+                    <td>Anemia Hemolítica, Eritroblastose Fetal, Goodpasture.</td>
+                </tr>
+                <tr>
+                    <td><strong>III</strong></td>
+                    <td>Imunocomplexos</td>
+                    <td><strong>Ag-Ac Solúveis</strong> (deposição)</td>
+                    <td>Lúpus (LES), Doença do Soro, Glomerulonefrites.</td>
+                </tr>
+                <tr>
+                    <td><strong>IV</strong></td>
+                    <td>Tardia / Celular</td>
+                    <td><strong>Células T</strong> (CD4 ou CD8)</td>
+                    <td>Dermatite de Contato, Tuberculose (Granuloma), Diabetes Tipo 1.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div class="g-item">01 - C</div>
+            <div class="g-item">02 - C</div>
+            <div class="g-item">03 - B</div>
+            <div class="g-item">04 - C</div>
+            <div class="g-item">05 - D</div>
+            <div class="g-item">06 - C</div>
+            <div class="g-item">07 - B</div>
+            <div class="g-item">08 - C</div>
+            <div class="g-item">09 - C</div>
+            <div class="g-item">10 - C</div>
+            <div class="g-item">11 - C</div>
+            <div class="g-item">12 - B</div>
+            <div class="g-item">13 - B</div>
+            <div class="g-item">14 - A</div>
+            <div class="g-item">15 - B</div>
+            <div class="g-item">16 - B</div>
+            <div class="g-item">17 - B</div>
+            <div class="g-item">18 - B</div>
+            <div class="g-item">19 - A</div>
+            <div class="g-item">20 - B</div>
+            <div class="g-item">21 - D</div>
+            <div class="g-item">22 - B</div>
+            <div class="g-item">23 - C</div>
+            <div class="g-item">24 - D</div>
+            <div class="g-item">25 - B</div>
+            <div class="g-item">26 - C</div>
+            <div class="g-item">27 - B</div>
+            <div class="g-item">28 - B</div>
+            <div class="g-item">29 - B</div>
+            <div class="g-item">30 - B</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

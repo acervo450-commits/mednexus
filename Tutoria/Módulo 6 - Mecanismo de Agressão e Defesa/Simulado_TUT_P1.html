@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 1</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-light: #ecf0f1;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #f4f6f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .analise-section {
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .risk-card {
+            border-left: 5px solid;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .high-risk { border-color: var(--accent-color); }
+        .med-risk { border-color: var(--warning-color); }
+        .low-risk { border-color: var(--secondary-color); }
+
+        .icon { font-size: 1.2em; margin-right: 10px; }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+
+        .q-header {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        .q-statement {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 8px 12px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .options li:hover {
+            background-color: var(--bg-light);
+            border-color: #ccc;
+        }
+
+        .summary-box {
+            background-color: #e8f6f3;
+            border: 2px solid var(--success-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .gabarito-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            color: white;
+            background-color: #95a5a6;
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 1 (Amigdalite/Defesa)</h1>
+    <p><strong>Professor Responsável:</strong> Analista de TUT</p>
+    <p><strong>Base documental:</strong> Relatório P1.pdf & P1.pdf</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        <p>Baseado no cruzamento dos dois relatórios, identifiquei que o foco central é a <strong>fisiopatologia da inflamação aguda</strong> desencadeada por infecção bacteriana (sugerida pelas placas e neutrofilia) e a organização do sistema imune.</p>
+
+        <div class="risk-card high-risk">
+            <h3><span class="icon">🔥</span>Alto Risco (Obrigatório Dominar)</h3>
+            <ul>
+                <li><strong>Inflamação Aguda:</strong> Fenômenos vasculares (vasodilatação, aumento da permeabilidade) e celulares (migração, quimiotaxia, fagocitose). Sinais cardinais e seus mediadores químicos (Histamina, Prostaglandinas, Bradicinina).</li>
+                <li><strong>Imunidade Inata vs. Adaptativa:</strong> Diferenças cruciais (especificidade, tempo, memória). Papel das Células Dendríticas como ponte (APCs).</li>
+                <li><strong>Hemograma e Hematopoese:</strong> Interpretação de Leucocitose com Neutrofilia (desvio à esquerda/bastonetes) indicando infecção bacteriana. Diferenciação das linhagens mieloide e linfoide.</li>
+                <li><strong>Órgãos Linfoides:</strong> Diferença funcional entre Primários (maturação) e Secundários (ativação/encontro com antígeno).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <h3><span class="icon">⚠️</span>Médio Risco (Importante)</h3>
+            <ul>
+                <li><strong>Inflamação Crônica:</strong> Diferenças histológicas para a aguda (infiltrado mononuclear, fibrose, angiogênese). Formação de granulomas (foco em macrófagos e IFN-γ).</li>
+                <li><strong>Mecanismos de PRR/PAMPs:</strong> Conceito de reconhecimento de padrão (TLRs).</li>
+                <li><strong>Fisiologia do Timo e Baço:</strong> Seleção positiva/negativa e polpa branca/vermelha.</li>
+                <li><strong>Classes de Imunoglobulinas:</strong> Funções básicas de IgM (aguda) vs IgG (memória/crônica) e IgA (mucosas).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <h3><span class="icon">❄️</span>Baixo Risco (Leitura Complementar)</h3>
+            <ul>
+                <li>Detalhes genéticos de rearranjos V(D)J (citado, mas muito específico para questões gerais de patologia clínica neste momento).</li>
+                <li>Evolução imunológica em invertebrados.</li>
+                <li>Valores de referência decorados (o foco é a interpretação do aumento/diminuição).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda sem consultar o material. O gabarito encontra-se ao final.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - Inflamação Aguda</div>
+            <div class="q-statement">No caso clínico de C.M., observa-se hiperemia (rubor) e edema (tumor) na orofaringe. Fisiopatologicamente, o evento vascular inicial responsável pelo rubor e o principal mecanismo responsável pelo edema são, respectivamente:</div>
+            <ul class="options">
+                <li>A) Vasoconstrição reflexa e obstrução linfática.</li>
+                <li>B) Vasodilatação arteriolar e aumento da permeabilidade vascular com exsudação.</li>
+                <li>C) Vasodilatação venosa e diminuição da pressão hidrostática.</li>
+                <li>D) Aumento da permeabilidade vascular e migração de neutrófilos.</li>
+                <li>E) Estase sanguínea e aumento da pressão coloidosmótica do plasma.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Hemograma e Resposta Celular</div>
+            <div class="q-statement">O hemograma do paciente apresenta leucocitose (16.200/mm³) com 82% de neutrófilos segmentados. Considerando a fisiologia dos leucócitos descrita nos relatórios, este achado sugere:</div>
+            <ul class="options">
+                <li>A) Uma infecção viral crônica, dado o aumento de granulócitos.</li>
+                <li>B) Uma resposta alérgica sistêmica mediada por IgE.</li>
+                <li>C) Uma infecção bacteriana aguda, com intensa mobilização da linhagem mieloide.</li>
+                <li>D) Uma imunodeficiência primária com falha na maturação linfoide.</li>
+                <li>E) Uma infecção parasitária, dada a predominância de fagócitos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Recrutamento Leucocitário</div>
+            <div class="q-statement">Para que os neutrófilos cheguem ao foco infeccioso nas amígdalas, eles devem sair do vaso sanguíneo. A sequência correta dos eventos de extravasamento leucocitário é:</div>
+            <ul class="options">
+                <li>A) Adesão firme, Rolamento, Diapedese, Quimiotaxia.</li>
+                <li>B) Quimiotaxia, Adesão firme, Rolamento, Diapedese.</li>
+                <li>C) Marginação, Rolamento, Adesão firme, Transmigração (Diapedese).</li>
+                <li>D) Diapedese, Marginação, Ativação de integrinas, Fagocitose.</li>
+                <li>E) Rolamento, Ativação endotelial, Quimiotaxia, Adesão estável.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Órgãos Linfoides</div>
+            <div class="q-statement">Os linfonodos cervicais do paciente estão aumentados e dolorosos. Sobre a função deste órgão linfoide secundário, é correto afirmar:</div>
+            <ul class="options">
+                <li>A) É o local primário de maturação dos linfócitos T, onde ocorre a seleção negativa.</li>
+                <li>B) Atua filtrando o sangue para remover hemácias senescentes (hematocaterese).</li>
+                <li>C) É o local onde ocorre o encontro entre antígenos trazidos pela linfa e linfócitos, iniciando a resposta adaptativa.</li>
+                <li>D) É responsável pela produção de todas as células sanguíneas no adulto (hematopoese).</li>
+                <li>E) Sua principal função é a produção de tolerância central para linfócitos B.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Imunidade Inata</div>
+            <div class="q-statement">A primeira linha de defesa contra os patógenos causadores da faringite inclui barreiras físicas e químicas. Assinale a alternativa que contém apenas componentes da imunidade INATA:</div>
+            <ul class="options">
+                <li>A) Anticorpos IgG, Linfócitos T CD8+, Pele.</li>
+                <li>B) Mucosas, Defensinas, Neutrófilos, Sistema Complemento.</li>
+                <li>C) Linfócitos B de memória, Macrófagos, Lisozima.</li>
+                <li>D) Células Plasmáticas, Pele, pH estomacal.</li>
+                <li>E) Vacinação prévia, Células NK, Barreira epitelial.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Mediadores Químicos</div>
+            <div class="q-statement">Durante a resposta inflamatória aguda, a dor (dolor) é um dos sinais cardinais. Quais mediadores químicos estão mais diretamente envolvidos na sensibilização das terminações nervosas para causar dor?</div>
+            <ul class="options">
+                <li>A) Histamina e Óxido Nítrico.</li>
+                <li>B) Prostaglandinas e Bradicinina.</li>
+                <li>C) C3b e IgG.</li>
+                <li>D) Selectinas e Integrinas.</li>
+                <li>E) TNF-α e IL-1.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - Fagocitose</div>
+            <div class="q-statement">O processo de fagocitose é potencializado quando o microrganismo é revestido por proteínas específicas que facilitam o reconhecimento pelos fagócitos. Esse processo é chamado de __________ e as principais moléculas envolvidas são __________.</div>
+            <ul class="options">
+                <li>A) Quimiotaxia; IL-8 e LTB4.</li>
+                <li>B) Diapedese; PECAM-1 e ICAM-1.</li>
+                <li>C) Opsonização; IgG e C3b.</li>
+                <li>D) Apresentação de antígeno; MHC I e MHC II.</li>
+                <li>E) Neutralização; IgA e Defensinas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Imunidade Adaptativa</div>
+            <div class="q-statement">Diferente da imunidade inata, a adaptativa gera memória. Qual é o mecanismo fundamental que permite a geração de diversidade nos receptores de linfócitos (BCR e TCR) antes mesmo do contato com o antígeno?</div>
+            <ul class="options">
+                <li>A) Expansão clonal induzida por citocinas.</li>
+                <li>B) Recombinação somática (V(D)J).</li>
+                <li>C) Fagocitose e apresentação de antígenos.</li>
+                <li>D) Maturação de afinidade nos centros germinativos.</li>
+                <li>E) Troca de isótipo de imunoglobulina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Inflamação Crônica</div>
+            <div class="q-statement">Se a infecção do paciente não for resolvida e persistir por semanas, o padrão inflamatório mudará. Assinale a característica histológica que define a inflamação CRÔNICA:</div>
+            <ul class="options">
+                <li>A) Predomínio de neutrófilos polimorfonucleares e intenso edema.</li>
+                <li>B) Infiltrado de células mononucleares (macrófagos, linfócitos), destruição tecidual e tentativa de reparo (fibrose/angiogênese).</li>
+                <li>C) Vasodilatação maciça com formação de exsudato purulento.</li>
+                <li>D) Aumento exclusivo da permeabilidade vascular sem componente celular.</li>
+                <li>E) Presença massiva de mastócitos degranulando histamina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Ponte Inata-Adaptativa</div>
+            <div class="q-statement">Qual célula é considerada a principal Célula Apresentadora de Antígeno (APC) profissional, responsável por capturar antígenos nos tecidos periféricos (como a amígdala) e levá-los aos linfonodos para ativar linfócitos T virgens?</div>
+            <ul class="options">
+                <li>A) Neutrófilo.</li>
+                <li>B) Célula NK.</li>
+                <li>C) Célula Dendrítica.</li>
+                <li>D) Mastócito.</li>
+                <li>E) Eosinófilo.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - Sistema Complemento</div>
+            <div class="q-statement">O sistema complemento pode ser ativado por três vias. A via clássica é iniciada por:</div>
+            <ul class="options">
+                <li>A) Ligação direta de C3b à parede bacteriana.</li>
+                <li>B) Complexos antígeno-anticorpo (Imunocomplexos).</li>
+                <li>C) Lectina ligante de manose.</li>
+                <li>D) Ação de citocinas inflamatórias como IL-1.</li>
+                <li>E) Dano tecidual direto (DAMPs).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Citocinas e Febre</div>
+            <div class="q-statement">O paciente apresenta febre de 38,8°C. Quais citocinas, conhecidas como pirogênios endógenos, atuam no hipotálamo para elevar o "set-point" térmico?</div>
+            <ul class="options">
+                <li>A) IL-10 e TGF-β.</li>
+                <li>B) IL-1, TNF-α e IL-6.</li>
+                <li>C) IL-4 e IL-5.</li>
+                <li>D) IFN-γ e IL-12.</li>
+                <li>E) IL-8 e LTB4.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - Linfócitos T</div>
+            <div class="q-statement">Os Linfócitos T CD4+ (Helper) reconhecem antígenos apenas quando apresentados associados a qual molécula de superfície?</div>
+            <ul class="options">
+                <li>A) MHC Classe I.</li>
+                <li>B) MHC Classe II.</li>
+                <li>C) Receptor Toll-Like (TLR).</li>
+                <li>D) Imunoglobulina de superfície.</li>
+                <li>E) CD28.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Hematopoese</div>
+            <div class="q-statement">Na medula óssea, a linhagem mieloide dá origem a diversas células. Qual das células abaixo NÃO é derivada do progenitor mieloide?</div>
+            <ul class="options">
+                <li>A) Eritrócito.</li>
+                <li>B) Plaqueta (via Megacariócito).</li>
+                <li>C) Linfócito B.</li>
+                <li>D) Monócito.</li>
+                <li>E) Neutrófilo.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Granuloma</div>
+            <div class="q-statement">Em certas infecções persistentes (como Tuberculose), forma-se um granuloma. Qual é a estrutura celular típica de um granuloma?</div>
+            <ul class="options">
+                <li>A) Acúmulo de neutrófilos mortos e bactérias (pus).</li>
+                <li>B) Agregado de macrófagos ativados (células epitelioides), células gigantes multinucleadas e um colar de linfócitos.</li>
+                <li>C) Proliferação desordenada de fibroblastos e colágeno sem células imunes.</li>
+                <li>D) Infiltrado difuso de eosinófilos e mastócitos.</li>
+                <li>E) Trombos de fibrina e plaquetas ocluindo vasos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - Resposta Humoral</div>
+            <div class="q-statement">Qual é a principal imunoglobulina encontrada nas secreções mucosas (como na saliva e trato respiratório), protegendo contra a adesão de patógenos?</div>
+            <ul class="options">
+                <li>A) IgG.</li>
+                <li>B) IgM.</li>
+                <li>C) IgE.</li>
+                <li>D) IgA.</li>
+                <li>E) IgD.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Células NK</div>
+            <div class="q-statement">As células Natural Killer (NK) são parte da imunidade inata. Qual é o principal mecanismo que elas utilizam para identificar uma célula alvo para destruição?</div>
+            <ul class="options">
+                <li>A) Reconhecimento de antígeno específico via TCR.</li>
+                <li>B) Detecção da ausência ou baixa expressão de MHC Classe I ("perda do próprio").</li>
+                <li>C) Fagocitose mediada por opsoninas.</li>
+                <li>D) Reconhecimento de LPS via TLR4.</li>
+                <li>E) Ativação pelo sistema complemento.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - Timo</div>
+            <div class="q-statement">O timo é um órgão linfoide primário que sofre involução com a idade. Qual processo crucial ocorre no córtex tímico?</div>
+            <ul class="options">
+                <li>A) Seleção Positiva (sobrevivência de células que reconhecem MHC próprio).</li>
+                <li>B) Ativação de linfócitos B por antígenos.</li>
+                <li>C) Filtragem da linfa.</li>
+                <li>D) Produção de anticorpos.</li>
+                <li>E) Fagocitose de hemácias velhas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - Inflamação e Resolução</div>
+            <div class="q-statement">A resolução da inflamação aguda não é um processo passivo. Envolve a mudança na produção de mediadores lipídicos e a limpeza de neutrófilos apoptóticos. Qual célula é a principal responsável por essa limpeza (eferocitose) e produção de mediadores de reparo?</div>
+            <ul class="options">
+                <li>A) Neutrófilo.</li>
+                <li>B) Mastócito.</li>
+                <li>C) Macrófago (perfil M2).</li>
+                <li>D) Linfócito T Citotóxico.</li>
+                <li>E) Plaqueta.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - PRRs</div>
+            <div class="q-statement">Os receptores Toll-Like (TLRs) são exemplos de PRRs. Onde eles podem ser encontrados na célula?</div>
+            <ul class="options">
+                <li>A) Apenas no núcleo.</li>
+                <li>B) Apenas na membrana plasmática.</li>
+                <li>C) Na membrana plasmática e em endossomos.</li>
+                <li>D) Livres no plasma sanguíneo.</li>
+                <li>E) Nas mitocôndrias.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - Hipersensibilidades</div>
+            <div class="q-statement">Embora o caso seja infeccioso, o relatório menciona tipos de hipersensibilidade. A hipersensibilidade tipo I (alérgica) é mediada principalmente por:</div>
+            <ul class="options">
+                <li>A) Imunocomplexos (IgG-Antígeno).</li>
+                <li>B) Linfócitos T (Th1).</li>
+                <li>C) IgE ligada a mastócitos.</li>
+                <li>D) Citotoxicidade dependente de anticorpo.</li>
+                <li>E) Ativação direta do complemento.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - Baço</div>
+            <div class="q-statement">A asplenia (ausência de baço) torna o indivíduo mais suscetível a infecções por bactérias encapsuladas (como Pneumococo). Isso ocorre porque o baço é fundamental para:</div>
+            <ul class="options">
+                <li>A) Maturação de células T.</li>
+                <li>B) Fagocitose de patógenos opsonizados no sangue e resposta humoral contra antígenos sanguíneos.</li>
+                <li>C) Produção de neutrófilos.</li>
+                <li>D) Filtragem da linfa periférica.</li>
+                <li>E) Produção de proteínas do complemento.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - Citocinas Th1 vs Th2</div>
+            <div class="q-statement">Na resposta imune adaptativa, os linfócitos T CD4+ podem se diferenciar em Th1 ou Th2. A resposta Th1 é caracterizada pela produção de ________ e é eficaz contra ________.</div>
+            <ul class="options">
+                <li>A) IL-4; Parasitas helmintos.</li>
+                <li>B) IFN-γ; Patógenos intracelulares.</li>
+                <li>C) IL-5; Bactérias extracelulares.</li>
+                <li>D) IL-10; Vírus.</li>
+                <li>E) TGF-β; Fungos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Macrófagos M1 vs M2</div>
+            <div class="q-statement">Os macrófagos podem assumir fenótipos distintos. O fenótipo M1 (Clássico) é induzido por _______ e tem função _______, enquanto o M2 (Alternativo) está ligado ao reparo.</div>
+            <ul class="options">
+                <li>A) IL-4; Anti-inflamatória.</li>
+                <li>B) IFN-γ e produtos microbianos; Microbicida e pró-inflamatória.</li>
+                <li>C) IL-10; Fibrogênica.</li>
+                <li>D) TGF-β; Citotóxica.</li>
+                <li>E) Histamina; Vasodilatadora.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - Exsudato vs Transudato</div>
+            <div class="q-statement">O edema inflamatório (Tumor) é classificado como um exsudato. O que diferencia quimicamente o exsudato de um transudato?</div>
+            <ul class="options">
+                <li>A) O exsudato é pobre em proteínas e células.</li>
+                <li>B) O exsudato é rico em proteínas e células, devido ao aumento da permeabilidade vascular.</li>
+                <li>C) O transudato é causado por aumento da permeabilidade vascular.</li>
+                <li>D) O exsudato ocorre apenas em falência cardíaca.</li>
+                <li>E) Não há diferença química, apenas clínica.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Plaquetas na Inflamação</div>
+            <div class="q-statement">Além da hemostasia, as plaquetas participam da inflamação aguda liberando mediadores. Qual amina vasoativa é liberada tanto por plaquetas quanto por mastócitos?</div>
+            <ul class="options">
+                <li>A) Heparina.</li>
+                <li>B) Histamina (ou Serotonina).</li>
+                <li>C) Óxido Nítrico.</li>
+                <li>D) Complemento C5a.</li>
+                <li>E) Interleucina-1.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Imunidade Passiva vs Ativa</div>
+            <div class="q-statement">O relatório compara imunidade natural e artificial. A passagem de anticorpos maternos (IgG) pela placenta para o feto é um exemplo de:</div>
+            <ul class="options">
+                <li>A) Imunidade Ativa Natural.</li>
+                <li>B) Imunidade Ativa Artificial.</li>
+                <li>C) Imunidade Passiva Natural.</li>
+                <li>D) Imunidade Passiva Artificial.</li>
+                <li>E) Imunidade Inata.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - Bastonetes</div>
+            <div class="q-statement">A presença de "bastonetes" (neutrófilos em bastão) aumentados no sangue periférico indica:</div>
+            <ul class="options">
+                <li>A) Uma leucemia crônica.</li>
+                <li>B) Uma alta demanda de neutrófilos pela medula óssea, liberando formas jovens (Desvio à esquerda).</li>
+                <li>C) Uma infecção viral antiga.</li>
+                <li>D) Deficiência de vitamina B12.</li>
+                <li>E) Aumento da apoptose de neutrófilos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - MALT</div>
+            <div class="q-statement">O tecido linfoide associado a mucosas (MALT) inclui as placas de Peyer no intestino. Qual célula especializada do epitélio intestinal facilita a entrada de antígenos do lúmen para o tecido linfoide subjacente?</div>
+            <ul class="options">
+                <li>A) Célula Caliciforme.</li>
+                <li>B) Célula de Paneth.</li>
+                <li>C) Célula M (Microfold).</li>
+                <li>D) Enterócito absortivo.</li>
+                <li>E) Célula Parietal.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Resposta a Vírus</div>
+            <div class="q-statement">Embora o caso sugira bactéria, o relatório cita defesa antiviral. Qual citocina da imunidade inata induz um "estado antiviral" nas células vizinhas, inibindo a replicação viral?</div>
+            <ul class="options">
+                <li>A) Interferon Tipo I (IFN-α/β).</li>
+                <li>B) TNF-α.</li>
+                <li>C) IL-6.</li>
+                <li>D) IL-17.</li>
+                <li>E) TGF-β.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado para a Prova</h2>
+        <p><strong>Fisiopatologia do Caso (Amigdalite Bacteriana):</strong></p>
+        <ul>
+            <li><strong>Sinais:</strong> A infecção gera PAMPs → Reconhecimento por PRRs (Macrófagos/Mastócitos locais) → Liberação de Histamina/Prostaglandinas/Citocinas.</li>
+            <li><strong>Consequência Vascular:</strong> Vasodilatação (Rubor/Calor) + Permeabilidade Aumentada (Edema/Tumor).</li>
+            <li><strong>Consequência Celular:</strong> Neutrófilos saem do sangue (Marginação → Rolamento → Adesão → Diapedese) guiados por Quimiotaxia (IL-8, C5a) para fagocitar as bactérias.</li>
+            <li><strong>Laboratório:</strong> A medula óssea é estimulada (G-CSF) a produzir mais neutrófilos = Leucocitose com Neutrofilia e Desvio à Esquerda (Bastonetes).</li>
+        </ul>
+        <p><strong>Conceitos Chave:</strong></p>
+        <ul>
+            <li><strong>Inata:</strong> Rápida, estereotipada, sem memória, barreiras + fagócitos + complemento.</li>
+            <li><strong>Adaptativa:</strong> Lenta (dias), específica (BCR/TCR), memória, Linfócitos B (Humoral/Anticorpos) e T (Celular).</li>
+            <li><strong>Órgãos:</strong> Primários geram células (Medula/Timo); Secundários ativam células (Linfonodos/Baço/MALT).</li>
+        </ul>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div>01 - B</div>
+            <div>02 - C</div>
+            <div>03 - C</div>
+            <div>04 - C</div>
+            <div>05 - B</div>
+            <div>06 - B</div>
+            <div>07 - C</div>
+            <div>08 - B</div>
+            <div>09 - B</div>
+            <div>10 - C</div>
+            <div>11 - B</div>
+            <div>12 - B</div>
+            <div>13 - B</div>
+            <div>14 - C</div>
+            <div>15 - B</div>
+            <div>16 - D</div>
+            <div>17 - B</div>
+            <div>18 - A</div>
+            <div>19 - C</div>
+            <div>20 - C</div>
+            <div>21 - C</div>
+            <div>22 - B</div>
+            <div>23 - B</div>
+            <div>24 - B</div>
+            <div>25 - B</div>
+            <div>26 - B</div>
+            <div>27 - C</div>
+            <div>28 - B</div>
+            <div>29 - C</div>
+            <div>30 - A</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

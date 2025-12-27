@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedHub - Quiz Reparação & Estresse Oxidativo</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-red: #ef4444;
+            --gradient-blue: linear-gradient(135deg, #3b82f6, #2563eb);
+            --gradient-green: linear-gradient(135deg, #10b981, #059669);
+            --gradient-purple: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            overflow-y: auto;
+        }
+
+        /* Main Content Container */
+        .main-content {
+            width: 100%;
+            max-width: 1000px; 
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center; 
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem; 
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px; 
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 220px; 
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.2);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Interface */
+        .quiz-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #334155;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .question-badge {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: inline-block;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            background-color: var(--bg-dark);
+            border: 1px solid #334155;
+            padding: 20px 25px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-blue);
+            background-color: rgba(59, 130, 246, 0.05);
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            border-color: var(--accent-green);
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+        }
+
+        .option-btn.wrong {
+            border-color: var(--accent-red);
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+        }
+
+        /* Feedback Modal */
+        .feedback-overlay {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #0f172a; 
+            border-left: 4px solid var(--accent-blue);
+            animation: slideIn 0.3s ease;
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .feedback-text {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .next-btn {
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: var(--gradient-blue);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            float: right;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .next-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Results Screen */
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #334155;
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 10px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 30px auto;
+            background: rgba(15, 23, 42, 0.5);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .restart-btn {
+            padding: 15px 50px;
+            background: var(--gradient-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .restart-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .main-content { padding: 20px; }
+            .header h1 { font-size: 1.8rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .card { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        
+        <!-- Screen 1: Dashboard / Selection -->
+        <div id="screen-dashboard">
+            <div class="header">
+                <h1>Nível Hard: Reparação e Estresse Oxidativo</h1>
+                <p>Prepare-se para questões com nuances bioquímicas e fisiopatológicas.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card" style="background: var(--gradient-green)" onclick="startQuiz(10)">
+                    <div class="card-icon">⚡</div>
+                    <div>
+                        <h3>Treino Rápido</h3>
+                        <p>10 Questões aleatórias</p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: var(--gradient-blue)" onclick="startQuiz(20)">
+                    <div class="card-icon">🧠</div>
+                    <div>
+                        <h3>Treino Padrão</h3>
+                        <p>20 Questões aleatórias</p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: var(--gradient-purple)" onclick="startQuiz(30)">
+                    <div class="card-icon">🔥</div>
+                    <div>
+                        <h3>Maratona Completa</h3>
+                        <p>Todas as 30 questões</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Quiz -->
+        <div id="screen-quiz" class="quiz-container">
+            <div class="header">
+                <h1 id="quiz-title" style="font-size: 2rem;">Quiz em Andamento</h1>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <span class="question-badge" id="q-category">Categoria</span>
+                <p class="question-text" id="q-text">Carregando pergunta...</p>
+                
+                <div class="options-grid" id="options-container">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <div class="feedback-overlay" id="feedback">
+                    <span class="feedback-title" id="feedback-title">Resposta</span>
+                    <p class="feedback-text" id="feedback-text">Explicação aqui.</p>
+                </div>
+
+                <button class="next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">Próxima Questão</button>
+            </div>
+        </div>
+
+        <!-- Screen 3: Results -->
+        <div id="screen-results" class="results-container">
+            <h1 style="font-size: 2.5rem; color: var(--accent-green);">Treino Finalizado!</h1>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Veja seu desempenho no módulo avançado.</p>
+            
+            <div class="score-circle" id="final-score">0%</div>
+            
+            <p id="score-message" style="font-size: 1.2rem; margin-bottom: 20px; line-height: 1.6;">Mensagem motivacional.</p>
+            
+            <button class="restart-btn" onclick="location.reload()">Novo Treino</button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- BANCO DE QUESTÕES (30 ITENS DIFÍCEIS) ---
+        const allQuestions = [
+            // Reparação Tecidual (Regeneração vs Cicatrização)
+            {
+                category: "Reparação Tecidual",
+                text: "O fígado é composto por células estáveis. Qual é o fator determinante que impede a regeneração perfeita e leva à cirrose após lesões crônicas?",
+                options: [
+                    "A perda da capacidade mitótica dos hepatócitos.",
+                    "A ausência de células de Kupffer.",
+                    "A destruição da arquitetura da matriz reticular (esqueleto fibroso).",
+                    "A inibição da telomerase nos hepatócitos."
+                ],
+                correct: 2,
+                explanation: "Hepatócitos dividem bem, gafanhoto! O problema na cirrose é que a 'casa' (matriz) caiu. Sem o esqueleto de reticulina, as células crescem em nódulos desordenados."
+            },
+            {
+                category: "Reparação Tecidual",
+                text: "Qual destas células é fundamental para a transição da fase inflamatória para a proliferativa, secretando fatores como TGF-β e PDGF?",
+                options: [
+                    "Neutrófilo.",
+                    "Macrófago (fenótipo M2).",
+                    "Linfócito T CD8.",
+                    "Mastócito."
+                ],
+                correct: 1,
+                explanation: "O Macrófago M2 é o 'mestre de obras'. Ele limpa a bagunça do neutrófilo e manda o sinal (TGF-β) para os pedreiros (fibroblastos) começarem a trabalhar."
+            },
+            {
+                category: "Reparação Tecidual",
+                text: "Durante a fase de maturação da cicatriz, ocorre a substituição de colágeno. Qual é a troca correta?",
+                options: [
+                    "Colágeno Tipo I (forte) por Colágeno Tipo III (fraco).",
+                    "Colágeno Tipo III (imaturo) por Colágeno Tipo I (maduro e resistente).",
+                    "Elastina por Colágeno Tipo IV.",
+                    "Fibrina por Colágeno Tipo II."
+                ],
+                correct: 1,
+                explanation: "No início (granulação) temos colágeno III, que é frouxo. Na maturação, as MMPs quebram ele para colocar o colágeno I, que é o 'concreto armado'."
+            },
+            {
+                category: "Reparação Tecidual",
+                text: "Qual é a força tênsil máxima que uma cicatriz na pele geralmente atinge em comparação ao tecido original?",
+                options: [
+                    "100% (igual à pele original).",
+                    "Cerca de 70-80%.",
+                    "Apenas 30%.",
+                    "120% (mais forte que a original)."
+                ],
+                correct: 1,
+                explanation: "Infelizmente, nunca volta a ser 100%. Uma cicatriz bem curada tem no máximo 80% da força da pele original. O remendo nunca é igual ao tecido virgem."
+            },
+            {
+                category: "Reparação Tecidual",
+                text: "O tecido de granulação é a marca da fase proliferativa. Histologicamente, ele é composto principalmente por:",
+                options: [
+                    "Pus, bactérias e fibrina.",
+                    "Colágeno denso acelular.",
+                    "Novos vasos (angiogênese), fibroblastos e matriz frouxa.",
+                    "Queratinócitos maduros."
+                ],
+                correct: 2,
+                explanation: "Tecido de granulação é 'carne viva': vermelha (vasos novos), úmida e cheia de fibroblastos trabalhando. Não confunda com pus ou queloide."
+            },
+            
+            // Intenções e Cicatrização Patológica
+            {
+                category: "Tipos de Cicatrização",
+                text: "A contração da ferida é um mecanismo crucial na cicatrização de 2ª intenção. Qual célula é responsável por essa força contrátil?",
+                options: [
+                    "Queratinócito.",
+                    "Miofibroblasto.",
+                    "Macrófago.",
+                    "Célula Endotelial."
+                ],
+                correct: 1,
+                explanation: "O fibroblasto treina na academia e vira Miofibroblasto (com actina muscular). Ele puxa as bordas da ferida grande para tentar fechá-la."
+            },
+            {
+                category: "Tipos de Cicatrização",
+                text: "Qual é a indicação clássica para uma cicatrização por Terceira Intenção?",
+                options: [
+                    "Incisão cirúrgica limpa.",
+                    "Pequeno corte superficial.",
+                    "Ferida infectada ou com grande edema que precisa ficar aberta inicialmente.",
+                    "Queloide antigo."
+                ],
+                correct: 2,
+                explanation: "Terceira intenção é o 'fechamento retardado'. Você deixa aberto para drenar o pus (infecção) e só sutura dias depois quando estiver limpo."
+            },
+            {
+                category: "Cicatrização Patológica",
+                text: "Qual a principal diferença histológica e clínica entre Cicatriz Hipertrófica e Queloide?",
+                options: [
+                    "Hipertrófica tem colágeno desorganizado; Queloide tem colágeno paralelo.",
+                    "Queloide regride espontaneamente; Hipertrófica nunca regride.",
+                    "Hipertrófica respeita as margens da lesão; Queloide invade a pele sã (patas de caranguejo).",
+                    "Não há diferença, são sinônimos."
+                ],
+                correct: 2,
+                explanation: "O Queloide é um tumor benigno da cicatriz que não sabe a hora de parar e invade a pele vizinha. A Hipertrófica cresce para cima, mas fica dentro do corte."
+            },
+            {
+                category: "Cicatrização Patológica",
+                text: "Os queloides apresentam predisposição genética e são mais comuns em afrodescendentes. O colágeno neles é descrito como:",
+                options: [
+                    "Fibras finas e paralelas.",
+                    "Fibras grossas, hialinizadas e em arranjo desorganizado (redemoinhos).",
+                    "Ausência de colágeno, apenas elastina.",
+                    "Rico em colágeno tipo III apenas."
+                ],
+                correct: 1,
+                explanation: "No microscópio, o queloide tem bandas grossas e 'vidradas' (hialinizadas) de colágeno que parecem uma bagunça completa."
+            },
+            {
+                category: "Fatores Sistêmicos",
+                text: "Por que pacientes com deficiência de Vitamina C (Escorbuto) têm má cicatrização?",
+                options: [
+                    "A Vitamina C é necessária para a hidroxilação da prolina e lisina no colágeno.",
+                    "A Vitamina C impede a coagulação.",
+                    "A Vitamina C inibe os macrófagos.",
+                    "A Vitamina C forma a queratina."
+                ],
+                correct: 0,
+                explanation: "Sem Vitamina C, o fibroblasto produz um colágeno defeituoso que não forma a tripla hélice estável. A ferida abre sozinha."
+            },
+            {
+                category: "Fatores Sistêmicos",
+                text: "O uso crônico de glicocorticoides (corticoides) prejudica a cicatrização principalmente por:",
+                options: [
+                    "Aumentar excessivamente a angiogênese.",
+                    "Inibir a síntese de colágeno e a fase inflamatória necessária.",
+                    "Estimular queloides.",
+                    "Aumentar a proliferação de queratinócitos."
+                ],
+                correct: 1,
+                explanation: "Corticoides freiam tudo! Eles inibem a inflamação (que é o gatilho da cicatrização) e a síntese de proteínas pelos fibroblastos. A pele fica fina e frágil."
+            },
+
+            // Estresse Oxidativo
+            {
+                category: "Estresse Oxidativo",
+                text: "A Reação de Fenton é um mecanismo perigoso que gera qual Espécie Reativa de Oxigênio (ERO)?",
+                options: [
+                    "Peróxido de Hidrogênio (H2O2).",
+                    "Radical Superóxido (O2•-).",
+                    "Radical Hidroxila (OH•).",
+                    "Óxido Nítrico (NO)."
+                ],
+                correct: 2,
+                explanation: "Fenton mistura Ferro ferroso (Fe2+) com água oxigenada (H2O2) e cria o monstro: o Radical Hidroxila, o mais destrutivo de todos."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Qual é a função da enzima Superóxido Dismutase (SOD)?",
+                options: [
+                    "Converter água em oxigênio.",
+                    "Converter o radical superóxido em peróxido de hidrogênio (H2O2).",
+                    "Neutralizar o radical hidroxila.",
+                    "Regenerar a Vitamina E."
+                ],
+                correct: 1,
+                explanation: "A SOD pega o 'lixo' inicial da mitocôndria (superóxido) e o transforma em algo menos pior (H2O2), que depois a Catalase resolve."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Onde se localiza a enzima Catalase, responsável por quebrar o H2O2 em água e oxigênio?",
+                options: [
+                    "No núcleo.",
+                    "Nos lisossomos.",
+                    "Nos peroxissomos.",
+                    "No complexo de Golgi."
+                ],
+                correct: 2,
+                explanation: "Decoreba de biologia celular: Catalase mora no Peroxissomo. É lá que ela desativa a água oxigenada."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "A Glutationa Peroxidase (GPx) neutraliza peróxidos, mas precisa de um cofator essencial para funcionar. Qual é?",
+                options: [
+                    "Ferro.",
+                    "Cálcio.",
+                    "Selênio.",
+                    "Magnésio."
+                ],
+                correct: 2,
+                explanation: "GPx ama Selênio. Sem selênio na dieta, essa enzima crucial falha, e o estresse oxidativo aumenta."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Qual é o mecanismo de ação da Vitamina E (Tocoferol) como antioxidante?",
+                options: [
+                    "Ela age no citoplasma quelando ferro.",
+                    "Ela é lipossolúvel e protege as membranas celulares contra a peroxidação lipídica.",
+                    "Ela degrada o H2O2.",
+                    "Ela repara o DNA no núcleo."
+                ],
+                correct: 1,
+                explanation: "A Vitamina E é a guardiã da gordura! Ela fica na membrana celular e se sacrifica para parar a reação em cadeia que destrói os lipídios."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Na lesão de Isquemia-Reperfusão, o dano maior ocorre quando o sangue retorna. Por quê?",
+                options: [
+                    "Porque o sangue traz bactérias.",
+                    "Porque o fluxo sanguíneo rompe os vasos.",
+                    "Porque o oxigênio que chega alimenta a produção massiva de radicais livres nas mitocôndrias danificadas.",
+                    "Porque o pH se torna alcalino demais."
+                ],
+                correct: 2,
+                explanation: "É o paradoxo do oxigênio. A célula isquêmica está com a mitocôndria instável. Quando o O2 volta, a mitocôndria 'engasga' e cospe radicais livres para todo lado."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "O que é Peroxidação Lipídica?",
+                options: [
+                    "A quebra de gordura para energia.",
+                    "O ataque de radicais livres aos ácidos graxos da membrana celular, gerando instabilidade.",
+                    "A síntese de colesterol oxidado.",
+                    "O acúmulo de gordura no fígado."
+                ],
+                correct: 1,
+                explanation: "Imagine a membrana da célula ficando rançosa. O radical livre rouba elétrons da gordura da membrana, causando uma reação em cadeia que fura a célula."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Qual vitamina hidrossolúvel ajuda a 'reciclar' a Vitamina E, devolvendo sua capacidade antioxidante?",
+                options: [
+                    "Vitamina D.",
+                    "Vitamina A.",
+                    "Vitamina C (Ácido Ascórbico).",
+                    "Vitamina K."
+                ],
+                correct: 2,
+                explanation: "Trabalho em equipe! A Vitamina E protege a membrana e fica oxidada. A Vitamina C (no sangue) chega e 'conserta' a Vitamina E para ela trabalhar de novo."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "O radical hidroxila (OH•) é extremamente perigoso porque:",
+                options: [
+                    "Não existem enzimas específicas para neutralizá-lo; ele reage com o que estiver perto.",
+                    "Ele tem vida longa e viaja pelo corpo todo.",
+                    "Ele só ataca proteínas.",
+                    "Ele é eliminado facilmente pela urina."
+                ],
+                correct: 0,
+                explanation: "O OH• é um psicopata bioquímico. Ele não escolhe alvo e não tem enzima que o pare. A única defesa é evitar que ele se forme (controlando o Ferro e H2O2)."
+            },
+
+            // Conceitos Mistos e Nuances
+            {
+                category: "Mecanismos",
+                text: "As Metaloproteinases de Matriz (MMPs) são cruciais no remodelamento. Quem controla a ação delas para evitar destruição excessiva?",
+                options: [
+                    "Os macrófagos M1.",
+                    "Os TIMPs (Inibidores Teciduais de Metaloproteinases).",
+                    "A Histamina.",
+                    "O Colágeno tipo I."
+                ],
+                correct: 1,
+                explanation: "É um balanço fino. MMPs cortam, TIMPs guardam a tesoura. Se tiver muita MMP e pouco TIMP, a ferida não fecha ou vira úlcera crônica."
+            },
+            {
+                category: "Mecanismos",
+                text: "O Diabetes Mellitus prejudica a cicatrização por vários mecanismos, EXCETO:",
+                options: [
+                    "Diminuição da função dos neutrófilos (quimiotaxia e fagocitose).",
+                    "Microangiopatia que causa isquemia local.",
+                    "Aumento excessivo da síntese de colágeno (fibrose rápida).",
+                    "Neuropatia que reduz a percepção de trauma."
+                ],
+                correct: 2,
+                explanation: "Pelo contrário! O diabético tem dificuldade em formar colágeno e granulação. A ferida fica estagnada, não fibrosa rápida."
+            },
+            {
+                category: "Mecanismos",
+                text: "Qual a função do Zinco no processo de reparo?",
+                options: [
+                    "Formar a rede de fibrina.",
+                    "Atuar como cofator para enzimas como as Metaloproteinases (MMPs) e DNA polimerases.",
+                    "Transportar oxigênio.",
+                    "Inibir a proliferação bacteriana diretamente."
+                ],
+                correct: 1,
+                explanation: "Zinco é o 'ajudante de pedreiro'. As enzimas que constroem DNA e remodelam o colágeno (MMPs) não funcionam sem ele."
+            },
+            {
+                category: "Mecanismos",
+                text: "A hipóxia na ferida estimula a angiogênese através de qual fator de transcrição?",
+                options: [
+                    "NF-kB.",
+                    "HIF-1α (Fator Induzido por Hipóxia).",
+                    "p53.",
+                    "Colagenase."
+                ],
+                correct: 1,
+                explanation: "Quando falta oxigênio, a célula estabiliza o HIF-1α. Ele vai ao núcleo e liga os genes do VEGF (fator de crescimento vascular) para criar novos vasos."
+            },
+            {
+                category: "Fisiopatologia",
+                text: "Em uma cicatriz antiga que se torna branca e avascular, qual fase do processo predominou?",
+                options: [
+                    "Inflamatória.",
+                    "Proliferativa.",
+                    "Remodelamento/Maturação.",
+                    "Hemostasia."
+                ],
+                correct: 2,
+                explanation: "No final do remodelamento, os vasos (que deixavam a cicatriz vermelha) regridem por apoptose, e sobra apenas o colágeno denso e branco."
+            },
+            {
+                category: "Fisiopatologia",
+                text: "Qual é o papel da Fibrina na fase inicial da cicatrização?",
+                options: [
+                    "Fornecer resistência tênsil final.",
+                    "Servir de matriz provisória (andaime) para migração celular.",
+                    "Matar bactérias.",
+                    "Inibir plaquetas."
+                ],
+                correct: 1,
+                explanation: "A fibrina é o 'andaime' temporário. As células (macrófagos e fibroblastos) usam a rede de fibrina como estrada para entrar na ferida."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "O que são 'Espécies Reativas de Nitrogênio' (ERNs)?",
+                options: [
+                    "Derivados do Oxigênio apenas.",
+                    "Derivados do Óxido Nítrico (NO), como o Peroxinitrito (ONOO-).",
+                    "Enzimas antioxidantes.",
+                    "Formas de armazenamento de nitrogênio."
+                ],
+                correct: 1,
+                explanation: "O Óxido Nítrico (NO) é bom, mas se encontrar o Superóxido, vira Peroxinitrito, que é um radical extremamente tóxico."
+            },
+            {
+                category: "Estresse Oxidativo",
+                text: "Qual organela é a principal fonte fisiológica de Radicais Livres (EROs) na célula?",
+                options: [
+                    "Retículo Endoplasmático.",
+                    "Mitocôndria (Cadeia Transportadora de Elétrons).",
+                    "Núcleo.",
+                    "Complexo de Golgi."
+                ],
+                correct: 1,
+                explanation: "A mitocôndria é a usina de energia, mas 'vaza'. Cerca de 1-3% do oxigênio vira Superóxido durante a respiração celular normal."
+            },
+            {
+                category: "Reparação",
+                text: "A deiscência de sutura (abertura dos pontos) está frequentemente associada a:",
+                options: [
+                    "Excesso de Vitamina C.",
+                    "Aumento da pressão intra-abdominal, infecção ou técnica inadequada.",
+                    "Formação excessiva de granulação.",
+                    "Queloide."
+                ],
+                correct: 1,
+                explanation: "Deiscência é o pesadelo do cirurgião. Geralmente é mecânica (tossiu e rompeu) ou biológica (infecção comeu a sutura)."
+            },
+            {
+                category: "Reparação",
+                text: "O que define uma ferida crônica (ex: úlcera venosa)?",
+                options: [
+                    "Cicatrização em menos de 3 semanas.",
+                    "Estagnação na fase inflamatória, com excesso de proteases e biofilme bacteriano.",
+                    "Excesso de fatores de crescimento.",
+                    "Ausência total de bactérias."
+                ],
+                correct: 1,
+                explanation: "A ferida crônica 'trava'. Ela fica presa na inflamação, cheia de MMPs destruindo o tecido novo e bactérias protegidas por biofilme."
+            }
+        ];
+
+        // --- LÓGICA DO QUIZ ---
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function startQuiz(count) {
+            score = 0;
+            currentIndex = 0;
+            userAnswers = [];
+            
+            const shuffled = shuffleArray([...allQuestions]); 
+            currentQuestions = shuffled.slice(0, count);
+
+            document.getElementById('screen-dashboard').style.display = 'none';
+            document.getElementById('screen-quiz').style.display = 'block';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuestions[currentIndex];
+            
+            document.getElementById('quiz-title').innerText = `Questão ${currentIndex + 1} de ${currentQuestions.length}`;
+            document.getElementById('q-category').innerText = q.category;
+            document.getElementById('q-text').innerText = q.text;
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+
+            const progressPct = ((currentIndex) / currentQuestions.length) * 100;
+            document.getElementById('progress').style.width = `${progressPct}%`;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ''; 
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedIndex, selectedBtn) {
+            const optionsDivs = document.querySelectorAll('.option-btn');
+            optionsDivs.forEach(div => div.onclick = null); 
+
+            const q = currentQuestions[currentIndex];
+            const isCorrect = selectedIndex === q.correct;
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+                showFeedback(true, "Boa, gafanhoto! Acertou em cheio.");
+            } else {
+                selectedBtn.classList.add('wrong');
+                optionsDivs[q.correct].classList.add('correct');
+                showFeedback(false, q.explanation);
+            }
+
+            document.getElementById('next-btn').style.display = 'block';
+        }
+
+        function showFeedback(isCorrect, text) {
+            const fbBox = document.getElementById('feedback');
+            const fbTitle = document.getElementById('feedback-title');
+            const fbText = document.getElementById('feedback-text');
+
+            fbBox.style.display = 'block';
+            
+            if (isCorrect) {
+                fbBox.style.borderLeftColor = 'var(--accent-green)';
+                fbTitle.innerText = "🎉 Certa Resposta!";
+                fbTitle.style.color = 'var(--accent-green)';
+                fbText.innerText = text; 
+            } else {
+                fbBox.style.borderLeftColor = 'var(--accent-red)';
+                fbTitle.innerText = "😅 Calma, respira e aprende...";
+                fbTitle.style.color = 'var(--accent-red)';
+                fbText.innerText = text;
+            }
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('screen-quiz').style.display = 'none';
+            document.getElementById('screen-results').style.display = 'block';
+
+            const percentage = Math.round((score / currentQuestions.length) * 100);
+            const scoreCircle = document.getElementById('final-score');
+            const msg = document.getElementById('score-message');
+
+            scoreCircle.innerText = `${percentage}%`;
+
+            if (percentage === 100) {
+                scoreCircle.style.borderColor = 'var(--accent-green)';
+                msg.innerText = "Impecável! Você é um mestre da cicatrização! 🏆";
+            } else if (percentage >= 70) {
+                scoreCircle.style.borderColor = 'var(--accent-blue)';
+                msg.innerText = "Muito bom! Seus fundamentos estão sólidos. 👏";
+            } else {
+                scoreCircle.style.borderColor = 'var(--accent-orange)';
+                msg.innerText = "O nível estava alto! Revise os antioxidantes e as fases. 💪";
+            }
+        }
+
+    </script>
+</body>
+</html>

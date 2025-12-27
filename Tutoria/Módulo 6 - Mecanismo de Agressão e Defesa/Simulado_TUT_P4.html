@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 4</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad; /* Roxo para representar isquemia/necrose */
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c; /* Vermelho para inflamação/sangue */
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-light: #f5f5f5;
+            --text-dark: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        h2 {
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+
+        .analise-section {
+            background-color: #fff;
+            margin-bottom: 40px;
+        }
+
+        .risk-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .high-risk { border-left: 6px solid var(--accent-color); }
+        .med-risk { border-left: 6px solid var(--warning-color); }
+        .low-risk { border-left: 6px solid var(--success-color); }
+
+        .risk-title {
+            font-weight: bold;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .question-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
+        }
+
+        .q-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .q-statement {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #eee;
+            transition: background-color 0.2s;
+        }
+
+        .options li:hover {
+            background-color: #f0f3f4;
+            border-color: #bdc3c7;
+        }
+
+        .summary-box {
+            background-color: #e8f8f5;
+            border: 2px solid var(--success-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9em;
+        }
+
+        .concept-table th, .concept-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .concept-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .gabarito-section {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .g-item {
+            background: rgba(255,255,255,0.1);
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 4 (Lucas Almeida)</h1>
+    <p><strong>Cenário Clínico:</strong> Menino de 11 anos com fratura de úmero, evoluindo com dor intensa, edema e cianose (sugestivo de Síndrome Compartimental/Isquemia) levando à necrose óssea.</p>
+    <p><strong>Temas Centrais:</strong> Lesão Celular (Necrose/Apoptose), Regeneração, Farmacologia da Inflamação e Coagulação.</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        
+        <div class="risk-card high-risk">
+            <span class="risk-title" style="color: var(--accent-color);">🔥 Alto Risco (Obrigatório Dominar)</span>
+            <ul>
+                <li><strong>Necrose vs. Apoptose:</strong> Diferenças morfológicas (tumefação vs retração), inflamação (presente vs ausente) e mecanismos (falência de ATP vs Caspases).</li>
+                <li><strong>Mecanismo da Isquemia/Hipóxia:</strong> Falha da bomba Na+/K+, edema celular, glicólise anaeróbia, acidose lática.</li>
+                <li><strong>Farmacologia (AINEs vs Corticoides):</strong> AINEs inibem COX (analgesia/antipirese); Corticoides inibem Fosfolipase A2 (via anexina-1) e fatores de transcrição (NF-kB), sendo mais potentes.</li>
+                <li><strong>Cascata de Coagulação:</strong> Diferença entre Via Extrínseca (Fator Tecidual/VII) e Intrínseca (XII/XI/IX/VIII). Convergência na Via Comum (X -> Trombina -> Fibrina).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <span class="risk-title" style="color: var(--warning-color);">⚠️ Médio Risco (Importante)</span>
+            <ul>
+                <li><strong>Tipos de Regeneração Celular:</strong> Células Lábeis (epitélios/sangue), Estáveis (fígado/osso) e Permanentes (neurônios/músculo cardíaco).</li>
+                <li><strong>Estresse Oxidativo:</strong> Papel das Espécies Reativas de Oxigênio (ROS) na lesão celular e mecanismos de defesa (Glutationa, Catalase).</li>
+                <li><strong>Hemostasia Primária:</strong> Adesão e agregação plaquetária.</li>
+                <li><strong>Tipos de Necrose:</strong> O relatório foca no processo geral, mas saber que no osso/isquemia é geralmente necrose de coagulação é relevante.</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <span class="risk-title" style="color: var(--success-color);">❄️ Baixo Risco (Leitura Complementar)</span>
+            <ul>
+                <li>Mecanismos físicos detalhados de radiação não ionizante (exceto o conceito de dano ao DNA por UVB).</li>
+                <li>Detalhes anatômicos finos da fratura de úmero (foco é no processo patológico).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda focado nos mecanismos de lesão celular e reparo.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - Lesão Celular por Isquemia</div>
+            <div class="q-statement">No caso de Lucas, a compressão vascular levou à isquemia óssea. Qual é o primeiro evento bioquímico crucial que ocorre na célula devido à falta de oxigênio (hipóxia)?</div>
+            <ul class="options">
+                <li>A) Ativação massiva de caspases.</li>
+                <li>B) Ruptura da membrana lisossômica.</li>
+                <li>C) Interrupção da fosforilação oxidativa e queda na produção de ATP.</li>
+                <li>D) Acúmulo de radicais livres.</li>
+                <li>E) Síntese excessiva de proteínas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Consequência da Queda de ATP</div>
+            <div class="q-statement">A redução de ATP na célula isquêmica leva à falha da bomba de Na+/K+. Qual é a consequência morfológica imediata (lesão reversível) observada na célula?</div>
+            <ul class="options">
+                <li>A) Picnose nuclear.</li>
+                <li>B) Tumefação celular (edema hidrópico) devido ao influxo de sódio e água.</li>
+                <li>C) Retração celular.</li>
+                <li>D) Calcificação distrófica.</li>
+                <li>E) Apoptose.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Necrose vs. Apoptose</div>
+            <div class="q-statement">A necrose óssea difere da apoptose (morte celular programada) principalmente porque a necrose:</div>
+            <ul class="options">
+                <li>A) Mantém a integridade da membrana plasmática.</li>
+                <li>B) É um processo fisiológico de renovação tecidual.</li>
+                <li>C) Não gasta energia.</li>
+                <li>D) Resulta em extravasamento do conteúdo celular e inflamação local intensa.</li>
+                <li>E) Envolve a ativação ordenada de caspases.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Tipos de Células (Regeneração)</div>
+            <div class="q-statement">O tecido ósseo de Lucas precisará se regenerar. As células osteoprogenitoras e os osteoblastos, que estão em repouso (G0) mas podem entrar no ciclo celular após estímulo, são classificadas como células:</div>
+            <ul class="options">
+                <li>A) Lábeis.</li>
+                <li>B) Permanentes.</li>
+                <li>C) Estáveis (Quiescentes).</li>
+                <li>D) Senescentes.</li>
+                <li>E) Imortais.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Células Permanentes</div>
+            <div class="q-statement">Diferente do osso, se houvesse lesão extensa no músculo cardíaco ou em neurônios cerebrais, a regeneração seria impossível, resultando em cicatriz. Isso ocorre porque essas células são:</div>
+            <ul class="options">
+                <li>A) Lábeis.</li>
+                <li>B) Estáveis.</li>
+                <li>C) Permanentes (Pós-mitóticas).</li>
+                <li>D) Tronco.</li>
+                <li>E) Pluripotentes.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Coagulação (Via Extrínseca)</div>
+            <div class="q-statement">A fratura óssea rompeu vasos e expôs tecidos subendoteliais. A Via Extrínseca da coagulação é iniciada rapidamente pela exposição de qual fator ao sangue?</div>
+            <ul class="options">
+                <li>A) Fator XII (Hageman).</li>
+                <li>B) Fator VIII.</li>
+                <li>C) Fator Tecidual (Fator III).</li>
+                <li>D) Colágeno.</li>
+                <li>E) Fator X.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - Via Intrínseca</div>
+            <div class="q-statement">A Via Intrínseca (ou de contato) da coagulação é iniciada pela ativação do Fator:</div>
+            <ul class="options">
+                <li>A) VII.</li>
+                <li>B) X.</li>
+                <li>C) XII.</li>
+                <li>D) II (Protrombina).</li>
+                <li>E) V.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Via Comum</div>
+            <div class="q-statement">As vias Intrínseca e Extrínseca convergem na Via Comum, cujo evento inicial é a ativação do Fator:</div>
+            <ul class="options">
+                <li>A) X.</li>
+                <li>B) IX.</li>
+                <li>C) VII.</li>
+                <li>D) XIII.</li>
+                <li>E) XI.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Ação da Trombina</div>
+            <div class="q-statement">A Trombina (Fator IIa) é a enzima central da coagulação. Sua principal função na formação do coágulo final é:</div>
+            <ul class="options">
+                <li>A) Ativar o Fator XII.</li>
+                <li>B) Converter Fibrinogênio solúvel em Fibrina insolúvel.</li>
+                <li>C) Dissolver o coágulo (Fibrinólise).</li>
+                <li>D) Inibir a agregação plaquetária.</li>
+                <li>E) Ativar o Plasminogênio.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Mecanismo dos AINEs</div>
+            <div class="q-statement">Para a dor e inflamação de Lucas, podem ser prescritos AINEs (Anti-inflamatórios Não Esteroidais). O mecanismo de ação principal desses fármacos é:</div>
+            <ul class="options">
+                <li>A) Inibição da Fosfolipase A2.</li>
+                <li>B) Bloqueio dos receptores de opioides.</li>
+                <li>C) Inibição das enzimas Ciclo-oxigenases (COX-1 e COX-2).</li>
+                <li>D) Antagonismo dos receptores de Histamina.</li>
+                <li>E) Ativação da Lipoxigenase.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - COX-2</div>
+            <div class="q-statement">A COX-2 difere da COX-1 por ser uma enzima:</div>
+            <ul class="options">
+                <li>A) Constitutiva, presente em todos os tecidos para proteção gástrica.</li>
+                <li>B) Induzida em locais de inflamação por citocinas e responsável pela produção de prostaglandinas inflamatórias.</li>
+                <li>C) Responsável pela agregação plaquetária (via TXA2).</li>
+                <li>D) Inibida irreversivelmente pela Aspirina em plaquetas.</li>
+                <li>E) Exclusiva do sistema nervoso central.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Mecanismo dos Corticosteroides</div>
+            <div class="q-statement">Os corticosteroides são anti-inflamatórios mais potentes que os AINEs porque atuam numa etapa anterior da cascata do ácido araquidônico. Seu mecanismo principal envolve:</div>
+            <ul class="options">
+                <li>A) Inibição direta da COX-2.</li>
+                <li>B) Indução da lipocortina-1 (anexina-1), que inibe a Fosfolipase A2.</li>
+                <li>C) Bloqueio dos canais de sódio.</li>
+                <li>D) Aumento da síntese de leucotrienos.</li>
+                <li>E) Inibição da Trombina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - Efeitos Genômicos dos Corticoides</div>
+            <div class="q-statement">Além da inibição da Fosfolipase A2, os glicocorticoides exercem potente efeito anti-inflamatório ao translocar-se para o núcleo e:</div>
+            <ul class="options">
+                <li>A) Ativar a transcrição de citocinas inflamatórias (IL-1, TNF).</li>
+                <li>B) Inibir fatores de transcrição pró-inflamatórios como NF-kB e AP-1 (Transrepressão).</li>
+                <li>C) Aumentar a síntese de COX-2.</li>
+                <li>D) Promover a liberação de histamina.</li>
+                <li>E) Estimular a proliferação de linfócitos T.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Estresse Oxidativo</div>
+            <div class="q-statement">A lesão de reperfusão (quando o sangue volta ao tecido isquêmico) pode agravar o dano celular devido à produção massiva de Espécies Reativas de Oxigênio (ROS). Qual das opções abaixo é uma ROS?</div>
+            <ul class="options">
+                <li>A) Água (H2O).</li>
+                <li>B) Superóxido (O2•-).</li>
+                <li>C) Glicose.</li>
+                <li>D) ATP.</li>
+                <li>E) Oxigênio molecular (O2).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Apoptose (Via Intrínseca)</div>
+            <div class="q-statement">Se a lesão celular for moderada (não necrótica), a célula pode ativar a apoptose pela via mitocondrial (intrínseca). O evento chave dessa via é:</div>
+            <ul class="options">
+                <li>A) Ativação de receptores de morte (Fas/CD95).</li>
+                <li>B) Extravasamento de Citocromo C da mitocôndria para o citosol.</li>
+                <li>C) Ruptura da membrana plasmática.</li>
+                <li>D) Ativação da Caspase-8.</li>
+                <li>E) Influxo de sódio.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - Caspases</div>
+            <div class="q-statement">Tanto a via intrínseca quanto a extrínseca da apoptose convergem para a ativação de enzimas executoras que degradam a célula. Essas enzimas são chamadas de:</div>
+            <ul class="options">
+                <li>A) Fosfolipases.</li>
+                <li>B) Caspases.</li>
+                <li>C) Catalases.</li>
+                <li>D) Ciclo-oxigenases.</li>
+                <li>E) Polimerases.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Células Lábeis</div>
+            <div class="q-statement">Qual dos tecidos abaixo é composto por células lábeis, apresentando alta taxa de renovação e excelente capacidade de regeneração?</div>
+            <ul class="options">
+                <li>A) Músculo Cardíaco.</li>
+                <li>B) Epitélio intestinal e Hematopoiético.</li>
+                <li>C) Fígado (Hepatócitos).</li>
+                <li>D) Neurônios.</li>
+                <li>E) Osso.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - Metabolismo Anaeróbio</div>
+            <div class="q-statement">Na isquemia, a falta de O2 força a célula a realizar glicólise anaeróbia. O subproduto acumulado que reduz o pH intracelular e prejudica a função enzimática é:</div>
+            <ul class="options">
+                <li>A) Ácido Pirúvico.</li>
+                <li>B) Ácido Lático (Lactato).</li>
+                <li>C) Glicose.</li>
+                <li>D) Ácidos Graxos.</li>
+                <li>E) Ureia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - Reparo (Cicatriz)</div>
+            <div class="q-statement">Quando a regeneração não é possível (dano à matriz extracelular ou tecido permanente), ocorre o reparo por fibrose. A célula responsável pela produção de colágeno na cicatriz é o:</div>
+            <ul class="options">
+                <li>A) Macrófago.</li>
+                <li>B) Fibroblasto.</li>
+                <li>C) Neutrófilo.</li>
+                <li>D) Linfócito.</li>
+                <li>E) Adipócito.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - Fibrinólise</div>
+            <div class="q-statement">Após a cicatrização vascular, o coágulo deve ser removido. A enzima responsável por degradar a rede de fibrina (fibrinólise) é a:</div>
+            <ul class="options">
+                <li>A) Trombina.</li>
+                <li>B) Plasmina.</li>
+                <li>C) COX-2.</li>
+                <li>D) Colagenase.</li>
+                <li>E) Elastase.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - Radiação Ionizante</div>
+            <div class="q-statement">A radiação ionizante (como Raio X) causa lesão celular principalmente por:</div>
+            <ul class="options">
+                <li>A) Geração de calor intenso.</li>
+                <li>B) Radiólise da água e formação de radicais livres (OH•) que danificam o DNA.</li>
+                <li>C) Inibição da COX.</li>
+                <li>D) Bloqueio de canais de cálcio.</li>
+                <li>E) Indução de anergia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - Lesão Térmica (Calor)</div>
+            <div class="q-statement">Nas queimaduras graves, o mecanismo de morte celular predominante é a:</div>
+            <ul class="options">
+                <li>A) Apoptose lenta.</li>
+                <li>B) Necrose por coagulação devido à desnaturação de proteínas.</li>
+                <li>C) Atrofia celular.</li>
+                <li>D) Metaplasia.</li>
+                <li>E) Autofagia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - Alterações Nucleares na Necrose</div>
+            <div class="q-statement">A sequência correta de alterações nucleares que indicam morte celular irreversível (necrose) é:</div>
+            <ul class="options">
+                <li>A) Cariólise -> Picnose -> Cariorrexe.</li>
+                <li>B) Picnose (condensação) -> Cariorrexe (fragmentação) -> Cariólise (dissolução).</li>
+                <li>C) Cariorrexe -> Picnose -> Cariólise.</li>
+                <li>D) Inchaço -> Divisão -> Fusão.</li>
+                <li>E) Condensação -> Expansão -> Extrusão.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Matriz Extracelular (MEC)</div>
+            <div class="q-statement">Para que ocorra regeneração perfeita (e não cicatriz), além de células capazes de dividir, é fundamental a preservação de:</div>
+            <ul class="options">
+                <li>A) Nervos periféricos.</li>
+                <li>B) Integridade da Matriz Extracelular (membrana basal/arcabouço).</li>
+                <li>C) Apenas a epiderme.</li>
+                <li>D) Níveis altos de cortisol.</li>
+                <li>E) Tecido adiposo.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - Hemostasia Primária</div>
+            <div class="q-statement">A adesão das plaquetas ao local da lesão vascular depende da interação entre a Glicoproteína Ib (na plaqueta) e qual fator exposto no subendotélio?</div>
+            <ul class="options">
+                <li>A) Fator VIII.</li>
+                <li>B) Fibrinogênio.</li>
+                <li>C) Fator de von Willebrand (vWF).</li>
+                <li>D) Fator Tecidual.</li>
+                <li>E) Plasmina.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Início da Via Intrínseca</div>
+            <div class="q-statement">Diferente da Via Extrínseca (dano tecidual), a Via Intrínseca é iniciada por contato do sangue com superfícies carregadas negativamente (como colágeno), ativando o Fator:</div>
+            <ul class="options">
+                <li>A) VII.</li>
+                <li>B) XII (Hageman).</li>
+                <li>C) X.</li>
+                <li>D) XIII.</li>
+                <li>E) II.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Complexo Protrombinase</div>
+            <div class="q-statement">O complexo enzimático responsável por converter Protrombina em Trombina é formado por Fator Xa, Cálcio, Fosfolipídios e qual cofator?</div>
+            <ul class="options">
+                <li>A) Fator VIIIa.</li>
+                <li>B) Fator Va.</li>
+                <li>C) Fator VIIa.</li>
+                <li>D) Fator XIIIa.</li>
+                <li>E) Fator XIIa.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - Efeito Colateral de Corticoides</div>
+            <div class="q-statement">Embora potentes anti-inflamatórios, o uso crônico de corticosteroides pode prejudicar a cicatrização porque:</div>
+            <ul class="options">
+                <li>A) Estimulam excessivamente os fibroblastos.</li>
+                <li>B) Inibem a síntese de colágeno e a angiogênese.</li>
+                <li>C) Aumentam a proliferação de células T.</li>
+                <li>D) Ativam a COX-1.</li>
+                <li>E) Causam hipertrofia muscular.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - Lesão Irreversível</div>
+            <div class="q-statement">O "ponto de não retorno" na lesão celular isquêmica, que marca a transição de reversível para irreversível (morte), está associado principalmente a:</div>
+            <ul class="options">
+                <li>A) Perda das microvilosidades.</li>
+                <li>B) Dispersão de ribossomos.</li>
+                <li>C) Dano grave à membrana (plasmática/lisossômica) e disfunção mitocondrial permanente.</li>
+                <li>D) Acúmulo de lipídios.</li>
+                <li>E) Formação de bolhas na superfície.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Radiação Não Ionizante (UV)</div>
+            <div class="q-statement">A radiação ultravioleta (UVB) causa dano ao DNA de uma forma específica, que se não reparada pode levar ao câncer. Esse dano é a formação de:</div>
+            <ul class="options">
+                <li>A) Quebras de dupla fita.</li>
+                <li>B) Dímeros de pirimidina (Timina).</li>
+                <li>C) Oxidação de bases.</li>
+                <li>D) Desaminação de citosina.</li>
+                <li>E) Alquilação do DNA.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado para Prova</h2>
+        
+        <h3>1. Lesão Celular: Isquemia e Necrose</h3>
+        <p>A falta de sangue (Isquemia) causa falta de O2 (Hipóxia) -> Falha na Fosforilação Oxidativa -> Queda de ATP.</p>
+        <p><strong>Consequências da Queda de ATP:</strong></p>
+        <ul>
+            <li>Falha da bomba Na+/K+ -> Influxo de Na+ e H2O -> <strong>Edema Celular (Reversível)</strong>.</li>
+            <li>Glicólise Anaeróbia -> Ácido Lático -> Queda do pH -> Dano enzimático.</li>
+            <li>Se persistir: Dano de Membrana + Dano Mitocondrial -> <strong>Necrose (Irreversível)</strong>.</li>
+        </ul>
+        
+        <h3>2. Necrose vs Apoptose</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Necrose</th>
+                    <th>Apoptose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Causa</td>
+                    <td>Patológica (Dano grave)</td>
+                    <td>Fisiológica ou Patológica (Dano DNA)</td>
+                </tr>
+                <tr>
+                    <td>Morfologia</td>
+                    <td>Inchaço, Lise, Picnose->Cariorrexe->Cariólise</td>
+                    <td>Retração, Corpos Apoptóticos</td>
+                </tr>
+                <tr>
+                    <td>Inflamação</td>
+                    <td><strong>SIM</strong> (vazamento de conteúdo)</td>
+                    <td><strong>NÃO</strong> (fagocitose limpa)</td>
+                </tr>
+                <tr>
+                    <td>Mecanismo</td>
+                    <td>Falência de ATP</td>
+                    <td>Ativação de Caspases</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3. Coagulação</h3>
+        <ul>
+            <li><strong>Via Extrínseca:</strong> Dano tecidual -> <strong>Fator Tecidual (III) + VII</strong>. Rápida.</li>
+            <li><strong>Via Intrínseca:</strong> Contato superfície (colágeno) -> <strong>XII -> XI -> IX + VIII</strong>. Amplificação.</li>
+            <li><strong>Via Comum:</strong> Xa + Va -> Protrombina em <strong>Trombina</strong> -> Fibrinogênio em <strong>Fibrina</strong>.</li>
+        </ul>
+
+        <h3>4. Farmacologia</h3>
+        <ul>
+            <li><strong>AINEs:</strong> Inibem COX (reduzem Prostaglandinas). COX-1 (constitutiva), COX-2 (inflamatória).</li>
+            <li><strong>Corticoides:</strong> Genômicos. Induzem Anexina-1 -> Inibem <strong>Fosfolipase A2</strong> (bloqueiam AA, PGs e Leucotrienos). Inibem NF-kB. Mais potentes.</li>
+        </ul>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div class="g-item">01 - C</div>
+            <div class="g-item">02 - B</div>
+            <div class="g-item">03 - D</div>
+            <div class="g-item">04 - C</div>
+            <div class="g-item">05 - C</div>
+            <div class="g-item">06 - C</div>
+            <div class="g-item">07 - C</div>
+            <div class="g-item">08 - A</div>
+            <div class="g-item">09 - B</div>
+            <div class="g-item">10 - C</div>
+            <div class="g-item">11 - B</div>
+            <div class="g-item">12 - B</div>
+            <div class="g-item">13 - B</div>
+            <div class="g-item">14 - B</div>
+            <div class="g-item">15 - B</div>
+            <div class="g-item">16 - B</div>
+            <div class="g-item">17 - B</div>
+            <div class="g-item">18 - B</div>
+            <div class="g-item">19 - B</div>
+            <div class="g-item">20 - B</div>
+            <div class="g-item">21 - B</div>
+            <div class="g-item">22 - B</div>
+            <div class="g-item">23 - B</div>
+            <div class="g-item">24 - B</div>
+            <div class="g-item">25 - C</div>
+            <div class="g-item">26 - B</div>
+            <div class="g-item">27 - B</div>
+            <div class="g-item">28 - B</div>
+            <div class="g-item">29 - C</div>
+            <div class="g-item">30 - B</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>

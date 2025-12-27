@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise e Simulado - TUT Problema 5</title>
+    <style>
+        :root {
+            --primary-color: #c0392b; /* Vermelho sangue/ferida */
+            --secondary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-light: #f9ebea;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border-top: 8px solid var(--primary-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--secondary-color);
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px dashed var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            font-size: 2.4em;
+        }
+
+        h2 {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+
+        .risk-card {
+            border: 2px solid #eee;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .risk-card:hover {
+            transform: scale(1.01);
+        }
+
+        .high-risk { border-left: 8px solid #c0392b; }
+        .med-risk { border-left: 8px solid var(--warning-color); }
+        .low-risk { border-left: 8px solid var(--success-color); }
+
+        .risk-title {
+            font-weight: 800;
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+
+        .q-header {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1em;
+            text-transform: uppercase;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .q-statement {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .options li {
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            background-color: #f8f9fa;
+        }
+
+        .options li:hover {
+            border-color: var(--primary-color);
+            background-color: #f2d7d5;
+        }
+
+        .summary-box {
+            background-color: #fff5f5;
+            border: 2px solid #e74c3c;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 50px 0;
+        }
+
+        .concept-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.95em;
+            background: white;
+        }
+
+        .concept-table th, .concept-table td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .concept-table th {
+            background-color: #7f8c8d;
+            color: white;
+        }
+
+        .gabarito-section {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .gabarito-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .g-item {
+            background: #34495e;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            border: 1px solid #5d6d7e;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Análise Estratégica: Problema 5 (Marina Torres)</h1>
+    <p><strong>Cenário Clínico:</strong> Mulher de 46 anos, diabética, com ferida infectada na perna (necrose, secreção purulenta, MRSA), necessitando de desbridamento e cicatrização por segunda intenção.</p>
+    <p><strong>Foco Teórico:</strong> Reparo Tecidual (Regeneração vs Cicatrização), Fases da Cicatrização, Tipos de Intenção e Agentes Físicos de Lesão.</p>
+
+    <!-- ETAPA 1: ANÁLISE DE CONTEÚDO -->
+    <section class="analise-section">
+        <h2>📊 Etapa 1: Análise de Relevância e Risco</h2>
+        
+        <div class="risk-card high-risk">
+            <span class="risk-title">🔥 Alto Risco (Obrigatório Dominar)</span>
+            <ul>
+                <li><strong>Tipos de Cicatrização:</strong> Diferença crucial entre <strong>1ª Intenção</strong> (bordas unidas, pouca cicatriz), <strong>2ª Intenção</strong> (aberta, contração por miofibroblastos, granulação abundante) e <strong>3ª Intenção</strong> (fechamento tardio após limpeza).</li>
+                <li><strong>Tecido de Granulação:</strong> Composição (angiogênese + fibroblastos + MEC frouxa). Função de preenchimento.</li>
+                <li><strong>Fases da Cicatrização:</strong> Inflamatória (neutrófilos/macrófagos), Proliferativa (angiogênese/epitelização/fibroplasia) e Remodelação (Colágeno III -> I, MMPs).</li>
+                <li><strong>Patologia da Cicatriz:</strong> Queloide (ultrapassa bordas, não regride) vs Cicatriz Hipertrófica (respeita bordas, pode regredir).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card med-risk">
+            <span class="risk-title">⚠️ Médio Risco (Importante)</span>
+            <ul>
+                <li><strong>Regeneração vs Reparo:</strong> Dependência da integridade da membrana basal/matriz e do tipo celular (Lábil/Estável/Permanente).</li>
+                <li><strong>Oxidativo:</strong> Mecanismos de lesão por ROS (peroxidação lipídica, dano ao DNA) e defesas (SOD, Catalase, Glutationa).</li>
+                <li><strong>Macrófagos M1 vs M2:</strong> Transição de inflamação (M1) para reparo/fibrose (M2, via TGF-β).</li>
+                <li><strong>Lesões Físicas:</strong> Mecanismos de Geladura (cristalização + reperfusão) e Queimaduras (necrose coagulativa).</li>
+            </ul>
+        </div>
+
+        <div class="risk-card low-risk">
+            <span class="risk-title">❄️ Baixo Risco (Leitura Complementar)</span>
+            <ul>
+                <li>Detalhes cirúrgicos técnicos do desbridamento (foco é no "porquê" biológico).</li>
+                <li>Valores de referência específicos de sinais vitais (foco é na interpretação: febre/infecção).</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ETAPA 2: QUESTÕES -->
+    <section>
+        <h2>📝 Etapa 2: Banco de Questões (Simulado)</h2>
+        <p><em>Responda focado nos mecanismos de reparo e cicatrização.</em></p>
+
+        <!-- Questão 1 -->
+        <div class="question-card">
+            <div class="q-header">Questão 1 - 2ª Intenção</div>
+            <div class="q-statement">A ferida de Marina, após o desbridamento, foi deixada aberta para cicatrizar por "segunda intenção". Qual é a principal característica biológica que diferencia a cicatrização por segunda intenção da primeira intenção?</div>
+            <ul class="options">
+                <li>A) Ausência completa de inflamação.</li>
+                <li>B) Regeneração total do epitélio sem formação de cicatriz.</li>
+                <li>C) Necessidade de grande volume de tecido de granulação e contração da ferida por miofibroblastos.</li>
+                <li>D) Fechamento imediato por sutura cirúrgica.</li>
+                <li>E) Predomínio de colágeno tipo I desde o primeiro dia.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 2 -->
+        <div class="question-card">
+            <div class="q-header">Questão 2 - Tecido de Granulação</div>
+            <div class="q-statement">O tecido de granulação é a marca registrada da fase proliferativa. Histologicamente, ele é composto fundamentalmente por:</div>
+            <ul class="options">
+                <li>A) Aglomerados de neutrófilos mortos (pus).</li>
+                <li>B) Células gigantes multinucleadas e necrose caseosa.</li>
+                <li>C) Vasos neoformados (angiogênese), fibroblastos proliferativos e matriz extracelular frouxa.</li>
+                <li>D) Colágeno denso acelular e avascular.</li>
+                <li>E) Epitélio estratificado queratinizado.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 3 -->
+        <div class="question-card">
+            <div class="q-header">Questão 3 - Contração da Ferida</div>
+            <div class="q-statement">Na cicatrização de feridas extensas (como a de Marina), a redução do tamanho da ferida ocorre graças à contração das bordas. Qual célula é responsável por essa força contrátil?</div>
+            <ul class="options">
+                <li>A) Macrófago M1.</li>
+                <li>B) Miofibroblasto.</li>
+                <li>C) Célula endotelial.</li>
+                <li>D) Queratinócito.</li>
+                <li>E) Mastócito.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 4 -->
+        <div class="question-card">
+            <div class="q-header">Questão 4 - Fase de Remodelação</div>
+            <div class="q-statement">A cicatriz final é mais forte que o tecido de granulação, mas menos elástica que a pele original. Durante a fase de remodelação, o ganho de força tênsil se deve principalmente à:</div>
+            <ul class="options">
+                <li>A) Substituição do Colágeno Tipo III pelo Colágeno Tipo I e formação de ligações cruzadas.</li>
+                <li>B) Aumento da vascularização local.</li>
+                <li>C) Proliferação de adipócitos.</li>
+                <li>D) Deposição de fibrina.</li>
+                <li>E) Infiltração de linfócitos T.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 5 -->
+        <div class="question-card">
+            <div class="q-header">Questão 5 - Queloide vs Hipertrófica</div>
+            <div class="q-statement">Se a paciente desenvolver uma cicatriz que cresce excessivamente, ultrapassando as margens originais da ferida e que não regride espontaneamente, o diagnóstico é:</div>
+            <ul class="options">
+                <li>A) Cicatriz Hipertrófica.</li>
+                <li>B) Queloide.</li>
+                <li>C) Granuloma de Corpo Estranho.</li>
+                <li>D) Deiscência.</li>
+                <li>E) Úlcera de Marjolin.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 6 -->
+        <div class="question-card">
+            <div class="q-header">Questão 6 - Papel do Macrófago M2</div>
+            <div class="q-statement">Na transição da inflamação para o reparo, os macrófagos mudam do perfil M1 (destruidor) para M2 (reparador). O macrófago M2 secreta qual fator de crescimento chave para estimular a fibrose e a síntese de colágeno?</div>
+            <ul class="options">
+                <li>A) IFN-γ.</li>
+                <li>B) IL-1.</li>
+                <li>C) TGF-β (Fator de Crescimento Transformador Beta).</li>
+                <li>D) Histamina.</li>
+                <li>E) Óxido Nítrico.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 7 -->
+        <div class="question-card">
+            <div class="q-header">Questão 7 - 3ª Intenção</div>
+            <div class="q-statement">A cicatrização por terceira intenção (ou fechamento primário tardio) é indicada quando:</div>
+            <ul class="options">
+                <li>A) A ferida é limpa e cirúrgica, fechada imediatamente.</li>
+                <li>B) A ferida está contaminada/infectada, sendo deixada aberta para limpeza e fechada cirurgicamente após alguns dias.</li>
+                <li>C) Há perda total de tecido e não é possível fechar nunca.</li>
+                <li>D) Ocorre apenas em queimaduras de 1º grau.</li>
+                <li>E) A ferida cicatriza espontaneamente sem intervenção médica.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 8 -->
+        <div class="question-card">
+            <div class="q-header">Questão 8 - Angiogênese</div>
+            <div class="q-statement">Para nutrir o tecido de reparo, novos vasos sanguíneos são formados a partir de vasos preexistentes. O principal fator de crescimento que estimula a proliferação e migração endotelial é:</div>
+            <ul class="options">
+                <li>A) VEGF (Fator de Crescimento Endotelial Vascular).</li>
+                <li>B) TNF-α.</li>
+                <li>C) Colagenase.</li>
+                <li>D) Interleucina-10.</li>
+                <li>E) Fibrinogênio.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 9 -->
+        <div class="question-card">
+            <div class="q-header">Questão 9 - Regeneração</div>
+            <div class="q-statement">A regeneração completa (restitutio ad integrum) só é possível se:</div>
+            <ul class="options">
+                <li>A) O tecido for composto por células permanentes (como neurônios).</li>
+                <li>B) Houver destruição total da membrana basal.</li>
+                <li>C) O tecido tiver células lábeis ou estáveis e a arquitetura da matriz extracelular (estroma) estiver preservada.</li>
+                <li>D) Houver infecção persistente.</li>
+                <li>E) A ferida for fechada por segunda intenção.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 10 -->
+        <div class="question-card">
+            <div class="q-header">Questão 10 - Diabetes e Cicatrização</div>
+            <div class="q-statement">Marina é diabética. A hiperglicemia e a doença vascular associada ao diabetes prejudicam a cicatrização principalmente por:</div>
+            <ul class="options">
+                <li>A) Aumentar excessivamente a produção de colágeno.</li>
+                <li>B) Reduzir a inflamação a zero.</li>
+                <li>C) Causar isquemia (microangiopatia), reduzir a quimiotaxia de neutrófilos e prolongar a fase inflamatória.</li>
+                <li>D) Aumentar a angiogênese.</li>
+                <li>E) Acelerar a epitelização.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 11 -->
+        <div class="question-card">
+            <div class="q-header">Questão 11 - Metaloproteinases (MMPs)</div>
+            <div class="q-statement">Durante a remodelação, o excesso de colágeno e matriz deve ser degradado para esculpir a cicatriz. As enzimas responsáveis por essa degradação, dependentes de Zinco, são:</div>
+            <ul class="options">
+                <li>A) Caspases.</li>
+                <li>B) Lipases.</li>
+                <li>C) MMPs (Metaloproteinases da Matriz).</li>
+                <li>D) Peroxidases.</li>
+                <li>E) Fosfolipases.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 12 -->
+        <div class="question-card">
+            <div class="q-header">Questão 12 - Estresse Oxidativo</div>
+            <div class="q-statement">Na inflamação, neutrófilos produzem EROs (Espécies Reativas de Oxigênio) para matar bactérias. A enzima responsável pelo "Burst Respiratório" que gera o ânion superóxido é:</div>
+            <ul class="options">
+                <li>A) Superóxido Dismutase (SOD).</li>
+                <li>B) NADPH Oxidase (Fagócito oxidase).</li>
+                <li>C) Catalase.</li>
+                <li>D) Glutationa Peroxidase.</li>
+                <li>E) Óxido Nítrico Sintase.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 13 -->
+        <div class="question-card">
+            <div class="q-header">Questão 13 - Defesa Antioxidante</div>
+            <div class="q-statement">Para se proteger dos danos causados pelos radicais livres, a célula possui enzimas antioxidantes. Qual enzima converte o peróxido de hidrogênio (H2O2) em água e oxigênio?</div>
+            <ul class="options">
+                <li>A) NADPH oxidase.</li>
+                <li>B) Catalase (nos peroxissomos).</li>
+                <li>C) Mieloperoxidase.</li>
+                <li>D) Lipoxigenase.</li>
+                <li>E) Fosfatase.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 14 -->
+        <div class="question-card">
+            <div class="q-header">Questão 14 - Lesão por Frio (Geladura)</div>
+            <div class="q-statement">Na lesão por frio extremo (geladura), o dano tecidual é agravado durante o reaquecimento. Isso ocorre devido a:</div>
+            <ul class="options">
+                <li>A) Cristalização intracelular imediata.</li>
+                <li>B) Vasodilatação extrema que resfria o sangue.</li>
+                <li>C) Lesão de reperfusão, com geração massiva de radicais livres e inflamação ao retornar o fluxo sanguíneo.</li>
+                <li>D) Inibição da cascata de coagulação.</li>
+                <li>E) Apoptose maciça de queratinócitos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 15 -->
+        <div class="question-card">
+            <div class="q-header">Questão 15 - Queimaduras</div>
+            <div class="q-statement">As queimaduras graves causam morte celular imediata por desnaturação de proteínas. O tipo de necrose característico observada nesses casos é:</div>
+            <ul class="options">
+                <li>A) Necrose de Liquefação.</li>
+                <li>B) Necrose de Coagulação.</li>
+                <li>C) Necrose Caseosa.</li>
+                <li>D) Necrose Gordurosa.</li>
+                <li>E) Apoptose.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 16 -->
+        <div class="question-card">
+            <div class="q-header">Questão 16 - Debridamento</div>
+            <div class="q-statement">O debridamento cirúrgico remove tecido necrótico. Por que a presença de tecido necrótico impede a cicatrização?</div>
+            <ul class="options">
+                <li>A) Porque o tecido necrótico produz fatores de crescimento em excesso.</li>
+                <li>B) Porque funciona como meio de cultura para bactérias e mantém a inflamação ativa (fase inflamatória persistente), impedindo o reparo.</li>
+                <li>C) Porque o tecido morto se transforma em osso.</li>
+                <li>D) Porque inibe a produção de colágeno.</li>
+                <li>E) Porque causa apoptose dos fibroblastos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 17 -->
+        <div class="question-card">
+            <div class="q-header">Questão 17 - Células Estáveis</div>
+            <div class="q-statement">Os fibroblastos e células endoteliais, essenciais no reparo, são classificados como células ESTÁVEIS. Isso significa que:</div>
+            <ul class="options">
+                <li>A) Estão sempre se dividindo.</li>
+                <li>B) Nunca se dividem após o nascimento.</li>
+                <li>C) Estão em repouso (G0), mas entram no ciclo celular se estimuladas por fatores de crescimento.</li>
+                <li>D) São células-tronco totipotentes.</li>
+                <li>E) Morrem logo após a divisão.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 18 -->
+        <div class="question-card">
+            <div class="q-header">Questão 18 - Cicatriz Hipertrófica</div>
+            <div class="q-statement">Diferente do queloide, a cicatriz hipertrófica:</div>
+            <ul class="options">
+                <li>A) Cresce indefinidamente.</li>
+                <li>B) Invade a pele normal ao redor.</li>
+                <li>C) Respeita os limites da ferida original e tende a regredir com o tempo.</li>
+                <li>D) É pobre em colágeno.</li>
+                <li>E) Não tem relação com tensão na ferida.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 19 -->
+        <div class="question-card">
+            <div class="q-header">Questão 19 - Vitamina C</div>
+            <div class="q-statement">A deficiência de Vitamina C (Escorbuto) prejudica gravemente a cicatrização porque a vitamina é cofator essencial para:</div>
+            <ul class="options">
+                <li>A) A proliferação de neutrófilos.</li>
+                <li>B) A hidroxilação da prolina e lisina na síntese do colágeno (estabilidade da hélice).</li>
+                <li>C) A produção de VEGF.</li>
+                <li>D) A fagocitose por macrófagos.</li>
+                <li>E) A contração da ferida.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 20 -->
+        <div class="question-card">
+            <div class="q-header">Questão 20 - Choque Elétrico</div>
+            <div class="q-statement">A lesão por corrente elétrica causa dano tecidual principalmente por:</div>
+            <ul class="options">
+                <li>A) Congelamento dos tecidos.</li>
+                <li>B) Efeito Joule (geração de calor interno profundo) e despolarização de membranas excitáveis (arritmias).</li>
+                <li>C) Radiação ionizante.</li>
+                <li>D) Formação de granulomas.</li>
+                <li>E) Inibição da mitose.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 21 -->
+        <div class="question-card">
+            <div class="q-header">Questão 21 - Secreção Purulenta</div>
+            <div class="q-statement">A secreção purulenta na ferida de Marina indica uma inflamação supurativa. O principal componente celular do pus é:</div>
+            <ul class="options">
+                <li>A) Linfócito.</li>
+                <li>B) Eosinófilo.</li>
+                <li>C) Neutrófilo (vivo e morto) e detritos necróticos.</li>
+                <li>D) Fibroblasto.</li>
+                <li>E) Célula Gigante.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 22 -->
+        <div class="question-card">
+            <div class="q-header">Questão 22 - Hematoma</div>
+            <div class="q-statement">O hematoma (coleção de sangue) no local da lesão pode atrapalhar a cicatrização porque:</div>
+            <ul class="options">
+                <li>A) O sangue é estéril e acelera a cura.</li>
+                <li>B) Serve como meio de cultura para bactérias e barreira física à união dos tecidos.</li>
+                <li>C) Contém fatores de crescimento em excesso.</li>
+                <li>D) Impede a inflamação.</li>
+                <li>E) Aumenta a oxigenação local.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 23 -->
+        <div class="question-card">
+            <div class="q-header">Questão 23 - Dano ao DNA por ROS</div>
+            <div class="q-statement">O estresse oxidativo pode causar danos permanentes ao genoma. A lesão mais comum causada por radicais livres no DNA é:</div>
+            <ul class="options">
+                <li>A) Dímeros de pirimidina.</li>
+                <li>B) Quebras de fita simples.</li>
+                <li>C) Metilação excessiva.</li>
+                <li>D) Expansão de tripletos.</li>
+                <li>E) Translocação cromossômica.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 24 -->
+        <div class="question-card">
+            <div class="q-header">Questão 24 - Papel da Fibrina</div>
+            <div class="q-statement">No início do reparo, o coágulo de fibrina tem a função de:</div>
+            <ul class="options">
+                <li>A) Impedir a migração de células.</li>
+                <li>B) Formar a cicatriz final.</li>
+                <li>C) Servir de matriz provisória (arcabouço) para a migração de células inflamatórias e fibroblastos.</li>
+                <li>D) Causar necrose.</li>
+                <li>E) Degradar o colágeno.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 25 -->
+        <div class="question-card">
+            <div class="q-header">Questão 25 - Corticoides e Reparo</div>
+            <div class="q-statement">Pacientes em uso crônico de corticoides têm cicatrização deficiente. O mecanismo é:</div>
+            <ul class="options">
+                <li>A) Estimulação da síntese de colágeno.</li>
+                <li>B) Inibição da produção de TGF-β e da fibrose, resultando em cicatriz fraca.</li>
+                <li>C) Aumento da angiogênese.</li>
+                <li>D) Ativação de macrófagos M1.</li>
+                <li>E) Proliferação de queratinócitos.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 26 -->
+        <div class="question-card">
+            <div class="q-header">Questão 26 - Biofilme</div>
+            <div class="q-statement">Em feridas crônicas infectadas (como a de Marina, com MRSA), as bactérias podem formar um biofilme. O biofilme dificulta a cicatrização por:</div>
+            <ul class="options">
+                <li>A) Acelerar a epitelização.</li>
+                <li>B) Proteger as bactérias da ação de antibióticos e do sistema imune, mantendo a inflamação crônica.</li>
+                <li>C) Produzir colágeno tipo I.</li>
+                <li>D) Reduzir o exsudato.</li>
+                <li>E) Inibir a produção de toxinas.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 27 -->
+        <div class="question-card">
+            <div class="q-header">Questão 27 - Epitelização</div>
+            <div class="q-statement">A reepitelização (cobertura da ferida por epiderme) ocorre por:</div>
+            <ul class="options">
+                <li>A) Deposição de fibrina na superfície.</li>
+                <li>B) Migração e proliferação de queratinócitos das bordas da ferida sobre o tecido de granulação.</li>
+                <li>C) Transformação de fibroblastos em células epiteliais.</li>
+                <li>D) Secreção de queratina pelos macrófagos.</li>
+                <li>E) Contração muscular.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 28 -->
+        <div class="question-card">
+            <div class="q-header">Questão 28 - Peroxidação Lipídica</div>
+            <div class="q-statement">O ataque de radicais livres às membranas celulares é chamado de peroxidação lipídica. Este processo é autopropagado e resulta em:</div>
+            <ul class="options">
+                <li>A) Fortalecimento da membrana.</li>
+                <li>B) Perda da fluidez, ruptura da membrana e lise celular.</li>
+                <li>C) Aumento da síntese de ATP.</li>
+                <li>D) Ativação de receptores de membrana.</li>
+                <li>E) Formação de canais de íons.</li>
+            </ul>
+        </div>
+
+        <!-- Questão 29 -->
+        <div class="question-card">
+            <div class="q-header">Questão 29 - Força Tênsil</div>
+            <div class="q-statement">Ao final de 3 meses, uma cicatriz cutânea recupera aproximadamente quanto da força original da pele?</div>
+            <ul class="options">
+                <li>A) 100%.</li>
+                <li>B) 10%.</li>
+                <li>C) 70-80%.</li>
+                <li>D) 50%.</li>
+                <li>E) 120% (mais forte que antes).</li>
+            </ul>
+        </div>
+
+        <!-- Questão 30 -->
+        <div class="question-card">
+            <div class="q-header">Questão 30 - Radiação UV</div>
+            <div class="q-statement">A radiação não ionizante UV causa dano ao DNA através da formação de dímeros de pirimidina. Se o sistema de reparo falhar, o risco principal é:</div>
+            <ul class="options">
+                <li>A) Necrose aguda.</li>
+                <li>B) Câncer de pele (carcinogênese).</li>
+                <li>C) Fibrose pulmonar.</li>
+                <li>D) Choque elétrico.</li>
+                <li>E) Calcificação.</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- ETAPA 3: RESUMO FINAL -->
+    <section class="summary-box">
+        <h2>📑 Resumo Blindado para Prova</h2>
+        
+        <h3>1. Tipos de Cicatrização</h3>
+        <table class="concept-table">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Características</th>
+                    <th>Exemplo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1ª Intenção</strong></td>
+                    <td>Bordas unidas, limpa, pouca granulação, cicatriz fina.</td>
+                    <td>Incisão cirúrgica suturada.</td>
+                </tr>
+                <tr>
+                    <td><strong>2ª Intenção</strong></td>
+                    <td>Bordas afastadas, perda tecidual, muita granulação, <strong>contração (miofibroblastos)</strong>.</td>
+                    <td>Úlcera, laceração extensa (Caso Marina).</td>
+                </tr>
+                <tr>
+                    <td><strong>3ª Intenção</strong></td>
+                    <td>Fechamento tardio (após controle de infecção).</td>
+                    <td>Ferida suja drenada e suturada dias depois.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2. Fases do Reparo</h3>
+        <ul>
+            <li><strong>Inflamatória:</strong> Hemostasia + Neutrófilos (limpeza) -> Macrófagos (coordenação).</li>
+            <li><strong>Proliferativa:</strong> Angiogênese (VEGF) + Tecido de Granulação (Fibroblastos/Colágeno III) + Epitelização.</li>
+            <li><strong>Remodelação:</strong> Troca de Colágeno III por I (mais forte), ação de MMPs, redução vascular.</li>
+        </ul>
+
+        <h3>3. Cicatriz Patológica</h3>
+        <ul>
+            <li><strong>Hipertrófica:</strong> Respeita bordas, pode regredir, miofibroblastos +, colágeno paralelo.</li>
+            <li><strong>Queloide:</strong> Invade pele sã (tumor-like), não regride, colágeno desorganizado, genética.</li>
+        </ul>
+
+        <h3>4. Estresse Oxidativo</h3>
+        <p>Desbalanço entre <strong>ROS</strong> (Superóxido, H2O2, OH• - gerados na mitocôndria/fagocitose) e <strong>Antioxidantes</strong> (SOD, Catalase, Glutationa).</p>
+    </section>
+
+    <!-- ETAPA 4: GABARITO -->
+    <section class="gabarito-section">
+        <h2>✅ Gabarito Oficial</h2>
+        <div class="gabarito-grid">
+            <div class="g-item">01 - C</div>
+            <div class="g-item">02 - C</div>
+            <div class="g-item">03 - B</div>
+            <div class="g-item">04 - A</div>
+            <div class="g-item">05 - B</div>
+            <div class="g-item">06 - C</div>
+            <div class="g-item">07 - B</div>
+            <div class="g-item">08 - A</div>
+            <div class="g-item">09 - C</div>
+            <div class="g-item">10 - C</div>
+            <div class="g-item">11 - C</div>
+            <div class="g-item">12 - B</div>
+            <div class="g-item">13 - B</div>
+            <div class="g-item">14 - C</div>
+            <div class="g-item">15 - B</div>
+            <div class="g-item">16 - B</div>
+            <div class="g-item">17 - C</div>
+            <div class="g-item">18 - C</div>
+            <div class="g-item">19 - B</div>
+            <div class="g-item">20 - B</div>
+            <div class="g-item">21 - C</div>
+            <div class="g-item">22 - B</div>
+            <div class="g-item">23 - B</div>
+            <div class="g-item">24 - C</div>
+            <div class="g-item">25 - B</div>
+            <div class="g-item">26 - B</div>
+            <div class="g-item">27 - B</div>
+            <div class="g-item">28 - B</div>
+            <div class="g-item">29 - C</div>
+            <div class="g-item">30 - B</div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
