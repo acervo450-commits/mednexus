@@ -128,12 +128,10 @@
             <!-- Logo & Nav -->
             <div class="flex items-center gap-4">
                 <div id="header-logo-area" class="flex items-center gap-2 cursor-pointer" onclick="resetToDashboard()">
-                    <div class="w-8 h-8 bg-gradient-to-br from-sky-500 to-blue-700 rounded-lg flex items-center justify-center shadow-lg shadow-sky-500/20">
-                        <i data-lucide="activity" class="text-white w-5 h-5"></i>
-                    </div>
-                    <span class="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent tracking-tight hidden sm:block">
-                        MEDNEXUS
-                    </span>
+                    <!-- NOVA LOGO -->
+                    <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/mednexus.png" 
+                         alt="MEDNEXUS" 
+                         class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
                 </div>
                 
                 <div class="h-6 w-px bg-slate-800 mx-2 hidden sm:block"></div>
@@ -925,7 +923,29 @@
         function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
         function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
 
-        function downloadPDF() {
+        // --- PDF GENERATION WITH LOGO ---
+        // Helper to fetch image and convert to Data URL
+        function getImageDataUrl(url) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = "Anonymous"; // Try to handle CORS
+                img.src = url;
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+                    resolve(canvas.toDataURL("image/png"));
+                };
+                img.onerror = (e) => {
+                    console.warn("Could not load image for PDF", e);
+                    resolve(null); // Fallback if image fails
+                };
+            });
+        }
+
+        async function downloadPDF() {
             if (!window.jspdf) {
                 alert("Erro: Biblioteca PDF ainda carregando. Tente novamente em alguns segundos.");
                 return;
@@ -938,9 +958,12 @@
             const pageHeight = doc.internal.pageSize.getHeight();
             const margin = 20;
             let y = 30; // Posição vertical inicial
-            const lineHeight = 7;
+            
+            // 1. Fetch Logo
+            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/mednexus.png";
+            const logoData = await getImageDataUrl(logoUrl);
 
-            // Função para adicionar Marca D'água e Cabeçalho em cada página
+            // Função para adicionar Marca D'água, Logo e Cabeçalho em cada página
             function addPageDecorations() {
                 // Marca D'água
                 doc.saveGraphicsState();
@@ -952,18 +975,35 @@
                 doc.restoreGraphicsState();
 
                 // Cabeçalho
+                if (logoData) {
+                    // Add Image Logo
+                    const imgWidth = 30; // mm
+                    const imgHeight = 10; // approximate aspect ratio
+                    doc.addImage(logoData, 'PNG', margin, 10, imgWidth, imgHeight);
+                } else {
+                    // Fallback Text if image fails
+                    doc.setFontSize(14);
+                    doc.setTextColor(0, 102, 204);
+                    doc.setFont("helvetica", "bold");
+                    doc.text("MEDNEXUS", margin, 18);
+                }
+
                 doc.setFontSize(10);
                 doc.setTextColor(100);
                 doc.setFont("helvetica", "normal");
-                doc.text("MEDNEXUS - Banco de Questões Personalizado", margin, 15);
+                const headerText = "Banco de Questões Personalizado";
+                const textWidth = doc.getTextWidth(headerText);
+                doc.text(headerText, pageWidth - margin - textWidth, 18);
+                
                 doc.setDrawColor(200);
-                doc.line(margin, 18, pageWidth - margin, 18);
+                doc.line(margin, 22, pageWidth - margin, 22);
             }
 
             // Inicia o documento
             addPageDecorations();
             
-            // Título
+            // Título do Caderno
+            y = 35;
             doc.setFontSize(18);
             doc.setTextColor(0); // Preto
             doc.setFont("helvetica", "bold");
@@ -975,7 +1015,7 @@
                 if (y > pageHeight - 50) {
                     doc.addPage();
                     addPageDecorations();
-                    y = 30;
+                    y = 35;
                 }
 
                 // Número e Disciplina da Questão
@@ -999,7 +1039,7 @@
                     if (y > pageHeight - 20) {
                         doc.addPage();
                         addPageDecorations();
-                        y = 30;
+                        y = 35;
                     }
 
                     const letter = String.fromCharCode(65 + idx);
@@ -1021,7 +1061,7 @@
             const date = new Date().toLocaleDateString('pt-BR');
             doc.setFontSize(8);
             doc.setTextColor(150);
-            doc.text(`Gerado em ${date}`, margin, pageHeight - 10);
+            doc.text(`Gerado em ${date} via MEDNEXUS`, margin, pageHeight - 10);
 
             doc.save("caderno_mednexus.pdf");
         }
