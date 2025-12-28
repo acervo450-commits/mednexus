@@ -17,6 +17,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'slide-up': 'slideUp 0.5s ease-out',
+                        'slide-down': 'slideDown 0.3s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -26,6 +27,10 @@
                         slideUp: {
                             'from': { opacity: '0', transform: 'translateY(20px)' },
                             'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideDown: {
+                            'from': { transform: 'translateY(-100%)' },
+                            'to': { transform: 'translateY(0)' },
                         }
                     },
                     colors: {
@@ -285,7 +290,7 @@
                     theme: 'green',
                     icon: <Stethoscope size={28} />,
                     color: 'from-emerald-600 to-emerald-900',
-                    image: 'Cursos/EMR/EMR.png', // Imagem de capa
+                    image: 'Cursos/EMR/EMR.png', // Imagem de capa adicionada
                     subcourses: EMR_MODULES.map((title, index) => ({
                         id: `emr-c-${index}`, title: title, type: 'Módulo EMR', duration: 'Aulas',
                         color: 'from-emerald-600 to-emerald-800'
@@ -569,6 +574,7 @@
 
             const processSubjects = (sectionTitle, subjects) => {
                 subjects.forEach(sub => {
+                    // Busca no título do módulo
                     if (sub.title.toLowerCase().includes(term)) {
                         results.push({
                             type: 'Módulo',
@@ -579,6 +585,8 @@
                             path: null
                         });
                     }
+
+                    // Busca nos Problemas (Resumos)
                     if (sub.problems) {
                         sub.problems.forEach(prob => {
                             if (prob.title.toLowerCase().includes(term)) {
@@ -593,6 +601,8 @@
                             }
                         });
                     }
+
+                    // Busca nas Questões (ATP)
                     if (sub.questions) {
                         sub.questions.forEach(quest => {
                             if (quest.title.toLowerCase().includes(term)) {
@@ -610,7 +620,9 @@
                 });
             };
 
+            // Percorre todas as categorias do DATA
             Object.values(dataObj).forEach(category => {
+                // Tratamento especial para as plataformas
                 if (category.sanar && category.emr) {
                     processSubjects('Plataforma', [category.sanar, category.emr]);
                 } else if (category.subjects) {
@@ -623,6 +635,7 @@
 
         // --- COMPONENTES ---
 
+        // CARD ESTILO MEDNEXUS (RETANGULAR SÓLIDO - COMPACTO & MINIMALISTA)
         const CourseCard = ({ subject, onClick }) => (
             <div 
                 onClick={() => onClick(subject)}
@@ -664,6 +677,7 @@
             </div>
         );
 
+        // --- CARROUSEL COM LOGO/ÍCONE DA SEÇÃO ---
         const CarouselSection = ({ title, icon, subjects, onSubjectClick }) => {
             const scrollRef = useRef(null);
             
@@ -678,6 +692,7 @@
                 <div className="mb-10 group/carousel relative" data-section={title}>
                     <div className="flex items-center justify-between mb-4 px-2">
                         <div className="flex items-center gap-3">
+                            {/* Logo da Seção */}
                             {icon && (
                                 <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center border border-slate-700 shadow-lg">
                                     <span className="text-blue-500">
@@ -685,7 +700,8 @@
                                     </span>
                                 </div>
                             )}
-                            <h2 className="text-xl font-bold text-slate-100 group-hover:text-white transition-colors cursor-pointer">
+                            
+                            <h2 className="text-xl font-bold text-slate-100 group-hover/carousel:text-white transition-colors cursor-pointer">
                                 {title}
                             </h2>
                         </div>
@@ -710,6 +726,8 @@
             );
         };
 
+        // --- COMPONENTE COURSE PLAYER (ATUALIZADO) ---
+        // Adicionada prop 'parentTitle' para flexibilidade no breadcrumb
         const CoursePlayer = ({ course, onBack, currentLessonIndex, setCurrentLessonIndex, parentTitle = "SanarFlix" }) => {
             const currentLesson = course.lessons[currentLessonIndex];
             const hasNextLesson = currentLessonIndex < course.lessons.length - 1;
@@ -717,12 +735,14 @@
             const handleNext = () => {
                 if (hasNextLesson) {
                     setCurrentLessonIndex(prev => prev + 1);
+                    // Scroll to top of video
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
             };
 
             return (
                 <div className="animate-fade-in pb-20">
+                     {/* Header de Navegação */}
                      <div className="mb-6 flex items-center gap-2 text-sm text-slate-400">
                         <span className="cursor-pointer hover:text-white" onClick={onBack}>{parentTitle}</span>
                         <ChevronRight size={14} />
@@ -730,6 +750,7 @@
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Área do Player (Esquerda/Topo) */}
                         <div className="lg:col-span-2 space-y-4">
                             <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-slate-800">
                                 <iframe 
@@ -758,6 +779,7 @@
                             </div>
                         </div>
 
+                        {/* Lista de Aulas (Direita/Sidebar) */}
                         <div className="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden h-fit max-h-[calc(100vh-150px)] flex flex-col">
                             <div className="p-4 border-b border-slate-700 bg-slate-800">
                                 <h3 className="font-bold text-white flex items-center gap-2">
@@ -813,6 +835,7 @@
             );
         };
         
+        // --- COMPONENTE BANNER PLATAFORMA ---
         const PlatformBanner = ({ title, subtitle, color, icon, theme, image, onClick }) => {
             const gradients = theme === 'red' 
                 ? 'from-red-700 via-red-800 to-red-950 border-red-500/20 hover:border-red-500/50' 
@@ -829,6 +852,7 @@
                     onClick={onClick}
                     className={`w-full h-64 bg-gradient-to-br ${gradients} rounded-2xl relative overflow-hidden cursor-pointer group shadow-2xl shadow-black/50 border transition-all hover:scale-[1.01]`}
                 >
+                     {/* Imagem de Fundo (Se existir) */}
                      {image ? (
                         <div className="absolute inset-0">
                             <img 
@@ -839,6 +863,7 @@
                             />
                         </div>
                      ) : (
+                         /* Fundo Padrão (Sem imagem) */
                          <>
                              <div className={`absolute top-0 right-0 w-[400px] h-[400px] ${theme === 'red' ? 'bg-red-600/20' : 'bg-emerald-600/20'} rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4`}></div>
                              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-black/40 rounded-full blur-[60px] translate-y-1/4 -translate-x-1/4"></div>
@@ -847,6 +872,7 @@
                      )}
 
                      <div className="absolute inset-0 flex flex-col justify-end p-8 relative z-10">
+                        {/* Exibe Título/Subtítulo apenas se NÃO tiver imagem */}
                         {!image && (
                             <div className="flex items-center gap-4 mb-3">
                                 <div className={`p-3 bg-white ${iconBg} rounded-xl shadow-lg ${shadowColor} group-hover:scale-110 transition-transform duration-300`}>
@@ -871,6 +897,180 @@
             );
         };
         
+        // --- NOVO COMPONENTE: SANARFLIX STYLE (PRIME VIDEO LAYOUT) ---
+        const SanarflixSection = ({ onSubjectClick, subjects }) => {
+            // Estado para busca interna do SanarFlix
+            const [searchTerm, setSearchTerm] = useState('');
+            
+            const scrollRef1 = useRef(null);
+            const scrollRef2 = useRef(null);
+            const scrollRef3 = useRef(null);
+
+            // Filtra os cursos com base na busca interna
+            const filteredSubjects = subjects.filter(subject => 
+                subject.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            // Função auxiliar para rolar os carrosséis
+            const scroll = (ref, direction) => {
+                if (ref.current) {
+                    const scrollAmount = 600;
+                    ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+                }
+            };
+
+            // Divide os cursos em categorias fictícias para simular o layout do Prime Video
+            const featuredCourses = subjects.slice(0, 8);
+            const newCourses = subjects.slice(8, 16);
+            const allCourses = subjects.slice(16);
+
+            const SanarCard = ({ subject }) => {
+                const hasLessons = subject.lessons && subject.lessons.length > 0;
+                return (
+                    <div 
+                        onClick={() => onSubjectClick(subject)}
+                        className="flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-red-900/40 border border-slate-700/50 hover:border-red-500"
+                    >
+                        {/* Fundo Gradiente Estilo Sanar */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#2a0a0a] group-hover:from-red-950 group-hover:via-red-900 group-hover:to-red-800 transition-colors duration-500"></div>
+                        
+                        {/* Textura sutil */}
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-500/20 to-transparent"></div>
+
+                        {/* Conteúdo do Card */}
+                        <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
+                            <h3 className="text-base font-bold text-slate-100 leading-snug line-clamp-2 group-hover:text-white drop-shadow-md">
+                                {subject.title}
+                            </h3>
+                            
+                            <div className="flex items-center justify-between mt-auto">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-black/30 px-2 py-1 rounded border border-white/10 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                                        {subject.duration || 'CURSO'}
+                                    </span>
+                                </div>
+                                {hasLessons ? (
+                                    <PlayCircle size={20} className="text-red-500 group-hover:text-white transition-colors drop-shadow-lg" />
+                                ) : (
+                                    <Lock size={16} className="text-slate-600 group-hover:text-red-200" />
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            const CarouselRow = ({ title, items, scrollRef }) => (
+                <div className="mb-10 group/row">
+                    <div className="flex items-center justify-between mb-3 px-2">
+                        <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                            {title} <ChevronRight size={16} className="text-slate-500" />
+                        </h3>
+                    </div>
+                    
+                    <div className="relative">
+                        {/* Botão Scroll Esquerda */}
+                        <button 
+                            onClick={() => scroll(scrollRef, 'left')}
+                            className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white"
+                        >
+                            <ChevronLeft size={32} />
+                        </button>
+
+                        {/* Container Scroll */}
+                        <div 
+                            ref={scrollRef} 
+                            className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2"
+                            style={{ scrollbarWidth: 'none' }}
+                        >
+                            {items.map((subject) => (
+                                <SanarCard key={subject.id} subject={subject} />
+                            ))}
+                            {/* Espaçador final */}
+                            <div className="w-8 flex-shrink-0" />
+                        </div>
+
+                        {/* Botão Scroll Direita */}
+                        <button 
+                            onClick={() => scroll(scrollRef, 'right')}
+                            className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white"
+                        >
+                            <ChevronRight size={32} />
+                        </button>
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="animate-fade-in -mt-4">
+                    {/* Header estilo "Hero" reduzido com Busca */}
+                    <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-red-900 to-black border border-red-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
+                        <div className="flex items-center gap-4">
+                            {/* IMAGEM DE CAPA DO SANARFLIX - MANTIDA */}
+                            <div className="relative w-full h-40 md:h-32 rounded-xl overflow-hidden shadow-lg border border-red-500/20">
+                                <img src="Tutoria/sanarflix/Sanar.png" className="w-full h-full object-cover" alt="SanarFlix" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                                <div className="absolute bottom-4 left-4">
+                                     <button className="flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-red-700 px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit">
+                                        Acessar <ChevronRight size={16} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Busca Interna SanarFlix */}
+                        <div className="relative w-full md:w-96 group mt-4 md:mt-0">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-red-200/50 group-focus-within:text-red-400 transition-colors" size={18} />
+                            <input 
+                                type="text" 
+                                placeholder="Buscar cursos no SanarFlix..." 
+                                className="w-full bg-black/40 border border-red-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-red-100 placeholder-red-200/30 focus:outline-none focus:border-red-500/60 focus:bg-black/60 transition-all shadow-inner"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                            {searchTerm && (
+                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-red-200/50 hover:text-white transition-colors">
+                                    <X size={16} />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Lógica de Exibição: Resultados da Busca VS Carrosséis */}
+                    {searchTerm ? (
+                        <div className="animate-fade-in px-2">
+                            <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
+                                <Search size={20} className="text-red-500" />
+                                Resultados para "{searchTerm}"
+                                <span className="text-slate-500 text-sm font-normal ml-2">({filteredSubjects.length} encontrados)</span>
+                            </h3>
+                            
+                            {filteredSubjects.length > 0 ? (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    {filteredSubjects.map(subject => (
+                                        <SanarCard key={subject.id} subject={subject} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
+                                    <Search size={48} className="text-slate-700 mb-4" />
+                                    <p className="text-slate-400 font-medium text-lg">Nenhum curso encontrado.</p>
+                                    <p className="text-slate-600 text-sm">Tente buscar por outro termo.</p>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <CarouselRow title="Em Alta" items={featuredCourses} scrollRef={scrollRef1} />
+                            <CarouselRow title="Novidades na Plataforma" items={newCourses} scrollRef={scrollRef2} />
+                            <CarouselRow title="Catálogo Completo" items={allCourses} scrollRef={scrollRef3} />
+                        </>
+                    )}
+                </div>
+            );
+        };
+
+        // --- COMPONENTE DETALHES DA PLATAFORMA ---
         const PlatformSection = ({ title, subtitle, subjects, theme, onSubjectClick }) => {
             const gradient = theme === 'red' 
                 ? 'from-red-900 to-red-950 border-red-800/50' 
@@ -925,136 +1125,15 @@
             );
         };
 
-        const SanarflixSection = ({ onSubjectClick, subjects }) => {
-            const [searchTerm, setSearchTerm] = useState('');
-            const scrollRef1 = useRef(null);
-            const scrollRef2 = useRef(null);
-            const scrollRef3 = useRef(null);
-
-            const filteredSubjects = subjects.filter(subject => 
-                subject.title.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-
-            const scroll = (ref, direction) => {
-                if (ref.current) {
-                    const scrollAmount = 600;
-                    ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
-                }
-            };
-
-            const featuredCourses = subjects.slice(0, 8);
-            const newCourses = subjects.slice(8, 16);
-            const allCourses = subjects.slice(16);
-
-            const SanarCard = ({ subject }) => {
-                const hasLessons = subject.lessons && subject.lessons.length > 0;
-                return (
-                    <div 
-                        onClick={() => onSubjectClick(subject)}
-                        className="flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-red-900/40 border border-slate-700/50 hover:border-red-500"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#2a0a0a] group-hover:from-red-950 group-hover:via-red-900 group-hover:to-red-800 transition-colors duration-500"></div>
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-500/20 to-transparent"></div>
-                        <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
-                            <h3 className="text-base font-bold text-slate-100 leading-snug line-clamp-2 group-hover:text-white drop-shadow-md">
-                                {subject.title}
-                            </h3>
-                            <div className="flex items-center justify-between mt-auto">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-black/30 px-2 py-1 rounded border border-white/10 group-hover:bg-white/20 group-hover:text-white transition-colors">
-                                        {subject.duration || 'CURSO'}
-                                    </span>
-                                </div>
-                                {hasLessons ? (
-                                    <PlayCircle size={20} className="text-red-500 group-hover:text-white transition-colors drop-shadow-lg" />
-                                ) : (
-                                    <Lock size={16} className="text-slate-600 group-hover:text-red-200" />
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                );
-            };
-
-            const CarouselRow = ({ title, items, scrollRef }) => (
-                <div className="mb-10 group/row">
-                    <div className="flex items-center justify-between mb-3 px-2">
-                        <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-                            {title} <ChevronRight size={16} className="text-slate-500" />
-                        </h3>
-                    </div>
-                    <div className="relative">
-                        <button onClick={() => scroll(scrollRef, 'left')} className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
-                            <ChevronLeft size={32} />
-                        </button>
-                        <div ref={scrollRef} className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2" style={{ scrollbarWidth: 'none' }}>
-                            {items.map((subject) => (
-                                <SanarCard key={subject.id} subject={subject} />
-                            ))}
-                            <div className="w-8 flex-shrink-0" />
-                        </div>
-                        <button onClick={() => scroll(scrollRef, 'right')} className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
-                            <ChevronRight size={32} />
-                        </button>
-                    </div>
-                </div>
-            );
-
-            return (
-                <div className="animate-fade-in -mt-4">
-                    <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-red-900 to-black border border-red-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
-                        <div className="flex items-center gap-4">
-                            <div className="relative w-full h-40 md:h-32 rounded-xl overflow-hidden shadow-lg border border-red-500/20">
-                                <img src="Tutoria/sanarflix/Sanar.png" className="w-full h-full object-cover" alt="SanarFlix" />
-                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
-                                <div className="absolute bottom-4 left-4">
-                                     <button className="flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-red-700 px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit">
-                                        Acessar <ChevronRight size={16} />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="relative w-full md:w-96 group mt-4 md:mt-0">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-red-200/50 group-focus-within:text-red-400 transition-colors" size={18} />
-                            <input type="text" placeholder="Buscar cursos no SanarFlix..." className="w-full bg-black/40 border border-red-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-red-100 placeholder-red-200/30 focus:outline-none focus:border-red-500/60 focus:bg-black/60 transition-all shadow-inner" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-                            {searchTerm && (
-                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-red-200/50 hover:text-white transition-colors">
-                                    <X size={16} />
-                                </button>
-                            )}
-                        </div>
-                    </div>
-                    {searchTerm ? (
-                        <div className="animate-fade-in px-2">
-                            <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
-                                <Search size={20} className="text-red-500" />
-                                Resultados para "{searchTerm}"
-                                <span className="text-slate-500 text-sm font-normal ml-2">({filteredSubjects.length} encontrados)</span>
-                            </h3>
-                            {filteredSubjects.length > 0 ? (
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                    {filteredSubjects.map(subject => (
-                                        <SanarCard key={subject.id} subject={subject} />
-                                    ))}
-                                </div>
-                            ) : (
-                                <div className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
-                                    <Search size={48} className="text-slate-700 mb-4" />
-                                    <p className="text-slate-400 font-medium text-lg">Nenhum curso encontrado.</p>
-                                    <p className="text-slate-600 text-sm">Tente buscar por outro termo.</p>
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <>
-                            <CarouselRow title="Em Alta" items={featuredCourses} scrollRef={scrollRef1} />
-                            <CarouselRow title="Novidades na Plataforma" items={newCourses} scrollRef={scrollRef2} />
-                            <CarouselRow title="Catálogo Completo" items={allCourses} scrollRef={scrollRef3} />
-                        </>
-                    )}
-                </div>
-            );
-        };
+        const NavItem = ({ icon, label, active, onClick }) => (
+            <button 
+                onClick={onClick}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${active ? 'bg-blue-600/10 text-blue-400' : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'}`}
+            >
+                <span className={active ? 'text-blue-400' : 'text-slate-500 group-hover:text-slate-300'}>{icon}</span>
+                <span className="hidden lg:block">{label}</span>
+            </button>
+        );
 
         const SearchResults = ({ results, onSelect }) => {
             if (results.length === 0) {
@@ -1747,13 +1826,7 @@
                                 {navItems.map(item => (
                                     <button
                                         key={item.id}
-                                        onClick={() => {
-                                            if (item.id === 'bq') {
-                                                window.open('Banco de Questões/banco de questões.html', '_self');
-                                            } else {
-                                                handleTabSwitch(item.id);
-                                            }
-                                        }}
+                                        onClick={() => handleTabSwitch(item.id)}
                                         className={`flex flex-col items-center justify-center transition-all duration-300 relative group ${
                                             activeTab === item.id 
                                             ? 'text-white' 
@@ -1764,8 +1837,8 @@
                                         {/* Renderiza o ícone um pouco maior */}
                                         {React.cloneElement(item.icon, { size: 24 })}
 
-                                        {/* Indicador de Aba Ativa (Ponto) - exceto para BQ que tem o beta */}
-                                        {activeTab === item.id && item.id !== 'bq' && (
+                                        {/* Indicador de Aba Ativa (Ponto) */}
+                                        {activeTab === item.id && (
                                             <span className="absolute -bottom-3 w-1 h-1 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
                                         )}
                                     </button>
