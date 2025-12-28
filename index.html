@@ -17,7 +17,6 @@
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'slide-up': 'slideUp 0.5s ease-out',
-                        'slide-down': 'slideDown 0.3s ease-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -27,18 +26,6 @@
                         slideUp: {
                             'from': { opacity: '0', transform: 'translateY(20px)' },
                             'to': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideDown: {
-                            'from': { transform: 'translateY(-100%)' },
-                            'to': { transform: 'translateY(0)' },
-                        }
-                    },
-                    colors: {
-                        netflix: {
-                            black: '#141414',
-                            dark: '#181818',
-                            red: '#E50914',
-                            hover: '#b20710'
                         }
                     }
                 }
@@ -79,13 +66,13 @@
 
     <!-- 4. Aplicação React -->
     <script type="text/babel" data-type="module">
-        import React, { useState, useRef, useEffect } from 'react';
+        import React, { useState, useRef, useEffect, useMemo } from 'react';
         import { createRoot } from 'react-dom/client';
         import { 
             BookOpen, Brain, Activity, Stethoscope, FileText, Calendar, 
             Search, Bell, ChevronRight, ChevronLeft, PlayCircle, FolderOpen, 
-            ArrowLeft, GraduationCap, Microscope, Users, PlusCircle, Save, Check, ExternalLink, FileQuestion, X,
-            Play, MonitorPlay, Library, ListVideo, CheckCircle2, Lock, LogOut
+            ArrowLeft, GraduationCap, Microscope, Users, PlusCircle, Save, Check, ExternalLink, FileSearch, FileQuestion, X,
+            Play, MonitorPlay, Library, ListVideo, CheckCircle2, Lock
         } from 'lucide-react';
 
         // --- DADOS DAS AULAS: ANATOMIA DO SISTEMA LOCOMOTOR ---
@@ -178,6 +165,42 @@
             { title: "Placenta", videoId: "BbYOX4kR3vc" }
         ];
 
+        // --- DADOS DA BIBLIOTECA ---
+        const LIBRARY_DATA = [
+            {
+                id: 'medresumos',
+                title: 'MedResumos',
+                type: 'folder',
+                description: 'Resumos e materiais de apoio',
+                icon: <BookOpen size={24} />,
+                color: 'from-amber-600 to-amber-800',
+                children: [
+                    {
+                        id: 'ciclo_basico',
+                        title: 'Ciclo Básico Modular',
+                        type: 'folder',
+                        description: 'Materiais do Ciclo Básico (2023)',
+                        icon: <Microscope size={24} />,
+                        color: 'from-emerald-600 to-emerald-800',
+                        children: [
+                            { title: '(2023) SOI – Célula – Estrutura e Função (CEF)', url: 'https://drive.google.com/file/d/1aGPlYiBJeyWni6XhuL4xM6G4ONFlw8-X/view', type: 'file' },
+                            { title: '(2023) SOI – Organização Morfo-Funcional (OMF) – Sistema Locomotor', url: 'https://drive.google.com/file/d/17z7biFG7HnGzXP69IFGP0sUlAseVvK6d/view', type: 'file' },
+                            { title: '(2023) SOI – Organização Morfo-Funcional (OMF) – Sistema Nervoso', url: 'https://drive.google.com/file/d/1vhk7rj5C8bBUudPlTVGiiEUbpf6pKxrn/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Cardiovascular', url: 'https://drive.google.com/file/d/1Qx1vo1Sl_Ohozjh3yHsX9IJkne-A3yy7/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Digestório', url: 'https://drive.google.com/file/d/1y9QXoRm7LLSbpTCTx2XkQQTN8pKoFtJa/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Endócrino, Reprodução e Desenvolvimento', url: 'https://drive.google.com/file/d/1ES-pf6mpaKUEZsDjp4JdWWxuMlJtncee/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Imune e MAD', url: 'https://drive.google.com/file/d/1jHwT0JjsA3P1uC3RWkAW14aGRDGv8gph/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Locomotor', url: 'https://drive.google.com/file/d/1zQI-lCp3elcEfafZDtcBWcywvVaNi3HT/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Nervoso', url: 'https://drive.google.com/file/d/1l5wXJ5xKAwa4uKuaHCKZiE-vZnwON_MF/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Respiratório', url: 'https://drive.google.com/file/d/1IwUq0uy6sO79iXPonPxiNosLX0NJh9-c/view', type: 'file' },
+                            { title: '(2023) SOI – Sistema Urinário', url: 'https://drive.google.com/file/d/1dsg45xLP_xVH_P7Dp9p03HETpEKsHJFT/view', type: 'file' }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // --- LISTAS DE CURSOS GERAIS ---
         const SANAR_COURSES_TITLES = [
             "Anatomia do Sistema Locomotor", "Anatomia dos Órgãos e Sistemas", "Antibioticoterapia",
             "Atendimento Pré-Hospitalar", "Biofísica", "Biologia Molecular e Celular", "Bioquímica",
@@ -202,6 +225,7 @@
 
         // --- DADOS COMPLETOS ---
         const DATA = {
+            // --- PLATAFORMAS (CURSOS PRINCIPAIS) ---
             platforms: {
                 sanar: {
                     id: 'sanar_main',
@@ -211,6 +235,7 @@
                     icon: <Play size={28} fill="currentColor" />,
                     color: 'from-red-600 to-red-900',
                     image: 'Tutoria/sanarflix/Sanar.png',
+                    // Mapeamento especial para incluir as aulas nos cursos específicos
                     subcourses: SANAR_COURSES_TITLES.map((title, index) => {
                         const isLocomotor = title === "Anatomia do Sistema Locomotor";
                         const isReprodutor = title === "Sistema Reprodutor";
@@ -259,6 +284,7 @@
                     problems: [], questions: []
                 }
             },
+            
             basico: {
                 title: "Ciclo Básico",
                 icon: <Microscope size={20} />,
@@ -590,7 +616,7 @@
 
         // --- COMPONENTES ---
 
-        // CARD ESTILO MEDNEXUS (RETANGULAR SÓLIDO)
+        // CARD ESTILO MEDNEXUS (RETANGULAR SÓLIDO - COMPACTO & MINIMALISTA)
         const CourseCard = ({ subject, onClick }) => (
             <div 
                 onClick={() => onClick(subject)}
@@ -635,7 +661,7 @@
             
             const scroll = (direction) => {
                 if (scrollRef.current) {
-                    const scrollAmount = window.innerWidth * 0.7; // Rola 70% da tela
+                    const scrollAmount = 300;
                     scrollRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
                 }
             };
@@ -786,7 +812,71 @@
                 </div>
             );
         };
+        
+        // --- COMPONENTE BANNER PLATAFORMA ---
+        const PlatformBanner = ({ title, subtitle, color, icon, theme, image, onClick }) => {
+            const gradients = theme === 'red' 
+                ? 'from-red-700 via-red-800 to-red-950 border-red-500/20 hover:border-red-500/50' 
+                : 'from-emerald-700 via-emerald-800 to-emerald-950 border-emerald-500/20 hover:border-emerald-500/50';
+            
+            const glowColor = theme === 'red' ? 'bg-red-600/20' : 'bg-emerald-600/20';
+            const iconBg = theme === 'red' ? 'text-red-700' : 'text-emerald-700';
+            const shadowColor = theme === 'red' ? 'shadow-red-900/50' : 'shadow-emerald-900/50';
+            const subTextColor = theme === 'red' ? 'text-red-200' : 'text-emerald-200';
+            const btnHoverText = theme === 'red' ? 'hover:text-red-700' : 'hover:text-emerald-700';
 
+            return (
+                <div 
+                    onClick={onClick}
+                    className={`w-full h-64 bg-gradient-to-br ${gradients} rounded-2xl relative overflow-hidden cursor-pointer group shadow-2xl shadow-black/50 border transition-all hover:scale-[1.01]`}
+                >
+                     {/* Imagem de Fundo (Se existir) */}
+                     {image ? (
+                        <div className="absolute inset-0">
+                            <img 
+                                src={image} 
+                                alt={title} 
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                                style={{ objectPosition: 'center' }}
+                            />
+                            {/* Gradiente Overlay para legibilidade do botão */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        </div>
+                     ) : (
+                         /* Fundo Padrão (Sem imagem) */
+                         <>
+                             <div className={`absolute top-0 right-0 w-[400px] h-[400px] ${theme === 'red' ? 'bg-red-600/20' : 'bg-emerald-600/20'} rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4`}></div>
+                             <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-black/40 rounded-full blur-[60px] translate-y-1/4 -translate-x-1/4"></div>
+                             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+                         </>
+                     )}
+
+                     <div className="absolute inset-0 flex flex-col justify-end p-8 relative z-10">
+                        {/* Exibe Título/Subtítulo apenas se NÃO tiver imagem */}
+                        {!image && (
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className={`p-3 bg-white ${iconBg} rounded-xl shadow-lg ${shadowColor} group-hover:scale-110 transition-transform duration-300`}>
+                                    {icon}
+                                </div>
+                                <div>
+                                    <span className={`${subTextColor} font-bold tracking-widest text-xs uppercase mb-1 block`}>{subtitle}</span>
+                                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{title}</h3>
+                                </div>
+                            </div>
+                        )}
+                        
+                        <div className="flex justify-between items-end mt-4">
+                            <div className="w-full">
+                                <button className={`flex items-center gap-2 bg-white/10 hover:bg-white text-white ${btnHoverText} px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit`}>
+                                    Acessar <ChevronRight size={16} />
+                                </button>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            );
+        };
+        
         // --- NOVO COMPONENTE: SANARFLIX STYLE (PRIME VIDEO LAYOUT) ---
         const SanarflixSection = ({ onSubjectClick, subjects }) => {
             // Estado para busca interna do SanarFlix
@@ -956,7 +1046,7 @@
                 </div>
             );
         };
-        
+
         // --- COMPONENTE DETALHES DA PLATAFORMA ---
         const PlatformSection = ({ title, subtitle, subjects, theme, onSubjectClick }) => {
             const gradient = theme === 'red' 
@@ -1359,6 +1449,10 @@
                          );
                     }
 
+                    // --- MÓDULOS DE TUTORIA/CURSOS NORMAIS ---
+                    const problems = selectedSubject.problems || [];
+                    const questions = selectedSubject.questions || [];
+
                     return (
                         <div className="animate-fade-in pb-20">
                             <div className={`h-48 rounded-3xl bg-gradient-to-r ${selectedSubject.color} relative mb-6 flex items-end p-8 shadow-xl`}>
@@ -1465,9 +1559,9 @@
 
                                 {activeSubTab === 'resumo' && (
                                     <div className="animate-fade-in">
-                                        {selectedSubject.problems ? (
+                                        {problems.length > 0 ? (
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                                {selectedSubject.problems.map((problem) => (
+                                                {problems.map((problem) => (
                                                     <div 
                                                         key={problem.id}
                                                         onClick={() => handleOpenProblem(problem.file)}
@@ -1529,9 +1623,9 @@
 
                                 {activeSubTab === 'questoes' && (
                                     <div className="animate-fade-in">
-                                        {selectedSubject.questions ? (
+                                        {questions.length > 0 ? (
                                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                                {selectedSubject.questions.map((question) => (
+                                                {questions.map((question) => (
                                                     <div 
                                                         key={question.id}
                                                         onClick={() => handleOpenProblem(question.file)}
@@ -1676,7 +1770,7 @@
                 <div className="flex h-screen bg-[#0F172A] font-sans overflow-hidden text-slate-300 selection:bg-blue-500/30 flex-col">
                     
                     {/* HEADER UNIFICADO COM NAVEGAÇÃO SUPERIOR */}
-                    <header className="h-20 border-b border-slate-700/50 bg-[#0F172A]/80 backdrop-blur-md flex items-center justify-between px-6 lg:px-8 sticky top-0 z-50">
+                    <header className="h-20 border-b border-slate-700/50 bg-[#0F172A]/80 backdrop-blur-md flex items-center justify-between px-6 lg:px-8 sticky top-0 z-50 transition-all duration-300 hover:bg-[#0F172A]">
                         
                         {/* Esquerda: Logo & Menu Principal */}
                         <div className="flex items-center gap-8">
@@ -1685,8 +1779,7 @@
                                 className="flex items-center gap-3 cursor-pointer group"
                                 onClick={() => handleTabSwitch('dashboard')}
                             >
-                                <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-blue-900/20 group-hover:scale-105 transition-transform">M</div>
-                                <span className="font-bold text-white text-lg tracking-tight hidden sm:block">MedNexus</span>
+                                <span className="font-extrabold text-blue-500 text-xl lg:text-3xl tracking-tighter">MEDNEXUS</span>
                             </div>
 
                             {/* Navegação - Apenas Ícones */}
@@ -1772,11 +1865,7 @@
                                     </div>
                                 )}
 
-                                <div 
-                                    onClick={toggleFullscreen}
-                                    className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-600 border border-slate-500/30 flex items-center justify-center text-slate-200 font-semibold shadow-inner cursor-pointer hover:border-slate-400 transition-colors"
-                                    title="Alternar Tela Cheia"
-                                >
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-600 border border-slate-500/30 flex items-center justify-center text-slate-200 font-semibold shadow-inner cursor-pointer hover:border-slate-400 transition-colors">
                                     DR
                                 </div>
                             </div>
