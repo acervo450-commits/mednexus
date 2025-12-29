@@ -290,7 +290,7 @@
                     theme: 'green',
                     icon: <Stethoscope size={28} />,
                     color: 'from-emerald-600 to-emerald-900',
-                    image: 'Cursos/EMR/EMR.png', // Imagem de capa adicionada
+                    image: 'Cursos/EMR/EMR.png', // Imagem de capa
                     subcourses: EMR_MODULES.map((title, index) => ({
                         id: `emr-c-${index}`, title: title, type: 'Módulo EMR', duration: 'Aulas',
                         color: 'from-emerald-600 to-emerald-800'
@@ -384,7 +384,19 @@
                     },
                     { id: 'mod2', title: 'Módulo 2 — Alteração, Proliferação e Crescimento Celular', color: 'from-amber-600 to-amber-800', subcourses: [{id: 'm2c1', title: 'Conteúdo do Módulo', type: 'PBL'}], problems: [], questions: [] },
                     { id: 'mod3', title: 'Módulo 3 — Funções Biológicas 1', color: 'from-amber-600 to-amber-800', subcourses: [{id: 'm3c1', title: 'Conteúdo do Módulo', type: 'PBL'}], problems: [], questions: [] },
-                    { id: 'mod4', title: 'Módulo 4 — Funções Biológicas 2', color: 'from-amber-600 to-amber-800', subcourses: [{id: 'm4c1', title: 'Conteúdo do Módulo', type: 'PBL'}], problems: [], questions: [] },
+                    { 
+                        id: 'mod4', 
+                        title: 'Módulo 4 — Funções Biológicas 2', 
+                        color: 'from-amber-600 to-amber-800', 
+                        subcourses: [{id: 'm4c1', title: 'Conteúdo do Módulo', type: 'PBL'}], 
+                        problems: [
+                            { id: 'm4_p1', title: 'Problema 1 - Apostila Neurofisiologia e Alcool', file: '/Tutoria/Resumos/Módulo 4/Problema 1 - Apostila_Neurofisiologia_e_Alcool.html', moduleRef: '4' },
+                            { id: 'm4_p2', title: 'Problema 2 - Apostila Controlo Motor', file: '/Tutoria/Resumos/Módulo 4/Problema 2 - Apostila_Controlo_Motor.html', moduleRef: '4' },
+                            { id: 'm4_p3', title: 'Problema 3 - Apostila Sistema Endocrino', file: '/Tutoria/Resumos/Módulo 4/Problema 3 - Apostila_Sistema_Endocrino.html', moduleRef: '4' },
+                            { id: 'm4_p4', title: 'Problema 4 - Apostila Fisiologia Renal', file: '/Tutoria/Resumos/Módulo 4/Problema 4 - Apostila_Fisiologia_Renal.html', moduleRef: '4' }
+                        ], 
+                        questions: [] 
+                    },
                     { id: 'mod5', title: 'Módulo 5 — Metabolismo e Nutrição', color: 'from-amber-600 to-amber-800', subcourses: [{id: 'm5c1', title: 'Conteúdo do Módulo', type: 'PBL'}], problems: [], questions: [] },
                     { 
                         id: 'mod6', 
@@ -408,31 +420,31 @@
                             },
                             { 
                                 id: 'p2', 
-                                title: 'Problema 2 - Termos, Defesas e Hipersensibilidade', 
+                                title: 'Problema 2 – Termos, Defesas e Hipersensibilidade', 
                                 file: '/Tutoria/Resumos/Módulo 6/Problema 2 - Termos, Defesas e Hipersensibilidade.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p3', 
-                                title: 'Problema 3 - Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune', 
+                                title: 'Problema 3 – Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune', 
                                 file: '/Tutoria/Resumos/Módulo 6/Problema 3 - Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p4', 
-                                title: 'Problema 4 - Patologia e Terapêutica', 
+                                title: 'Problema 4 – Patologia e Terapêutica', 
                                 file: '/Tutoria/Resumos/Módulo 6/Problema 4 - Patologia e Terapêutica.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p5', 
-                                title: 'Problema 5 - Reparação Tecidual e Estresse Oxidativo', 
+                                title: 'Problema 5 – Reparação Tecidual e Estresse Oxidativo', 
                                 file: '/Tutoria/Resumos/Módulo 6/Problema 5 - Reparação Tecidual e Estresse Oxidativo.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p6', 
-                                title: 'Problema 6 - Parasitologia e Imunomodulação', 
+                                title: 'Problema 6 – Parasitologia e Imunomodulação', 
                                 file: '/Tutoria/Resumos/Módulo 6/Problema 6 - Parasitologia e Imunomodulação.html',
                                 moduleRef: '6'
                             }
@@ -835,7 +847,7 @@
             );
         };
         
-        // --- COMPONENTE BANNER PLATAFORMA (DASHBOARD) ---
+        // --- COMPONENTE BANNER PLATAFORMA ---
         const PlatformBanner = ({ title, subtitle, color, icon, theme, image, onClick }) => {
             const gradients = theme === 'red' 
                 ? 'from-red-700 via-red-800 to-red-950 border-red-500/20 hover:border-red-500/50' 
@@ -897,23 +909,21 @@
             );
         };
         
-        // --- NOVO COMPONENTE: LAYOUT DE STREAMING UNIFICADO (Sanar & EMR) ---
-        const StreamingLayout = ({ subject, onSubjectClick }) => {
+        // --- NOVO COMPONENTE: SANARFLIX STYLE (PRIME VIDEO LAYOUT) ---
+        const SanarflixSection = ({ onSubjectClick, subjects }) => {
+            // Estado para busca interna do SanarFlix
             const [searchTerm, setSearchTerm] = useState('');
+            
             const scrollRef1 = useRef(null);
             const scrollRef2 = useRef(null);
             const scrollRef3 = useRef(null);
 
-            // Cores baseadas no tema
-            const themeColor = subject.theme === 'green' ? 'text-emerald-500' : 'text-red-500';
-            const borderColor = subject.theme === 'green' ? 'border-emerald-500/20' : 'border-red-500/20';
-            const cardHoverBorder = subject.theme === 'green' ? 'hover:border-emerald-500' : 'hover:border-red-500';
-            const playIconColor = subject.theme === 'green' ? 'text-emerald-500' : 'text-red-500';
-
-            const filteredSubjects = subject.subcourses.filter(sub => 
-                sub.title.toLowerCase().includes(searchTerm.toLowerCase())
+            // Filtra os cursos com base na busca interna
+            const filteredSubjects = subjects.filter(subject => 
+                subject.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
 
+            // Função auxiliar para rolar os carrosséis
             const scroll = (ref, direction) => {
                 if (ref.current) {
                     const scrollAmount = 600;
@@ -921,39 +931,40 @@
                 }
             };
 
-            // Divide os cursos para simular categorias
-            const total = subject.subcourses.length;
-            const chunk1 = Math.ceil(total * 0.3); // 30%
-            const chunk2 = Math.ceil(total * 0.6); // 60%
+            // Divide os cursos em categorias fictícias para simular o layout do Prime Video
+            const featuredCourses = subjects.slice(0, 8);
+            const newCourses = subjects.slice(8, 16);
+            const allCourses = subjects.slice(16);
 
-            const section1 = subject.subcourses.slice(0, chunk1);
-            const section2 = subject.subcourses.slice(chunk1, chunk2);
-            const section3 = subject.subcourses.slice(chunk2);
-
-            const StreamingCard = ({ item }) => {
-                const hasLessons = item.lessons && item.lessons.length > 0;
+            const SanarCard = ({ subject }) => {
+                const hasLessons = subject.lessons && subject.lessons.length > 0;
                 return (
                     <div 
-                        onClick={() => onSubjectClick(item)}
-                        className={`flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-black/60 border border-slate-700/50 ${cardHoverBorder}`}
+                        onClick={() => onSubjectClick(subject)}
+                        className="flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-red-900/40 border border-slate-700/50 hover:border-red-500"
                     >
-                        {/* Fundo Gradiente */}
-                        <div className={`absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 ${subject.theme === 'green' ? 'to-[#064e3b]' : 'to-[#450a0a]'} group-hover:opacity-100 transition-colors duration-500`}></div>
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 to-transparent"></div>
+                        {/* Fundo Gradiente Estilo Sanar */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#2a0a0a] group-hover:from-red-950 group-hover:via-red-900 group-hover:to-red-800 transition-colors duration-500"></div>
+                        
+                        {/* Textura sutil */}
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-red-500/20 to-transparent"></div>
 
-                        {/* Conteúdo */}
+                        {/* Conteúdo do Card */}
                         <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
                             <h3 className="text-base font-bold text-slate-100 leading-snug line-clamp-2 group-hover:text-white drop-shadow-md">
-                                {item.title}
+                                {subject.title}
                             </h3>
+                            
                             <div className="flex items-center justify-between mt-auto">
-                                <span className="text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-black/30 px-2 py-1 rounded border border-white/10">
-                                    {item.duration || 'CURSO'}
-                                </span>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-bold tracking-wider uppercase text-slate-400 bg-black/30 px-2 py-1 rounded border border-white/10 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                                        {subject.duration || 'CURSO'}
+                                    </span>
+                                </div>
                                 {hasLessons ? (
-                                    <PlayCircle size={20} className={`${playIconColor} group-hover:text-white transition-colors drop-shadow-lg`} />
+                                    <PlayCircle size={20} className="text-red-500 group-hover:text-white transition-colors drop-shadow-lg" />
                                 ) : (
-                                    <Lock size={16} className="text-slate-600" />
+                                    <Lock size={16} className="text-slate-600 group-hover:text-red-200" />
                                 )}
                             </div>
                         </div>
@@ -963,21 +974,39 @@
 
             const CarouselRow = ({ title, items, scrollRef }) => (
                 <div className="mb-10 group/row">
-                    <div className="flex items-center gap-2 mb-3 px-2">
-                        <h3 className="text-lg font-bold text-slate-100">{title}</h3>
-                        <ChevronRight size={16} className="text-slate-500" />
+                    <div className="flex items-center justify-between mb-3 px-2">
+                        <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                            {title} <ChevronRight size={16} className="text-slate-500" />
+                        </h3>
                     </div>
+                    
                     <div className="relative">
-                        <button onClick={() => scroll(scrollRef, 'left')} className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+                        {/* Botão Scroll Esquerda */}
+                        <button 
+                            onClick={() => scroll(scrollRef, 'left')}
+                            className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white"
+                        >
                             <ChevronLeft size={32} />
                         </button>
-                        <div ref={scrollRef} className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2" style={{ scrollbarWidth: 'none' }}>
-                            {items.map((item) => (
-                                <StreamingCard key={item.id} item={item} />
+
+                        {/* Container Scroll */}
+                        <div 
+                            ref={scrollRef} 
+                            className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2"
+                            style={{ scrollbarWidth: 'none' }}
+                        >
+                            {items.map((subject) => (
+                                <SanarCard key={subject.id} subject={subject} />
                             ))}
+                            {/* Espaçador final */}
                             <div className="w-8 flex-shrink-0" />
                         </div>
-                        <button onClick={() => scroll(scrollRef, 'right')} className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+
+                        {/* Botão Scroll Direita */}
+                        <button 
+                            onClick={() => scroll(scrollRef, 'right')}
+                            className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white"
+                        >
                             <ChevronRight size={32} />
                         </button>
                     </div>
@@ -986,80 +1015,73 @@
 
             return (
                 <div className="animate-fade-in -mt-4">
-                    {/* Header Imersivo */}
-                    <div className={`mb-8 p-6 rounded-2xl bg-gradient-to-r from-black to-slate-900 border ${borderColor} flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl relative overflow-hidden`}>
-                        {/* Imagem de Fundo (Se houver) */}
-                        {subject.image && (
-                            <div className="absolute inset-0 z-0">
-                                <img src={subject.image} className="w-full h-full object-cover opacity-60 mix-blend-overlay" alt={subject.title} />
-                                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-                            </div>
-                        )}
-
-                        <div className="flex items-center gap-6 relative z-10">
-                            {/* Capa Pequena */}
-                            {subject.image && (
-                                <div className={`hidden md:block w-32 h-20 rounded-lg overflow-hidden shadow-lg border ${borderColor}`}>
-                                    <img src={subject.image} className="w-full h-full object-cover" alt="Cover" />
+                    {/* Header estilo "Hero" reduzido com Busca */}
+                    <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-red-900 to-black border border-red-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
+                        <div className="flex items-center gap-4">
+                            {/* IMAGEM DE CAPA DO SANARFLIX - MANTIDA */}
+                            <div className="relative w-full h-40 md:h-32 rounded-xl overflow-hidden shadow-lg border border-red-500/20">
+                                <img src="Tutoria/sanarflix/Sanar.png" className="w-full h-full object-cover" alt="SanarFlix" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                                <div className="absolute bottom-4 left-4">
+                                     <button className="flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-red-700 px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit">
+                                        Acessar <ChevronRight size={16} />
+                                    </button>
                                 </div>
-                            )}
-                            <div>
-                                <h2 className="text-3xl font-bold text-white tracking-tight mb-1">{subject.title}</h2>
-                                <p className={`text-sm font-medium ${themeColor} uppercase tracking-widest`}>{subject.subtitle}</p>
                             </div>
                         </div>
 
-                        {/* Busca Interna */}
-                        <div className="relative w-full md:w-80 group mt-4 md:mt-0 z-10">
-                            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 opacity-50 group-focus-within:opacity-100 transition-colors ${themeColor}`} size={18} />
+                        {/* Busca Interna SanarFlix */}
+                        <div className="relative w-full md:w-96 group mt-4 md:mt-0">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-red-200/50 group-focus-within:text-red-400 transition-colors" size={18} />
                             <input 
                                 type="text" 
-                                placeholder={`Pesquisar em ${subject.title}...`} 
-                                className={`w-full bg-black/50 border ${borderColor} rounded-full py-2.5 pl-10 pr-10 text-sm text-white placeholder-slate-400 focus:outline-none focus:bg-black/80 transition-all shadow-inner`}
+                                placeholder="Buscar cursos no SanarFlix..." 
+                                className="w-full bg-black/40 border border-red-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-red-100 placeholder-red-200/30 focus:outline-none focus:border-red-500/60 focus:bg-black/60 transition-all shadow-inner"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                             />
                             {searchTerm && (
-                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors">
+                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-red-200/50 hover:text-white transition-colors">
                                     <X size={16} />
                                 </button>
                             )}
                         </div>
                     </div>
 
-                    {/* Conteúdo */}
+                    {/* Lógica de Exibição: Resultados da Busca VS Carrosséis */}
                     {searchTerm ? (
                         <div className="animate-fade-in px-2">
                             <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
-                                <Search size={20} className={themeColor.replace('text-', 'text-')} />
+                                <Search size={20} className="text-red-500" />
                                 Resultados para "{searchTerm}"
                                 <span className="text-slate-500 text-sm font-normal ml-2">({filteredSubjects.length} encontrados)</span>
                             </h3>
                             
                             {filteredSubjects.length > 0 ? (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                                    {filteredSubjects.map(item => (
-                                        <StreamingCard key={item.id} item={item} />
+                                    {filteredSubjects.map(subject => (
+                                        <SanarCard key={subject.id} subject={subject} />
                                     ))}
                                 </div>
                             ) : (
                                 <div className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
                                     <Search size={48} className="text-slate-700 mb-4" />
-                                    <p className="text-slate-400 font-medium text-lg">Nenhum módulo encontrado.</p>
+                                    <p className="text-slate-400 font-medium text-lg">Nenhum curso encontrado.</p>
+                                    <p className="text-slate-600 text-sm">Tente buscar por outro termo.</p>
                                 </div>
                             )}
                         </div>
                     ) : (
                         <>
-                            <CarouselRow title={subject.theme === 'green' ? "Extensivo" : "Em Alta"} items={section1} scrollRef={scrollRef1} />
-                            <CarouselRow title={subject.theme === 'green' ? "Revisão" : "Novidades"} items={section2} scrollRef={scrollRef2} />
-                            <CarouselRow title="Catálogo Completo" items={section3} scrollRef={scrollRef3} />
+                            <CarouselRow title="Em Alta" items={featuredCourses} scrollRef={scrollRef1} />
+                            <CarouselRow title="Novidades na Plataforma" items={newCourses} scrollRef={scrollRef2} />
+                            <CarouselRow title="Catálogo Completo" items={allCourses} scrollRef={scrollRef3} />
                         </>
                     )}
                 </div>
             );
         };
-        
+
         // --- COMPONENTE DETALHES DA PLATAFORMA ---
         const PlatformSection = ({ title, subtitle, subjects, theme, onSubjectClick }) => {
             const gradient = theme === 'red' 
@@ -1437,19 +1459,18 @@
                         );
                     }
 
-                    // --- ATUALIZADO: Usar StreamingLayout para AMBOS (Sanar e EMR) ---
-                    if (selectedSubject.id === 'sanar_main' || selectedSubject.id === 'emr_main') {
-                        return (
-                            <div className="animate-fade-in pb-20">
-                                <StreamingLayout 
-                                    subject={selectedSubject}
-                                    onSubjectClick={handleCourseClick}
-                                />
-                            </div>
-                        );
-                    }
-
                     if (selectedSubject.theme) {
+                        if (selectedSubject.id === 'sanar_main') {
+                            return (
+                                <div className="animate-fade-in pb-20">
+                                    <SanarflixSection 
+                                        subjects={selectedSubject.subcourses}
+                                        onSubjectClick={handleCourseClick}
+                                    />
+                                </div>
+                            );
+                        }
+
                          return (
                             <div className="animate-fade-in pb-20">
                                 <PlatformSection 
@@ -1514,35 +1535,29 @@
                                 {activeSubTab === 'conteudo' && (
                                     <div className="animate-fade-in space-y-10">
                                         {selectedSubject.subcourses && selectedSubject.subcourses.length > 0 ? (
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            <div className="flex flex-col gap-3">
                                                 {selectedSubject.subcourses.map((course) => (
                                                     <div 
                                                         key={course.id} 
                                                         onClick={() => handleSubCourseClick(course)}
-                                                        className={`bg-slate-800/50 border border-slate-700/50 rounded-xl p-5 hover:bg-slate-800 transition-all group ${course.lessons || course.file ? 'cursor-pointer hover:border-blue-500/50 hover:shadow-lg' : ''}`}
+                                                        className={`w-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:bg-slate-750 transition-all group flex items-center justify-between shadow-sm hover:shadow-md hover:translate-x-1 ${course.lessons || course.file ? '' : ''}`}
                                                     >
-                                                        <div className="flex justify-between items-start mb-4">
-                                                            <div className={`p-3 rounded-lg bg-gradient-to-br ${selectedSubject.color} bg-opacity-10`}><PlayCircle size={24} className="text-white" /></div>
-                                                            <span className="text-xs font-semibold text-slate-500 bg-slate-900 px-2 py-1 rounded border border-slate-700">{course.type}</span>
+                                                        <div className="flex items-center gap-4">
+                                                            <div className={`p-2.5 rounded-lg text-white bg-gradient-to-br ${selectedSubject.color} shadow-sm`}>
+                                                                <PlayCircle size={20} />
+                                                            </div>
+                                                            <div>
+                                                                <h4 className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{course.title}</h4>
+                                                                <p className="text-xs text-slate-500 mt-0.5">{course.type || 'Módulo'}</p>
+                                                            </div>
                                                         </div>
-                                                        <h4 className="text-lg font-semibold text-slate-200 mb-2 group-hover:text-blue-400">{course.title}</h4>
                                                         
-                                                        {course.lessons && (
-                                                            <div className="text-xs text-blue-400 mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                Ver Aulas <ChevronRight size={12} />
-                                                            </div>
-                                                        )}
-                                                        {course.file && (
-                                                            <div className="text-xs text-blue-400 mt-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                                Abrir Apostila <ExternalLink size={12} />
-                                                            </div>
-                                                        )}
+                                                        <div className="flex items-center text-xs font-medium text-slate-500 group-hover:text-blue-400 transition-colors">
+                                                            {course.lessons ? 'Ver Aulas' : 'Abrir'} <ChevronRight size={14} className="ml-1.5" />
+                                                        </div>
                                                     </div>
                                                 ))}
-                                                <div className="border border-dashed border-slate-700 rounded-xl p-5 flex flex-col items-center justify-center text-slate-500 hover:text-slate-300 hover:border-slate-500 transition-all cursor-pointer min-h-[160px]">
-                                                    <FolderOpen size={32} className="mb-2 opacity-50" />
-                                                    <span className="text-sm font-medium">Adicionar Documento</span>
-                                                </div>
+                                                {/* Botão de Adicionar - Removido para limpeza visual ou mantido como opcional */}
                                             </div>
                                         ) : (
                                             (!selectedSubject.simulados || selectedSubject.simulados.length === 0) && !selectedSubject.isPlaceholder && (
@@ -1555,27 +1570,26 @@
 
                                         {selectedSubject.simulados && selectedSubject.simulados.length > 0 && (
                                             <div>
-                                                <h3 className="text-lg font-bold text-white mb-6 pl-1 border-l-4 border-blue-500 flex items-center gap-3">
+                                                <h3 className="text-lg font-bold text-white mb-4 pl-1 border-l-4 border-blue-500 flex items-center gap-3 mt-8">
                                                     Análises e Simulados
                                                 </h3>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                                <div className="flex flex-col gap-3">
                                                     {selectedSubject.simulados.map((simulado) => (
                                                         <div 
                                                             key={simulado.id} 
                                                             onClick={() => handleOpenProblem(simulado.file)}
-                                                            className="bg-slate-800 border border-slate-700 hover:border-blue-500/50 p-5 rounded-xl cursor-pointer hover:bg-slate-750 hover:-translate-y-1 hover:shadow-lg transition-all group flex items-center gap-4"
+                                                            className="w-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:bg-slate-750 transition-all group flex items-center justify-between shadow-sm hover:shadow-md hover:translate-x-1"
                                                         >
-                                                            <div className="p-3 bg-blue-500/10 text-blue-400 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
-                                                                <Activity size={24} />
+                                                            <div className="flex items-center gap-4">
+                                                                <div className="p-2.5 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                                                    <Activity size={20} />
+                                                                </div>
+                                                                <div>
+                                                                    <h4 className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{simulado.title}</h4>
+                                                                    <p className="text-xs text-slate-500 mt-0.5">Documento HTML</p>
+                                                                </div>
                                                             </div>
-                                                            <div className="flex-1">
-                                                                <h4 className="font-bold text-slate-200 group-hover:text-white transition-colors">{simulado.title}</h4>
-                                                                <p className="text-xs text-slate-500 mt-1 flex items-center gap-1 group-hover:text-blue-300">
-                                                                    <FileText size={10} />
-                                                                    Documento HTML
-                                                                </p>
-                                                            </div>
-                                                            <ExternalLink size={16} className="text-slate-600 group-hover:text-blue-400 transition-colors" />
+                                                            <ExternalLink size={14} className="text-slate-600 group-hover:text-blue-400 transition-colors" />
                                                         </div>
                                                     ))}
                                                 </div>
@@ -1649,7 +1663,7 @@
                                 {activeSubTab === 'questoes' && (
                                     <div className="animate-fade-in">
                                         {selectedSubject.questions && selectedSubject.questions.length > 0 ? (
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            <div className="flex flex-col gap-3">
                                                 {selectedSubject.questions.map((question) => (
                                                     <div 
                                                         key={question.id}
@@ -1657,24 +1671,22 @@
                                                         data-title={question.title}
                                                         data-type="questao"
                                                         data-module={question.moduleRef}
-                                                        className="bg-slate-800 border border-slate-700 hover:border-amber-500 rounded-2xl p-6 cursor-pointer group transition-all hover:shadow-xl hover:shadow-amber-900/10 hover:-translate-y-1"
+                                                        className="w-full bg-slate-800 border border-slate-700 hover:border-amber-500/50 p-4 rounded-xl cursor-pointer hover:bg-slate-750 transition-all group flex items-center justify-between shadow-sm hover:shadow-md hover:translate-x-1"
                                                     >
-                                                        <div className="flex justify-between items-start mb-4">
-                                                            <div className="p-3 bg-amber-500/10 rounded-xl text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                                                                <FileQuestion size={28} />
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="p-2.5 bg-amber-500/10 rounded-lg text-amber-400 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                                                                <FileQuestion size={20} />
                                                             </div>
-                                                            <div className="bg-slate-900 text-xs px-2 py-1 rounded text-slate-500 border border-slate-700 group-hover:border-amber-500/30">Questões</div>
+                                                            <div>
+                                                                <h3 className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">
+                                                                    {question.title}
+                                                                </h3>
+                                                                <p className="text-xs text-slate-500 mt-0.5">ATP - Avaliação Tutorial</p>
+                                                            </div>
                                                         </div>
                                                         
-                                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                                                            {question.title}
-                                                        </h3>
-                                                        <p className="text-sm text-slate-500 mb-4 line-clamp-2">
-                                                            ATP - Avaliação Tutorial de Problema
-                                                        </p>
-                                                        
-                                                        <div className="flex items-center text-xs font-medium text-slate-400 group-hover:text-amber-400">
-                                                            Abrir Questões <ExternalLink size={12} className="ml-1" />
+                                                        <div className="flex items-center text-xs font-medium text-slate-500 group-hover:text-amber-400 transition-colors">
+                                                            Abrir <ExternalLink size={14} className="ml-1.5" />
                                                         </div>
                                                     </div>
                                                 ))}
@@ -1819,14 +1831,9 @@
                         <div className="flex items-center gap-4 lg:gap-12 flex-shrink-0">
                             {/* Logo */}
                             <div 
-                                className="flex items-center gap-3 cursor-pointer group"
+                                className="flex items-center gap-1 cursor-pointer group"
                                 onClick={() => handleTabSwitch('dashboard')}
                             >
-                                <img 
-                                    src="mednexus.png" 
-                                    alt="MedNexus Logo" 
-                                    className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
-                                />
                                 <span className="font-extrabold text-blue-500 text-xl lg:text-3xl tracking-tighter">MEDNEXUS</span>
                             </div>
 
