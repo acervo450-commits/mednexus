@@ -1831,9 +1831,14 @@
                         <div className="flex items-center gap-4 lg:gap-12 flex-shrink-0">
                             {/* Logo */}
                             <div 
-                                className="flex items-center gap-1 cursor-pointer group"
+                                className="flex items-center gap-3 cursor-pointer group"
                                 onClick={() => handleTabSwitch('dashboard')}
                             >
+                                <img 
+                                    src="mednexus.png" 
+                                    alt="MedNexus Logo" 
+                                    className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:scale-105 transition-transform drop-shadow-lg"
+                                />
                                 <span className="font-extrabold text-blue-500 text-xl lg:text-3xl tracking-tighter">MEDNEXUS</span>
                             </div>
 
