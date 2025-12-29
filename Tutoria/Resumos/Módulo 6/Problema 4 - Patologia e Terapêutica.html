@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Avançada: Patologia e Farmacologia</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-blue: #2980b9;
+            --accent-green: #27ae60;
+            --accent-purple: #8e44ad;
+            --accent-orange: #d35400;
+            --accent-red: #c0392b;
+            --bg-light: #ecf0f1;
+            --text-dark: #34495e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #dfe6e9;
+        }
+
+        .container {
+            background-color: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 4px solid var(--accent-red);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            border-left: 6px solid var(--accent-blue);
+            padding-left: 15px;
+            margin-top: 50px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--accent-purple);
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        strong {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        /* --- Caixas de Conteúdo --- */
+        .box {
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 6px solid;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.06);
+        }
+
+        .concept {
+            background-color: #e8f8f5;
+            border-color: var(--accent-green);
+            color: #0e6251;
+        }
+
+        .mechanism {
+            background-color: #f4ecf7;
+            border-color: var(--accent-purple);
+            color: #4a235a;
+        }
+
+        .exam-nuance {
+            background-color: #fdf2e9;
+            border-color: var(--accent-orange);
+            color: #7e5109;
+        }
+
+        .alert {
+            background-color: #fadbd8;
+            border-color: var(--accent-red);
+            color: #78281f;
+        }
+
+        .box-title {
+            font-weight: 800;
+            display: block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1.2px;
+        }
+
+        /* Listas e Tabelas */
+        ul {
+            list-style-type: none;
+            padding-left: 10px;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "➤";
+            color: var(--accent-blue);
+            font-size: 1em;
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 1px;
+        }
+
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:hover { background-color: #eef2f3; }
+
+        @media (max-width: 600px) {
+            .container { padding: 25px; }
+            h1 { font-size: 1.8em; }
+            table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Apostila Avançada: Patologia e Terapêutica</h1>
+
+    <h2>1. Capacidade de Regeneração Tecidual</h2>
+    <p>A regeneração depende intrinsecamente do ciclo celular. Para fins de prova, é crucial classificar os tecidos baseando-se em sua capacidade proliferativa.</p>
+
+    <h3>1.1 Células Labeis (Em Ciclo Contínuo)</h3>
+    <p>Estão em constante mitose para substituir células perdidas. A regeneração é rápida e perfeita, desde que a matriz extracelular esteja preservada.</p>
+    <ul>
+        <li><strong>Exemplos:</strong> Epitélios (pele, trato gastrointestinal), células hematopoéticas da medula óssea.</li>
+    </ul>
+
+    <h3>1.2 Células Estáveis (Quiescentes - G0)</h3>
+    <p>Normalmente não estão se dividindo (estão na fase G0 do ciclo celular), mas podem entrar rapidamente em G1/S se houver estímulo (lesão ou perda de massa).</p>
+    <ul>
+        <li><strong>Exemplos:</strong> Hepatócitos (fígado), células tubulares renais, fibroblastos, células endoteliais.</li>
+    </ul>
+    <div class="exam-nuance">
+        <span class="box-title">Detalhe de Prova</span>
+        O fígado tem uma capacidade regenerativa impressionante (hiperplasia compensatória), mas se a arquitetura reticular (o "esqueleto" do fígado) for destruída — como na cirrose —, a regeneração ocorre de forma desordenada, formando nódulos e fibrose, perdendo a função.
+    </div>
+
+    <h3>1.3 Células Permanentes (Pós-Mitóticas)</h3>
+    <p>Saíram definitivamente do ciclo celular e não conseguem sofrer mitose. Lesões aqui resultam irreversivelmente em <strong>reparo (cicatrização/fibrose)</strong> e não regeneração.</p>
+    <ul>
+        <li><strong>Exemplos:</strong> Neurônios e Cardiomiócitos.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Processos de Lesão e Morte Celular</h2>
+    <p>A distinção molecular entre esses processos é o foco principal em exames de patologia.</p>
+
+    <h3>2.1 Hipóxia vs. Isquemia</h3>
+    <p><strong>Hipóxia:</strong> Redução do aporte de oxigênio. A célula ainda pode gerar energia (pouca) via glicólise anaeróbia.<br>
+    <strong>Isquemia:</strong> Perda do suprimento sanguíneo (O2 + Nutrientes) e falha na remoção de metabólitos tóxicos.</p>
+
+    <div class="alert">
+        <span class="box-title">Atenção</span>
+        A <strong>Isquemia</strong> lesa os tecidos mais rapidamente que a hipóxia isolada, pois a falta de substrato (glicose) impede até mesmo a glicólise anaeróbia, e o acúmulo de ácido lático e CO2 acidifica o meio, precipitando proteínas.
+    </div>
+
+    <h3>2.2 Necrose vs. Apoptose</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Característica</th>
+                <th>Necrose (Acidental/Patológica)</th>
+                <th>Apoptose (Programada)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Tamanho Celular</strong></td>
+                <td>Aumentado (Edema/Oncose).</td>
+                <td>Reduzido (Retração).</td>
+            </tr>
+            <tr>
+                <td><strong>Núcleo</strong></td>
+                <td>Picnose → Cariorrexe → Cariólise.</td>
+                <td>Fragmentação em nucleossomos.</td>
+            </tr>
+            <tr>
+                <td><strong>Membrana Plasmática</strong></td>
+                <td>Rompida (conteúdo vaza).</td>
+                <td>Intacta (Corpos apoptóticos).</td>
+            </tr>
+            <tr>
+                <td><strong>Inflamação</strong></td>
+                <td><strong>Sempre presente</strong> (vazamento de DAMPs).</td>
+                <td>Ausente (limpeza silenciosa).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="exam-nuance">
+        <span class="box-title">Tipos de Necrose</span>
+        <ul>
+            <li><strong>Coagulativa:</strong> Padrão em infartos (exceto cérebro). Preserva o contorno da célula ("célula fantasma").</li>
+            <li><strong>Liquefativa:</strong> Infartos cerebrais e abscessos bacterianos (muita enzima lítica).</li>
+            <li><strong>Caseosa:</strong> Típica da Tuberculose (aspecto de queijo).</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h2>3. Ação dos Anti-inflamatórios</h2>
+    <p>Entender a <strong>Cascata do Ácido Araquidônico</strong> é fundamental para diferenciar AINEs de Corticoides.</p>
+
+    <div class="mechanism">
+        <span class="box-title">Mecanismo Molecular: A Cascata</span>
+        1. Lesão na membrana → Fosfolipídios são quebrados pela enzima <strong>Fosfolipase A2</strong>.<br>
+        2. Isso libera <strong>Ácido Araquidônico</strong>.<br>
+        3. O Ácido Araquidônico segue dois caminhos:<br>
+        &nbsp;&nbsp; A) Via da Ciclooxigenase (COX) → Produz Prostaglandinas e Tromboxanos.<br>
+        &nbsp;&nbsp; B) Via da Lipoxigenase (LOX) → Produz Leucotrienos.
+    </div>
+
+    <h3>3.1 Esteroidais (Corticoides)</h3>
+    <p>Atuam no topo da cascata. Eles induzem a produção de Lipocortina (Anexina-1), que <strong>inibe a Fosfolipase A2</strong>.</p>
+    <ul>
+        <li><strong>Consequência:</strong> Bloqueiam TUDO (Prostaglandinas, Tromboxanos E Leucotrienos).</li>
+        <li><strong>Potência:</strong> São anti-inflamatórios muito mais potentes, mas com mais efeitos colaterais sistêmicos (Síndrome de Cushing, imunossupressão).</li>
+    </ul>
+
+    <h3>3.2 AINEs (Não-Esteroidais)</h3>
+    <p>Atuam mais abaixo, inibindo as enzimas <strong>Ciclooxigenases (COX-1 e COX-2)</strong>.</p>
+    <ul>
+        <li><strong>Inibição da COX-1 (Constitutiva):</strong> Reduz proteção gástrica e agregação plaquetária (ex: Aspirina, Ibuprofeno). Risco de úlcera.</li>
+        <li><strong>Inibição da COX-2 (Induzida na inflamação):</strong> Reduz dor e febre (ex: Celecoxibe). Menor risco gástrico, mas potencial risco cardiovascular.</li>
+    </ul>
+
+    <hr>
+
+    <h2>4. Cascata de Coagulação</h2>
+    <p>O objetivo final é transformar o Fibrinogênio (solúvel) em Fibrina (insolúvel) para estabilizar o tampão plaquetário.</p>
+
+    <h3>4.1 As Vias</h3>
+    <ul>
+        <li><strong>Via Intrínseca:</strong> Ativada pelo contato do sangue com superfícies negativas (colágeno subendotelial). Fatores: XII → XI → IX → VIII. (Mede-se pelo <strong>TTPA</strong>).</li>
+        <li><strong>Via Extrínseca:</strong> Ativada por lesão tecidual externa que libera o <strong>Fator Tecidual (III)</strong>. Fator: VII. (Mede-se pelo <strong>TP</strong>/INR).</li>
+    </ul>
+
+    <h3>4.2 Via Comum</h3>
+    <p>As duas vias se encontram no <strong>Fator X</strong>.</p>
+    <div class="mechanism">
+        <span class="box-title">Sequência Final (Nuance de Prova)</span>
+        Fator X ativado (Xa) + Fator V + Cálcio + Fosfolipídios → Formam o Complexo Protrombinase.<br>
+        Este complexo converte <strong>Protrombina (II)</strong> em <strong>Trombina (IIa)</strong>.<br>
+        A Trombina converte <strong>Fibrinogênio (I)</strong> em <strong>Fibrina (Ia)</strong>.
+    </div>
+
+    <div class="alert">
+        <span class="box-title">O Papel da Vitamina K</span>
+        Os fatores II, VII, IX e X são dependentes de Vitamina K. Varfarina (anticoagulante) age inibindo a reciclagem dessa vitamina.
+    </div>
+
+    <hr>
+
+    <h2>5. Mecanismos Físico-Mecânicos do Trauma</h2>
+
+    <h3>5.1 Radiação Ionizante</h3>
+    <p>Causa lesão por dois mecanismos principais:</p>
+    <ol>
+        <li><strong>Ação Direta:</strong> O raio atinge e quebra a hélice de DNA (mais grave em células em mitose - por isso afeta medula e trato GI).</li>
+        <li><strong>Ação Indireta (Radiólise da Água):</strong> A radiação quebra a água dentro da célula, gerando Radicais Livres (ROS) como o radical hidroxila (OH•), que oxidam as estruturas celulares.</li>
+    </ol>
+
+    <h3>5.2 Agressão Térmica</h3>
+    <ul>
+        <li><strong>Hipertermia (Queimadura):</strong> Desnaturação proteica e coagulação. Em queimaduras graves (grande queimado), ocorre aumento massivo da permeabilidade vascular sistêmica, levando ao <strong>Choque Hipovolêmico</strong>.</li>
+        <li><strong>Hipotermia (Congelamento):</strong> Cristalização da água intracelular (rompe a membrana) e vasoconstrição intensa (isquemia) levando à gangrena.</li>
+    </ul>
+
+    <h3>5.3 Intoxicação e Biotransformação</h3>
+    <p>Muitas substâncias não são tóxicas *per se*, mas seus metabólitos são. O fígado tenta tornar as toxinas hidrossolúveis para excreção (Fase I - Citocromo P450 e Fase II - Conjugação).</p>
+    <div class="exam-nuance">
+        <span class="box-title">Exemplo Clássico: Paracetamol</span>
+        Em excesso, o Paracetamol satura a via segura (sulfatação) e é metabolizado pelo Citocromo P450 em <strong>NAPQI</strong>, um metabólito altamente tóxico que causa necrose hepática maciça se não houver glutationa suficiente para neutralizá-lo.
+    </div>
+
+</div>
+
+</body>
+</html>

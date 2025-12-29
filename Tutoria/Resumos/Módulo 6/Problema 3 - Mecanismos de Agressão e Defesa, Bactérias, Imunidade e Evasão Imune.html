@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecanismos de Agressão e Defesa: Resposta às Bactérias</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        medical: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; }
+        h1, h2, h3 { font-family: 'Merriweather', serif; }
+        .prose-text { line-height: 1.8; font-size: 1.1rem; }
+        .highlight-box { border-left: 4px solid #0ea5e9; background-color: #f0f9ff; }
+        .concept-card { transition: all 0.3s ease; }
+        .concept-card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .ig-card { border-top-width: 4px; }
+        .pathway-step { position: relative; padding-left: 2rem; }
+        .pathway-step::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 10px; height: 10px; border-radius: 50%; background-color: #cbd5e1; }
+        .pathway-step.active::before { background-color: #0ea5e9; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Capa -->
+    <header class="bg-slate-900 text-white py-16 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/medical-icons.png')]"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-block px-3 py-1 bg-blue-600 rounded-full text-xs font-bold tracking-wider uppercase mb-4">Imunologia • Módulo 6</div>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Mecanismos de Agressão e Defesa</h1>
+            <p class="text-xl text-slate-300 font-light">Bactérias, Imunidade e Evasão Imune</p>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-4xl mx-auto px-6 py-12">
+
+        <!-- Introdução -->
+        <section class="mb-12">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <i data-lucide="microscope" class="text-blue-600"></i> Introdução
+                </h2>
+                <p class="prose-text text-slate-600 mb-4">
+                    O sistema imunológico utiliza imunidade celular (Linfócitos T) e humoral (Linfócitos B, Anticorpos, Complemento) para combater bactérias. No entanto, os patógenos evoluem constantemente, desenvolvendo mecanismos sofisticados para subverter essas defesas.
+                </p>
+                <p class="prose-text text-slate-600">
+                    Abaixo, exploramos os perfis de resposta (Th1, Th2, Th17), a ação das Imunoglobulinas, o Sistema Complemento e os mecanismos de Subversão Imune.
+                </p>
+            </div>
+        </section>
+
+        <!-- Parte 1: Bactérias Intracelulares (Th1) -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold">1</div>
+                <h2 class="text-3xl font-bold text-slate-800">Bactérias Intracelulares: O Perfil Th1</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-500 concept-card">
+                    <h3 class="text-xl font-bold text-emerald-700 mb-2">O Desafio</h3>
+                    <p class="text-slate-600">Bactérias como <em>Mycobacterium tuberculosis</em> e <em>Listeria monocytogenes</em> têm a capacidade de sobreviver e replicar <strong>dentro</strong> dos fagócitos (macrófagos), onde os anticorpos não conseguem alcançá-las.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-500 concept-card">
+                    <h3 class="text-xl font-bold text-emerald-700 mb-2">A Solução</h3>
+                    <p class="text-slate-600">A imunidade mediada por células é necessária. O objetivo é ativar o macrófago infectado para que ele se torne potente o suficiente para destruir o hóspede indesejado.</p>
+                </div>
+            </div>
+
+            <div class="bg-emerald-50 p-8 rounded-2xl border border-emerald-100 mb-6">
+                <h3 class="text-xl font-bold text-emerald-800 mb-4">Mecanismo Imunológico (Passo a Passo)</h3>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <i data-lucide="arrow-right-circle" class="text-emerald-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700"><strong>Indução:</strong> Células dendríticas ou macrófagos apresentam antígenos e secretam <strong>IL-12</strong>.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i data-lucide="arrow-right-circle" class="text-emerald-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700"><strong>Diferenciação:</strong> A IL-12 induz células T CD4+ naives a se diferenciarem em células <strong>Th1</strong>.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i data-lucide="arrow-right-circle" class="text-emerald-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700"><strong>Efetuação (IFN-γ):</strong> As células Th1 secretam <strong>Interferon-gama (IFN-γ)</strong>, a citocina ativadora de macrófagos mais potente.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i data-lucide="arrow-right-circle" class="text-emerald-600 flex-shrink-0 mt-1"></i>
+                        <span class="text-slate-700"><strong>Resultado:</strong> Macrófagos ativados produzem espécies reativas de oxigênio (ROS), óxido nítrico e enzimas lisossomais para matar a bactéria.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Parte 2: Bactérias Extracelulares (Th17 e Th2) -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">2</div>
+                <h2 class="text-3xl font-bold text-slate-800">Bactérias Extracelulares: Perfis Th17 e Th2</h2>
+            </div>
+            
+            <p class="prose-text text-slate-600 mb-8">
+                Bactérias extracelulares (como <em>Staphylococcus aureus</em> e <em>Streptococcus pyogenes</em>) replicam-se fora das células. O combate exige fagocitose (neutrófilos) e anticorpos.
+            </p>
+
+            <!-- Th17 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-blue-700 mb-4 flex items-center gap-2">
+                    <i data-lucide="shield-alert" class="text-blue-500"></i> A Via Th17: Inflamação Aguda
+                </h3>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <span class="block text-sm font-bold text-blue-500 uppercase mb-1">Citocinas</span>
+                            <strong class="text-lg text-slate-800">IL-17 e IL-22</strong>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <span class="block text-sm font-bold text-blue-500 uppercase mb-1">Ação</span>
+                            <strong class="text-lg text-slate-800">Recrutamento de Neutrófilos</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Th2 -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-indigo-700 mb-4 flex items-center gap-2">
+                    <i data-lucide="droplets" class="text-indigo-500"></i> A Via Th2: Suporte Humoral
+                </h3>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <p class="mb-4 text-slate-600">Essencial para a <strong>produção de anticorpos</strong> robusta e opsonização.</p>
+                    <div class="flex items-start gap-3">
+                        <div class="bg-indigo-100 p-2 rounded text-indigo-600 font-bold">Citocinas</div>
+                        <p class="text-sm text-slate-600 pt-1"><strong>IL-4, IL-5, IL-13:</strong> Estimulam linfócitos B e produção de anticorpos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 3: Imunoglobulinas e Células B -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold">3</div>
+                <h2 class="text-3xl font-bold text-slate-800">Células B e Imunoglobulinas</h2>
+            </div>
+            
+            <p class="prose-text text-slate-600 mb-8">
+                A <strong>Imunidade Humoral</strong> é mediada por anticorpos produzidos pelos linfócitos B. Ao contrário das células T, as células B reconhecem antígenos na sua forma nativa (inteira), sem necessidade de processamento prévio.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-10">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-bl-full -mr-4 -mt-4 z-0"></div>
+                    <h3 class="text-xl font-bold text-purple-700 mb-3 relative z-10">Ativação da Célula B</h3>
+                    <p class="text-slate-600 relative z-10 text-sm">
+                        Ao reconhecer o antígeno (com ou sem ajuda da célula T auxiliar), a célula B se prolifera (expansão clonal) e sofre diferenciação.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-50 rounded-bl-full -mr-4 -mt-4 z-0"></div>
+                    <h3 class="text-xl font-bold text-purple-700 mb-3 relative z-10">Destino da Célula B</h3>
+                    <ul class="text-slate-600 relative z-10 text-sm space-y-2">
+                        <li><strong>Plasmócitos:</strong> Fábricas de anticorpos.</li>
+                        <li><strong>Células B de Memória:</strong> Vigilantes para reinfecções.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <i data-lucide="hexagon" class="text-purple-600"></i> As 5 Classes de Imunoglobulinas
+            </h3>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <!-- IgM -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-orange-400 ig-card">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IgM</h4>
+                        <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded-full">Pentâmero</span>
+                    </div>
+                    <p class="text-sm text-slate-600">A "primeira resposta" aguda. Excelente ativadora do Complemento.</p>
+                </div>
+
+                <!-- IgG -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-blue-600 ig-card md:col-span-2">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IgG</h4>
+                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full">Mais abundante</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Principal anticorpo da memória. Atravessa placenta. Opsonização e neutralização.</p>
+                </div>
+
+                <!-- IgA -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-emerald-500 ig-card">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IgA</h4>
+                        <span class="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">Mucosas</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Predominante nas secreções (saliva, intestino). Proteção de mucosas.</p>
+                </div>
+
+                <!-- IgE -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-red-500 ig-card">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IgE</h4>
+                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">Alergia/Parasitas</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Combate helmintos (eosinófilos) e reações alérgicas (mastócitos).</p>
+                </div>
+
+                <!-- IgD -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-slate-400 ig-card">
+                    <div class="flex justify-between items-center mb-2">
+                        <h4 class="font-bold text-lg text-slate-800">IgD</h4>
+                        <span class="text-xs bg-slate-100 text-slate-700 px-2 py-1 rounded-full">Receptor</span>
+                    </div>
+                    <p class="text-sm text-slate-600">Receptor de antígeno (BCR) em células B virgens.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 4: Memória Imunológica -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-bold">4</div>
+                <h2 class="text-3xl font-bold text-slate-800">Memória Imunológica</h2>
+            </div>
+            
+            <p class="prose-text text-slate-600 mb-8">
+                Capacidade do sistema imune de responder de forma mais rápida e robusta a um patógeno previamente encontrado (princípio das vacinas).
+            </p>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+                <h3 class="text-xl font-bold text-pink-700 mb-4 flex items-center gap-2">
+                    <i data-lucide="zap" class="text-pink-500"></i> Primária vs. Secundária
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-5 rounded-lg border-l-4 border-slate-300">
+                        <h4 class="font-bold text-slate-700 mb-2">Resposta Primária</h4>
+                        <ul class="text-sm text-slate-600 space-y-2">
+                            <li>• <strong>Tempo:</strong> Lenta (5-10 dias).</li>
+                            <li>• <strong>Ator:</strong> Células Naive.</li>
+                            <li>• <strong>Anticorpo:</strong> IgM > IgG.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-pink-50 p-5 rounded-lg border-l-4 border-pink-500">
+                        <h4 class="font-bold text-pink-800 mb-2">Resposta Secundária</h4>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li>• <strong>Tempo:</strong> Rápida (1-3 dias).</li>
+                            <li>• <strong>Ator:</strong> Células de Memória.</li>
+                            <li>• <strong>Anticorpo:</strong> IgG massivo.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 5: Sistema Complemento -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-cyan-100 flex items-center justify-center text-cyan-600 font-bold">5</div>
+                <h2 class="text-3xl font-bold text-slate-800">Sistema Complemento</h2>
+            </div>
+            
+            <p class="prose-text text-slate-600 mb-8">
+                Cascata de proteínas plasmáticas que "complementam" a capacidade de eliminar microrganismos.
+            </p>
+
+            <div class="grid lg:grid-cols-3 gap-6 mb-10">
+                <!-- Via Clássica -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-cyan-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Via Clássica</h3>
+                    <p class="text-sm text-cyan-700 font-semibold mb-2">Gatilho: Antígeno-Anticorpo</p>
+                    <p class="text-sm text-slate-600">C1q se liga a anticorpos na bactéria. Ativa C4 e C2 para formar C3 convertase (C4b2a).</p>
+                </div>
+                <!-- Via das Lectinas -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-teal-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Via das Lectinas</h3>
+                    <p class="text-sm text-teal-700 font-semibold mb-2">Gatilho: Manose Bacteriana</p>
+                    <p class="text-sm text-slate-600">MBL se liga a açúcares na superfície. Ativa MASPs, C4 e C2 (Similar à via clássica).</p>
+                </div>
+                <!-- Via Alternativa -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-amber-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-2">Via Alternativa</h3>
+                    <p class="text-sm text-amber-700 font-semibold mb-2">Gatilho: Superfície Direta</p>
+                    <p class="text-sm text-slate-600">Hidrólise espontânea de C3 ("tick-over"). Estabilização na superfície do patógeno.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+                <h3 class="text-2xl font-bold mb-4 font-serif">Convergência e Funções</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <strong class="text-cyan-400 block mb-2">Complexo de Ataque à Membrana (MAC)</strong>
+                        <p class="text-slate-300 text-sm">C5b recruta C6-C9 para formar poros na membrana, causando lise osmótica.</p>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-sm"><strong class="text-emerald-400">Opsonização (C3b):</strong> Facilita a fagocitose.</p>
+                        <p class="text-sm"><strong class="text-red-400">Inflamação (C3a, C5a):</strong> Recrutamento de leucócitos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Parte 6: Subversão Imune (NOVO) -->
+        <section class="mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold">6</div>
+                <h2 class="text-3xl font-bold text-slate-800">Mecanismos de Subversão Imune</h2>
+            </div>
+            
+            <p class="prose-text text-slate-600 mb-8">
+                A relação entre hospedeiro e patógeno é uma "corrida armamentista". Enquanto o sistema imune desenvolve armas (anticorpos, complemento), as bactérias evoluem mecanismos de <strong>Evasão</strong> e <strong>Subversão</strong> para sobreviver.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <!-- Evasão da Fagocitose -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="shield-off" class="text-red-500"></i> Bloqueio da Fagocitose
+                    </h3>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li><strong>Cápsulas Polissacarídicas:</strong> (ex: <em>Pneumococo</em>) Escondem antígenos e repelem fagócitos, dificultando a opsonização.</li>
+                        <li><strong>Morte do Fagócito:</strong> (ex: <em>S. aureus</em>) Produção de toxinas (leucocidinas) que matam neutrófilos.</li>
+                    </ul>
+                </div>
+
+                <!-- Evasão do Complemento -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="scissors" class="text-orange-500"></i> Inibição do Complemento
+                    </h3>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li><strong>Degradação de C3b/C5a:</strong> Bactérias secretam enzimas que quebram proteínas do complemento.</li>
+                        <li><strong>Fator H:</strong> Algumas bactérias "roubam" reguladores do hospedeiro para inibir a via alternativa.</li>
+                    </ul>
+                </div>
+
+                <!-- Sobrevivência Intracelular -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="box" class="text-purple-500"></i> Sobrevivência Intracelular
+                    </h3>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li><strong>Fuga do Fagossomo:</strong> (ex: <em>Listeria</em>) Escapa do vacúolo para o citoplasma.</li>
+                        <li><strong>Inibição da Fusão:</strong> (ex: <em>Mycobacterium</em>) Impede a fusão fagossomo-lisossomo.</li>
+                    </ul>
+                </div>
+
+                <!-- Variação Antigênica -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-500 concept-card">
+                    <h3 class="font-bold text-lg text-slate-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="refresh-cw" class="text-blue-500"></i> Variação Antigênica
+                    </h3>
+                    <ul class="text-sm text-slate-600 space-y-3">
+                        <li><strong>Mudança de Superfície:</strong> (ex: <em>Gonococo</em>) Alteram periodicamente proteínas (pili) para evadir anticorpos.</li>
+                        <li><strong>Proteases de IgA:</strong> (ex: <em>Neisseria</em>) Enzimas que clivam IgA nas mucosas.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Superantígenos -->
+            <div class="bg-red-50 p-6 rounded-xl border border-red-200 mb-8">
+                <h3 class="text-xl font-bold text-red-800 mb-2">O Caso dos Superantígenos</h3>
+                <p class="text-slate-700 mb-4">
+                    Algumas bactérias (ex: <em>S. aureus</em>) produzem toxinas que ligam o MHC-II ao TCR de forma inespecífica, causando ativação massiva de células T e <strong>Tempestade de Citocinas</strong> (choque tóxico).
+                </p>
+            </div>
+        </section>
+
+        <!-- Resumo Final -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-slate-800 mb-6">Quadro Resumo</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse bg-white rounded-lg shadow-sm overflow-hidden text-sm md:text-base">
+                    <thead class="bg-slate-800 text-white">
+                        <tr>
+                            <th class="p-4 font-semibold">Perfil / Elemento</th>
+                            <th class="p-4 font-semibold">Alvo / Gatilho</th>
+                            <th class="p-4 font-semibold">Mediadores Principais</th>
+                            <th class="p-4 font-semibold">Mecanismo Efetor</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200">
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-bold text-emerald-600">Th1</td>
+                            <td class="p-4">Bactérias Intracelulares</td>
+                            <td class="p-4">IFN-γ</td>
+                            <td class="p-4">Ativação de Macrófagos</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-bold text-blue-600">Th17</td>
+                            <td class="p-4">Bactérias Extracelulares</td>
+                            <td class="p-4">IL-17, IL-22</td>
+                            <td class="p-4">Recrutamento de Neutrófilos</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-bold text-purple-600">Imunidade Humoral</td>
+                            <td class="p-4">Extracelulares / Toxinas</td>
+                            <td class="p-4">Anticorpos (IgM, IgG...)</td>
+                            <td class="p-4">Neutralização, Opsonização</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-bold text-cyan-600">Sistema Complemento</td>
+                            <td class="p-4">Superfície Bacteriana</td>
+                            <td class="p-4">C3b, C5a, MAC</td>
+                            <td class="p-4">Lise, Inflamação</td>
+                        </tr>
+                         <tr class="hover:bg-slate-50">
+                            <td class="p-4 font-bold text-red-600">Subversão Imune</td>
+                            <td class="p-4">Defesas do Hospedeiro</td>
+                            <td class="p-4">Cápsulas, Toxinas</td>
+                            <td class="p-4">Evasão da Fagocitose/Lise</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-8 mt-12 text-center text-slate-500 text-sm">
+        <p>MedStudy Hub - Material de Apoio à Tutoria</p>
+        <p>&copy; 2024 Second Brain Project</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

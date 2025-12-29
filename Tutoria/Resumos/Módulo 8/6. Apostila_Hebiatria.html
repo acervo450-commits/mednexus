@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila: Hebiatria e Saúde do Adolescente (ASE 8 - P6)</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;    /* Roxo (Adolescência/Identidade) */
+            --secondary-color: #e67e22;  /* Laranja (Transtornos/Alerta) */
+            --tertiary-color: #2980b9;   /* Azul (Fisiologia/Vacinas) */
+            --quaternary-color: #c0392b; /* Vermelho (Bullying/Perigo) */
+            --light-bg: #fdfefe;
+            --text-color: #333;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4ecf7; /* Fundo lilás suave */
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+
+        /* Títulos */
+        .header-tag {
+            text-align: center;
+            font-size: 10pt;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 24pt;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, var(--primary-color), #9b59b6);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin-top: 50px;
+            font-size: 18pt;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: var(--tertiary-color);
+            border-left: 6px solid #a9cce3;
+            padding-left: 15px;
+            margin-top: 35px;
+            font-size: 15pt;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 12pt;
+            margin-top: 25px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #fad7a0;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 11pt;
+        }
+
+        /* Caixas de Destaque */
+        .purple-box {
+            background-color: #f5eef8;
+            border-left: 5px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .orange-box {
+            background-color: #fef5e7;
+            border: 1px solid #fad7a0;
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .red-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--quaternary-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+            color: #641e16;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9em;
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Listas */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Referências */
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; max-width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .purple-box, .orange-box, .red-box, thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-tag">Módulo VIII (ASE 8) - Problema 06</div>
+    <h1>Hebiatria: Puberdade, Transtornos Alimentares e Saúde Mental</h1>
+    <p style="text-align: center; font-style: italic;">Fisiologia do Desenvolvimento, Psicopatologia e Vulnerabilidades</p>
+
+    <!-- OBJETIVO 1: PUBERDADE E DIMORFISMO -->
+    <h2>1. Fisiologia da Puberdade e Dimorfismo Sexual</h2>
+    <p>A puberdade é iniciada pela reativação do eixo Hipotálamo-Hipófise-Gônada, caracterizada pelo aumento da amplitude e frequência dos pulsos de <strong>GnRH</strong> (durante o sono), estimulando LH e FSH. Fatores permissivos como a <strong>Leptina</strong> (reservas de gordura) e a <strong>Kisspeptina</strong> são cruciais para esse início.</p>
+
+    <h3>1.1. Comparativo do Estirão Puberal (Pico de Velocidade de Crescimento - PVC)</h3>
+    <div class="purple-box">
+        <p>A diferença de altura final entre homens e mulheres (média de 13 cm) explica-se pela cronologia do estirão:</p>
+        <ul>
+            <li><strong>Meninas (Estirão Precoce):</strong> Ocorre no início da puberdade (Tanner M2/M3), logo após a telarca.
+                <br><em>Consequência:</em> Param de crescer mais cedo. A <strong>Menarca</strong> é um evento tardio (M4), sinalizando a desaceleração do crescimento (crescem apenas 5-7 cm após menstruar devido ao fechamento epifisário pelo estrogênio).</li>
+            <li><strong>Meninos (Estirão Tardio):</strong> Ocorre no final da puberdade (Tanner G3/G4).
+                <br><em>Vantagem de Altura:</em> Eles têm cerca de <strong>2 anos a mais de crescimento pré-puberal</strong> que as meninas antes de iniciar o estirão, além de terem um pico de velocidade maior (cerca de 10-12 cm/ano vs. 8-10 cm/ano nas meninas).</li>
+        </ul>
+        <p><strong>Aplicação ao Caso (Gêmeos de 12 anos):</strong> A menina já menstruou e "espichou" (está desacelerando), sendo mais alta e madura. O menino ainda está pré-púbere ou no início (G2), sem ter entrado no estirão, com voz infantil e baixa estatura relativa.</p>
+    </div>
+
+    <h3>1.2. Fisiologia do Sono na Adolescência</h3>
+    <p>O adolescente sofre um "atraso de fase" biológico do ritmo circadiano.</p>
+    <ul>
+        <li><strong>Mecanismo:</strong> A secreção de melatonina ocorre cerca de 2 horas mais tarde. Isso cria um conflito entre o <em>Tempo Biológico</em> (dormir tarde/acordar tarde) e o <em>Tempo Social</em> (escola cedo).</li>
+        <li><strong>Consequência:</strong> Privação crônica de sono, hipersonia diurna ("dorme muito" no fim de semana para compensar), irritabilidade e prejuízo cognitivo.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: TRANSTORNOS ALIMENTARES -->
+    <h2>2. Transtornos Alimentares (DSM-5)</h2>
+    <p>Distúrbios psiquiátricos com as maiores taxas de mortalidade. Envolvem distorção da imagem corporal e comportamentos alimentares anormais.</p>
+
+    <h3>2.1. Anorexia Nervosa (AN)</h3>
+    <p>Tríade diagnóstica: Restrição calórica + Medo intenso de engordar + Distorção da imagem corporal.</p>
+    <ul>
+        <li><strong>Subtipos:</strong>
+            <ul>
+                <li><em>Restritivo:</em> Perda de peso apenas com dieta/jejum/exercício.</li>
+                <li><em>Compulsão/Purgação:</em> Episódios de comer excessivo ou purgação (vômitos/laxantes).</li>
+            </ul>
+        </li>
+        <li><strong>Complicações Clínicas Graves:</strong>
+            <ul>
+                <li><strong>Amenorreia Hipotalâmica Funcional:</strong> O corpo desliga o eixo reprodutivo para poupar energia.</li>
+                <li><strong>Síndrome de Realimentação:</strong> Risco fatal na renutrição rápida (hipofosfatemia grave -> falência cardíaca).</li>
+                <li><strong>Cardíacas:</strong> Bradicardia sinusal, hipotensão, arritmias (prolongamento do QT).</li>
+                <li><strong>Dermatológicas:</strong> Lanugo (pelo fino protetor), pele seca e amarelada (hipercarotenemia).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>2.2. Bulimia Nervosa (BN)</h3>
+    <p>Ciclo vicioso: Compulsão Alimentar (grande volume + perda de controle) $\to$ Culpa $\to$ Comportamento Compensatório (Vômito, Laxante, Diurético, Exercício).</p>
+    <ul>
+        <li><strong>Diferença Chave para AN:</strong> Na Bulimia, o peso é geralmente <strong>Normal ou Sobrepeso</strong> (IMC $\ge$ 18,5).</li>
+        <li><strong>Classificação de Gravidade (DSM-5):</strong> Baseada na frequência de episódios compensatórios.
+            <ul>
+                <li><em>Leve:</em> 1-3 episódios/semana.</li>
+                <li><em>Moderada:</em> 4-7 episódios/semana.</li>
+                <li><em>Grave:</em> 8-13 episódios/semana.</li>
+                <li><em>Extrema:</em> 14 ou mais episódios/semana.</li>
+            </ul>
+        </li>
+        <li><strong>Sinais Clínicos Específicos:</strong>
+            <ul>
+                <li><strong>Sinal de Russell:</strong> Calos no dorso da mão (dentes incisivos ferem a pele na indução do vômito).</li>
+                <li><strong>Erosão do Esmalte Dentário:</strong> Face lingual dos dentes (acidez gástrica).</li>
+                <li><strong>Hipertrofia de Parótidas:</strong> "Fácies de esquilo" (sialadenose).</li>
+                <li><strong>Distúrbios Hidroeletrolíticos:</strong> Hipocalemia (perda de K+ no vômito) e Alcalose Metabólica.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>2.3. Vigorexia (Dismorfia Muscular)</h3>
+    <p>Classificada dentro do Transtorno Dismórfico Corporal. O indivíduo se vê "pequeno e fraco" apesar de ser musculoso ("Anorexia Reversa").</p>
+    <div class="orange-box">
+        <strong>Características Clínicas:</strong>
+        <br>• Treinos compulsivos (sacrifica vida social/trabalho).
+        <br>• Dietas hiperproteicas rigorosas e uso abusivo de suplementos.
+        <br>• Uso de Esteroides Anabolizantes (risco de atrofia testicular, acne, ginecomastia, agressividade).
+    </div>
+
+    <!-- OBJETIVO 3: BULLYING -->
+    <h2>3. Violência Escolar (Bullying)</h2>
+    <div class="red-box">
+        <strong>Definição Técnica:</strong> Comportamento agressivo caracterizado por três elementos essenciais:
+        <ol>
+            <li><strong>Intencionalidade:</strong> Desejo de causar dano.</li>
+            <li><strong>Repetição:</strong> Ocorre ao longo do tempo.</li>
+            <li><strong>Desequilíbrio de Poder:</strong> A vítima tem dificuldade de se defender (física, social ou psicologicamente).</li>
+        </ol>
+    </div>
+    
+    <h3>3.1. Papéis e Consequências</h3>
+    <ul>
+        <li><strong>Atores:</strong>
+            <ul>
+                <li><em>Agressor:</em> Busca poder/status.</li>
+                <li><em>Vítima:</em> Frequentemente passiva, insegura ou com características estigmatizadas (ex: "orelhas de abano").</li>
+                <li><em>Vítima-Agressora:</em> Sofre bullying e reproduz a agressão (maior risco psiquiátrico).</li>
+                <li><em>Espectadores:</em> Testemunhas que reforçam ou omitem o ato.</li>
+            </ul>
+        </li>
+        <li><strong>Sinais de Alerta para o Pediatra/Hebiatra:</strong>
+            <ul>
+                <li>Queda abrupta do rendimento escolar.</li>
+                <li>Sintomas psicossomáticos (cefaleia, dor abdominal) antes de ir à escola ("Síndrome da segunda-feira").</li>
+                <li>Roupas rasgadas, perda de material, hematomas inexplicáveis.</li>
+                <li>Isolamento social e recusa escolar.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- OBJETIVO 4: IMUNIZAÇÃO -->
+    <h2>4. Calendário Vacinal do Adolescente (PNI)</h2>
+    <p>Janela de oportunidade para reforços e prevenção de cânceres relacionados ao HPV.</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Vacina</th>
+                <th>Idade</th>
+                <th>Detalhes Técnicos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>HPV</strong> (Quadrivalente)</td>
+                <td>9 a 14 anos (Ambos os sexos)</td>
+                <td>Previne genótipos 6, 11 (verrugas), 16, 18 (câncer). Esquema atual: <strong>Dose Única</strong> (para imunocompetentes entre 9-14 anos, conforme Nota Técnica MS 2024) ou 2-3 doses para imunossuprimidos/vítimas de violência sexual.</td>
+            </tr>
+            <tr>
+                <td><strong>Meningocócica ACWY</strong></td>
+                <td>11 a 14 anos</td>
+                <td>Substitui o reforço da Meningo C. Importante pois adolescentes são os principais portadores assintomáticos da <em>N. meningitidis</em> na orofaringe, transmitindo para a comunidade.</td>
+            </tr>
+            <tr>
+                <td><strong>Hepatite B</strong></td>
+                <td>Não vacinados</td>
+                <td>Esquema 0-1-6 meses. Proteção essencial no início da vida sexual.</td>
+            </tr>
+            <tr>
+                <td><strong>dT (Dupla Adulto)</strong></td>
+                <td>Reforço a cada 10 anos</td>
+                <td>Prevenção de Tétano e Difteria. Verificar carteira.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="bibliography">
+        <h3>Referências</h3>
+        <p>SOCIEDADE BRASILEIRA DE PEDIATRIA. Tratado de Pediatria. 4ª ed. Manole, 2017.</p>
+        <p>AMERICAN PSYCHIATRIC ASSOCIATION. DSM-5: Manual Diagnóstico e Estatístico de Transtornos Mentais. Artmed, 2014.</p>
+        <p>BRASIL. Ministério da Saúde. Calendário Nacional de Vacinação. 2024.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedHub - Quiz de Imunologia</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-red: #ef4444;
+            --gradient-blue: linear-gradient(135deg, #3b82f6, #2563eb);
+            --gradient-green: linear-gradient(135deg, #10b981, #059669);
+            --gradient-purple: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Centraliza verticalmente */
+            overflow-y: auto;
+        }
+
+        /* Main Content Container */
+        .main-content {
+            width: 100%;
+            max-width: 1000px; /* Limita a largura para ficar bonito no centro */
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center; /* Centraliza o texto do título */
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem; /* Aumentei um pouco */
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #f8fafc, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Dashboard Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cartões um pouco mais largos */
+            gap: 30px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 20px; /* Mais arredondado */
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 220px; /* Cartões mais altos */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Efeito de brilho no hover */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.2);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Interface */
+        .quiz-container {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #334155;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-blue);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .question-badge {
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-blue);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            display: inline-block;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            margin-bottom: 35px;
+            line-height: 1.5;
+            color: #e2e8f0;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            background-color: var(--bg-dark);
+            border: 1px solid #334155;
+            padding: 20px 25px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent-blue);
+            background-color: rgba(59, 130, 246, 0.05);
+            transform: translateX(5px);
+        }
+
+        .option-btn.correct {
+            border-color: var(--accent-green);
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+        }
+
+        .option-btn.wrong {
+            border-color: var(--accent-red);
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--accent-red);
+        }
+
+        /* Feedback Modal */
+        .feedback-overlay {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            background-color: #0f172a; /* Mais escuro para contraste */
+            border-left: 4px solid var(--accent-blue);
+            animation: slideIn 0.3s ease;
+        }
+
+        .feedback-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .feedback-text {
+            color: #cbd5e1;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .next-btn {
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: var(--gradient-blue);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            float: right;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .next-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Results Screen */
+        .results-container {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #334155;
+        }
+
+        .score-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 10px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 30px auto;
+            background: rgba(15, 23, 42, 0.5);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .restart-btn {
+            padding: 15px 50px;
+            background: var(--gradient-green);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 30px;
+            font-weight: bold;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+        
+        .restart-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .main-content { padding: 20px; }
+            .header h1 { font-size: 1.8rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .card { height: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Content (Sem Sidebar) -->
+    <div class="main-content">
+        
+        <!-- Screen 1: Dashboard / Selection -->
+        <div id="screen-dashboard">
+            <div class="header">
+                <h1>Boa sorte nas questões, meu nobre gafanhoto</h1>
+                <p>Selecione seu nível de desafio e mostre o que sabe sobre Imunologia.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card" style="background: var(--gradient-green)" onclick="startQuiz(10)">
+                    <div class="card-icon">⚡</div>
+                    <div>
+                        <h3>Treino Rápido</h3>
+                        <p>10 Questões aleatórias</p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: var(--gradient-blue)" onclick="startQuiz(20)">
+                    <div class="card-icon">🧠</div>
+                    <div>
+                        <h3>Treino Padrão</h3>
+                        <p>20 Questões aleatórias</p>
+                    </div>
+                </div>
+
+                <div class="card" style="background: var(--gradient-purple)" onclick="startQuiz(30)">
+                    <div class="card-icon">🔥</div>
+                    <div>
+                        <h3>Maratona Completa</h3>
+                        <p>Todas as 30 questões</p>
+                    </div>
+                </div>
+                
+                <!-- Card de revisão removido conforme pedido -->
+            </div>
+        </div>
+
+        <!-- Screen 2: Quiz -->
+        <div id="screen-quiz" class="quiz-container">
+            <div class="header">
+                <h1 id="quiz-title" style="font-size: 2rem;">Quiz em Andamento</h1>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <span class="question-badge" id="q-category">Categoria</span>
+                <p class="question-text" id="q-text">Carregando pergunta...</p>
+                
+                <div class="options-grid" id="options-container">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <div class="feedback-overlay" id="feedback">
+                    <span class="feedback-title" id="feedback-title">Resposta</span>
+                    <p class="feedback-text" id="feedback-text">Explicação aqui.</p>
+                </div>
+
+                <button class="next-btn" id="next-btn" onclick="nextQuestion()" style="display: none;">Próxima Questão</button>
+            </div>
+        </div>
+
+        <!-- Screen 3: Results -->
+        <div id="screen-results" class="results-container">
+            <h1 style="font-size: 2.5rem; color: var(--accent-green);">Treino Finalizado!</h1>
+            <p style="color: var(--text-muted); margin-bottom: 30px;">Veja como foi seu desempenho nos órgãos linfoides e defesas.</p>
+            
+            <div class="score-circle" id="final-score">0%</div>
+            
+            <p id="score-message" style="font-size: 1.2rem; margin-bottom: 20px; line-height: 1.6;">Mensagem motivacional.</p>
+            
+            <button class="restart-btn" onclick="location.reload()">Novo Treino</button>
+        </div>
+
+    </div>
+
+    <script>
+        // --- BANCO DE QUESTÕES (30 ITENS) ---
+        const allQuestions = [
+            // Órgãos Linfoides (1-6)
+            {
+                category: "Órgãos Linfoides",
+                text: "Qual das alternativas abaixo define corretamente a principal função dos órgãos linfoides primários?",
+                options: [
+                    "Capturar antígenos que entram pela pele.",
+                    "Filtrar o sangue removendo hemácias velhas.",
+                    "Produzir e maturar linfócitos (educação celular).",
+                    "Ativar a resposta imune contra patógenos."
+                ],
+                correct: 2,
+                explanation: "Foi quase! Lembre-se que 'Primário' vem de 'Primeiro'. É onde tudo começa: a produção e a educação das células. Capturar e ativar são funções dos secundários (o campo de batalha)."
+            },
+            {
+                category: "Órgãos Linfoides",
+                text: "Onde ocorre a maturação final dos Linfócitos T?",
+                options: [
+                    "Medula Óssea",
+                    "Timo",
+                    "Linfonodos",
+                    "Baço"
+                ],
+                correct: 1,
+                explanation: "Cuidado com a pegadinha! Eles NASCEM na medula, mas o nome 'Linfócito T' vem justamente de TIMO, que é onde eles vão para terminar a escola (maturação)."
+            },
+            {
+                category: "Órgãos Linfoides",
+                text: "Um paciente sofreu um acidente e precisou retirar o baço (esplenectomia). Qual função imunológica ficará prejudicada?",
+                options: [
+                    "Maturação de linfócitos T.",
+                    "Filtragem da linfa vinda dos tecidos.",
+                    "Proteção contra microrganismos no sangue (bacteremias).",
+                    "Produção de células-tronco hematopoéticas."
+                ],
+                correct: 2,
+                explanation: "Pense na anatomia: o baço está ligado aos vasos sanguíneos, não aos linfáticos. Sem ele, o sangue perde seu filtro principal, deixando o paciente exposto a bactérias que circulam no sangue."
+            },
+            {
+                category: "Órgãos Linfoides",
+                text: "Os linfonodos atuam como filtros para qual fluido corporal?",
+                options: [
+                    "Sangue",
+                    "Linfa",
+                    "Líquido cefalorraquidiano",
+                    "Suco gástrico"
+                ],
+                correct: 1,
+                explanation: "Não confunda! O Baço filtra o sangue. Os LINFOnodos filtram a LINFA, drenando o que vem dos tecidos antes de devolver ao sangue."
+            },
+            {
+                category: "Órgãos Linfoides",
+                text: "Qual destes órgãos é responsável pela seleção positiva e negativa para evitar autoimunidade nos linfócitos T?",
+                options: [
+                    "MALT",
+                    "Medula Óssea",
+                    "Timo",
+                    "Placas de Peyer"
+                ],
+                correct: 2,
+                explanation: "Essa seleção rigorosa acontece na 'escola' dos linfócitos T. Se eles atacarem o próprio corpo durante o teste, são eliminados lá no Timo mesmo."
+            },
+            {
+                category: "Órgãos Linfoides",
+                text: "O que significa a sigla MALT?",
+                options: [
+                    "Tecido Linfoide Associado à Mucosa",
+                    "Mecanismo Ativo de Limpeza Tímica",
+                    "Medula Associada aos Linfócitos T",
+                    "Macrófagos Ativos no Lúmen Total"
+                ],
+                correct: 0,
+                explanation: "MALT vem do inglês 'Mucosa-Associated Lymphoid Tissue'. São os 'postos de guarda' nas portas de entrada como intestino e pulmão."
+            },
+            // Hematopoese (7-12)
+            {
+                category: "Hematopoese",
+                text: "Na vida adulta, qual é o principal local de hematopoese (formação do sangue)?",
+                options: [
+                    "Fígado",
+                    "Saco vitelínico",
+                    "Baço",
+                    "Medula Óssea Vermelha"
+                ],
+                correct: 3,
+                explanation: "No feto, o fígado e o baço ajudam, mas no adulto saudável, a fábrica do sangue é exclusivamente a Medula Óssea Vermelha."
+            },
+            {
+                category: "Hematopoese",
+                text: "Quais células são originadas a partir do Progenitor Mieloide Comum?",
+                options: [
+                    "Linfócitos B, T e NK",
+                    "Apenas hemácias",
+                    "Granulócitos, Monócitos, Hemácias e Plaquetas",
+                    "Apenas Linfócitos e Plasmócitos"
+                ],
+                correct: 2,
+                explanation: "Lembra da divisão? Linfoide faz linfócitos. Mieloide faz TODO O RESTO (hemácias, plaquetas e a galera da imunidade inata como neutrófilos)."
+            },
+            {
+                category: "Hematopoese",
+                text: "Qual célula abaixo pertence à linhagem LINFOIDE, mas atua na imunidade INATA?",
+                options: [
+                    "Linfócito B",
+                    "Neutrófilo",
+                    "Célula NK (Natural Killer)",
+                    "Linfócito T CD4"
+                ],
+                correct: 2,
+                explanation: "Essa é a exceção à regra! A NK é irmã dos linfócitos (linha linfoide), mas age rápido e sem especificidade, como o pessoal da inata."
+            },
+            {
+                category: "Hematopoese",
+                text: "Os neutrófilos são caracterizados por possuírem:",
+                options: [
+                    "Núcleo redondo e grande produção de anticorpos.",
+                    "Núcleo segmentado e grânulos citoplasmáticos.",
+                    "Capacidade de virar plasmócitos.",
+                    "Origem no Timo."
+                ],
+                correct: 1,
+                explanation: "Neutrófilos são granulócitos e polimorfonucleares. Eles têm o núcleo todo 'quebrado' (segmentado) e grânulos para destruir bactérias."
+            },
+            {
+                category: "Hematopoese",
+                text: "O processo de deleção clonal na medula óssea serve para:",
+                options: [
+                    "Eliminar Linfócitos B que reconhecem o próprio corpo (autoimunes).",
+                    "Aumentar a produção de hemácias.",
+                    "Ativar os linfócitos para atacarem vírus.",
+                    "Criar memória imunológica."
+                ],
+                correct: 0,
+                explanation: "É um controle de qualidade! Se o linfócito B nasce reconhecendo o seu próprio osso como inimigo, ele precisa ser deletado antes de sair de lá."
+            },
+            {
+                category: "Hematopoese",
+                text: "Qual célula abaixo é responsável por produzir anticorpos?",
+                options: [
+                    "Linfócito T CD8",
+                    "Plasmócito (Linfócito B diferenciado)",
+                    "Macrófago",
+                    "Célula NK"
+                ],
+                correct: 1,
+                explanation: "Quem dispara anticorpos é o Plasmócito. Ele é a evolução 'Super Saiyajin' do Linfócito B após ser ativado."
+            },
+            // Linhas de Defesa (13-18)
+            {
+                category: "Linhas de Defesa",
+                text: "A pele intacta, o suco gástrico e a microbiota normal compõem qual linha de defesa?",
+                options: [
+                    "Primeira Linha (Barreiras)",
+                    "Segunda Linha (Inata Interna)",
+                    "Terceira Linha (Adaptativa)",
+                    "Quarta Linha (Hospitalar)"
+                ],
+                correct: 0,
+                explanation: "Pense na fortaleza: a primeira coisa que o inimigo encontra é o muro (pele) e o fosso ácido (estômago). É a Primeira Linha."
+            },
+            {
+                category: "Linhas de Defesa",
+                text: "Se você corta o dedo e bactérias entram, qual linha de defesa é acionada IMEDIATAMENTE após a barreira ser rompida?",
+                options: [
+                    "Produção de Anticorpos (3ª Linha)",
+                    "Inflamação e Fagocitose (2ª Linha)",
+                    "Memória Imunológica",
+                    "Maturação Tímica"
+                ],
+                correct: 1,
+                explanation: "Anticorpos demoram dias. Quem chega na hora (minutos) para conter o corte é a inflamação e os fagócitos. Segunda Linha!"
+            },
+            {
+                category: "Linhas de Defesa",
+                text: "Qual é a principal característica da Terceira Linha de Defesa (Adaptativa)?",
+                options: [
+                    "Resposta rápida e inespecífica.",
+                    "Presença de barreiras físicas.",
+                    "Memória imunológica e especificidade.",
+                    "Fagocitose generalizada."
+                ],
+                correct: 2,
+                explanation: "A terceira linha é a elite. Ela demora para agir, mas quando age, sabe exatamente quem matar e nunca mais esquece o rosto do inimigo (memória)."
+            },
+            {
+                category: "Linhas de Defesa",
+                text: "A lisozima presente na lágrima é um exemplo de:",
+                options: [
+                    "Barreira Física",
+                    "Barreira Química",
+                    "Barreira Biológica",
+                    "Resposta Celular"
+                ],
+                correct: 1,
+                explanation: "Lisozima é uma enzima, uma substância. Portanto, é uma arma QUÍMICA que dissolve a parede das bactérias."
+            },
+            {
+                category: "Linhas de Defesa",
+                text: "A febre é considerada um mecanismo de qual linha de defesa?",
+                options: [
+                    "Primeira (Barreiras)",
+                    "Segunda (Inata Interna)",
+                    "Terceira (Adaptativa)",
+                    "Nenhuma, é uma doença."
+                ],
+                correct: 1,
+                explanation: "A febre é uma resposta sistêmica da imunidade inata (segunda linha) para tentar 'cozinhar' o patógeno ou acelerar o metabolismo de defesa."
+            },
+            {
+                category: "Linhas de Defesa",
+                text: "Qual o papel da microbiota normal (flora bacteriana) na defesa?",
+                options: [
+                    "Produzir anticorpos.",
+                    "Realizar fagocitose.",
+                    "Competir por espaço e nutrientes com patógenos (Barreira Biológica).",
+                    "Aumentar a temperatura corporal."
+                ],
+                correct: 2,
+                explanation: "É como um ônibus lotado: se as bactérias 'do bem' ocupam todos os assentos, as bactérias ruins não conseguem sentar (colonizar). Isso é barreira biológica."
+            },
+            // Inata vs Adaptativa (19-24)
+            {
+                category: "Inata vs Adaptativa",
+                text: "Qual das seguintes características define melhor a Imunidade INATA?",
+                options: [
+                    "Alta especificidade para antígenos.",
+                    "Gera memória de longa duração.",
+                    "Resposta imediata e inespecífica.",
+                    "Melhora a cada exposição ao mesmo patógeno."
+                ],
+                correct: 2,
+                explanation: "A Inata é bruta e rápida. Ela bate primeiro e pergunta depois, usando a mesma estratégia para quase todos os invasores."
+            },
+            {
+                category: "Inata vs Adaptativa",
+                text: "Quanto tempo a Imunidade ADAPTATIVA geralmente leva para responder no primeiro contato?",
+                options: [
+                    "Segundos",
+                    "Algumas horas",
+                    "Dias ou semanas",
+                    "Imediatamente"
+                ],
+                correct: 2,
+                explanation: "A adaptativa precisa de tempo para estudar o inimigo, clonar o exército certo e atacar. Isso leva dias na primeira vez."
+            },
+            {
+                category: "Inata vs Adaptativa",
+                text: "Quem faz a 'ponte' entre a imunidade inata e a adaptativa, apresentando o antígeno?",
+                options: [
+                    "Neutrófilo",
+                    "Célula Dendrítica",
+                    "Plaqueta",
+                    "Hemácia"
+                ],
+                correct: 1,
+                explanation: "A Célula Dendrítica é a espiã fofoqueira. Ela pega um pedaço do invasor na pele (inata) e corre pro linfonodo mostrar pro Linfócito T (adaptativa)."
+            },
+            {
+                category: "Inata vs Adaptativa",
+                text: "Qual tipo de imunidade é responsável pela rejeição rápida e 'bruta', mas sem memória específica?",
+                options: [
+                    "Inata",
+                    "Adaptativa Humoral",
+                    "Adaptativa Celular",
+                    "Passiva"
+                ],
+                correct: 0,
+                explanation: "Sem memória e rápida? Estamos falando da Inata. A adaptativa sempre gera memória."
+            },
+            {
+                category: "Inata vs Adaptativa",
+                text: "Vacinas funcionam baseadas em qual princípio?",
+                options: [
+                    "Estimular a barreira física da pele.",
+                    "Criar inflamação crônica.",
+                    "Gerar Memória Imunológica (Imunidade Adaptativa).",
+                    "Aumentar o número de neutrófilos apenas."
+                ],
+                correct: 2,
+                explanation: "A vacina apresenta o inimigo 'morto' ou 'fraco' para que a Imunidade Adaptativa crie memória. Assim, quando o inimigo real vier, a defesa já está pronta."
+            },
+            {
+                category: "Inata vs Adaptativa",
+                text: "Os Linfócitos T e B pertencem a qual braço da imunidade?",
+                options: [
+                    "Inata",
+                    "Adaptativa",
+                    "Barreiras Naturais",
+                    "Hematopoese Mieloide"
+                ],
+                correct: 1,
+                explanation: "Linfócitos são a elite. T e B são os protagonistas da Imunidade Adaptativa (Específica)."
+            },
+            // Células (25-27)
+            {
+                category: "Células",
+                text: "Qual é a função principal dos Linfócitos T CD4+ (Helper)?",
+                options: [
+                    "Fagocitar bactérias.",
+                    "Produzir anticorpos diretamente.",
+                    "Coordenar a resposta imune secretando citocinas.",
+                    "Matar células tumorais por contato direto."
+                ],
+                correct: 2,
+                explanation: "O CD4 é o General. Ele não mata, ele manda! Ele libera citocinas (ordens) para ativar os macrófagos, os Linfócitos B e os CD8."
+            },
+            {
+                category: "Células",
+                text: "Os neutrófilos são conhecidos por:",
+                options: [
+                    "Serem células de vida longa.",
+                    "Chegarem primeiro na infecção e morrerem rápido (pus).",
+                    "Produzirem memória.",
+                    "Não realizarem fagocitose."
+                ],
+                correct: 1,
+                explanation: "Neutrófilos são os kamikazes. Chegam rápido, comem bactérias e morrem, formando o pus. Vida curta, mas heroica."
+            },
+            {
+                category: "Células",
+                text: "Células NK (Natural Killer) destroem principalmente:",
+                options: [
+                    "Bactérias extracelulares.",
+                    "Vermes intestinais.",
+                    "Células infectadas por vírus ou tumorais.",
+                    "Toxinas no sangue."
+                ],
+                correct: 2,
+                explanation: "O nome diz tudo: Assassinas Naturais. Elas detectam células do próprio corpo que estão estranhas (com vírus ou câncer) e as obrigam a cometer suicídio (apoptose)."
+            },
+            // Inflamação (28-30)
+            {
+                category: "Inflamação",
+                text: "Qual dos sinais abaixo NÃO é um sinal cardinal da inflamação?",
+                options: [
+                    "Rubor (Vermelhidão)",
+                    "Calor",
+                    "Palidez",
+                    "Dor"
+                ],
+                correct: 2,
+                explanation: "Inflamação traz MAIS sangue, então fica vermelho (rubor), não pálido. Palidez é falta de sangue."
+            },
+            {
+                category: "Inflamação",
+                text: "O que causa o 'Edema' (inchaço) na inflamação?",
+                options: [
+                    "Multiplicação de bactérias.",
+                    "Aumento da permeabilidade vascular e saída de líquido (exsudato).",
+                    "Contração dos músculos.",
+                    "Acúmulo de gordura."
+                ],
+                correct: 1,
+                explanation: "Os vasos abrem seus poros (permeabilidade) para deixar as células de defesa passarem. O problema é que a água do sangue (plasma) vaza junto, inchando o tecido."
+            },
+            {
+                category: "Inflamação",
+                text: "Qual é o objetivo biológico da inflamação aguda?",
+                options: [
+                    "Causar dor apenas para avisar o cérebro.",
+                    "Destruir o tecido saudável.",
+                    "Isolar a lesão, eliminar o agente agressor e iniciar o reparo.",
+                    "Gerar autoimunidade."
+                ],
+                correct: 2,
+                explanation: "Apesar de chata (dói e incha), a inflamação é vital. Ela cerca o inimigo, mata ele e prepara o terreno para a cicatrização."
+            }
+        ];
+
+        // --- LÓGICA DO QUIZ ---
+        let currentQuestions = [];
+        let currentIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function startQuiz(count) {
+            // Reset
+            score = 0;
+            currentIndex = 0;
+            userAnswers = [];
+            
+            // Prepare questions
+            const shuffled = shuffleArray([...allQuestions]); // Copy and shuffle
+            currentQuestions = shuffled.slice(0, count);
+
+            // Switch Screens
+            document.getElementById('screen-dashboard').style.display = 'none';
+            document.getElementById('screen-quiz').style.display = 'block';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = currentQuestions[currentIndex];
+            
+            // UI Updates
+            document.getElementById('quiz-title').innerText = `Questão ${currentIndex + 1} de ${currentQuestions.length}`;
+            document.getElementById('q-category').innerText = q.category;
+            document.getElementById('q-text').innerText = q.text;
+            document.getElementById('feedback').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+
+            // Progress Bar
+            const progressPct = ((currentIndex) / currentQuestions.length) * 100;
+            document.getElementById('progress').style.width = `${progressPct}%`;
+
+            // Options
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = ''; // Clear previous
+
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('div');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selectedIndex, selectedBtn) {
+            // Prevent multiple clicks
+            const optionsDivs = document.querySelectorAll('.option-btn');
+            optionsDivs.forEach(div => div.onclick = null); // Disable clicks
+
+            const q = currentQuestions[currentIndex];
+            const isCorrect = selectedIndex === q.correct;
+
+            // Visual Styles
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                score++;
+                showFeedback(true, "Mandou bem! Resposta correta.");
+            } else {
+                selectedBtn.classList.add('wrong');
+                // Highlight correct one
+                optionsDivs[q.correct].classList.add('correct');
+                showFeedback(false, q.explanation);
+            }
+
+            document.getElementById('next-btn').style.display = 'block';
+        }
+
+        function showFeedback(isCorrect, text) {
+            const fbBox = document.getElementById('feedback');
+            const fbTitle = document.getElementById('feedback-title');
+            const fbText = document.getElementById('feedback-text');
+
+            fbBox.style.display = 'block';
+            
+            if (isCorrect) {
+                fbBox.style.borderLeftColor = 'var(--accent-green)';
+                fbTitle.innerText = "🎉 Certa Resposta!";
+                fbTitle.style.color = 'var(--accent-green)';
+                fbText.innerText = text; 
+            } else {
+                fbBox.style.borderLeftColor = 'var(--accent-red)';
+                fbTitle.innerText = "😅 Calma, gafanhoto, pensa comigo...";
+                fbTitle.style.color = 'var(--accent-red)';
+                fbText.innerText = text;
+            }
+        }
+
+        function nextQuestion() {
+            currentIndex++;
+            if (currentIndex < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('screen-quiz').style.display = 'none';
+            document.getElementById('screen-results').style.display = 'block';
+
+            const percentage = Math.round((score / currentQuestions.length) * 100);
+            const scoreCircle = document.getElementById('final-score');
+            const msg = document.getElementById('score-message');
+
+            scoreCircle.innerText = `${percentage}%`;
+
+            if (percentage === 100) {
+                scoreCircle.style.borderColor = 'var(--accent-green)';
+                msg.innerText = "Perfeito! Você dominou o sistema linfoide! 🏆";
+            } else if (percentage >= 70) {
+                scoreCircle.style.borderColor = 'var(--accent-blue)';
+                msg.innerText = "Muito bom! Você tem uma base sólida. 👏";
+            } else {
+                scoreCircle.style.borderColor = 'var(--accent-orange)';
+                msg.innerText = "Bom treino, mas vale a pena revisar a apostila. 💪";
+            }
+        }
+
+    </script>
+</body>
+</html>

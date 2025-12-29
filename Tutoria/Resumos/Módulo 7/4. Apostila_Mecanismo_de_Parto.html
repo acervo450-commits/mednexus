@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila: Mecanismo de Parto e Clínica Obstétrica</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;    /* Roxo Obstétrico */
+            --secondary-color: #2c3e50;  /* Azul Escuro */
+            --accent-color: #e67e22;     /* Laranja (Destaque) */
+            --light-bg: #f4f6f7;
+            --text-color: #333;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #ecf0f1;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        /* Títulos */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            font-size: 24pt;
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            margin-top: 50px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16pt;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            page-break-after: avoid;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 35px;
+            font-family: 'Arial', sans-serif;
+            font-size: 14pt;
+            font-weight: bold;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            color: #d35400;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 11pt;
+            margin-top: 25px;
+            border-bottom: 1px solid #ddd;
+            display: inline-block;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 11pt;
+        }
+
+        /* Caixas de Destaque */
+        .concept-box {
+            background-color: #fcf3cf;
+            border: 1px solid #f1c40f;
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .clinical-box {
+            background-color: #e8daef;
+            border: 1px solid #bb8fce;
+            border-left: 5px solid #8e44ad;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        /* Listas */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* Referências */
+        .ref {
+            font-size: 0.75em;
+            vertical-align: super;
+            color: #7f8c8d;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; max-width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .concept-box, .clinical-box, thead { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Mecanismo de Parto e Clínica Obstétrica</h1>
+    <p style="text-align: center; font-style: italic;">Estática Fetal, Mecanismo de Parto e Fases Clínicas</p>
+
+    <!-- OBJETIVO 1: ESTÁTICA FETAL -->
+    <h2>1. Estática Fetal e Anatomia Obstétrica</h2>
+    <p>A estática fetal refere-se às relações do feto com a bacia materna e com ele mesmo. O conhecimento da anatomia da cabeça fetal é pré-requisito para o diagnóstico correto da posição e variedade durante o toque vaginal.</p>
+
+    <h3>1.1. Anatomia da Cabeça Fetal</h3>
+    <p>O crânio fetal é a parte mais importante no mecanismo de parto devido às suas dimensões e menor redutibilidade. É composto por ossos (2 frontais, 2 parietais, 2 temporais, 1 occipital) unidos por membranas (suturas) e espaços (fontanelas).</p>
+    <ul>
+        <li><strong>Suturas:</strong>
+            <ul>
+                <li>Sagital: Entre os parietais (linha anteroposterior).</li>
+                <li>Metópica: Entre os frontais.</li>
+                <li>Coronal: Entre frontais e parietais.</li>
+                <li>Lambdoide: Entre parietais e occipital.</li>
+            </ul>
+        </li>
+        <li><strong>Fontanelas:</strong>
+            <ul>
+                <li><strong>Bregmática (Anterior/Grande Fontanela):</strong> Forma losangular, encontro de 4 suturas (sagital, metópica, coronais). Ponto de referência das apresentações defletidas de 1º grau.</li>
+                <li><strong>Lambdoide (Posterior/Pequena Fontanela):</strong> Forma triangular, encontro de 3 suturas (sagital, lambdoides). Ponto de referência das apresentações fletidas.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.2. Elementos da Estática Fetal</h3>
+    <div class="concept-box">
+        <strong>Conceito Chave:</strong> A estática é definida pela combinação de Atitude, Situação, Apresentação e Posição.
+    </div>
+
+    <h4>Atitude</h4>
+    <p>Relação das partes fetais entre si. O normal é a flexão generalizada (ovoide fetal).</p>
+    <ul>
+        <li><strong>Fletida:</strong> Queixo encostado no esterno (Occipício é o ponto mais baixo).</li>
+        <li><strong>Defletida:</strong> Extensão da cabeça.
+            <ul>
+                <li>1º Grau (Bregma): Ponto de referência é o Bregma.</li>
+                <li>2º Grau (Fronte): Ponto de referência é a Glabela/Naso.</li>
+                <li>3º Grau (Face): Ponto de referência é o Mento (Queixo).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Situação</h4>
+    <p>Relação entre o maior eixo fetal e o maior eixo materno (útero).</p>
+    <ul>
+        <li><strong>Longitudinal (99,5%):</strong> Eixos coincidem.</li>
+        <li><strong>Transversa:</strong> Eixos perpendiculares (Córmica).</li>
+        <li><strong>Oblíqua:</strong> Transitória, evolui para uma das anteriores.</li>
+    </ul>
+
+    <h4>Apresentação</h4>
+    <p>Parte fetal que ocupa a área do estreito superior da bacia.</p>
+    <ul>
+        <li><strong>Cefálica:</strong> Fletida (mais comum) ou Defletidas.</li>
+        <li><strong>Pélvica:</strong>
+            <ul>
+                <li>Completa (pélvica e pés).</li>
+                <li>Incompleta modo nádegas (agrípa - pernas estendidas).</li>
+            </ul>
+        </li>
+        <li><strong>Córmica:</strong> Ombro (Acrômio).</li>
+    </ul>
+
+    <h4>Posição e Variedade de Posição</h4>
+    <p>Relação dos pontos de referência fetais com os quadrantes da bacia materna.</p>
+    <ul>
+        <li><strong>Pontos de Referência Fetais:</strong> Occipício/Lambda (O), Bregma (B), Naso (N), Mento (M), Sacro (S).</li>
+        <li><strong>Pontos Maternos:</strong> Púbis (A), Sacro (P), Eminências Ileopectíneas (Anterior), Articulação Sacroilíaca (Posterior).</li>
+        <li><strong>Nomenclatura (Exemplos):</strong>
+            <ul>
+                <li>OEA: Occipito-Esquerda-Anterior (mais frequente).</li>
+                <li>ODP: Occipito-Direita-Posterior.</li>
+                <li>OP: Occipito-Púbica (direta).</li>
+                <li>OS: Occipito-Sacra.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.3. Altura da Apresentação (Planos de De Lee)</h3>
+    <p>Avalia a descida fetal. O ponto zero (0) corresponde ao nível das <strong>espinhas isquiáticas</strong>.</p>
+    <ul>
+        <li>Negativos (-1 a -5): Acima das espinhas (alta).</li>
+        <li>Positivos (+1 a +5): Abaixo das espinhas (baixa/expulsivo).</li>
+    </ul>
+
+    <!-- OBJETIVO 2: MECANISMO DE PARTO -->
+    <h2>2. Mecanismo de Parto (Tempos)</h2>
+    <p>Conjunto de movimentos passivos que o feto realiza para atravessar o canal de parto, adaptando seus diâmetros aos da bacia.</p>
+
+    <h3>Tempo 1: Insinuação (Encaixamento)</h3>
+    <p>Passagem do maior diâmetro transverso da apresentação (biparietal na cefálica fletida) pelo estreito superior da bacia.</p>
+    <ul>
+        <li><strong>Flexão:</strong> Movimento acessório essencial. Substitui diâmetros maiores (occipitofrontal 11cm) por menores (suboccipitobregmático 9,5cm). Funciona como uma alavanca (Teorias de Zweifel, Lahs e Sellheim).</li>
+        <li><strong>Sinclitismo:</strong> Sutura sagital equidistante do púbis e do sacro.</li>
+        <li><strong>Assinclitismo:</strong> Flexão lateral da cabeça para acomodação.
+            <ul>
+                <li>Anterior (Nägele): Sutura sagital próxima ao sacro (parietal anterior desce primeiro).</li>
+                <li>Posterior (Litzmann): Sutura sagital próxima ao púbis (parietal posterior desce primeiro).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Tempo 2: Descida e Rotação Interna</h3>
+    <p>O feto desce pelo canal (movimento turbinal). Ao atingir o assoalho pélvico (estreito médio/inferior), realiza a <strong>rotação interna</strong> para orientar o maior diâmetro fetal (anteroposterior da cabeça) com o maior diâmetro da saída pélvica (anteroposterior). O occipício gira para a sínfise púbica (em OEA, roda 45°). Simultaneamente, ocorre a insinuação das espáduas no estreito superior.</p>
+
+    <h3>Tempo 3: Desprendimento Cefálico</h3>
+    <p>A cabeça transpõe o períneo através de um movimento de <strong>deflexão</strong>. O suboccipício apoia-se no arco púbico (hipomóclio) e a cabeça faz um movimento de "dobradiça", expondo sucessivamente bregma, fronte, face e mento.</p>
+
+    <h3>Tempo 4: Restituição e Desprendimento das Espáduas</h3>
+    <ul>
+        <li><strong>Rotação Externa (Restituição):</strong> A cabeça, já fora, gira espontaneamente para o lado onde estava o dorso fetal, realinhando-se com os ombros que estão rodando internamente.</li>
+        <li><strong>Rotação Interna das Espáduas:</strong> Os ombros giram para alinhar o diâmetro biacromial no sentido anteroposterior (saída).</li>
+        <li><strong>Desprendimento:</strong> O ombro anterior (sob o púbis) desprende-se primeiro, seguido pelo ombro posterior (sobre o períneo).</li>
+    </ul>
+
+    <!-- OBJETIVO 3: FASES CLÍNICAS -->
+    <h2>3. Fases Clínicas do Trabalho de Parto</h2>
+
+    <h3>3.1. Período Premonitório (Pródromos)</h3>
+    <p>Fase de preparação. Caracteriza-se pela descida do fundo uterino (melhora respiratória), aumento da frequência de contrações de Braxton-Hicks (irregulares), amolecimento cervical e perda do tampão mucoso.</p>
+
+    <h3>3.2. 1º Período: Dilatação</h3>
+    <p>Do início do trabalho de parto (2-3 contrações/10min + modificação cervical) até 10 cm.</p>
+    <ul>
+        <li><strong>Fase Latente:</strong> Contrações dolorosas, dilatação lenta (< 4-6 cm), pode durar horas.</li>
+        <li><strong>Fase Ativa:</strong> Aceleração da dilatação (> 6 cm), contrações intensas e regulares.</li>
+        <li><strong>Fenômenos:</strong>
+            <ul>
+                <li>Apagamento (esvaecimento): Encurtamento do canal cervical. (Primíparas apagam depois dilatam; Multíparas fazem simultaneamente).</li>
+                <li>Formação da Bolsa das Águas: Protusão das membranas pelo colo.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>3.3. 2º Período: Expulsão</h3>
+    <p>Da dilatação total até o nascimento. Ocorre a descida final e o desprendimento. Caracteriza-se pelos <strong>puxos</strong> (contrações involuntárias do útero + esforço voluntário da prensa abdominal materna). A duração varia (30 min a 3h), dependendo da paridade e analgesia.</p>
+
+    <h3>3.4. 3º Período: Dequitação (Secundamento)</h3>
+    <p>Descolamento e expulsão da placenta e membranas. Tempo fisiológico: até 30 minutos.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Mecanismo</th>
+                <th>Frequência</th>
+                <th>Características</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Baudelocque-Schultze</strong></td>
+                <td>75%</td>
+                <td>Descolamento central. Sai pela face fetal (brilhante). Sangramento visível <strong>após</strong> a saída da placenta ("guarda-chuva").</td>
+            </tr>
+            <tr>
+                <td><strong>Baudelocque-Duncan</strong></td>
+                <td>25%</td>
+                <td>Descolamento marginal. Sai pela face materna (cotilédones). Sangramento <strong>antes</strong> da saída da placenta.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- OBJETIVO 4: PERÍODO DE GREENBERG -->
+    <h2>4. Período de Greenberg (4º Período)</h2>
+    <div class="clinical-box">
+        <strong>A Hora de Ouro:</strong> Compreende a primeira hora pós-parto. É o momento de maior risco de hemorragia puerperal (atonia uterina). Exige vigilância estrita.
+    </div>
+
+    <h3>Fases da Hemostasia Uterina</h3>
+    <ol>
+        <li><strong>Miotamponagem:</strong> Contração tônica imediata do miométrio após a saída da placenta. As fibras musculares estrangulam os vasos ("Ligaduras Vivas de Pinard"). É a primeira linha de defesa.</li>
+        <li><strong>Trombotamponagem:</strong> Formação de trombos nos vasos da ferida placentária.</li>
+        <li><strong>Indiferença Miouterina:</strong> Fase de relaxamento fisiológico (após a contração inicial). O útero torna-se apático. É o momento crítico onde pode ocorrer acúmulo de sangue (coágulos) se a miotamponagem falhar.</li>
+        <li><strong>Contração Uterina Fixa:</strong> Estabilização do tônus uterino, formando o "Globo de Segurança de Pinard" (útero duro, palpável na cicatriz umbilical). Garante a hemostasia definitiva.</li>
+    </ol>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>[1] REZENDE FILHO, J.; MONTENEGRO, C.A. <strong>Rezende Obstetrícia</strong>. 13ª e 14ª Ed. Rio de Janeiro: Guanabara Koogan, 2014/2019.</p>
+        <p>[2] ZUGAIB, M.; FRANCISCO, R. <strong>Zugaib Obstetrícia</strong>. 3ª e 4ª Ed. São Paulo: Manole, 2016/2017.</p>
+        <p>[3] CUNNINGHAM, F. G. et al. <strong>Obstetrícia de Williams</strong>. 24ª Ed. Porto Alegre: AMGH, 2016.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
