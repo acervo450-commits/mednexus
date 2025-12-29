@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Metabolismo de Lípidos e Aterosclerose (ASE 5 - P3)</title>
+    <style>
+        :root {
+            --header-bg: #f39c12;        /* Laranja (Gordura/Lípidos) */
+            --header-text: #ffffff;
+            --primary-color: #2c3e50;    /* Azul Escuro (Tópicos) */
+            --accent-lipo: #d35400;      /* Laranja Escuro (Lipoproteínas) */
+            --accent-athero: #c0392b;    /* Vermelho (Aterosclerose/Inflamação) */
+            --accent-metab: #27ae60;     /* Verde (Metabolismo/Fígado) */
+            --highlight: #fef9e7;        /* Fundo creme suave */
+            --text-color: #212121;
+            --bg-color: #fdfefe;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fcf3cf; /* Fundo amarelado suave */
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #f8c471);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-lipo);
+            border-bottom: 2px solid #fad7a0;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .athero-section h3 {
+            color: var(--accent-athero);
+            border-bottom-color: #e6b0aa;
+        }
+
+        .metab-section h3 {
+            color: var(--accent-metab);
+            border-bottom-color: #a9dfbf;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo dos Esquemas (Placeholders) */
+        .scheme-box {
+            background-color: #fcf3cf;
+            border: 2px dashed #f1c40f;
+            color: #7f8c8d;
+            padding: 30px;
+            text-align: center;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* Caixas de Conteúdo */
+        .lipo-box {
+            background-color: #fef9e7;
+            border-left: 5px solid var(--accent-lipo);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .athero-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--accent-athero);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .metab-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--accent-metab);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fdf2e9;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .lipo-box, .athero-box, .metab-box, thead, .module-tag, .scheme-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo V (ASE 5) - Problema 03</span>
+        <h1>Processo Aterosclerótico</h1>
+        <p style="font-style: italic; color: #555;">Metabolismo de Lípidos, Lipoproteínas e Fisiopatologia Vascular</p>
+    </div>
+
+    <!-- OBJETIVO 1: METABOLISMO DE LÍPIDOS E LIPOPROTEÍNAS -->
+    <h2>1. Transporte e Metabolismo de Lípidos</h2>
+    <p>Os lípidos (triglicerídeos e colesterol) são insolúveis em água, necessitando de transportadores especiais (lipoproteínas) para circular no plasma.</p>
+
+    <div class="scheme-box">
+        [Esquema: Estrutura da Lipoproteína (Núcleo hidrofóbico e Superfície hidrofílica) e classificação por densidade]
+    </div>
+
+    <h3>1.1. Classificação das Lipoproteínas</h3>
+    <table class="lipo-box">
+        <thead>
+            <tr>
+                <th>Lipoproteína</th>
+                <th>Origem</th>
+                <th>Carga Principal</th>
+                <th>Apolipoproteína</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Quilomícron</strong></td>
+                <td>Intestino</td>
+                <td>Triglicerídeos Exógenos</td>
+                <td>Apo B-48</td>
+                <td>Transporte de gordura da dieta para tecidos periféricos.</td>
+            </tr>
+            <tr>
+                <td><strong>VLDL</strong></td>
+                <td>Fígado</td>
+                <td>Triglicerídeos Endógenos</td>
+                <td>Apo B-100</td>
+                <td>Transporte de TG sintetizados no fígado para os tecidos.</td>
+            </tr>
+            <tr>
+                <td><strong>LDL</strong> (Mau Colesterol)</td>
+                <td>Circulação (de VLDL/IDL)</td>
+                <td>Colesterol</td>
+                <td>Apo B-100</td>
+                <td>Transporte de colesterol para as células (risco aterogénico).</td>
+            </tr>
+            <tr>
+                <td><strong>HDL</strong> (Bom Colesterol)</td>
+                <td>Fígado/Intestino</td>
+                <td>Proteínas/Fosfolípidos</td>
+                <td>Apo A-I</td>
+                <td>Transporte Reverso de Colesterol (retira dos tecidos para o fígado).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.2. Vias Metabólicas</h3>
+    <ul>
+        <li><strong>Via Exógena:</strong> Inicia-se com a absorção intestinal. Quilomícrones $\to$ Vasos Linfáticos $\to$ Sangue. A enzima <strong>Lipoproteína Lipase (LPL)</strong> no endotélio capilar (músculo/adiposo) hidrolisa os triglicerídeos, libertando ácidos gordos. O remanescente de quilomícron é captado pelo fígado (recetor Apo E).</li>
+        <li><strong>Via Endógena:</strong> O fígado secreta VLDL. A LPL retira triglicerídeos, transformando VLDL em IDL e depois em LDL. O LDL circula e entrega colesterol às células via recetor LDL (B-100).</li>
+        <li><strong>Transporte Reverso:</strong> O HDL capta colesterol livre dos tecidos (inclusive de macrófagos espumosos na placa), esterifica-o (enzima LCAT) e transporta-o de volta ao fígado para excreção biliar.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: ATEROSCLEROSE -->
+    <div class="athero-section">
+        <h2>2. Fisiopatologia da Aterosclerose</h2>
+        <p>Doença inflamatória crónica da túnica íntima das artérias de médio e grande calibre, iniciada por disfunção endotelial.</p>
+
+        <div class="scheme-box">
+            [Esquema: Evolução da Placa Aterosclerótica - Desde a Estria Gordurosa até à Placa Instável]
+        </div>
+
+        <h3>2.1. Etapas da Formação da Placa (Aterogénese)</h3>
+        <ol>
+            <li><strong>Lesão Endotelial:</strong> Fatores de risco (HAS, Tabagismo, Hiperglicemia, LDL oxidado) agridem o endotélio, aumentando a permeabilidade e expressão de moléculas de adesão (VCAM-1).</li>
+            <li><strong>Acúmulo de LDL:</strong> O LDL penetra na íntima e sofre oxidação (LDL-ox), tornando-se pro-inflamatório.</li>
+            <li><strong>Recrutamento de Monócitos:</strong> Monócitos aderem ao endotélio, migram para a íntima e diferenciam-se em Macrófagos.</li>
+            <li><strong>Formação de Células Espumosas (Foam Cells):</strong> Macrófagos fagocitam avidamente o LDL-ox via recetores *scavenger*, acumulando lípidos no citoplasma. O acúmulo visível forma a <strong>Estria Gordurosa</strong> (lesão inicial).</li>
+            <li><strong>Proliferação de Células Musculares Lisas:</strong> Migram da média para a íntima, sintetizando colágeno e formando a capa fibrosa que recobre o núcleo lipídico necrótico.</li>
+        </ol>
+
+        <h3>2.2. Placa Estável vs. Instável</h3>
+        <div class="athero-box">
+            <strong>Placa Estável:</strong> Capa fibrosa espessa, núcleo lipídico pequeno, pouca inflamação. Causa isquemia por obstrução progressiva (Angina estável).
+            <br><strong>Placa Instável (Vulnerável):</strong> Capa fibrosa fina, núcleo lipídico grande, intensa atividade inflamatória (macrófagos degradam colágeno). Risco de <strong>rotura e trombose</strong> aguda (Enfarte, AVC), mesmo sem obstrução severa prévia.
+        </div>
+
+        <h3>2.3. Lipemia Pós-Prandial e Inflamação</h3>
+        <p>O estado pós-prandial (especialmente após refeições ricas em gordura e açúcares simples) gera picos de quilomícrones e glicose, induzindo stress oxidativo e inflamação endotelial transitória, o que acelera a aterosclerose a longo prazo.</p>
+    </div>
+
+    <!-- OBJETIVO 3: ESTADOS METABÓLICOS -->
+    <div class="metab-section">
+        <h2>3. Bioquímica Metabólica: Jejum e Estado Alimentado</h2>
+
+        <h3>3.1. Estado Alimentado (Absortivo) - Anabolismo</h3>
+        <ul>
+            <li><strong>Hormona Dominante:</strong> Insulina.</li>
+            <li><strong>Fígado:</strong> Glicogénese (armazena glicose), Lipogénese (excesso de glicose vira VLDL).</li>
+            <li><strong>Tecido Adiposo:</strong> Captação de glicose e ácidos gordos (armazenamento de TG).</li>
+            <li><strong>Músculo:</strong> Captação de glicose (GLUT-4) e síntese proteica.</li>
+        </ul>
+
+        <h3>3.2. Estado de Jejum (Pós-Absortivo) - Catabolismo</h3>
+        <ul>
+            <li><strong>Hormona Dominante:</strong> Glucagon (também Cortisol, Adrenalina, GH).</li>
+            <li><strong>Fígado:</strong> Glicogenólise (quebra de glicogénio) e <strong>Gliconeogénese</strong> (produção de glicose nova a partir de lactato, glicerol e aminoácidos). Cetogénese (produção de corpos cetónicos a partir de ácidos gordos).</li>
+            <li><strong>Tecido Adiposo:</strong> Lipólise (libertação de ácidos gordos e glicerol).</li>
+            <li><strong>Músculo:</strong> Proteólise (fornece aminoácidos para gliconeogénese hepática) e uso de ácidos gordos como energia (poupa glicose para o cérebro).</li>
+        </ul>
+
+        <h3>3.3. Ciclo da Ureia</h3>
+        <div class="metab-box">
+            Ocorre no fígado. A degradação de aminoácidos (para gliconeogénese no jejum) liberta amónia (tóxica). O Ciclo da Ureia converte amónia em <strong>Ureia</strong> (hidrossolúvel e atóxica), que é excretada pelos rins.
+        </div>
+    </div>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>GUYTON, A. C.; HALL, J. E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Rio de Janeiro: Elsevier, 2017.</p>
+        <p>BAYNES, J. W.; DOMINICZAK, M. H. <strong>Bioquímica Médica</strong>. 4ª ed. Elsevier, 2015.</p>
+        <p>TORTORA, G. J. <strong>Princípios de Anatomia e Fisiologia</strong>. 14ª ed. Guanabara Koogan, 2016.</p>
+        <p>LIBBY, P. et al. <strong>Braunwald's Heart Disease: A Textbook of Cardiovascular Medicine</strong>. 11th ed. Elsevier, 2018.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Nutrição, Fígado e Metabolismo (ASE 5 - P5)</title>
+    <style>
+        :root {
+            --header-bg: #8e44ad;        /* Roxo (Metabolismo Complexo) */
+            --header-text: #ffffff;
+            --primary-color: #4a235a;    /* Roxo Escuro (Tópicos) */
+            --accent-nutri: #27ae60;     /* Verde (Nutrição) */
+            --accent-liver: #c0392b;     /* Vermelho (Fígado/Patologia) */
+            --accent-metab: #d35400;     /* Laranja (Síndrome Metabólica) */
+            --text-color: #212121;
+            --bg-color: #fdfefe;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.5cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f6;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #a569bd);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-nutri);
+            border-bottom: 2px solid #abebc6;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .liver-section h3 {
+            color: var(--accent-liver);
+            border-bottom-color: #fadbd8;
+        }
+
+        .metab-section h3 {
+            color: var(--accent-metab);
+            border-bottom-color: #edbb99;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .nutri-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--accent-nutri);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .liver-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--accent-liver);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .metab-box {
+            background-color: #fef5e7;
+            border-left: 5px solid var(--accent-metab);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4ecf7;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .nutri-box, .liver-box, .metab-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo V (ASE 5) - Problema 05</span>
+        <h1>Problemas de Sobrepeso e Doenças Hepáticas</h1>
+        <p style="font-style: italic; color: #555;">Avaliação Nutricional, Esteatose Hepática e Síndrome Metabólica</p>
+    </div>
+
+    <!-- OBJETIVO 1: AVALIAÇÃO NUTRICIONAL -->
+    <h2>1. Avaliação do Estado Nutricional e Composição Corporal</h2>
+    <p>A avaliação nutricional vai além do peso na balança, buscando quantificar os compartimentos corporais (massa gorda vs. massa magra) e identificar riscos cardiometabólicos.</p>
+
+    <h3>1.1. Índice de Massa Corporal (IMC)</h3>
+    <p>Relação entre peso e altura ao quadrado (Kg/m²). É um indicador populacional de adiposidade, mas possui limitações individuais.</p>
+    <ul>
+        <li><strong>Classificação (OMS para Adultos):</strong>
+            <ul>
+                <li><em>Eutrofia:</em> 18,5 - 24,9 kg/m².</li>
+                <li><em>Sobrepeso:</em> 25,0 - 29,9 kg/m².</li>
+                <li><em>Obesidade Grau I:</em> 30,0 - 34,9 kg/m².</li>
+                <li><em>Obesidade Grau II:</em> 35,0 - 39,9 kg/m².</li>
+                <li><em>Obesidade Grau III (Mórbida):</em> $\ge$ 40,0 kg/m².</li>
+            </ul>
+        </li>
+        <li><strong>Limitações:</strong> Não distingue massa muscular de gordura (falsos positivos em atletas) nem identifica a distribuição da gordura (visceral vs. subcutânea). Em idosos, os pontos de corte são diferentes (Eutrofia: 22-27 kg/m²) para proteger contra fragilidade.</li>
+    </ul>
+
+    <h3>1.2. Medidas de Adiposidade Central (Risco Cardiovascular)</h3>
+    <div class="nutri-box">
+        A gordura visceral é metabolicamente ativa e inflamatória, correlacionando-se mais fortemente com doenças cardiovasculares do que o IMC.
+        <br><strong>Circunferência da Cintura (CC):</strong> Medida no ponto médio entre a última costela e a crista ilíaca.
+        <ul>
+            <li><em>Homens:</em> Risco aumentado $\ge$ 94 cm; Risco muito aumentado $\ge$ 102 cm.</li>
+            <li><em>Mulheres:</em> Risco aumentado $\ge$ 80 cm; Risco muito aumentado $\ge$ 88 cm.</li>
+        </ul>
+        <strong>Relação Cintura-Quadril (RCQ):</strong> Avalia o padrão de distribuição de gordura (Androide/Maçã vs. Ginoide/Pera). Risco alto se > 0,90 (homens) ou > 0,85 (mulheres).
+    </div>
+
+    <h3>1.3. Métodos Avançados de Composição Corporal</h3>
+    <ul>
+        <li><strong>Bioimpedância Elétrica:</strong> Estima a água corporal total para calcular a massa magra e gorda, baseando-se na condutividade elétrica dos tecidos (músculo conduz bem, gordura oferece resistência). Sensível ao estado de hidratação.</li>
+        <li><strong>DEXA (Absorciometria de Raios-X de Dupla Energia):</strong> Padrão-ouro. Mede massa óssea, massa gorda e massa magra de forma segmentar.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: DOENÇAS HEPÁTICAS (ALCÓOLICA E NÃO ALCÓOLICA) -->
+    <div class="liver-section">
+        <h2>2. Fisiopatologia das Doenças Hepáticas Gordurosas</h2>
+        <p>O acúmulo de triglicerídeos nos hepatócitos (esteatose) é o evento inicial tanto na doença alcoólica quanto na metabólica, embora por vias bioquímicas distintas.</p>
+
+        <h3>2.1. Metabolismo do Álcool e Hepatotoxicidade</h3>
+        <p>O fígado metaboliza 90% do etanol ingerido. O excesso crónico satura as vias metabólicas e gera metabolitos tóxicos.</p>
+        <ul>
+            <li><strong>Via da Álcool Desidrogenase (ADH):</strong> No citosol, converte Etanol em <strong>Acetaldeído</strong>, gerando NADH. O excesso de NADH altera o potencial redox celular, inibindo a beta-oxidação de ácidos gordos (queima de gordura) e estimulando a lipogénese (síntese de gordura) $\to$ Esteatose.</li>
+            <li><strong>Via MEOS (CYP2E1):</strong> Sistema induzível no retículo endoplasmático em alcoólicos crónicos. Gera Radicais Livres (Stress Oxidativo), que causam peroxidação lipídica e dano às membranas.</li>
+            <li><strong>Toxicidade do Acetaldeído:</strong> Liga-se a proteínas e DNA, formando adutos que desencadeiam resposta imune inflamatória (Hepatite Alcoólica) e estimulam Células Estreladas a produzir colagénio (Fibrose).</li>
+        </ul>
+
+        <h3>2.2. Doença Hepática Gordurosa Associada à Disfunção Metabólica (MASLD/DHGNA)</h3>
+        <p>Antiga "Doença Hepática Gordurosa Não Alcoólica". É a manifestação hepática da Síndrome Metabólica.</p>
+        <ul>
+            <li><strong>Fisiopatologia ("Teoria dos Múltiplos Hits"):</strong>
+                <ol>
+                    <li><em>Primeiro Hit (Esteatose):</em> A <strong>Resistência à Insulina</strong> é o gatilho. No tecido adiposo, a insulina não consegue inibir a lipólise, libertando excesso de Ácidos Gordos Livres (AGL) para o fígado. No fígado, a hiperinsulinemia estimula a síntese de novo de triglicerídeos.</li>
+                    <li><em>Segundo Hit (Lipotoxicidade/Inflamação):</em> O excesso de gordura sobrecarrega a mitocôndria, gerando stress oxidativo e libertação de citocinas inflamatórias (TNF-alfa, IL-6), levando à morte de hepatócitos (Esteato-hepatite ou MASH).</li>
+                </ol>
+            </li>
+            <li><strong>Diagnóstico:</strong> Exclusão de álcool (>20g/dia mulheres, >30g/dia homens) e outras causas (vírus C, medicamentos). Presença de critérios metabólicos (obesidade, DM2, dislipidemia).</li>
+        </ul>
+
+        <h3>2.3. História Natural e Marcadores Enzimáticos</h3>
+        <div class="liver-box">
+            <strong>Evolução:</strong> Fígado Saudável $\to$ Esteatose (reversível) $\to$ Esteato-hepatite (inflamação/necrose) $\to$ Fibrose $\to$ Cirrose (irreversível/risco de cancro).
+            <br><strong>Marcadores de Lesão Hepatocelular:</strong>
+            <ul>
+                <li><em>AST (TGO) e ALT (TGP):</em> Indicam necrose de hepatócitos. Na hepatite alcoólica, tipicamente AST > ALT (relação > 2:1) devido à deficiência de piridoxina (B6) em alcoólicos. Na MASLD, geralmente ALT > AST.</li>
+            </ul>
+            <strong>Marcadores de Colestase:</strong>
+            <ul>
+                <li><em>Gama-GT (GGT):</em> Muito sensível ao álcool (indução enzimática), mesmo sem lesão grave. Aumentada também na colestase.</li>
+                <li><em>Fosfatase Alcalina (FA):</em> Aumenta em obstruções biliares ou doenças infiltrativas.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- OBJETIVO 3: SÍNDROME METABÓLICA E DISLIPIDEMIAS -->
+    <div class="metab-section">
+        <h2>3. Síndrome Metabólica e Dislipidemias</h2>
+        <p>Um conjunto de fatores de risco que aumentam exponencialmente a probabilidade de doença cardiovascular e diabetes tipo 2.</p>
+
+        <h3>3.1. Critérios Diagnósticos (NCEP-ATP III / IDF)</h3>
+        <p>Diagnóstico confirmado com a presença de 3 ou mais dos seguintes 5 critérios:</p>
+        <ol>
+            <li><strong>Obesidade Abdominal:</strong> CC $\ge$ 102 cm (homens) ou $\ge$ 88 cm (mulheres). (A IDF usa critérios mais rígidos: 94/80 cm).</li>
+            <li><strong>Triglicerídeos Elevados:</strong> $\ge$ 150 mg/dL (ou em tratamento).</li>
+            <li><strong>HDL Colesterol Baixo:</strong> < 40 mg/dL (homens) ou < 50 mg/dL (mulheres).</li>
+            <li><strong>Pressão Arterial Elevada:</strong> $\ge$ 130/85 mmHg (ou em tratamento).</li>
+            <li><strong>Glicemia de Jejum Alterada:</strong> $\ge$ 100 mg/dL (ou diagnóstico de DM2).</li>
+        </ol>
+
+        <h3>3.2. Perfil Lipídico e Risco Aterogénico</h3>
+        <ul>
+            <li><strong>Colesterol Total:</strong> Soma de todas as frações. Isoladamente tem menor valor preditivo.</li>
+            <li><strong>LDL-Colesterol ("Mau"):</strong> Principal transportador de colesterol para os tecidos e parede arterial. Partículas pequenas e densas (fenótipo B), comuns na síndrome metabólica, são mais aterogénicas pois oxidam-se facilmente. Meta varia com o risco cardiovascular (ex: < 50 mg/dL em muito alto risco).</li>
+            <li><strong>HDL-Colesterol ("Bom"):</strong> Realiza o transporte reverso do colesterol (dos tecidos para o fígado). O exercício físico é a medida mais eficaz para aumentá-lo.</li>
+            <li><strong>Triglicerídeos:</strong> Marcador de energia circulante (VLDL e Quilomícrones). Sua elevação está fortemente ligada à dieta rica em hidratos de carbono simples e álcool, e à resistência insulínica.</li>
+        </ul>
+
+        <h3>3.3. Papel Central da Resistência à Insulina</h3>
+        <div class="metab-box">
+            A resistência à insulina é o elo fisiopatológico comum.
+            <br>1. <strong>No Adipócito:</strong> A insulina não consegue bloquear a lipólise $\to$ Aumento de AGL no sangue $\to$ Fígado produz mais VLDL (aumenta triglicerídeos).
+            <br>2. <strong>No Músculo:</strong> Menor captação de glicose $\to$ Hiperglicemia.
+            <br>3. <strong>No Endotélio:</strong> Menor produção de Óxido Nítrico $\to$ Vasoconstrição e Hipertensão.
+            <br>4. <strong>No Rim:</strong> A hiperinsulinemia compensatória aumenta a reabsorção de sódio $\to$ Hipertensão.
+        </div>
+    </div>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>GUYTON, A. C.; HALL, J. E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Rio de Janeiro: Elsevier, 2017.</p>
+        <p>BAYNES, J. W.; DOMINICZAK, M. H. <strong>Bioquímica Médica</strong>. 4ª ed. Elsevier, 2015.</p>
+        <p>DIRETRIZ BRASILEIRA DE DISLIPIDEMIAS E PREVENÇÃO DA ATEROSCLEROSE. Arq. Bras. Cardiol. 2017.</p>
+        <p>KASPER, D. L. et al. <strong>Harrison's Principles of Internal Medicine</strong>. 20th ed. McGraw-Hill, 2018.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

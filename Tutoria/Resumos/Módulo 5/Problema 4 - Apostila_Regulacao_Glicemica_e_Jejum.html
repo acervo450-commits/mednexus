@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Regulação Glicémica e Metabolismo do Jejum (ASE 5 - P4)</title>
+    <style>
+        :root {
+            --header-bg: #8e44ad;        /* Roxo (Metabolismo/Regulação) */
+            --header-text: #ffffff;
+            --primary-color: #4a235a;    /* Roxo Escuro (Tópicos) */
+            --accent-hormone: #e67e22;   /* Laranja (Hormonas/Energia) */
+            --accent-pathology: #c0392b; /* Vermelho (Hipoglicémia/Alerta) */
+            --accent-screening: #27ae60; /* Verde (Rastreio/Prevenção) */
+            --highlight: #f4ecf7;        /* Fundo lilás suave */
+            --text-color: #212121;
+            --bg-color: #fdfefe;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fbfcfc;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #a569bd);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-hormone);
+            border-bottom: 2px solid #fad7a0;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .pathology-section h3 {
+            color: var(--accent-pathology);
+            border-bottom-color: #e6b0aa;
+        }
+
+        .screening-section h3 {
+            color: var(--accent-screening);
+            border-bottom-color: #a9dfbf;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .hormone-box {
+            background-color: #fef5e7;
+            border-left: 5px solid var(--accent-hormone);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .alert-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--accent-pathology);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+            color: #922b21;
+        }
+
+        .info-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--accent-screening);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f4ecf7;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .hormone-box, .alert-box, .info-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo V (ASE 5) - Problema 04</span>
+        <h1>Homeostasia da Glicose e Adaptação ao Jejum</h1>
+        <p style="font-style: italic; color: #555;">Regulação Hormonal, Hipoglicémia e Erros Inatos do Metabolismo</p>
+    </div>
+
+    <!-- OBJETIVO 1: REGULAÇÃO HORMONAL -->
+    <h2>1. Regulação Hormonal da Glicémia</h2>
+    <p>A manutenção da glicémia dentro de limites estreitos (70-100 mg/dL) é vital, pois o cérebro depende quase exclusivamente de glicose. Este controlo é feito pelo equilíbrio entre hormonas hipoglicemiantes e hiperglicemiantes.</p>
+
+    <h3>1.1. Insulina: A Hormona do Estado Alimentado</h3>
+    <ul>
+        <li><strong>Origem:</strong> Células Beta das ilhotas de Langerhans (Pâncreas).</li>
+        <li><strong>Estímulo:</strong> Hiperglicémia (principal), aminoácidos, incretinas (GLP-1), sistema parassimpático.</li>
+        <li><strong>Ações Anabólicas:</strong>
+            <ul>
+                <li>Estimula a captação de glicose nos tecidos insulino-dependentes (Músculo e Adiposo) via translocação de transportadores <strong>GLUT-4</strong>.</li>
+                <li>Ativa a Glicólise e a Glicogénese (síntese de glicogénio hepático e muscular).</li>
+                <li>Estimula a Lipogénese (síntese de ácidos gordos) e a síntese proteica.</li>
+                <li>Inibe a Gliconeogénese, Glicogenólise e Lipólise.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.2. Glucagon: A Hormona do Jejum</h3>
+    <ul>
+        <li><strong>Origem:</strong> Células Alfa do pâncreas.</li>
+        <li><strong>Estímulo:</strong> Hipoglicémia, aminoácidos (para prevenir hipoglicémia após refeição proteica pura), catecolaminas.</li>
+        <li><strong>Ações Catabólicas (Hepáticas):</strong>
+            <ul>
+                <li>Estimula a Glicogenólise (quebra de glicogénio em glicose).</li>
+                <li>Estimula a Gliconeogénese (síntese de nova glicose a partir de lactato, glicerol e aminoácidos).</li>
+                <li>Estimula a Cetogénese (formação de corpos cetónicos).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.3. Hormonas Contra-Reguladoras (Stress)</h3>
+    <div class="hormone-box">
+        Atuam sinergicamente para elevar a glicémia em situações de "luta ou fuga" ou jejum prolongado, antagonizando a insulina.
+        <ul>
+            <li><strong>Catecolaminas (Adrenalina/Noradrenalina):</strong> Ação rápida. Estimulam a glicogenólise muscular e hepática e a lipólise. Inibem a secreção de insulina. Responsáveis pelos sintomas adrenérgicos da hipoglicémia.</li>
+            <li><strong>Cortisol (Glicocorticoide):</strong> Ação lenta/tardia. Promove proteólise muscular (fornece substrato para gliconeogénese) e induz resistência periférica à insulina.</li>
+            <li><strong>Hormona do Crescimento (GH):</strong> Reduz a captação de glicose pelos tecidos e estimula a lipólise (efeito poupador de glicose).</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO 2: BIOQUÍMICA DO JEJUM -->
+    <h2>2. Fisiologia e Adaptação Metabólica ao Jejum</h2>
+    <p>O organismo prioriza a manutenção do fornecimento de glicose ao cérebro (tecidos glicose-dependentes) e a preservação de proteínas.</p>
+
+    <h3>2.1. Fase 1: Jejum Imediato (Pós-Absortivo: 4 a 12 horas)</h3>
+    <ul>
+        <li><strong>Fonte de Energia:</strong> Glicogénio Hepático.</li>
+        <li><strong>Processo:</strong> A queda da insulina e aumento do glucagon ativam a fosforilase do glicogénio. O fígado liberta glicose no sangue.</li>
+        <li><strong>Limitação:</strong> As reservas de glicogénio esgotam-se em 12 a 24 horas. O músculo não liberta glicose (falta-lhe a enzima glicose-6-fosfatase), usando o seu glicogénio apenas para consumo próprio.</li>
+    </ul>
+
+    <h3>2.2. Fase 2: Jejum Curto a Intermédio (12 a 24 horas)</h3>
+    <ul>
+        <li><strong>Transição:</strong> Início da Gliconeogénese Hepática.</li>
+        <li><strong>Substratos:</strong>
+            <ul>
+                <li><em>Lactato:</em> Ciclo de Cori (Lactato muscular $\to$ Fígado $\to$ Glicose).</li>
+                <li><em>Alanina:</em> Ciclo da Glicose-Alanina (Proteólise muscular).</li>
+                <li><em>Glicerol:</em> Oriundo da lipólise do tecido adiposo.</li>
+            </ul>
+        </li>
+        <li><strong>Metabolismo Lipídico:</strong> A lipólise aumenta, libertando Ácidos Gordos Livres (AGL). A maioria dos tecidos (músculo, coração) passa a usar AGL como combustível principal, poupando glicose para o cérebro.</li>
+    </ul>
+
+    <h3>2.3. Fase 3: Jejum Prolongado (Inanição: > 24-48 horas)</h3>
+    <ul>
+        <li><strong>Cetogénese:</strong> O fígado converte o excesso de Acetil-CoA (da oxidação de ácidos gordos) em <strong>Corpos Cetónicos</strong> (Acetoacetato e Beta-hidroxibutirato).</li>
+        <li><strong>Adaptação Cerebral:</strong> O cérebro, incapaz de usar ácidos gordos, adapta-se para usar corpos cetónicos como fonte de energia (cobre até 70% da demanda). Isso reduz drasticamente a necessidade de gliconeogénese.</li>
+        <li><strong>Poupança Proteica:</strong> A redução da gliconeogénese diminui o consumo de aminoácidos musculares, preservando a massa magra vital por mais tempo.</li>
+    </ul>
+
+    <!-- OBJETIVO 3: HIPOGLICÉMIA -->
+    <div class="pathology-section">
+        <h2>3. Fisiopatologia da Hipoglicémia</h2>
+        <p>Definida pela Tríade de Whipple: 1) Sintomas compatíveis; 2) Glicémia baixa (< 70 mg/dL); 3) Alívio dos sintomas após ingestão de glicose.</p>
+
+        <h3>3.1. Classificação dos Sintomas</h3>
+        <p>A sintomatologia reflete a ativação dos mecanismos de defesa e a falta de substrato cerebral.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Categoria</th>
+                    <th>Mecanismo</th>
+                    <th>Sintomas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Neurogénicos (Adrenérgicos)</strong></td>
+                    <td>Ativação do Sistema Simpático e libertação de Adrenalina (sinal de alarme).</td>
+                    <td>Tremores, palpitações, ansiedade, <strong>sudorese fria</strong> (colinérgico), palidez, fome intensa.</td>
+                </tr>
+                <tr>
+                    <td><strong>Neuroglucopénicos</strong></td>
+                    <td>Défice energético neuronal direto (falta de glicose no SNC).</td>
+                    <td>Tontura, cefaleia, confusão mental, alterações visuais, comportamento anormal, convulsões, <strong>síncope (desmaio)</strong> e coma.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3.2. Mecanismos de Defesa (Limiares Glicémicos)</h3>
+        <ul>
+            <li><strong>~80 mg/dL:</strong> Supressão da secreção de Insulina (primeira defesa).</li>
+            <li><strong>~65-70 mg/dL:</strong> Secreção de Glucagon e Adrenalina (defesa primária crítica).</li>
+            <li><strong>~60 mg/dL:</strong> Secreção de GH e Cortisol (defesa tardia).</li>
+            <li><strong>< 50 mg/dL:</strong> Início dos sintomas neuroglucopénicos e comprometimento cognitivo.</li>
+        </ul>
+
+        <h3>3.3. Hipoglicémia e Exercício</h3>
+        <div class="alert-box">
+            No paciente do caso (jejum + exercício), ocorreu uma "tempestade perfeita":
+            <br>1. O jejum esgotou o glicogénio hepático.
+            <br>2. O exercício aumentou a captação muscular de glicose (independente de insulina) e consumiu os substratos da gliconeogénese.
+            <br>3. A resposta adrenérgica (necessária para manter a PA no exercício) foi exacerbada pela hipoglicémia, causando sudorese e taquicardia, culminando em falha energética cerebral (síncope).
+        </div>
+    </div>
+
+    <!-- OBJETIVO 4: RASTREIO METABÓLICO (ERROS INATOS) -->
+    <div class="screening-section">
+        <h2>4. Erros Inatos do Metabolismo e Rastreio Neonatal</h2>
+        <p>Doenças genéticas (geralmente autossómicas recessivas) que resultam no bloqueio de uma via metabólica enzimática, causando acúmulo de substratos tóxicos ou deficiência de produtos essenciais.</p>
+
+        <h3>4.1. Importância do Rastreio Precoce</h3>
+        <p>Muitas doenças metabólicas são assintomáticas ao nascer (período de "lua de mel"), manifestando-se apenas após a introdução alimentar ou stress catabólico. O diagnóstico pré-sintomático previne sequelas neurológicas irreversíveis e morte.</p>
+
+        <h3>4.2. Teste do Pezinho (Programa Nacional de Triagem Neonatal)</h3>
+        <ul>
+            <li><strong>Momento Ideal:</strong> Entre o 3º e 5º dia de vida (após ingestão proteica para detetar fenilalanina, mas antes de danos irreversíveis).</li>
+            <li><strong>Doenças Rastreadas (Versão Ampliada - Lei 14.154/2021):</strong>
+                <ul>
+                    <li><em>Fenilcetonúria (PKU):</em> Deficiência da Fenilalanina Hidroxilase. Acúmulo de fenilalanina é neurotóxico. Tratamento: Dieta restrita.</li>
+                    <li><em>Hipotireoidismo Congénito:</em> Principal causa de deficiência intelectual prevenível. Tratamento: Levotiroxina.</li>
+                    <li><em>Doença Falciforme e Hemoglobinopatias.</em></li>
+                    <li><em>Fibrose Cística.</em></li>
+                    <li><em>Hiperplasia Adrenal Congénita.</em></li>
+                    <li><em>Deficiência de Biotinidase.</em></li>
+                    <li><em>Toxoplasmose Congénita.</em></li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>4.3. Teste da Bochechinha</h3>
+        <div class="info-box">
+            Exame de <strong>sequenciação genética</strong> (NGS) de nova geração, realizado com amostra de saliva (swab oral).
+            <br><strong>Diferencial:</strong> Analisa o DNA diretamente, não dependendo de marcadores bioquímicos no sangue. Pode identificar mais de 300 doenças genéticas tratáveis, muitas não cobertas pelo Teste do Pezinho (ex: imunodeficiências, doenças de depósito lisossómico). É um complemento, não substituto do teste do pezinho.
+        </div>
+    </div>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>GUYTON, A. C.; HALL, J. E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Rio de Janeiro: Elsevier, 2017.</p>
+        <p>BAYNES, J. W.; DOMINICZAK, M. H. <strong>Bioquímica Médica</strong>. 4ª ed. Elsevier, 2015.</p>
+        <p>BRASIL. Ministério da Saúde. <strong>Programa Nacional de Triagem Neonatal</strong>.</p>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

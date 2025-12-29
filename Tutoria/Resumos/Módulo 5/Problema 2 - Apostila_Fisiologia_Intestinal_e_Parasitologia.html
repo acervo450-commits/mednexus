@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Fisiologia Intestinal e Parasitologia (ASE 5 - P2)</title>
+    <style>
+        :root {
+            --header-bg: #d35400;        /* Laranja Escuro (Intestino/Digestão) */
+            --header-text: #ffffff;
+            --primary-color: #2e4053;    /* Azul Acinzentado (Tópicos) */
+            --accent-physio: #f39c12;    /* Amarelo (Absorção) */
+            --accent-parasito: #27ae60;  /* Verde (Parasitologia) */
+            --accent-pharma: #8e44ad;    /* Roxo (Farmacologia) */
+            --highlight: #fef9e7;        /* Fundo creme suave */
+            --text-color: #212121;
+            --bg-color: #fdfefe;
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f6;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #edbb99);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-physio);
+            border-bottom: 2px solid #fad7a0;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .parasito-section h3 {
+            color: var(--accent-parasito);
+            border-bottom-color: #a9dfbf;
+        }
+
+        .pharma-section h3 {
+            color: var(--accent-pharma);
+            border-bottom-color: #d2b4de;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo dos Esquemas (Placeholders) */
+        .scheme-box {
+            background-color: #f8f9f9;
+            border: 2px dashed #bdc3c7;
+            color: #7f8c8d;
+            padding: 30px;
+            text-align: center;
+            margin: 25px 0;
+            border-radius: 8px;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* Caixas de Conteúdo */
+        .physio-box {
+            background-color: #fef9e7;
+            border-left: 5px solid var(--accent-physio);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .parasito-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--accent-parasito);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .pharma-box {
+            background-color: #f4ecf7;
+            border-left: 5px solid var(--accent-pharma);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f3f4;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .physio-box, .parasito-box, .pharma-box, thead, .module-tag, .scheme-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo V (ASE 5) - Problema 02</span>
+        <h1>Suboclusão Duodenal e Hiperinfecção</h1>
+        <p style="font-style: italic; color: #555;">Fisiologia da Absorção, Estrongiloidíase e Farmacologia GI</p>
+    </div>
+
+    <!-- OBJETIVO 1: ANATOMIA E FISIOLOGIA INTESTINAL -->
+    <h2>1. Anatomia Funcional e Motilidade do Intestino Delgado</h2>
+    <p>O intestino delgado é o principal local de digestão enzimática e absorção de nutrientes. A sua estrutura e motilidade são adaptadas para maximizar a área de superfície e o tempo de contacto com o quimo.</p>
+
+    <div class="scheme-box">
+        [Esquema: Segmentos do Intestino Delgado (Duodeno, Jejuno, Íleo) e suas características histológicas diferenciais]
+    </div>
+
+    <h3>1.1. Segmentos Anatómicos e Funções</h3>
+    <ul>
+        <li><strong>Duodeno (25 cm):</strong> Porção fixa, retroperitoneal (exceto a ampola). Recebe secreções biliopancreáticas. Local de neutralização do ácido gástrico (Bicarbonato de Brunner) e início da digestão de lípidos/proteínas.</li>
+        <li><strong>Jejuno (2,5 m):</strong> Quadrante superior esquerdo. Paredes espessas, vascularização intensa (vasos retos longos). Principal local de absorção de macronutrientes, água e eletrólitos. Possui pregas circulares (Kerkring) proeminentes.</li>
+        <li><strong>Íleo (3,5 m):</strong> Quadrante inferior direito. Paredes mais finas, Placas de Peyer (tecido linfoide abundante - GALT). Local exclusivo de absorção de Vitamina B12 e Sais Biliares.</li>
+        <li><strong>Válvula Ileocecal:</strong> Esfíncter que previne o refluxo de bactérias do cólon para o intestino delgado (prevenção de SIBO - Supercrescimento Bacteriano).</li>
+    </ul>
+
+    <h3>1.2. Ampliação da Superfície de Absorção</h3>
+    <ul>
+        <li><strong>Pregas de Kerkring (Circulares):</strong> Aumentam a superfície em 3x.</li>
+        <li><strong>Vilosidades:</strong> Projeções da mucosa (1mm). Aumentam em 10x. Contêm o capilar sanguíneo e o vaso quilífero central (lácteo).</li>
+        <li><strong>Microvilosidades (Borda em Escova):</strong> Projeções da membrana apical do enterócito. Aumentam em 20x. Contêm as enzimas digestivas finais (dissacaridases, peptidases).</li>
+        <li><strong>Total:</strong> Aumento de cerca de 600x a 1000x na área de absorção (equivalente a um campo de ténis).</li>
+    </ul>
+
+    <h3>1.3. Padrões de Motilidade Gastrointestinal</h3>
+    <ul>
+        <li><strong>Peristaltismo (Propulsão):</strong> Contração reflexa do músculo circular atrás do bolo e relaxamento à frente (Lei do Intestino). Impulsiona o conteúdo analmente.</li>
+        <li><strong>Segmentação (Mistura):</strong> Contrações rítmicas de anéis de músculo circular que dividem e misturam o quimo com enzimas, sem propulsão líquida significativa. Predomina no estado pós-prandial.</li>
+        <li><strong>Complexo Motor Migratório (CMM):</strong> Padrão de atividade interdigestiva (jejum). Ondas peristálticas intensas que varrem o intestino do estômago ao íleo a cada 90 min. Função de "limpeza" (housekeeping) para prevenir estase e crescimento bacteriano. Mediado pela hormona <strong>Motilina</strong>.</li>
+    </ul>
+
+    <h3>1.4. Fisiopatologia da Obstrução</h3>
+    <div class="physio-box">
+        <strong>Íleo Paralítico (Adinâmico):</strong> Inibição funcional da motilidade.
+        <br><em>Causas:</em> Pós-operatório (reflexo simpático), hipocaliemia, peritonite, isquemia, uso de opioides, sepse grave (ex: Strongyloidiasis disseminada).
+        <br><em>Sinais:</em> Distensão, ausência de ruídos hidroaéreos e de eliminação de flatos/fezes.
+        <br><br>
+        <strong>Suboclusão Mecânica:</strong> Bloqueio físico parcial.
+        <br><em>Causas:</em> Bridas (aderências), tumores, hérnias, parasitas (bolo de áscaris), estenoses (TB, Crohn).
+        <br><em>Sinais:</em> Dor em cólica, ruídos de luta (iniciais), níveis hidroaéreos no RX.
+    </div>
+
+    <!-- OBJETIVO 2: DIGESTÃO E ABSORÇÃO -->
+    <h2>2. Fisiologia da Digestão e Absorção de Nutrientes</h2>
+    <p>Mecanismos moleculares de transporte na membrana dos enterócitos.</p>
+
+    <div class="scheme-box">
+        [Esquema: Transportadores de Membrana Apical e Basolateral para Glicose, Aminoácidos e Lípidos]
+    </div>
+
+    <h3>2.1. Hidratos de Carbono (Carboidratos)</h3>
+    <ul>
+        <li><strong>Enzimas Luminais:</strong> Amilase salivar e pancreática (quebram amido em maltose, maltotriose e dextrinas).</li>
+        <li><strong>Enzimas de Borda em Escova:</strong> Lactase, Sacarase, Maltase e Alfa-dextrinase (convertem em monossacarídeos).</li>
+        <li><strong>Absorção Apical (Lúmen -> Célula):</strong>
+            <ul>
+                <li><em>Glicose e Galactose:</em> Transporte Ativo Secundário (SGLT-1). Cotransporte com 2 Na+ (energia vem da bomba Na/K ATPase basolateral).</li>
+                <li><em>Frutose:</em> Difusão Facilitada (GLUT-5). Independente de Na+.</li>
+            </ul>
+        </li>
+        <li><strong>Saída Basolateral (Célula -> Sangue):</strong> Todos saem por Difusão Facilitada via transportador <strong>GLUT-2</strong> para a veia porta.</li>
+    </ul>
+
+    <h3>2.2. Proteínas</h3>
+    <ul>
+        <li><strong>Ativação Enzimática:</strong> O suco pancreático contém zimogénios. A <strong>Enterocinase</strong> (borda em escova) converte Tripsinogénio em Tripsina. A Tripsina ativa as outras (Quimotripsina, Elastase, Carboxipeptidase).</li>
+        <li><strong>Produtos Finais:</strong> Aminoácidos livres (40%) e Di/Tripeptídeos (60%).</li>
+        <li><strong>Absorção Apical:</strong>
+            <ul>
+                <li><em>Aminoácidos:</em> Cotransporte com Na+ (sistemas específicos para ácidos, básicos, neutros).</li>
+                <li><em>Di/Tripeptídeos:</em> Cotransporte com H+ via transportador <strong>PepT1</strong> (mais rápido que AA livres). Dentro da célula, peptidases citosólicas quebram em AA livres.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>2.3. Lípidos (Gorduras)</h3>
+    <ul>
+        <li><strong>Emulsificação:</strong> Sais biliares e lecitina fragmentam grandes glóbulos de gordura, aumentando a área para ação da lipase.</li>
+        <li><strong>Digestão Enzimática:</strong> Lipase Pancreática + Colipase hidrolisam Triglicerídeos em 2 Ácidos Gordos Livres + 1 Monoglicerídeo. Fosfolipase A2 digere fosfolípidos.</li>
+        <li><strong>Micelas Mistas:</strong> Agregados de sais biliares, colesterol e produtos da digestão que transportam os lípidos através da Camada de Água Não Agitada até à microvilosidade.</li>
+        <li><strong>Absorção e Processamento:</strong> Difusão simples pela membrana. No REL, são reesterificados em Triglicerídeos.</li>
+        <li><strong>Formação de Quilomicrons:</strong> TGs + Apolipoproteínas (Apo B-48). Saem por exocitose para os <strong>Vasos Lácteos</strong> (linfáticos), contornando o fígado inicial.</li>
+    </ul>
+
+    <h3>2.4. Água e Eletrólitos</h3>
+    <ul>
+        <li><strong>Água:</strong> Absorção passiva isosmótica (segue o Na+ e nutrientes). Duodeno/Jejuno (paracelular).</li>
+        <li><strong>Sódio:</strong> Cotransporte (Jejuno), Trocador Na+/H+ (Jejuno/Íleo), Canal ENaC (Cólon - sensível a Aldosterona).</li>
+        <li><strong>Ferro:</strong> Absorvido no Duodeno como Fe2+ (DMT-1). Regulado pela Hepcidina.</li>
+        <li><strong>Cálcio:</strong> Absorvido no Duodeno, regulado pela Vitamina D (proteína Calbindina).</li>
+    </ul>
+
+    <!-- OBJETIVO 3: PARASITOLOGIA (STRONGYLOIDES) -->
+    <div class="parasito-section">
+        <h2>3. Estrongiloidíase: Ciclo, Imunopatologia e Hiperinfecção</h2>
+        <p>A infeção por <em>Strongyloides stercoralis</em> é única pela capacidade de autoinfeção, permitindo persistência por décadas e risco de hiperinfecção fatal.</p>
+
+        <div class="scheme-box">
+            [Esquema: Ciclo de Vida do Strongyloides - Fase de vida livre, Parasitária e Ciclo de Autoinfeção]
+        </div>
+
+        <h3>3.1. Morfologia e Formas Evolutivas</h3>
+        <ul>
+            <li><strong>Fêmea Partenogenética:</strong> Parasita adulto (2mm), vive nas criptas do intestino delgado. Põe ovos.</li>
+            <li><strong>Larva Rabditoide (L1):</strong> Forma diagnóstica nas fezes. Não infectante. Tem vestíbulo bucal curto e esófago com bulbo.</li>
+            <li><strong>Larva Filarioide (L3):</strong> Forma infectante. Esófago longo (metade do corpo), cauda entalhada. Penetra na pele.</li>
+        </ul>
+
+        <h3>3.2. Ciclo Biológico (Heteroxénico Facultativo)</h3>
+        <ul>
+            <li><strong>Ciclo Direto:</strong> L3 penetra pele $\to$ Circulação venosa $\to$ Pulmões (rompe alvéolos) $\to$ Árvore brônquica $\to$ Deglutição $\to$ Intestino Delgado $\to$ Fêmea adulta $\to$ Ovos $\to$ L1 nas fezes $\to$ Solo $\to$ L3.</li>
+            <li><strong>Ciclo Indireto (Vida Livre):</strong> No solo, L1 pode maturar em machos e fêmeas de vida livre, reproduzir-se sexuadamente e gerar novas gerações de L3 (amplificação ambiental).</li>
+            <li><strong>Ciclo de Autoinfeção:</strong>
+                <ul>
+                    <li><em>Interna:</em> L1 transforma-se em L3 ainda no lúmen intestinal, penetra na mucosa do íleo/cólon e reinicia o ciclo pulmonar.</li>
+                    <li><em>Externa:</em> L1 vira L3 na região perianal e penetra a pele (Larva Currens).</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3.3. Síndrome de Hiperinfecção e Disseminação</h3>
+        <div class="parasito-box">
+            <strong>Definição:</strong> Aceleração massiva do ciclo de autoinfeção, com aumento da carga parasitária nos locais habituais (pulmão, TGI).
+            <br><strong>Estrongiloidíase Disseminada:</strong> Larvas invadem órgãos ectópicos (SNC, fígado, rins, coração).
+            <br><strong>Fatores de Risco:</strong> Imunossupressão da imunidade celular (Th2).
+            <ul>
+                <li>Uso de Corticosteroides (Fator principal): Mimetizam hormonas do parasita, aumentando a fecundidade das fêmeas e acelerando a transformação L1 $\to$ L3.</li>
+                <li>HTLV-1: Induz perfil Th1, prejudicando a resposta Th2 (IgE/Eosinófilos) necessária para conter o parasita.</li>
+                <li>Transplantes, Quimioterapia, Desnutrição grave.</li>
+            </ul>
+            <strong>Sepsis Gram-Negativa:</strong> As larvas carregam bactérias intestinais (*E. coli*, *Klebsiella*) na cutícula ou tubo digestivo, causando bacteremia, meningite e pneumonia bacteriana secundária.
+        </div>
+
+        <h3>3.4. Manifestações Clínicas</h3>
+        <ul>
+            <li><strong>Cutâneas:</strong> Larva currens (urticária linear migratória rápida, pruriginosa, região glútea), petéquias.</li>
+            <li><strong>Pulmonares:</strong> Síndrome de Loeffler (tosse seca, dispneia, infiltrado intersticial migratório). Na hiperinfecção: hemorragia alveolar, SDRA.</li>
+            <li><strong>Gastrointestinais:</strong> Dor epigástrica (simula úlcera péptica), diarreia, má absorção, enteropatia perdedora de proteínas. Na hiperinfecção: íleo paralítico, obstrução, perfuração, hemorragia digestiva.</li>
+            <li><strong>Achado Laboratorial:</strong> Eosinofilia (comum na fase crônica, mas pode estar <strong>ausente</strong> na hiperinfecção grave por exaustão medular ou uso de corticoides - mau prognóstico).</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO 4: FARMACOLOGIA GASTROINTESTINAL -->
+    <div class="pharma-section">
+        <h2>4. Farmacologia Aplicada ao TGI e Antiparasitários</h2>
+
+        <h3>4.1. Antiparasitários Específicos</h3>
+        <table class="pharma-box">
+            <thead>
+                <tr>
+                    <th>Fármaco</th>
+                    <th>Mecanismo de Ação</th>
+                    <th>Espectro/Uso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ivermectina</strong></td>
+                    <td>Ativa canais de Cloro controlados por Glutamato (exclusivos de invertebrados). Causa hiperpolarização celular, paralisia tónica e morte do parasita.</td>
+                    <td><strong>Escolha</strong> para *S. stercoralis*. Dose: 200 mcg/kg (2 dias). Na hiperinfecção: uso prolongado até negativação das larvas.</td>
+                </tr>
+                <tr>
+                    <td><strong>Albendazol</strong></td>
+                    <td>Liga-se à beta-tubulina, inibindo a polimerização dos microtúbulos. Bloqueia a captação de glicose e transporte de organelas, levando à morte por depleção energética.</td>
+                    <td>Alternativa (menos eficaz que ivermectina, requer 3-7 dias). Largo espectro (Ascaris, Ancilostoma, Giardia).</td>
+                </tr>
+                <tr>
+                    <td><strong>Tiabendazol</strong></td>
+                    <td>Inibe a enzima fumarato redutase mitocondrial (ciclo de Krebs do parasita).</td>
+                    <td>Alta toxicidade (náuseas severas). Uso restrito (tópico para Larva Migrans Cutânea).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.2. Procinéticos e Antieméticos</h3>
+        <ul>
+            <li><strong>Metoclopramida:</strong> Antagonista D2 (Dopamina) central (antiemético) e periférico (procinético - aumenta tónus do EEI e esvaziamento gástrico). Efeitos adversos: Sintomas extrapiramidais (distonia), hiperprolactinemia.</li>
+            <li><strong>Domperidona:</strong> Antagonista D2 periférico (não atravessa BHE). Menor risco de efeitos centrais.</li>
+            <li><strong>Ondansetrona:</strong> Antagonista seletivo 5-HT3 (Serotonina). Bloqueia o vómito central e periférico. Padrão-ouro em quimioterapia e pós-op.</li>
+        </ul>
+
+        <h3>4.3. Laxantes e Antidiarreicos</h3>
+        <ul>
+            <li><strong>Laxantes Osmóticos (Lactulose):</strong> Dissacarídeo não absorvível. Metabolizado por bactérias do cólon em ácidos (acético/lático), retendo água por osmose e estimulando peristalse. Útil na encefalopatia hepática (prende amónia NH4+).</li>
+            <li><strong>Laxantes Estimulantes (Bisacodilo, Sene):</strong> Irritação direta da mucosa e plexo mioentérico. Risco de dependência e cólicas.</li>
+            <li><strong>Antidiarreicos (Loperamida):</strong> Opioide sintético agonista de recetores Mu intestinais. Reduz a libertação de Acetilcolina e Prostaglandinas $\to$ Diminui peristalse e secreção. <strong>Contraindicado</strong> em diarreia infecciosa (disenteria) e suspeita de megacólon tóxico.</li>
+        </ul>
+
+        <h3>4.4. Inibidores da Secreção Ácida</h3>
+        <ul>
+            <li><strong>Inibidores da Bomba de Protões (IBP - Omeprazol):</strong> Pró-fármaco ativado no canalículo ácido. Liga-se covalentemente (irreversível) à H+/K+ ATPase da célula parietal. Inibição potente e duradoura (24h).</li>
+            <li><strong>Antagonistas H2 (Ranitidina):</strong> Bloqueio competitivo reversível do recetor H2 de histamina. Menos potente que IBPs.</li>
+        </ul>
+    </div>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>GUYTON, A. C.; HALL, J. E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Rio de Janeiro: Elsevier, 2017.</p>
+        <p>KATZUNG, B. G. <strong>Farmacologia Básica e Clínica</strong>. 13ª ed. McGraw-Hill, 2017.</p>
+        <p>NEVES, D. P. <strong>Parasitologia Humana</strong>. 13ª ed. Atheneu, 2016.</p>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+        <p>World Gastroenterology Organisation. <strong>Global Guidelines: Management of Strongyloidiasis</strong>. 2018.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
