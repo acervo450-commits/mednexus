@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Fisiologia Renal (ASE 4 - P4)</title>
+    <style>
+        :root {
+            --header-bg: #1c2833;        /* Azul Muito Escuro (Renal/Filtração) */
+            --header-text: #ffffff;
+            --primary-color: #2e4053;    /* Azul Acinzentado (Tópicos) */
+            --accent-filtration: #e74c3c; /* Vermelho (Sangue/Filtração) */
+            --accent-reabsorption: #f1c40f; /* Amarelo (Urina/Reabsorção) */
+            --highlight: #f8f9f9;        /* Branco Suave (Destaques) */
+            --text-color: #212121;
+            --bg-color: #ebedef;         /* Fundo cinza claro */
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #5d6d7e);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-filtration);
+            border-bottom: 2px solid #fadbd8;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .reabsorption-section h3 {
+            color: var(--accent-reabsorption);
+            border-bottom-color: #f9e79f;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .filtration-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--accent-filtration);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .reabsorption-box {
+            background-color: #fef9e7;
+            border-left: 5px solid var(--accent-reabsorption);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f3f4;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .filtration-box, .reabsorption-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo IV (ASE 4) - Problema 04</span>
+        <h1>Caso Clínico de Doença Renal Crónica</h1>
+        <p style="font-style: italic; color: #555;">Fisiologia Renal: Filtração, Reabsorção e Regulação Homeostática</p>
+    </div>
+
+    <!-- OBJETIVO 1: ANATOMIA E FISIOLOGIA RENAL -->
+    <h2>1. Anatomia Funcional e Fisiologia Renal</h2>
+    <p>O rim é o principal órgão excretor e regulador do meio interno (homeostasia).</p>
+
+    <h3>1.1. O Nefrónio: Unidade Funcional</h3>
+    <ul>
+        <li><strong>Corpúsculo Renal (Glomérulo + Cápsula de Bowman):</strong> Local da filtração do sangue.</li>
+        <li><strong>Túbulo Contornado Proximal (TCP):</strong> Principal local de reabsorção (65% de água e Na+, 100% de glicose e aminoácidos). Borda em escova para aumentar a área de superfície.</li>
+        <li><strong>Ansa de Henle:</strong> Cria o gradiente osmótico medular (multiplicador de contracorrente) essencial para a concentração da urina.
+            <ul>
+                <li><em>Ramo Descendente:</em> Permeável à água, impermeável a solutos.</li>
+                <li><em>Ramo Ascendente:</em> Impermeável à água, transporte ativo de Na+, K+, Cl-.</li>
+            </ul>
+        </li>
+        <li><strong>Túbulo Contornado Distal (TCD) e Túbulo Coletor:</strong> Ajuste fino da composição da urina sob controlo hormonal (Aldosterona e ADH).</li>
+    </ul>
+
+    <h3>1.2. Aparelho Justaglomerular</h3>
+    <p>Estrutura especializada no controle da pressão arterial e filtração glomerular.</p>
+    <ul>
+        <li><strong>Células Justaglomerulares (Granulares):</strong> Localizadas na arteríola aferente. Secretam <strong>Renina</strong> em resposta à baixa pressão ou baixo fluxo.</li>
+        <li><strong>Mácula Densa:</strong> Células do TCD sensíveis à concentração de NaCl. Se o NaCl tubular diminui (sinal de filtração baixa), a mácula densa estimula a libertação de renina e dilata a arteríola aferente.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: FORMAÇÃO DA URINA -->
+    <h2>2. Processos de Formação da Urina</h2>
+
+    <h3>2.1. Filtração Glomerular</h3>
+    <div class="filtration-box">
+        Passagem de plasma livre de proteínas dos capilares glomerulares para a Cápsula de Bowman.
+        <br><strong>Barreira de Filtração:</strong> Endotélio fenestrado, Membrana Basal e Podócitos (Fendas de filtração). Impede a passagem de células e grandes proteínas (ex: Albumina).
+        <br><strong>Taxa de Filtração Glomerular (TFG):</strong> Volume de filtrado formado por minuto (Normal: ~125 mL/min). Determinada pela pressão hidrostática glomerular.
+    </div>
+
+    <h3>2.2. Reabsorção e Secreção Tubular</h3>
+    <ul>
+        <li><strong>Reabsorção:</strong> Retorno de substâncias do lúmen tubular para o sangue (capilares peritubulares). Ex: Glicose, Água, Eletrólitos.</li>
+        <li><strong>Secreção:</strong> Transporte de substâncias do sangue para o lúmen tubular. Ex: H+, K+, Fármacos (Penicilina), Creatinina.</li>
+    </ul>
+
+    <!-- OBJETIVO 3: REGULAÇÃO DA PRESSÃO ARTERIAL -->
+    <div class="reabsorption-section">
+        <h2>3. Sistema Renina-Angiotensina-Aldosterona (SRAA)</h2>
+        <p>Mecanismo crucial para a regulação da pressão arterial e volume sanguíneo a longo prazo.</p>
+
+        <h3>3.1. Cascata de Ativação</h3>
+        <ol>
+            <li><strong>Estímulo:</strong> Hipotensão, Hipovolemia ou Baixo Na+ detectado pela mácula densa.</li>
+            <li><strong>Libertação de Renina:</strong> Pelo rim (aparelho justaglomerular).</li>
+            <li><strong>Conversão:</strong> A Renina converte o Angiotensinogénio (fígado) em Angiotensina I.</li>
+            <li><strong>Enzima Conversora de Angiotensina (ECA):</strong> Principalmente nos pulmões, converte Angiotensina I em <strong>Angiotensina II</strong> (potente vasoconstritor).</li>
+        </ol>
+
+        <h3>3.2. Ações da Angiotensina II</h3>
+        <ul>
+            <li><strong>Vasoconstrição Sistémica:</strong> Aumenta a Resistência Periférica Total (aumenta PA).</li>
+            <li><strong>Estimulação da Aldosterona:</strong> No córtex da adrenal.</li>
+            <li><strong>Libertação de ADH:</strong> Na neuro-hipófise (aumenta reabsorção de água).</li>
+            <li><strong>Estimulação da Sede:</strong> No hipotálamo.</li>
+            <li><strong>Reabsorção de Na+:</strong> Direta no TCP.</li>
+        </ul>
+
+        <h3>3.3. Ação da Aldosterona</h3>
+        <div class="reabsorption-box">
+            Atua no TCD e Ducto Coletor.
+            <br><strong>Efeito:</strong> Aumenta a reabsorção de Na+ (e água por osmose) e aumenta a secreção (excreção) de K+ e H+.
+            <br><strong>Resultado:</strong> Aumento da volémia e da Pressão Arterial; Risco de Hipocaliemia e Alcalose.
+        </div>
+    </div>
+
+    <!-- OBJETIVO 4: OUTROS REGULADORES RENAIS -->
+    <h2>4. Prostaglandinas, Vasopressina e Equilíbrio Ácido-Base</h2>
+
+    <h3>4.1. Prostaglandinas (PGE2)</h3>
+    <ul>
+        <li><strong>Função Renal:</strong> Vasodilatação da arteríola aferente. Mantém a perfusão renal e a TFG em situações de vasoconstrição sistémica (ex: hipovolemia, insuficiência cardíaca).</li>
+        <li><strong>Inibição por AINEs:</strong> Anti-inflamatórios inibem a COX, reduzindo PGE2. Isso causa vasoconstrição da aferente, podendo levar a Insuficiência Renal Aguda.</li>
+    </ul>
+
+    <h3>4.2. Vasopressina (ADH - Hormona Antidiurética)</h3>
+    <ul>
+        <li><strong>Origem:</strong> Hipotálamo (armazenada na neuro-hipófise).</li>
+        <li><strong>Estímulo:</strong> Aumento da osmolaridade plasmática (desidratação) ou grande queda de volume.</li>
+        <li><strong>Ação:</strong> Insere canais de água (Aquaporinas-2) no ducto coletor, tornando-o permeável à água.</li>
+        <li><strong>Efeito:</strong> Reabsorção de água livre, urina concentrada, redução da osmolaridade plasmática.</li>
+    </ul>
+
+    <h3>4.3. Equilíbrio Ácido-Base</h3>
+    <p>O rim é o regulador final e mais potente do pH sanguíneo (resposta lenta, horas a dias).</p>
+    <ul>
+        <li><strong>Acidose:</strong> O rim secreta H+ (túbulo distal) e reabsorve/produz novo Bicarbonato (HCO3-).</li>
+        <li><strong>Alcalose:</strong> O rim reduz a secreção de H+ e excreta Bicarbonato.</li>
+    </ul>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>GUYTON, A. C.; HALL, J. E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Rio de Janeiro: Elsevier, 2017.</p>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+        <p>BERNE, R. M.; LEVY, M. N. <strong>Fisiologia</strong>. 6ª ed. Elsevier, 2009.</p>
+        <p>KOEPPEN, B. M.; STANTON, B. A. <strong>Berne & Levy Physiology</strong>. 7th ed. Elsevier, 2018.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

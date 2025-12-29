@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Sistema Endócrino (ASE 4 - P3)</title>
+    <style>
+        :root {
+            --header-bg: #4a235a;        /* Roxo Escuro (Endócrino) */
+            --header-text: #ffffff;
+            --primary-color: #212f3d;    /* Preto/Azul (Tópicos) */
+            --accent-pituitary: #8e44ad; /* Roxo (Hipófise) */
+            --accent-target: #d35400;    /* Laranja (Órgãos Alvo) */
+            --highlight: #f4f6f7;        /* Cinzento Claro (Destaques) */
+            --text-color: #212121;
+            --bg-color: #f5eef8;         /* Fundo lilás muito suave */
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #a569bd);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-pituitary);
+            border-bottom: 2px solid #d2b4de;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .target-section h3 {
+            color: var(--accent-target);
+            border-bottom-color: #edbb99;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .pituitary-box {
+            background-color: #f4ecf7;
+            border-left: 5px solid var(--accent-pituitary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .target-box {
+            background-color: #fef5e7;
+            border-left: 5px solid var(--accent-target);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f3f4;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .pituitary-box, .target-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo IV (ASE 4) - Problema 03</span>
+        <h1>(...) Defeito no Gene PROP-1</h1>
+        <p style="font-style: italic; color: #555;">Fisiologia do Eixo Hipotálamo-Hipófise e Glândulas Endócrinas</p>
+    </div>
+
+    <!-- OBJETIVO 1: EIXO HIPOTÁLAMO-HIPÓFISE -->
+    <h2>1. O Eixo Hipotálamo-Hipófise</h2>
+    <p>A "glândula mestra" (hipófise) é controlada pelo hipotálamo, formando a interface entre o sistema nervoso e o sistema endócrino.</p>
+
+    <h3>1.1. Anatomia Funcional</h3>
+    <ul>
+        <li><strong>Hipotálamo:</strong> Recebe sinais do sistema límbico, tálamo e córtex. Sintetiza hormonas libertadoras e inibidoras.</li>
+        <li><strong>Haste Hipofisária (Infundíbulo):</strong> Conecta o hipotálamo à hipófise.
+            <ul>
+                <li><em>Sistema Porta-Hipofisário:</em> Rede vascular que transporta hormonas do hipotálamo diretamente para a adeno-hipófise (lobo anterior).</li>
+                <li><em>Trato Hipotálamo-Hipofisário:</em> Axónios de neurónios hipotalâmicos que se estendem até a neuro-hipófise (lobo posterior).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.2. Adeno-Hipófise (Lobo Anterior)</h3>
+    <p>Glândula verdadeira, composta por células secretoras.</p>
+    <table class="pituitary-box">
+        <thead>
+            <tr>
+                <th>Célula</th>
+                <th>Hormona Hipofisária</th>
+                <th>Hormona Hipotalâmica (Regulador)</th>
+                <th>Alvo Principal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Somatotrófos</strong></td>
+                <td>GH (Crescimento)</td>
+                <td>GHRH (+), Somatostatina (-)</td>
+                <td>Fígado (IGF-1), Ossos, Músculos</td>
+            </tr>
+            <tr>
+                <td><strong>Lactotrófos</strong></td>
+                <td>PRL (Prolactina)</td>
+                <td>Dopamina (-)</td>
+                <td>Glândulas Mamárias</td>
+            </tr>
+            <tr>
+                <td><strong>Corticotrófos</strong></td>
+                <td>ACTH (Adrenocorticotrófico)</td>
+                <td>CRH (+)</td>
+                <td>Córtex Adrenal</td>
+            </tr>
+            <tr>
+                <td><strong>Tireotrófos</strong></td>
+                <td>TSH (Tireoestimulante)</td>
+                <td>TRH (+)</td>
+                <td>Tireoide</td>
+            </tr>
+            <tr>
+                <td><strong>Gonadotrófos</strong></td>
+                <td>FSH e LH</td>
+                <td>GnRH (+)</td>
+                <td>Gónadas (Ovários/Testículos)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.3. Neuro-Hipófise (Lobo Posterior)</h3>
+    <p>Armazena e liberta hormonas produzidas no hipotálamo (Núcleos Supra-ótico e Paraventricular).</p>
+    <ul>
+        <li><strong>ADH (Vasopressina):</strong> Regula a osmolaridade plasmática (reabsorção de água no rim).</li>
+        <li><strong>Ocitocina:</strong> Contração uterina no parto e ejeção do leite.</li>
+    </ul>
+
+    <h3>1.4. Defeito no Gene PROP-1</h3>
+    <div class="pituitary-box">
+        O fator de transcrição <strong>PROP-1</strong> é essencial para a diferenciação dos <strong>Somatotrófos, Lactotrófos, Tireotrófos e Gonadotrófos</strong>.
+        <br>Uma mutação neste gene resulta em <strong>Pan-hipopituitarismo</strong> (deficiência combinada de GH, TSH, LH, FSH e Prolactina), poupando apenas o eixo do ACTH (Corticotrófos).
+        <br><em>Clínica:</em> Baixa estatura grave, hipotireoidismo, infantilismo sexual (falta de puberdade).
+    </div>
+
+    <!-- OBJETIVO 2: EIXO DO CRESCIMENTO (GH) -->
+    <div class="target-section">
+        <h2>2. Fisiologia do Crescimento (Eixo Somatotrófico)</h2>
+
+        <h3>2.1. Hormona do Crescimento (GH)</h3>
+        <ul>
+            <li><strong>Secreção:</strong> Pulsátil, predominante durante o sono profundo (fases 3 e 4). Estimulada por hipoglicemia, exercício e sono. Inibida por hiperglicemia e obesidade.</li>
+            <li><strong>Ações Diretas (Metabólicas):</strong>
+                <ul>
+                    <li><em>Lipólise:</em> Quebra de gordura (efeito anti-insulínico).</li>
+                    <li><em>Gliconeogénese:</em> Aumenta glicose no sangue (diabetogénico).</li>
+                </ul>
+            </li>
+            <li><strong>Ações Indiretas (Crescimento):</strong> Mediadas pelo <strong>IGF-1 (Somatomedina C)</strong> produzido no fígado. Promove a condrogénese (crescimento linear) e síntese proteica (crescimento muscular).</li>
+        </ul>
+
+        <h3>2.2. Patologias do GH</h3>
+        <ul>
+            <li><strong>Deficiência:</strong> Nanismo hipofisário (proporcional).</li>
+            <li><strong>Excesso:</strong>
+                <ul>
+                    <li><em>Gigantismo:</em> Antes do fecho das epífises ósseas. Crescimento linear excessivo.</li>
+                    <li><em>Acromegalia:</em> Após o fecho das epífises. Crescimento de extremidades (mãos, pés, mandíbula) e órgãos internos (visceromegalia).</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO 3: GLÂNDULAS TIREOIDE E PARATIREOIDE -->
+    <div class="target-section">
+        <h2>3. Regulação Metabólica e do Cálcio</h2>
+
+        <h3>3.1. Tireoide (T3 e T4)</h3>
+        <ul>
+            <li><strong>Síntese:</strong> Requer Iodo e Tireoglobulina. T4 (Tiroxina) é a forma principal secretada, mas T3 (Triiodotironina) é a forma biologicamente ativa.</li>
+            <li><strong>Funções:</strong> Aumenta a taxa metabólica basal (calorigénese), essencial para o desenvolvimento do SNC no feto/infância (mielinização), aumenta recetores beta-adrenérgicos no coração.</li>
+            <li><strong>Regulação:</strong> Feedback negativo (T3/T4 inibem TSH e TRH).</li>
+        </ul>
+
+        <h3>3.2. Paratireoide e Metabolismo do Cálcio</h3>
+        <div class="target-box">
+            <strong>Paratormona (PTH):</strong> Hipercalcemiante. Secretado pelas Células Principais em resposta à hipocalcemia.
+            <ul>
+                <li><em>Osso:</em> Aumenta a reabsorção óssea (liberta Ca2+ e Fosfato).</li>
+                <li><em>Rim:</em> Aumenta reabsorção de Ca2+, diminui reabsorção de Fosfato e ativa a Vitamina D (1-alfa-hidroxilase).</li>
+                <li><em>Intestino:</em> Aumenta absorção de Ca2+ (indiretamente via Vit D).</li>
+            </ul>
+            <strong>Calcitonina:</strong> Hipocalcemiante. Secretada pelas Células C (Parafoliculares) da Tireoide. Inibe osteoclastos.
+        </div>
+    </div>
+
+    <!-- OBJETIVO 4: ADRENAL E PÂNCREAS -->
+    <div class="target-section">
+        <h2>4. Adrenais e Pâncreas Endócrino</h2>
+
+        <h3>4.1. Glândula Adrenal (Suprarrenal)</h3>
+        <ul>
+            <li><strong>Córtex (Esteroides):</strong>
+                <ul>
+                    <li><em>Zona Glomerulosa:</em> Aldosterona (Mineralocorticoide). Regula Na+/K+ e volume sanguíneo. Estimulada por Angiotensina II e K+.</li>
+                    <li><em>Zona Fasciculada:</em> Cortisol (Glicocorticoide). Resposta ao stress, anti-inflamatório, hiperglicemiante. Estimulado por ACTH.</li>
+                    <li><em>Zona Reticular:</em> Androgénios (DHEA). Caracteres sexuais secundários (pêlos).</li>
+                </ul>
+            </li>
+            <li><strong>Medula (Catecolaminas):</strong> Adrenalina e Noradrenalina. Resposta de "luta ou fuga" (Simpático).</li>
+        </ul>
+
+        <h3>4.2. Pâncreas Endócrino (Ilhotas de Langerhans)</h3>
+        <ul>
+            <li><strong>Células Beta:</strong> Insulina. Anabólica. Hipoglicemiante (entrada de glicose nas células).</li>
+            <li><strong>Células Alfa:</strong> Glucagon. Catabólica. Hiperglicemiante (glicogenólise e gliconeogénese hepática).</li>
+            <li><strong>Células Delta:</strong> Somatostatina. Inibe insulina e glucagon (regulação local).</li>
+        </ul>
+    </div>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+        <p>GUYTON, A.C.; HALL, J.E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Elsevier, 2017.</p>
+        <p>BERNE, R.M.; LEVY, M.N. <strong>Fisiologia</strong>. 6ª ed. Elsevier, 2009.</p>
+        <p>TORTORA, G.J. <strong>Princípios de Anatomia e Fisiologia</strong>. 14ª ed. Guanabara Koogan, 2016.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

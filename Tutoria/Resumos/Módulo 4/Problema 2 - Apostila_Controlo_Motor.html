@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Controlo Motor (ASE 4 - P2)</title>
+    <style>
+        :root {
+            --header-bg: #1a5276;        /* Azul Escuro (Motor) */
+            --header-text: #ffffff;
+            --primary-color: #212f3d;    /* Preto/Azul (Tópicos) */
+            --accent-reflex: #d35400;    /* Laranja (Reflexos/Medula) */
+            --accent-cortex: #27ae60;    /* Verde (Córtex/Planeamento) */
+            --highlight: #f4f6f7;        /* Cinzento Claro (Destaques) */
+            --text-color: #212121;
+            --bg-color: #eaf2f8;         /* Fundo azul muito suave */
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #7fb3d5);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-cortex);
+            border-bottom: 2px solid #a9dfbf;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .reflex-section h3 {
+            color: var(--accent-reflex);
+            border-bottom-color: #edbb99;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .cortex-box {
+            background-color: #e9f7ef;
+            border-left: 5px solid var(--accent-cortex);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .reflex-box {
+            background-color: #fef5e7;
+            border-left: 5px solid var(--accent-reflex);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f3f4;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .cortex-box, .reflex-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo IV (ASE 4) - Problema 02</span>
+        <h1>Controlando o corpo com o pensamento</h1>
+        <p style="font-style: italic; color: #555;">Fisiologia do Movimento: Voluntário, Reflexo e Rítmico</p>
+    </div>
+
+    <!-- OBJETIVO 1: CLASSIFICAÇÃO DOS MOVIMENTOS -->
+    <h2>1. Classificação Funcional dos Movimentos</h2>
+    <p>O sistema nervoso gera três tipos principais de movimento, variando em complexidade e controlo voluntário.</p>
+
+    <h3>1.1. Movimentos Reflexos</h3>
+    <ul>
+        <li><strong>Definição:</strong> Respostas motoras involuntárias, rápidas e estereotipadas a um estímulo sensorial específico.</li>
+        <li><strong>Controlo:</strong> Principalmente na Medula Espinhal e Tronco Encefálico.</li>
+        <li><strong>Exemplos:</strong> Reflexo Patelar (estiramento), Reflexo de Retirada (dor), Tosse.</li>
+    </ul>
+
+    <h3>1.2. Movimentos Rítmicos</h3>
+    <ul>
+        <li><strong>Definição:</strong> Movimentos repetitivos que combinam características reflexas e voluntárias. Têm início e fim voluntários, mas a execução é automática.</li>
+        <li><strong>Controlo:</strong> Geradores Centrais de Padrão (CPGs) na medula e tronco, modulados pelo córtex.</li>
+        <li><strong>Exemplos:</strong> Caminhar, correr, mastigar, respirar.</li>
+    </ul>
+
+    <h3>1.3. Movimentos Voluntários</h3>
+    <ul>
+        <li><strong>Definição:</strong> Movimentos propositados, direcionados a um objetivo e aprendidos. Melhoram com a prática.</li>
+        <li><strong>Controlo:</strong> Córtex Cerebral (planeamento e execução).</li>
+        <li><strong>Exemplos:</strong> Tocar piano, escrever, alcançar um objeto.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: HIERARQUIA DO CONTROLO MOTOR -->
+    <h2>2. Níveis de Controlo Motor</h2>
+    <p>O sistema motor opera numa hierarquia funcional, do planeamento à execução muscular.</p>
+
+    <h3>2.1. Nível Superior (Planeamento e Estratégia)</h3>
+    <div class="cortex-box">
+        <strong>Estruturas:</strong> Córtex Pré-Frontal, Áreas de Associação e Gânglios da Base.
+        <br><strong>Função:</strong> Define "o que fazer" e "porquê". O Córtex Pré-Frontal toma a decisão de agir baseado em motivação e contexto.
+    </div>
+
+    <h3>2.2. Nível Médio (Tática e Coordenação)</h3>
+    <ul>
+        <li><strong>Estruturas:</strong> Córtex Motor (M1), Área Pré-Motora, Área Motora Suplementar e Cerebelo.</li>
+        <li><strong>Função:</strong> Define "como fazer". Seleciona os músculos, a sequência de contração e a força necessária. O Cerebelo corrige erros em tempo real.</li>
+    </ul>
+
+    <h3>2.3. Nível Inferior (Execução)</h3>
+    <ul>
+        <li><strong>Estruturas:</strong> Tronco Encefálico e Medula Espinhal.</li>
+        <li><strong>Função:</strong> Executa o movimento através dos <strong>Motoneurónios Inferiores (Alfa)</strong> que inervam diretamente os músculos esqueléticos.</li>
+    </ul>
+
+    <!-- OBJETIVO 3: CÓRTEX MOTOR E VIAS DESCENDENTES -->
+    <h2>3. Córtex Motor e Vias de Condução</h2>
+
+    <h3>3.1. Áreas Corticais Motoras</h3>
+    <ul>
+        <li><strong>Córtex Motor Primário (M1 - Área 4):</strong> Execução do movimento. Possui organização somatotópica (Homúnculo Motor), onde áreas de motricidade fina (mãos, face) têm maior representação.</li>
+        <li><strong>Área Pré-Motora (Área 6 lateral):</strong> Planeamento de movimentos guiados por estímulos sensoriais externos (ex: pegar uma bola visualizada).</li>
+        <li><strong>Área Motora Suplementar (Área 6 medial):</strong> Planeamento de sequências complexas e movimentos auto-iniciados (memória motora).</li>
+    </ul>
+
+    <h3>3.2. Vias Descendentes (Tratos)</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Via</th>
+                <th>Origem</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Trato Corticoespinhal Lateral</strong></td>
+                <td>Córtex Motor</td>
+                <td>Controlo da musculatura distal (mãos/pés) para movimentos finos e precisos. Cruza nas pirâmides (bulbo).</td>
+            </tr>
+            <tr>
+                <td><strong>Trato Corticoespinhal Anterior</strong></td>
+                <td>Córtex Motor</td>
+                <td>Controlo da musculatura axial e proximal (postura/tronco). Não cruza nas pirâmides.</td>
+            </tr>
+            <tr>
+                <td><strong>Trato Rubroespinhal</strong></td>
+                <td>Núcleo Rubro (Mesencéfalo)</td>
+                <td>Auxilia o corticoespinhal no controlo de flexores dos membros superiores.</td>
+            </tr>
+            <tr>
+                <td><strong>Trato Vestibuloespinhal</strong></td>
+                <td>Núcleos Vestibulares</td>
+                <td>Manutenção do equilíbrio e postura (extensores antigravitacionais).</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- OBJETIVO 4: REFLEXOS ESPINHAIS -->
+    <div class="reflex-section">
+        <h2>4. Fisiologia dos Reflexos Medulares</h2>
+        <p>A unidade básica do controlo motor é o arco reflexo.</p>
+
+        <h3>4.1. Fuso Muscular e Reflexo Miotático (Estiramento)</h3>
+        <div class="reflex-box">
+            <strong>Sensor:</strong> Fuso Muscular (fibras intrafusais). Detecta o <strong>comprimento</strong> e a velocidade de estiramento do músculo.
+            <br><strong>Mecanismo:</strong> Estiramento do músculo $\to$ Ativação de fibras sensoriais Ia $\to$ Sinapse direta com motoneurónio Alfa na medula $\to$ Contração do músculo agonista (para resistir ao estiramento).
+            <br><strong>Exemplo:</strong> Reflexo Patelar.
+            <br><strong>Inervação Gama:</strong> Mantém o fuso sensível durante a contração muscular (Coativação Alfa-Gama).
+        </div>
+
+        <h3>4.2. Órgão Tendinoso de Golgi e Reflexo Miotático Inverso</h3>
+        <ul>
+            <li><strong>Sensor:</strong> OTG (nos tendões). Detecta a <strong>tensão</strong> (força) muscular.</li>
+            <li><strong>Mecanismo:</strong> Tensão excessiva $\to$ Ativação de fibras Ib $\to$ Interneurónio inibitório na medula $\to$ Relaxamento do músculo agonista (proteção contra lesão por excesso de força).</li>
+        </ul>
+
+        <h3>4.3. Reflexo de Retirada (Flexor)</h3>
+        <ul>
+            <li><strong>Estímulo:</strong> Nociceptivo (dor).</li>
+            <li><strong>Resposta:</strong> Contração dos flexores do membro afetado (retirada) e relaxamento dos extensores (Inibição Recíproca).</li>
+            <li><strong>Extensão Cruzada:</strong> Simultaneamente, no membro oposto, ocorre extensão para suportar o peso do corpo.</li>
+        </ul>
+    </div>
+
+    <!-- OBJETIVO 5: CONTROLO E PLANEAMENTO -->
+    <h2>5. Gânglios da Base e Cerebelo</h2>
+
+    <h3>5.1. Gânglios da Base (Núcleos da Base)</h3>
+    <ul>
+        <li><strong>Estruturas:</strong> Estriado (Caudado + Putamen), Globo Pálido, Substância Negra e Núcleo Subtalâmico.</li>
+        <li><strong>Função:</strong> Iniciação e modulação do movimento. "Filtram" os movimentos desejados e inibem os indesejados.</li>
+        <li><strong>Vias:</strong>
+            <ul>
+                <li><em>Via Direta:</em> Facilita o movimento (Desinibe o Tálamo).</li>
+                <li><em>Via Indireta:</em> Inibe o movimento (Inibe o Tálamo).</li>
+            </ul>
+        </li>
+        <li><strong>Patologia:</strong> Parkinson (perda de dopamina = hipocinesia) e Huntington (hipercinesia).</li>
+    </ul>
+
+    <h3>5.2. Cerebelo</h3>
+    <ul>
+        <li><strong>Função:</strong> Comparador de erros. Recebe a cópia do comando motor (córtex) e o feedback sensorial (medula/vestibular). Se houver discrepância, corrige o movimento em tempo real.</li>
+        <li><strong>Papéis:</strong> Coordenação motora fina, equilíbrio, tónus muscular e aprendizagem motora.</li>
+        <li><strong>Lesão:</strong> Ataxia, dismetria (erro de alvo), tremor de intenção.</li>
+    </ul>
+
+    <!-- OBJETIVO 6: MEMÓRIA (EXTRA DO RELATÓRIO 2) -->
+    <h2>6. Tipos de Memória</h2>
+    <ul>
+        <li><strong>Sensorial:</strong> Retenção brevíssima (ms a segundos). Icónica (visão) e Ecóica (audição).</li>
+        <li><strong>Curto Prazo (Trabalho/Operacional):</strong> Armazenamento temporário e manipulação de informação (ex: decorar um número para digitar). Depende do Córtex Pré-Frontal.</li>
+        <li><strong>Longo Prazo:</strong>
+            <ul>
+                <li><em>Explícita (Declarativa):</em> Fatos e eventos (Hipocampo). Semântica (conceitos) e Episódica (vivências).</li>
+                <li><em>Implícita (Não-Declarativa):</em> Habilidades e hábitos (Cerebelo/Gânglios da Base). Ex: Andar de bicicleta.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+        <p>GUYTON, A.C.; HALL, J.E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Elsevier, 2017.</p>
+        <p>MACHADO, A. <strong>Neuroanatomia Funcional</strong>. 3ª ed. Atheneu, 2014.</p>
+        <p>BEAR, M.F. <strong>Neurociências: Desvendando o Sistema Nervoso</strong>. 4ª ed. Artmed, 2017.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

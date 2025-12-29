@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila Aprofundada: Neurofisiologia e Álcool (ASE 4 - P1)</title>
+    <style>
+        :root {
+            --header-bg: #283747;        /* Azul Escuro (Neuro/Profundidade) */
+            --header-text: #ffffff;
+            --primary-color: #1b2631;    /* Preto/Azul (Tópicos) */
+            --accent-synapse: #e67e22;   /* Laranja (Sinapse/Eletricidade) */
+            --accent-alcohol: #c0392b;   /* Vermelho (Álcool/Toxicidade) */
+            --highlight: #f2f3f4;        /* Cinzento Claro (Destaques) */
+            --text-color: #212121;
+            --bg-color: #ebedef;         /* Fundo cinza azulado */
+        }
+
+        @page {
+            size: A4;
+            margin: 2.0cm;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        /* Cabeçalho */
+        .header-section {
+            text-align: center;
+            margin-bottom: 50px;
+            border-bottom: 4px solid var(--header-bg);
+            padding-bottom: 20px;
+        }
+
+        .module-tag {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            margin: 10px 0;
+            font-weight: 800;
+        }
+
+        h2 {
+            background: linear-gradient(to right, var(--header-bg), #85929e);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 50px;
+            font-size: 18pt;
+            break-after: avoid;
+        }
+
+        h3 {
+            color: var(--accent-synapse);
+            border-bottom: 2px solid #f5cba7;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            font-size: 15pt;
+            break-after: avoid;
+        }
+        
+        .alcohol-section h3 {
+            color: var(--accent-alcohol);
+            border-bottom-color: #f1948a;
+        }
+
+        h4 {
+            color: #566573;
+            font-weight: 700;
+            font-size: 12pt;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        p, li {
+            text-align: justify;
+            font-size: 11pt;
+            margin-bottom: 10px;
+        }
+
+        /* Caixas de Conteúdo */
+        .synapse-box {
+            background-color: #fdf2e9;
+            border-left: 5px solid var(--accent-synapse);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .alcohol-box {
+            background-color: #fdedec;
+            border-left: 5px solid var(--accent-alcohol);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        /* Tabelas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        thead {
+            background-color: var(--header-bg);
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #d5dbdb;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f3f4;
+        }
+
+        /* Listas */
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .bibliography {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #ccc;
+            font-size: 10pt;
+            color: #666;
+        }
+
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .container { box-shadow: none; width: 100%; padding: 0; }
+            h2 { page-break-before: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            h2:first-of-type { page-break-before: auto; }
+            .synapse-box, .alcohol-box, thead, .module-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-section">
+        <span class="module-tag">Módulo IV (ASE 4) - Problema 01</span>
+        <h1>Depois da Primeira Dose</h1>
+        <p style="font-style: italic; color: #555;">Neurofisiologia, Sinapses e Efeitos do Álcool</p>
+    </div>
+
+    <!-- OBJETIVO 1: ORGANIZAÇÃO DO SNC -->
+    <h2>1. Organização e Histologia do Tecido Nervoso</h2>
+    <p>O sistema nervoso é composto por neurónios (células excitáveis) e células da glia (suporte), organizados em SNC (encéfalo e medula) e SNP (nervos e gânglios).</p>
+
+    <h3>1.1. O Neurónio</h3>
+    <ul>
+        <li><strong>Estrutura:</strong>
+            <ul>
+                <li><em>Dendritos:</em> Zona de receção de sinais.</li>
+                <li><em>Corpo Celular (Soma):</em> Centro metabólico e de integração (Somação espacial e temporal).</li>
+                <li><em>Cone de Implantação (Zona de Gatilho):</em> Local onde o Potencial de Ação (PA) é gerado se o limiar for atingido.</li>
+                <li><em>Axónio:</em> Condução do PA. Pode ser mielinizado ou não.</li>
+                <li><em>Terminal Axonal:</em> Libertação de neurotransmissores.</li>
+            </ul>
+        </li>
+        <li><strong>Classificação Funcional:</strong>
+            <ul>
+                <li><em>Sensoriais (Aferentes):</em> Levam informação da periferia para o SNC.</li>
+                <li><em>Motores (Eferentes):</em> Levam comandos do SNC para efetores (músculos/glândulas).</li>
+                <li><em>Interneurónios:</em> Conectam neurónios dentro do SNC (maioria).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>1.2. Células da Glia (Neuroglia)</h3>
+    <p>Essenciais para a homeostasia e funcionamento neuronal.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Célula</th>
+                <th>Localização</th>
+                <th>Função Principal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Astrócitos</strong></td>
+                <td>SNC</td>
+                <td>Sustentação, nutrição, regulação iónica (K+), Barreira Hematoencefálica (BHE), recaptação de neurotransmissores.</td>
+            </tr>
+            <tr>
+                <td><strong>Oligodendrócitos</strong></td>
+                <td>SNC</td>
+                <td>Formação da Bainha de Mielina em múltiplos axónios.</td>
+            </tr>
+            <tr>
+                <td><strong>Micróglia</strong></td>
+                <td>SNC</td>
+                <td>Defesa imune (macrófagos do SNC). Fagocitose.</td>
+            </tr>
+            <tr>
+                <td><strong>Células Ependimárias</strong></td>
+                <td>SNC</td>
+                <td>Revestem ventrículos, produção/circulação do LCR.</td>
+            </tr>
+            <tr>
+                <td><strong>Células de Schwann</strong></td>
+                <td>SNP</td>
+                <td>Formação da Bainha de Mielina (1 célula para 1 segmento de axónio) e regeneração nervosa.</td>
+            </tr>
+            <tr>
+                <td><strong>Células Satélites</strong></td>
+                <td>SNP</td>
+                <td>Suporte metabólico nos gânglios.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.3. Barreira Hematoencefálica (BHE)</h3>
+    <ul>
+        <li><strong>Estrutura:</strong> Endotélio capilar com <em>zonula occludens</em> (junções oclusivas) + Pés dos astrócitos.</li>
+        <li><strong>Função:</strong> Protege o SNC de toxinas e flutuações iónicas do sangue. É altamente seletiva.</li>
+        <li><strong>Permeabilidade:</strong>
+            <ul>
+                <li><em>Passam livremente:</em> Substâncias lipossolúveis (O2, CO2, Álcool, Anestésicos), H2O.</li>
+                <li><em>Transporte mediado:</em> Glicose (GLUT-1), Aminoácidos.</li>
+                <li><em>Não passam:</em> Proteínas, substâncias hidrossolúveis grandes, maioria dos fármacos.</li>
+            </ul>
+        </li>
+        <li><strong>Álcool e BHE:</strong> O etanol é pequeno e lipossolúvel, atravessando a BHE livremente e atingindo o cérebro em concentrações similares às do sangue.</li>
+    </ul>
+
+    <!-- OBJETIVO 2: BIOELETROGÊNESE E SINAPSES -->
+    <h2>2. Potencial de Ação e Transmissão Sináptica</h2>
+
+    <h3>2.1. Potencial de Repouso e Potencial de Ação</h3>
+    <ul>
+        <li><strong>Potencial de Repouso (-70mV):</strong> Mantido pela Bomba Na+/K+ ATPase (sai 3 Na+, entra 2 K+) e alta permeabilidade ao K+ (canais de vazamento). O interior é negativo em relação ao exterior.</li>
+        <li><strong>Despolarização:</strong> Estímulo atinge o limiar (-55mV) $\to$ Abertura massiva de canais de Na+ voltagem-dependentes $\to$ Influxo de Na+ $\to$ Interior fica positivo (+30mV).</li>
+        <li><strong>Repolarização:</strong> Fecho dos canais de Na+ e abertura de canais de K+ voltagem-dependentes $\to$ Efluxo de K+ $\to$ Retorno à negatividade.</li>
+        <li><strong>Hiperpolarização:</strong> Canais de K+ fecham lentamente, o potencial fica mais negativo que o repouso.</li>
+        <li><strong>Condução Saltatória:</strong> Em axónios mielinizados, o PA "salta" entre os Nódulos de Ranvier (onde há canais iónicos), tornando a condução muito mais rápida e eficiente energeticamente.</li>
+    </ul>
+
+    <h3>2.2. Sinapse Química</h3>
+    <div class="synapse-box">
+        <strong>Etapas da Transmissão:</strong>
+        <ol>
+            <li>Chegada do PA ao terminal axonal.</li>
+            <li>Abertura de canais de Ca2+ voltagem-dependentes.</li>
+            <li>Influxo de Ca2+ promove a fusão das vesículas sinápticas (exocitose).</li>
+            <li>Libertação do neurotransmissor na fenda sináptica.</li>
+            <li>Ligação ao receptor pós-sináptico (Ionotrópico ou Metabotrópico).</li>
+            <li>Geração de um Potencial Pós-Sináptico (PEPS ou PIPS).</li>
+            <li>Remoção do neurotransmissor (recaptação, degradação enzimática ou difusão) para cessar o sinal.</li>
+        </ol>
+    </div>
+
+    <h3>2.3. Potenciais Pós-Sinápticos</h3>
+    <ul>
+        <li><strong>Excitador (PEPS):</strong> Despolarização local. Abertura de canais de Na+ ou Ca2+ (ex: Glutamato). Aproxima do limiar.</li>
+        <li><strong>Inibidor (PIPS):</strong> Hiperpolarização local. Abertura de canais de Cl- (influxo) ou K+ (efluxo) (ex: GABA). Afasta do limiar, dificultando o PA.</li>
+    </ul>
+
+    <!-- OBJETIVO 3: O ÁLCOOL NO SNC -->
+    <div class="alcohol-section">
+        <h2>3. Farmacologia e Efeitos do Álcool</h2>
+        <p>O etanol é um depressor do Sistema Nervoso Central, atuando em múltiplos alvos moleculares.</p>
+
+        <h3>3.1. Mecanismo de Ação (Ação Bifásica)</h3>
+        <ul>
+            <li><strong>Potenciação do GABA (Inibição):</strong> O álcool liga-se a recetores GABA-A (modulador alostérico positivo), aumentando o influxo de Cl- e a hiperpolarização. Isso causa sedação, ansiólise e ataxia (cerebelo).</li>
+            <li><strong>Inibição do Glutamato (Excitação):</strong> Antagoniza os recetores NMDA de glutamato (excitatório), prejudicando a memória (hipocampo) e a função cognitiva ("blackouts").</li>
+            <li><strong>Libertação de Dopamina:</strong> Ativa a via de recompensa (Área Tegmentar Ventral -> Nucleus Accumbens), gerando prazer e potencial de dependência.</li>
+        </ul>
+
+        <h3>3.2. Efeitos Clínicos e Intoxicação</h3>
+        <ul>
+            <li><strong>Córtex Pré-Frontal:</strong> Desinibição inicial (perda do controle social), julgamento prejudicado, euforia.</li>
+            <li><strong>Cerebelo:</strong> Ataxia (marcha ébria), disartria (fala pastosa), descoordenação motora.</li>
+            <li><strong>Sistema Límbico:</strong> Alterações de memória e emoção.</li>
+            <li><strong>Tronco Cerebral (Doses Altas):</strong> Depressão respiratória, coma e morte.</li>
+        </ul>
+
+        <h3>3.3. Metabolismo do Álcool</h3>
+        <div class="alcohol-box">
+            Ocorre principalmente no fígado (90%) em duas etapas:
+            <br>1. <strong>Álcool Desidrogenase (ADH):</strong> Converte Etanol em Acetaldeído (Tóxico, causa ressaca/flush).
+            <br>2. <strong>Aldeído Desidrogenase (ALDH):</strong> Converte Acetaldeído em Acetato (inócuo).
+            <br><em>Sistema MEOS (CYP2E1):</em> Via induzível no consumo crónico, aumentando a tolerância.
+        </div>
+    </div>
+
+    <!-- OBJETIVO 4: MECANISMOS DE INIBIÇÃO -->
+    <h2>4. Mecanismos de Controlo da Atividade Neuronal</h2>
+
+    <h3>4.1. Neurotransmissores Inibitórios</h3>
+    <ul>
+        <li><strong>GABA (Ácido Gama-Aminobutírico):</strong> Principal inibidor do encéfalo.
+            <ul>
+                <li><em>Receptor GABA-A:</em> Ionotrópico (canal de Cl-). Ação rápida. Alvo de álcool, benzodiazepínicos e barbitúricos.</li>
+                <li><em>Receptor GABA-B:</em> Metabotrópico (Proteína G -> canais de K+). Ação lenta.</li>
+            </ul>
+        </li>
+        <li><strong>Glicina:</strong> Principal inibidor na medula espinhal e tronco cerebral. Atua em canais de Cl-. A estricnina bloqueia esses receptores (convulsões).</li>
+    </ul>
+
+    <h3>4.2. Cessação do Sinal (Limpeza da Fenda)</h3>
+    <p>Para evitar desensibilização e permitir novos sinais, o neurotransmissor deve ser removido:</p>
+    <ul>
+        <li><strong>Degradação Enzimática:</strong> Ex: Acetilcolinesterase quebra a Ach na fenda.</li>
+        <li><strong>Recaptação:</strong> Transportadores na membrana pré-sináptica (ex: SERT para serotonina, DAT para dopamina) ou em astrócitos (ex: Glutamato).</li>
+        <li><strong>Difusão:</strong> O neurotransmissor difunde-se para fora da fenda e é absorvido pela glia ou sangue.</li>
+    </ul>
+
+    <div class="bibliography">
+        <h3>Referências Bibliográficas</h3>
+        <p>SILVERTHORN, D. U. <strong>Fisiologia Humana: Uma Abordagem Integrada</strong>. 7ª ed. Artmed, 2017.</p>
+        <p>GUYTON, A.C.; HALL, J.E. <strong>Tratado de Fisiologia Médica</strong>. 13ª ed. Elsevier, 2017.</p>
+        <p>MACHADO, A. <strong>Neuroanatomia Funcional</strong>. 3ª ed. Atheneu, 2014.</p>
+        <p>BEAR, M.F. <strong>Neurociências: Desvendando o Sistema Nervoso</strong>. 4ª ed. Artmed, 2017.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
