@@ -403,37 +403,37 @@
                             { 
                                 id: 'p1', 
                                 title: 'Problema 1 – MECANISMO DE AGRESSÃO E DEFESA', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 1 - MECANISMO DE AGRESSAO E DEFESA.html',
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 1 – MECANISMO DE AGRESSÃO E DEFESA.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p2', 
-                                title: 'Problema 2 – Termos, Defesas e Hipersensibilidade', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 2 - Termos, Defesas e Hipersensibilidade.html',
+                                title: 'Problema 2 - Termos, Defesas e Hipersensibilidade', 
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 2 - Termos, Defesas e Hipersensibilidade.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p3', 
-                                title: 'Problema 3 – Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 3 - Mecanismos de Agressao e Defesa, Bacterias, Imunidade e Evasao Imune.html',
+                                title: 'Problema 3 - Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune', 
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 3 - Mecanismos de Agressão e Defesa, Bactérias, Imunidade e Evasão Imune.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p4', 
-                                title: 'Problema 4 – Patologia e Terapêutica', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 4 - Patologia e Terapeutica.html',
+                                title: 'Problema 4 - Patologia e Terapêutica', 
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 4 - Patologia e Terapêutica.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p5', 
-                                title: 'Problema 5 – Reparação Tecidual e Estresse Oxidativo', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 5 - Reparacao Tecidual e Estresse Oxidativo.html',
+                                title: 'Problema 5 - Reparação Tecidual e Estresse Oxidativo', 
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 5 - Reparação Tecidual e Estresse Oxidativo.html',
                                 moduleRef: '6'
                             },
                             { 
                                 id: 'p6', 
-                                title: 'Problema 6 – Parasitologia e Imunomodulação', 
-                                file: 'mednexus/Tutoria/Módulo 6 - Mecanismo de Agressão e Defesa/Problema 6 - Parasitologia e Imunomodulação.html',
+                                title: 'Problema 6 - Parasitologia e Imunomodulação', 
+                                file: '/Tutoria/Resumos/Módulo 6/Problema 6 - Parasitologia e Imunomodulação.html',
                                 moduleRef: '6'
                             }
                         ],
@@ -1568,7 +1568,7 @@
                                 {activeSubTab === 'resumo' && (
                                     <div className="animate-fade-in">
                                         {selectedSubject.problems && selectedSubject.problems.length > 0 ? (
-                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            <div className="flex flex-col gap-3">
                                                 {selectedSubject.problems.map((problem) => (
                                                     <div 
                                                         key={problem.id}
@@ -1576,24 +1576,22 @@
                                                         data-title={problem.title}
                                                         data-type="resumo"
                                                         data-module={problem.moduleRef}
-                                                        className="bg-slate-800 border border-slate-700 hover:border-blue-500 rounded-2xl p-6 cursor-pointer group transition-all hover:shadow-xl hover:shadow-blue-900/10 hover:-translate-y-1"
+                                                        className="w-full bg-slate-800 border border-slate-700 hover:border-blue-500/50 p-4 rounded-xl cursor-pointer hover:bg-slate-750 transition-all group flex items-center justify-between shadow-sm hover:shadow-md hover:translate-x-1"
                                                     >
-                                                        <div className="flex justify-between items-start mb-4">
-                                                            <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-                                                                <FileSearch size={28} />
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="p-2.5 bg-blue-500/10 rounded-lg text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                                                <FileSearch size={20} />
                                                             </div>
-                                                            <div className="bg-slate-900 text-xs px-2 py-1 rounded text-slate-500 border border-slate-700 group-hover:border-blue-500/30">Resumo</div>
+                                                            <div>
+                                                                <h3 className="text-sm font-bold text-slate-200 group-hover:text-white transition-colors">
+                                                                    {problem.title}
+                                                                </h3>
+                                                                <p className="text-xs text-slate-500 mt-0.5">Documento de Apoio</p>
+                                                            </div>
                                                         </div>
                                                         
-                                                        <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-                                                            {problem.title}
-                                                        </h3>
-                                                        <p className="text-sm text-slate-500 mb-4 line-clamp-2">
-                                                            Acessar material de estudo completo.
-                                                        </p>
-                                                        
-                                                        <div className="flex items-center text-xs font-medium text-slate-400 group-hover:text-blue-400">
-                                                            Abrir Arquivo <ExternalLink size={12} className="ml-1" />
+                                                        <div className="flex items-center text-xs font-medium text-slate-500 group-hover:text-blue-400 transition-colors">
+                                                            Abrir <ExternalLink size={14} className="ml-1.5" />
                                                         </div>
                                                     </div>
                                                 ))}
