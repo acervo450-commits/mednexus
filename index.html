@@ -178,6 +178,44 @@
             { title: "Placenta", videoId: "BbYOX4kR3vc" }
         ];
 
+        // --- DADOS DAS AULAS: RESUMO PEDIATRIA (ESTRATÉGIA) ---
+        const RESUMO_PEDIATRIA_LESSONS = [
+            // 📘 Bases e Desenvolvimento
+            { section: "📘 Bases e Desenvolvimento", title: "Aleitamento materno", videoId: "uxFH5APBAzw" },
+            { section: "📘 Bases e Desenvolvimento", title: "Crescimento", videoId: "xtAnCYyLqJ8" },
+            { section: "📘 Bases e Desenvolvimento", title: "Desenvolvimento", videoId: "ValaKxfrDhA" },
+            { section: "📘 Bases e Desenvolvimento", title: "Puberdade", videoId: "NXtaFxWf2Rw" },
+            { section: "📘 Bases e Desenvolvimento", title: "Vitaminas", videoId: "dkLzP-CmOrI" },
+            { section: "📘 Bases e Desenvolvimento", title: "Desnutrição", videoId: "Hhl7VZw8DzI" },
+            { section: "📘 Bases e Desenvolvimento", title: "Obesidade", videoId: "gHkmaktBCFw" },
+            
+            // 🫁 Doenças Respiratórias
+            { section: "🫁 Doenças Respiratórias", title: "Bronquite", videoId: "4pAKcs_SMqc" },
+            { section: "🫁 Doenças Respiratórias", title: "Asma", videoId: "QDzuTUWGR98" },
+            { section: "🫁 Doenças Respiratórias", title: "Pneumonia", videoId: "6BmJ2V18y4k" },
+            { section: "🫁 Doenças Respiratórias", title: "Tuberculose", videoId: "nEi03VWylls" },
+            { section: "🫁 Doenças Respiratórias", title: "Fibrose", videoId: "AD_XQvSfCDk" },
+            
+            // ❤️ Cardio / Reumatologia
+            { section: "❤️ Cardio / Reumatologia", title: "Febre reumática", videoId: "68U_ki_N3J0" },
+            { section: "❤️ Cardio / Reumatologia", title: "Doença de Kawasaki", videoId: "-nhpZgF76aA" },
+            { section: "❤️ Cardio / Reumatologia", title: "Hipertensão", videoId: "xb2oX7pNHIQ" },
+            { section: "❤️ Cardio / Reumatologia", title: "Choque em Pediatria", videoId: "T2ItiNKLY60" },
+            
+            // 🦠 Infectologia
+            { section: "🦠 Infectologia", title: "Infecção", videoId: "Xx1pXyswDWk" },
+            { section: "🦠 Infectologia", title: "Coqueluche", videoId: "FiMFkeRDpVE" },
+            { section: "🦠 Infectologia", title: "Infecções Congênitas", videoId: "xc4EK8D818c" },
+            { section: "🦠 Infectologia", title: "Infecções Congênitas – Parte II", videoId: "N3IloHY8Fcs" },
+            
+            // 🧠 Neurologia e Outros
+            { section: "🧠 Neurologia e Outros", title: "Cefaleia", videoId: "EJkESSwHg5Y" },
+            { section: "🧠 Neurologia e Outros", title: "SMSL", videoId: "QExn6N4zKFU" },
+            { section: "🧠 Neurologia e Outros", title: "Refluxo gastroesofágico", videoId: "mkr93xTXfPI" },
+            { section: "🧠 Neurologia e Outros", title: "Artrite", videoId: "H8OCRCeGtFA" },
+            { section: "🧠 Neurologia e Outros", title: "Urticária", videoId: "IXDeepnvlUU" }
+        ];
+
         // --- DADOS DA BIBLIOTECA ---
         const LIBRARY_DATA = [
             {
@@ -306,6 +344,66 @@
                     image: 'Cursos/MEDCURSO/medcurso.png',
                     subcourses: [
                         {
+                            id: 'mc_cir', title: 'Cirurgia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_cir1', title: 'CIR 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_cir2', title: 'CIR 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_cir3', title: 'CIR 3 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_gas', title: 'Gastrologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_gas1', title: 'GAS 1 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_gin', title: 'Ginecologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_gin1', title: 'GIN 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_gin2', title: 'GIN 2 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_hem', title: 'Hematologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_hem1', title: 'HEM 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_hem2', title: 'HEM 2 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_nef', title: 'Nefrologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_nef1', title: 'NEFRO 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_nef2', title: 'NEFRO 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_nef3', title: 'NEFRO 3 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_obs', title: 'Obstetrícia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_obs1', title: 'OBS 1 (Aulas)', type: 'Módulo' },
+                                { id: 'mc_obs2', title: 'OBS 2 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_ped', title: 'Pediatria', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_ped1', title: 'PED 1 (Aula Bônus, Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_ped2', title: 'PED 2 (Aulas)', type: 'Módulo' },
+                                { id: 'mc_ped3', title: 'PED 3 (Aula Bônus, Aulas)', type: 'Módulo' },
+                                { id: 'mc_ped4', title: 'PED 4 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_prev', title: 'Preventiva', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_prev1', title: 'PREV 1 (Aula Bônus, Aulas)', type: 'Módulo' },
+                                { id: 'mc_prev2', title: 'PREV 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_prev3', title: 'PREV 3 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
                             id: 'mc_reu', title: 'Reumatologia', color: 'from-yellow-500 to-yellow-700',
                             subcourses: [
                                 { id: 'mc_reu1', title: 'REU 1 (Aulas)', type: 'Módulo' },
@@ -322,7 +420,7 @@
                     theme: 'teal_blue',
                     icon: <Brain size={28} />,
                     color: 'from-teal-600 to-blue-800',
-                    image: 'Cursos/Estratégia MED/logo.png',
+                    image: 'Cursos/Estrategia/estrategia.png',
                     subcourses: [
                         // --- ATUALIZAÇÕES ---
                         { id: 'est_att_1', title: 'As principais modificações do CID-11 na Psiquiatria', category: 'atualizacoes', type: 'Atualização' },
@@ -420,7 +518,13 @@
                         { id: 'est_res_8', title: 'Resumo Medicina Preventiva', category: 'resumos', type: 'Resumo' },
                         { id: 'est_res_9', title: 'Resumo Nefrologia', category: 'resumos', type: 'Resumo' },
                         { id: 'est_res_10', title: 'Resumo Neurologia', category: 'resumos', type: 'Resumo' },
-                        { id: 'est_res_11', title: 'Resumo Pediatria', category: 'resumos', type: 'Resumo' }
+                        { 
+                            id: 'est_res_11', 
+                            title: 'Resumo Pediatria', 
+                            category: 'resumos', 
+                            type: 'Resumo', 
+                            lessons: RESUMO_PEDIATRIA_LESSONS 
+                        }
                     ],
                     problems: [], questions: []
                 }
@@ -934,6 +1038,12 @@
                             
                             <div className="flex justify-between items-start">
                                 <div>
+                                    {/* Exibir Seção se existir */}
+                                    {currentLesson.section && (
+                                        <span className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-1 block">
+                                            {currentLesson.section}
+                                        </span>
+                                    )}
                                     <h1 className="text-2xl font-bold text-white mb-2">{currentLesson.title}</h1>
                                     <p className="text-slate-400 text-sm">Aula {currentLessonIndex + 1} de {course.lessons.length}</p>
                                 </div>
@@ -963,37 +1073,47 @@
                                 <p className="text-xs text-slate-400 mt-1 text-right">{Math.round(((currentLessonIndex + 1) / course.lessons.length) * 100)}% Concluído</p>
                             </div>
                             
-                            <div className="overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent flex-1">
+                            <div className="overflow-y-auto p-2 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent flex-1 relative">
                                 {course.lessons.map((lesson, idx) => {
                                     const isActive = idx === currentLessonIndex;
                                     const isCompleted = idx < currentLessonIndex;
+                                    
+                                    // Verifica mudança de seção para renderizar cabeçalho
+                                    const prevLesson = course.lessons[idx - 1];
+                                    const showSectionHeader = lesson.section && (!prevLesson || prevLesson.section !== lesson.section);
 
                                     return (
-                                        <div 
-                                            key={idx}
-                                            onClick={() => setCurrentLessonIndex(idx)}
-                                            className={`p-3 rounded-xl mb-1 cursor-pointer transition-all flex items-start gap-3 group ${isActive ? 'bg-blue-600/20 border border-blue-500/50' : 'hover:bg-slate-700/50 border border-transparent'}`}
-                                        >
-                                            <div className="mt-1">
-                                                {isActive ? (
-                                                    <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/50">
-                                                        <Play size={10} className="text-white ml-0.5" fill="currentColor" />
-                                                    </div>
-                                                ) : isCompleted ? (
-                                                    <CheckCircle2 size={20} className="text-green-500" />
-                                                ) : (
-                                                    <div className="w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center text-[10px] text-slate-500 font-bold group-hover:border-slate-400 group-hover:text-slate-400">
-                                                        {idx + 1}
-                                                    </div>
-                                                )}
+                                        <React.Fragment key={idx}>
+                                            {showSectionHeader && (
+                                                <div className="px-3 py-2 mt-2 mb-1 bg-slate-900/60 text-[10px] font-bold text-slate-400 uppercase tracking-wider rounded border border-slate-800/50 backdrop-blur-sm sticky top-0 z-10 shadow-sm">
+                                                    {lesson.section}
+                                                </div>
+                                            )}
+                                            <div 
+                                                onClick={() => setCurrentLessonIndex(idx)}
+                                                className={`p-3 rounded-xl mb-1 cursor-pointer transition-all flex items-start gap-3 group ${isActive ? 'bg-blue-600/20 border border-blue-500/50' : 'hover:bg-slate-700/50 border border-transparent'}`}
+                                            >
+                                                <div className="mt-1">
+                                                    {isActive ? (
+                                                        <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/50">
+                                                            <Play size={10} className="text-white ml-0.5" fill="currentColor" />
+                                                        </div>
+                                                    ) : isCompleted ? (
+                                                        <CheckCircle2 size={20} className="text-green-500" />
+                                                    ) : (
+                                                        <div className="w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center text-[10px] text-slate-500 font-bold group-hover:border-slate-400 group-hover:text-slate-400">
+                                                            {idx + 1}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h4 className={`text-sm font-medium leading-tight ${isActive ? 'text-blue-100' : 'text-slate-400 group-hover:text-slate-200'}`}>
+                                                        {lesson.title}
+                                                    </h4>
+                                                    <span className="text-[10px] text-slate-600 mt-1 block">Vídeo Aula</span>
+                                                </div>
                                             </div>
-                                            <div className="flex-1">
-                                                <h4 className={`text-sm font-medium leading-tight ${isActive ? 'text-blue-100' : 'text-slate-400 group-hover:text-slate-200'}`}>
-                                                    {lesson.title}
-                                                </h4>
-                                                <span className="text-[10px] text-slate-600 mt-1 block">Vídeo Aula</span>
-                                            </div>
-                                        </div>
+                                        </React.Fragment>
                                     );
                                 })}
                             </div>
@@ -1181,7 +1301,6 @@
 
         // --- NOVO COMPONENTE: MEDCURSO SECTION (NETFLIX STYLE) ---
         const MedcursoSection = ({ onSubjectClick, subjects }) => {
-            // ... (código existente do MedcursoSection)
             const [searchTerm, setSearchTerm] = useState('');
             const scrollRef1 = useRef(null);
             const scrollRef2 = useRef(null);
@@ -1201,7 +1320,6 @@
             const mainSpecialties = subjects.slice(0, 6);
             const clinicalSpecialties = subjects.slice(6);
 
-            // ... (restante do código MedcursoSection)
             const MedCard = ({ subject }) => {
                 const isFolder = subject.subcourses && subject.subcourses.length > 0;
                 return (
