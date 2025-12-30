@@ -85,7 +85,7 @@
             BookOpen, Brain, Activity, Stethoscope, FileText, Calendar, 
             Search, Bell, ChevronRight, ChevronLeft, PlayCircle, FolderOpen, 
             ArrowLeft, GraduationCap, Microscope, Users, PlusCircle, Save, Check, ExternalLink, FileSearch, FileQuestion, X,
-            Play, MonitorPlay, Library, ListVideo, CheckCircle2, Lock
+            Play, MonitorPlay, Library, ListVideo, CheckCircle2, Lock, Layers
         } from 'lucide-react';
 
         // --- DADOS DAS AULAS: ANATOMIA DO SISTEMA LOCOMOTOR ---
@@ -558,7 +558,61 @@
                         subcourses: [ { id: 's1', title: 'Suturas', duration: 'Prática', type: 'Lab' } ], problems: [], questions: []
                     }
                 ]
-            }
+            },
+            
+            // --- NOVA ESTRUTURA PARA MORFO ---
+            morfo_sections: [
+                {
+                    title: "MED 1",
+                    subjects: [
+                        { id: 'm1_anat', title: 'Anatomia', color: 'from-emerald-600 to-emerald-800', medLabel: 'MED 1' },
+                        { id: 'm1_hist', title: 'Histologia', color: 'from-violet-600 to-violet-800', medLabel: 'MED 1' }
+                    ]
+                },
+                {
+                    title: "MED 2",
+                    subjects: [
+                        { id: 'm2_anat', title: 'Anatomia', color: 'from-emerald-600 to-emerald-800', medLabel: 'MED 2' },
+                        { id: 'm2_hist', title: 'Histologia', color: 'from-violet-600 to-violet-800', medLabel: 'MED 2' }
+                    ]
+                },
+                {
+                    title: "MED 3",
+                    subjects: [
+                        { id: 'm3_anat', title: 'Anatomia', color: 'from-emerald-600 to-emerald-800', medLabel: 'MED 3' },
+                        { id: 'm3_hist', title: 'Histofisiologia', color: 'from-violet-600 to-violet-800', medLabel: 'MED 3' }
+                    ]
+                },
+                {
+                    title: "MED 4",
+                    subjects: [
+                        { id: 'm4_anat', title: 'Anatomia', color: 'from-emerald-600 to-emerald-800', medLabel: 'MED 4' },
+                        { id: 'm4_hist', title: 'Histologia', color: 'from-violet-600 to-violet-800', medLabel: 'MED 4' },
+                        { id: 'm4_hem', title: 'Hematologia', color: 'from-red-600 to-red-800', medLabel: 'MED 4' },
+                        { id: 'm4_micro', title: 'Microbiologia', color: 'from-yellow-600 to-yellow-800', medLabel: 'MED 4' },
+                        { id: 'm4_para', title: 'Parasitologia', color: 'from-green-600 to-green-800', medLabel: 'MED 4' }
+                    ]
+                },
+                {
+                    title: "MED 5",
+                    subjects: [
+                        { id: 'm5_farm', title: 'Farmacologia', color: 'from-blue-600 to-blue-800', medLabel: 'MED 5' },
+                        { id: 'm5_medlab', title: 'Medicina Laboratorial', color: 'from-cyan-600 to-cyan-800', medLabel: 'MED 5' }
+                    ]
+                },
+                {
+                    title: "MED 6",
+                    subjects: [
+                        { id: 'm6_farm', title: 'Farmacologia', color: 'from-blue-600 to-blue-800', medLabel: 'MED 6' }
+                    ]
+                },
+                {
+                    title: "MED 7 e MED 8",
+                    subjects: [
+                        { id: 'm78_const', title: 'Em construção', color: 'from-slate-700 to-slate-800', isPlaceholder: true }
+                    ]
+                }
+            ]
         };
 
         // --- UTILS DE PESQUISA ---
@@ -1131,6 +1185,9 @@
             };
 
             const [activeTab, setActiveTab] = useState('dashboard');
+            // NOVO STATE PARA ABAS DO PBL
+            const [pblTab, setPblTab] = useState('tutoria');
+            
             const [selectedSubject, setSelectedSubject] = useState(null);
             const [activeCourse, setActiveCourse] = useState(null);
             const [currentLessonIndex, setCurrentLessonIndex] = useState(0);
@@ -1156,7 +1213,7 @@
                 if (scrollContainerRef.current) {
                     scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
                 }
-            }, [activeTab, selectedSubject, activeCourse, activeSubCourse, libraryPath, activeSubTab]);
+            }, [activeTab, selectedSubject, activeCourse, activeSubCourse, libraryPath, activeSubTab, pblTab]);
 
             useEffect(() => {
                 if (searchQuery.trim().length > 1) {
@@ -1174,6 +1231,8 @@
                 setActiveSubCourse(null);
                 setSearchQuery('');
                 setLibraryPath([]);
+                // Reset pblTab only if needed, or keep persistence
+                if (tab !== 'pbl') setPblTab('tutoria');
             };
 
             const handleSubjectClick = (subject) => {
@@ -1666,32 +1725,92 @@
                 if (activeTab === 'pbl') {
                     return (
                         <div className="animate-fade-in pb-20">
-                            <div className="mb-8 mt-4 flex items-center gap-4">
-                                <div className="p-3 bg-blue-600/20 rounded-xl text-blue-500 border border-blue-500/20"><Users size={32} /></div>
-                                <div><h1 className="text-3xl font-bold text-white mb-1">PBL & Tutorias</h1><p className="text-slate-400">Aprendizado Baseado em Problemas</p></div>
+                            {/* NEW: Navigation Bar for PBL */}
+                            <div className="mb-8 mt-4">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="p-3 bg-blue-600/20 rounded-xl text-blue-500 border border-blue-500/20"><Users size={32} /></div>
+                                    <div>
+                                        <h1 className="text-3xl font-bold text-white mb-1">PBL & Casos</h1>
+                                        <p className="text-slate-400">Aprendizado Baseado em Problemas</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex gap-2 border-b border-slate-700 overflow-x-auto">
+                                    <button 
+                                        onClick={() => setPblTab('tutoria')}
+                                        className={`pb-3 px-6 text-sm font-bold border-b-2 transition-all duration-200 whitespace-nowrap ${
+                                            pblTab === 'tutoria' 
+                                            ? 'border-blue-500 text-blue-400' 
+                                            : 'border-transparent text-slate-400 hover:text-slate-200'
+                                        }`}
+                                    >
+                                        Tutoria
+                                    </button>
+                                    <button 
+                                        onClick={() => setPblTab('morfo')}
+                                        className={`pb-3 px-6 text-sm font-bold border-b-2 transition-all duration-200 whitespace-nowrap ${
+                                            pblTab === 'morfo' 
+                                            ? 'border-blue-500 text-blue-400' 
+                                            : 'border-transparent text-slate-400 hover:text-slate-200'
+                                        }`}
+                                    >
+                                        Morfo
+                                    </button>
+                                    <button 
+                                        onClick={() => setPblTab('skills')}
+                                        className={`pb-3 px-6 text-sm font-bold border-b-2 transition-all duration-200 whitespace-nowrap ${
+                                            pblTab === 'skills' 
+                                            ? 'border-blue-500 text-blue-400' 
+                                            : 'border-transparent text-slate-400 hover:text-slate-200'
+                                        }`}
+                                    >
+                                        Habilidades Médicas
+                                    </button>
+                                </div>
                             </div>
-                            
-                            <CarouselSection 
-                                title="Ciclo Básico" 
-                                icon={<Brain />}
-                                subjects={DATA.pbl_basico.subjects} 
-                                onSubjectClick={handleSubjectClick} 
-                            />
 
-                            <CarouselSection 
-                                title="Ciclo Clínico" 
-                                icon={<FileText />}
-                                subjects={DATA.pbl_clinico.subjects} 
-                                onSubjectClick={handleSubjectClick} 
-                            />
+                            {/* CONDITIONAL CONTENT BASED ON PBL TAB */}
+                            {pblTab === 'tutoria' && (
+                                <div className="animate-fade-in">
+                                    <CarouselSection 
+                                        title="Ciclo Básico" 
+                                        icon={<Brain />}
+                                        subjects={DATA.pbl_basico.subjects} 
+                                        onSubjectClick={handleSubjectClick} 
+                                    />
 
-                            <CarouselSection 
-                                title="Habilidades Médicas" 
-                                icon={<GraduationCap />}
-                                subjects={DATA.pbl.subjects} 
-                                onSubjectClick={handleSubjectClick} 
-                            />
+                                    <CarouselSection 
+                                        title="Ciclo Clínico" 
+                                        icon={<FileText />}
+                                        subjects={DATA.pbl_clinico.subjects} 
+                                        onSubjectClick={handleSubjectClick} 
+                                    />
+                                </div>
+                            )}
+
+                            {pblTab === 'morfo' && (
+                                <div className="animate-fade-in">
+                                    {DATA.morfo_sections.map((section, idx) => (
+                                        <CarouselSection 
+                                            key={idx}
+                                            title={section.title} 
+                                            icon={<Layers />}
+                                            subjects={section.subjects} 
+                                            onSubjectClick={handleSubjectClick} 
+                                        />
+                                    ))}
+                                </div>
+                            )}
+
+                            {pblTab === 'skills' && (
+                                <div className="animate-fade-in flex flex-col items-center justify-center py-20 border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
+                                    <GraduationCap size={48} className="text-slate-700 mb-4" />
+                                    <h3 className="text-xl font-bold text-slate-400">Em construção</h3>
+                                    <p className="text-slate-600">Este módulo estará disponível em breve.</p>
+                                </div>
+                            )}
                             
+                            {/* Shared Notes Section */}
                             <div className="mt-8 bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
                                 <h3 className="text-xl font-bold text-slate-200 mb-4">Anotações Gerais</h3>
                                 <textarea className="w-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-slate-300 focus:outline-none focus:border-blue-500 h-32" placeholder="Notas rápidas que não pertencem a um módulo específico..."></textarea>
