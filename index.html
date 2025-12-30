@@ -420,7 +420,7 @@
                     theme: 'teal_blue',
                     icon: <Brain size={28} />,
                     color: 'from-teal-600 to-blue-800',
-                    image: 'Cursos/Estrategia/estrategia.png',
+                    image: 'Cursos/Estratégia MED/logo.png',
                     subcourses: [
                         // --- ATUALIZAÇÕES ---
                         { id: 'est_att_1', title: 'As principais modificações do CID-11 na Psiquiatria', category: 'atualizacoes', type: 'Atualização' },
@@ -852,42 +852,61 @@
             const term = query.toLowerCase();
             let results = [];
 
-            const processSubjects = (sectionTitle, subjects) => {
-                subjects.forEach(sub => {
-                    if (sub.title.toLowerCase().includes(term)) {
+            // Helper recursivo para buscar em subcourses profundos
+            const traverse = (items, parentTitle) => {
+                if (!items) return;
+                items.forEach(item => {
+                    const matchTitle = item.title && item.title.toLowerCase().includes(term);
+                    
+                    // Se encontrar um item que é um Curso (tem lessons) ou Módulo (tem subcourses)
+                    if (matchTitle) {
+                        const hasLessons = item.lessons && item.lessons.length > 0;
+                        const hasSubcourses = item.subcourses && item.subcourses.length > 0;
+                        
+                        let action = 'module';
+                        if (hasLessons) action = 'course';
+                        else if (!hasSubcourses) action = 'link'; // placeholder ou item final sem ação definida
+
                         results.push({
-                            type: 'Módulo',
-                            title: sub.title,
-                            subtitle: sectionTitle,
-                            action: 'module',
-                            data: sub,
+                            type: item.type || (hasLessons ? 'Curso' : 'Módulo'),
+                            title: item.title,
+                            subtitle: parentTitle,
+                            action: action,
+                            data: item,
                             path: null
                         });
                     }
-                    if (sub.problems) {
-                        sub.problems.forEach(prob => {
+
+                    // Recursão
+                    if (item.subcourses) {
+                        traverse(item.subcourses, item.title);
+                    }
+                    
+                    // Check problems/questions inside items if applicable
+                    if (item.problems) {
+                        item.problems.forEach(prob => {
                             if (prob.title.toLowerCase().includes(term)) {
                                 results.push({
                                     type: 'Resumo',
                                     title: prob.title,
-                                    subtitle: sub.title,
+                                    subtitle: item.title,
                                     action: 'link',
                                     path: prob.file,
-                                    moduleId: sub.id
+                                    moduleId: item.id
                                 });
                             }
                         });
                     }
-                    if (sub.questions) {
-                        sub.questions.forEach(quest => {
+                    if (item.questions) {
+                        item.questions.forEach(quest => {
                             if (quest.title.toLowerCase().includes(term)) {
                                 results.push({
                                     type: 'Questão',
                                     title: quest.title,
-                                    subtitle: sub.title,
+                                    subtitle: item.title,
                                     action: 'link',
                                     path: quest.file,
-                                    moduleId: sub.id
+                                    moduleId: item.id
                                 });
                             }
                         });
@@ -895,11 +914,30 @@
                 });
             };
 
+            // Inicia a busca nas plataformas
             Object.values(dataObj).forEach(category => {
-                if (category.sanar && category.emr) {
-                    processSubjects('Plataforma', [category.sanar, category.emr]);
-                } else if (category.subjects) {
-                    processSubjects(category.title, category.subjects);
+                // Se for a categoria "platforms", itera sobre cada plataforma
+                if (category === dataObj.platforms) {
+                    Object.values(category).forEach(platform => {
+                        // Adiciona a própria plataforma se der match
+                        if (platform.title.toLowerCase().includes(term)) {
+                            results.push({
+                                type: 'Plataforma',
+                                title: platform.title,
+                                subtitle: 'Cursos Principais',
+                                action: 'module',
+                                data: platform
+                            });
+                        }
+                        // Busca recursiva dentro da plataforma
+                        if (platform.subcourses) {
+                            traverse(platform.subcourses, platform.title);
+                        }
+                    });
+                } 
+                // Se for categoria normal (Ciclo Básico, etc)
+                else if (category.subjects) {
+                    traverse(category.subjects, category.title);
                 }
             });
 
@@ -1842,10 +1880,17 @@
                 setSearchQuery('');
                 setActiveCourse(null);
                 setActiveSubCourse(null);
+                // Garantir scroll para o topo
+                if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollTo({ top: 0, behavior: 'auto' });
+                }
             };
 
             const handleLibraryFolderClick = (folderId) => {
                 setLibraryPath([...libraryPath, folderId]);
+                if (scrollContainerRef.current) {
+                    scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             };
 
             const handleLibraryBack = () => {
@@ -1870,6 +1915,10 @@
                 if (course.lessons && course.lessons.length > 0) {
                     setActiveCourse(course);
                     setCurrentLessonIndex(0);
+                    // Garantir scroll para o topo ao abrir o player
+                    if (scrollContainerRef.current) {
+                        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'auto' });
+                    }
                 } else {
                     alert("Conteúdo em desenvolvimento ou não disponível.");
                 }
@@ -1879,6 +1928,10 @@
                 if (course.lessons && course.lessons.length > 0) {
                     setActiveSubCourse(course);
                     setCurrentLessonIndex(0); 
+                    // Garantir scroll para o topo ao abrir o player interno
+                    if (scrollContainerRef.current) {
+                        scrollContainerRef.current.scrollTo({ top: 0, behavior: 'auto' });
+                    }
                 } 
                 else if (course.file) {
                     handleOpenProblem(course.file);
@@ -1886,9 +1939,16 @@
             };
 
             const handleSearchResultClick = (result) => {
-                if (result.action === 'link') {
+                // Se for um "curso" (tem lessons diretas), abre como curso
+                if (result.action === 'course') {
+                    handleCourseClick(result.data);
+                } 
+                // Se for um link direto (arquivo)
+                else if (result.action === 'link') {
                     handleOpenProblem(result.path);
-                } else if (result.action === 'module') {
+                } 
+                // Se for um módulo/pasta (tem subcourses)
+                else if (result.action === 'module') {
                     handleSubjectClick(result.data);
                 }
             };
