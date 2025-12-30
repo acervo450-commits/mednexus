@@ -306,72 +306,121 @@
                     image: 'Cursos/MEDCURSO/medcurso.png',
                     subcourses: [
                         {
-                            id: 'mc_cir', title: 'Cirurgia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_cir1', title: 'CIR 1 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_cir2', title: 'CIR 2 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_cir3', title: 'CIR 3 (Aulas, Bônus)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_gas', title: 'Gastrologia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_gas1', title: 'GAS 1 (Aulas, Bônus)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_gin', title: 'Ginecologia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_gin1', title: 'GIN 1 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_gin2', title: 'GIN 2 (Aulas, Bônus)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_hem', title: 'Hematologia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_hem1', title: 'HEM 1 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_hem2', title: 'HEM 2 (Aulas, Bônus)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_nef', title: 'Nefrologia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_nef1', title: 'NEFRO 1 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_nef2', title: 'NEFRO 2 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_nef3', title: 'NEFRO 3 (Aulas, Bônus)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_obs', title: 'Obstetrícia', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_obs1', title: 'OBS 1 (Aulas)', type: 'Módulo' },
-                                { id: 'mc_obs2', title: 'OBS 2 (Aulas)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_ped', title: 'Pediatria', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_ped1', title: 'PED 1 (Aula Bônus, Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_ped2', title: 'PED 2 (Aulas)', type: 'Módulo' },
-                                { id: 'mc_ped3', title: 'PED 3 (Aula Bônus, Aulas)', type: 'Módulo' },
-                                { id: 'mc_ped4', title: 'PED 4 (Aulas)', type: 'Módulo' }
-                            ]
-                        },
-                        {
-                            id: 'mc_prev', title: 'Preventiva', color: 'from-yellow-500 to-yellow-700',
-                            subcourses: [
-                                { id: 'mc_prev1', title: 'PREV 1 (Aula Bônus, Aulas)', type: 'Módulo' },
-                                { id: 'mc_prev2', title: 'PREV 2 (Aulas, Bônus)', type: 'Módulo' },
-                                { id: 'mc_prev3', title: 'PREV 3 (Aulas)', type: 'Módulo' }
-                            ]
-                        },
-                        {
                             id: 'mc_reu', title: 'Reumatologia', color: 'from-yellow-500 to-yellow-700',
                             subcourses: [
                                 { id: 'mc_reu1', title: 'REU 1 (Aulas)', type: 'Módulo' },
                                 { id: 'mc_reu2', title: 'REU 2 (Aulas)', type: 'Módulo' }
                             ]
                         }
+                    ],
+                    problems: [], questions: []
+                },
+                estrategia: {
+                    id: 'estrategia_main',
+                    title: 'Estratégia MED',
+                    subtitle: 'Residência & Revalida',
+                    theme: 'teal_blue',
+                    icon: <Brain size={28} />,
+                    color: 'from-teal-600 to-blue-800',
+                    image: 'Cursos/Estrategia/estrategia.png',
+                    subcourses: [
+                        // --- ATUALIZAÇÕES ---
+                        { id: 'est_att_1', title: 'As principais modificações do CID-11 na Psiquiatria', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_2', title: 'Assistência ao recém-nascido exposto à Monkeypox', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_3', title: 'Atualização da Lei da Laqueadura', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_4', title: 'Atualização no tratamento de ILTB', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_5', title: 'Atualização sobre Reanimação Neonatal', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_6', title: 'Atualização Vacinação HPV', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_7', title: 'Campanha contra o Sarampo (2022)', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_8', title: 'Clampeamento do cordão umbilical em RN expostos ao HIV materno', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_9', title: 'COVID-19: o que mudou no tratamento', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_10', title: 'Dados do Saneamento Básico no Brasil', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_11', title: 'Documento GOLD 2023', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_12', title: 'Hepatite Misteriosa', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_13', title: 'Lista Nacional de Notificação Compulsória', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_14', title: 'Metas glicêmicas no tratamento do Diabetes Mellitus', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_15', title: 'Monkeypox – Varíola dos Macacos', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_16', title: 'Mudanças no Teste do Coraçãozinho', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_17', title: 'Normas éticas para técnicas de reprodução assistida', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_18', title: 'Nova atualização da Lista de Notificação Compulsória', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_19', title: 'Protocolo de Hipoglicemia Neonatal', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_20', title: 'Protocolo de Profilaxia Pós-Exposição à Raiva', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_21', title: 'Rastreamento do Diabetes Mellitus', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_22', title: 'Sífilis, HIV, Hepatite B e C na gestação', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_23', title: 'Telemedicina no âmbito do SUS', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_24', title: 'Toxoplasmose na gestação', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_25', title: 'Vacina Herpes-Zóster Inativada (Shingrix)', category: 'atualizacoes', type: 'Atualização' },
+                        { id: 'est_att_26', title: 'Vacinação contra o HPV', category: 'atualizacoes', type: 'Atualização' },
+
+                        // --- CRONOGRAMA ---
+                        { id: 'est_cron_1', title: 'Cronograma Turma de Maio (30 semanas)', category: 'cronograma', type: 'Cronograma' },
+                        { id: 'est_cron_2', title: 'Cronograma Turma de Março (36 semanas)', category: 'cronograma', type: 'Cronograma' },
+                        { id: 'est_cron_3', title: 'Cronograma Extensivo (52 semanas)', category: 'cronograma', type: 'Cronograma' },
+
+                        // --- MULTIMÍDIA E BÔNUS ---
+                        { id: 'est_multi_1', title: 'Cirurgia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_2', title: 'Ecocardiograma: o que você precisa saber', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_3', title: 'Gastroenterologia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_4', title: 'Ginecologia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_5', title: 'Hematologia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_6', title: 'Medicina Preventiva', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_7', title: 'Nefrologia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_8', title: 'Obstetrícia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_9', title: 'Oftalmologia', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_10', title: 'POCUS para provas de residência', category: 'multimidia', type: 'Multimídia' },
+                        { id: 'est_multi_11', title: 'Radiologia', category: 'multimidia', type: 'Multimídia' },
+                        
+                        // --- SIMULADOS MULTIMÍDIA ---
+                        { id: 'est_sim_1', title: 'Simulado Cardiologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_2', title: 'Simulado Dermatologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_3', title: 'Simulado Eletrocardiograma', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_4', title: 'Simulado Endocrinologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_5', title: 'Simulado Gastroenterologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_6', title: 'Simulado Ginecologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_7', title: 'Simulado Hematologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_8', title: 'Simulado Nefrologia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_9', title: 'Simulado Obstetrícia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_10', title: 'Simulado Ortopedia', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_11', title: 'Simulado Ortopedia USP-SP', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_12', title: 'Simulado Pediatria', category: 'multimidia', type: 'Simulado' },
+                        { id: 'est_sim_13', title: 'Simulado Radiologia', category: 'multimidia', type: 'Simulado' },
+
+                        // --- EXTENSIVO (PRINCIPAL) ---
+                        { id: 'est_ext_1', title: 'Cardiologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_2', title: 'Cirurgia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_3', title: 'Dermatologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_4', title: 'Endocrinologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_5', title: 'Gastroenterologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_6', title: 'Ginecologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_7', title: 'Hematologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_8', title: 'Hepatologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_9', title: 'Infectologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_10', title: 'Medicina Preventiva (Intensivo)', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_11', title: 'Medicina Preventiva (Extensivo)', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_12', title: 'Nefrologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_13', title: 'Neurologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_14', title: 'Obstetrícia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_15', title: 'Oftalmologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_16', title: 'Ortopedia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_17', title: 'Otorrinolaringologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_18', title: 'Pediatria', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_19', title: 'Pneumologia', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_20', title: 'Psiquiatria', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_21', title: 'Radiografia de Tórax', category: 'extensivo', type: 'Extensivo' },
+                        { id: 'est_ext_22', title: 'Reumatologia', category: 'extensivo', type: 'Extensivo' },
+
+                        // --- RESUMOS ---
+                        { id: 'est_res_1', title: 'Resumo Cardiologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_2', title: 'Resumo Cirurgia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_3', title: 'Resumo Dermatologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_4', title: 'Resumo Gastroenterologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_5', title: 'Resumo Ginecologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_6', title: 'Resumo Hematologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_7', title: 'Resumo Hepatologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_8', title: 'Resumo Medicina Preventiva', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_9', title: 'Resumo Nefrologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_10', title: 'Resumo Neurologia', category: 'resumos', type: 'Resumo' },
+                        { id: 'est_res_11', title: 'Resumo Pediatria', category: 'resumos', type: 'Resumo' }
                     ],
                     problems: [], questions: []
                 }
@@ -985,6 +1034,16 @@
                     text: 'text-yellow-100',
                     btnHover: 'hover:text-yellow-700'
                 };
+            } else if (theme === 'teal_blue') {
+                 styles = {
+                    gradient: 'from-teal-600 via-cyan-700 to-blue-900',
+                    border: 'border-cyan-500/20 hover:border-cyan-500/50',
+                    glow: 'bg-cyan-500/20',
+                    iconBg: 'text-cyan-600',
+                    shadow: 'shadow-cyan-900/50',
+                    text: 'text-cyan-100',
+                    btnHover: 'hover:text-cyan-600'
+                };
             }
 
             return (
@@ -1062,6 +1121,15 @@
                     iconColor: 'text-yellow-500',
                     glow: 'bg-yellow-600/10'
                 };
+            } else if (theme === 'teal_blue') {
+                styles = {
+                    gradient: 'from-teal-900 via-cyan-900 to-blue-950 border-cyan-800/50',
+                    iconBg: 'bg-cyan-600 shadow-cyan-900/50',
+                    subTextColor: 'text-cyan-200',
+                    cardHover: 'hover:bg-cyan-700 hover:border-cyan-500 hover:shadow-cyan-900/50',
+                    iconColor: 'text-cyan-400',
+                    glow: 'bg-cyan-600/10'
+                };
             }
 
             return (
@@ -1113,11 +1181,12 @@
 
         // --- NOVO COMPONENTE: MEDCURSO SECTION (NETFLIX STYLE) ---
         const MedcursoSection = ({ onSubjectClick, subjects }) => {
+            // ... (código existente do MedcursoSection)
             const [searchTerm, setSearchTerm] = useState('');
             const scrollRef1 = useRef(null);
             const scrollRef2 = useRef(null);
             const scrollRef3 = useRef(null);
-
+            
             const filteredSubjects = subjects.filter(subject => 
                 subject.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
@@ -1129,10 +1198,10 @@
                 }
             };
 
-            // Divide subjects for visual variety (mock categories)
-            const mainSpecialties = subjects.slice(0, 6); // Cirurgia, Gastro, etc.
-            const clinicalSpecialties = subjects.slice(6); // Pediatria, Prev, etc.
+            const mainSpecialties = subjects.slice(0, 6);
+            const clinicalSpecialties = subjects.slice(6);
 
+            // ... (restante do código MedcursoSection)
             const MedCard = ({ subject }) => {
                 const isFolder = subject.subcourses && subject.subcourses.length > 0;
                 return (
@@ -1143,7 +1212,6 @@
                         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#2a1a0a] group-hover:from-yellow-950 group-hover:via-yellow-900 group-hover:to-yellow-800 transition-colors duration-500"></div>
                         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/20 to-transparent"></div>
                         
-                        {/* Icon Background Decoration */}
                         <div className="absolute -right-4 -bottom-4 text-white/5 group-hover:text-white/10 transition-colors transform rotate-12">
                             <BookOpen size={100} />
                         </div>
@@ -1193,9 +1261,8 @@
                 </div>
             );
 
-            return (
+             return (
                 <div className="animate-fade-in -mt-4">
-                    {/* Banner Principal Medcurso */}
                     <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-yellow-900 to-black border border-yellow-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
                         <div className="flex items-center gap-4">
                             <div className="relative w-full h-40 md:h-32 rounded-xl overflow-hidden shadow-lg border border-yellow-500/20">
@@ -1208,17 +1275,9 @@
                                 </div>
                             </div>
                         </div>
-                        
-                        {/* Search Bar Medcurso */}
                         <div className="relative w-full md:w-96 group mt-4 md:mt-0">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-200/50 group-focus-within:text-yellow-400 transition-colors" size={18} />
-                            <input 
-                                type="text" 
-                                placeholder="Buscar especialidades (Ex: Pediatria)..." 
-                                className="w-full bg-black/40 border border-yellow-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-yellow-100 placeholder-yellow-200/30 focus:outline-none focus:border-yellow-500/60 focus:bg-black/60 transition-all shadow-inner" 
-                                value={searchTerm} 
-                                onChange={(e) => setSearchTerm(e.target.value)} 
-                            />
+                            <input type="text" placeholder="Buscar especialidades (Ex: Pediatria)..." className="w-full bg-black/40 border border-yellow-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-yellow-100 placeholder-yellow-200/30 focus:outline-none focus:border-yellow-500/60 focus:bg-black/60 transition-all shadow-inner" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                             {searchTerm && (
                                 <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-yellow-200/50 hover:text-white transition-colors">
                                     <X size={16} />
@@ -1226,7 +1285,6 @@
                             )}
                         </div>
                     </div>
-
                     {searchTerm ? (
                         <div className="animate-fade-in px-2">
                             <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
@@ -1253,6 +1311,160 @@
                             <CarouselRow title="Grandes Áreas" items={mainSpecialties} scrollRef={scrollRef1} />
                             <CarouselRow title="Especialidades Clínicas" items={clinicalSpecialties} scrollRef={scrollRef2} />
                             <CarouselRow title="Todas as Matérias" items={subjects} scrollRef={scrollRef3} />
+                        </>
+                    )}
+                </div>
+            );
+        };
+
+        // --- NOVO COMPONENTE: ESTRATÉGIA SECTION ---
+        const EstrategiaSection = ({ onSubjectClick, subjects }) => {
+            const [searchTerm, setSearchTerm] = useState('');
+            const scrollRef1 = useRef(null);
+            const scrollRef2 = useRef(null);
+            const scrollRef3 = useRef(null);
+            const scrollRef4 = useRef(null);
+            const scrollRef5 = useRef(null);
+
+            const filteredSubjects = subjects.filter(subject => 
+                subject.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            const scroll = (ref, direction) => {
+                if (ref.current) {
+                    const scrollAmount = 600;
+                    ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+                }
+            };
+
+            // Categorias Filtradas
+            const atualizacoes = subjects.filter(s => s.category === 'atualizacoes');
+            const cronograma = subjects.filter(s => s.category === 'cronograma');
+            const multimidia = subjects.filter(s => s.category === 'multimidia');
+            const extensivo = subjects.filter(s => s.category === 'extensivo');
+            const resumos = subjects.filter(s => s.category === 'resumos');
+
+            const StratCard = ({ subject }) => {
+                const isFolder = subject.subcourses && subject.subcourses.length > 0;
+                return (
+                    <div 
+                        onClick={() => onSubjectClick(subject)}
+                        className="flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-cyan-900/40 border border-slate-700/50 hover:border-cyan-500"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#0a2a2a] group-hover:from-teal-950 group-hover:via-cyan-900 group-hover:to-blue-900 transition-colors duration-500"></div>
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-500/20 to-transparent"></div>
+                        
+                        <div className="absolute -right-4 -bottom-4 text-white/5 group-hover:text-white/10 transition-colors transform rotate-12">
+                            <Brain size={100} />
+                        </div>
+
+                        <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
+                            <h3 className="text-base font-bold text-slate-100 leading-snug line-clamp-3 group-hover:text-white drop-shadow-md">
+                                {subject.title}
+                            </h3>
+                            <div className="flex items-center justify-between mt-auto">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[9px] font-bold tracking-wider uppercase text-cyan-500/80 bg-black/30 px-2 py-1 rounded border border-cyan-500/20 group-hover:bg-cyan-500/20 group-hover:text-cyan-200 transition-colors">
+                                        {subject.type || 'AULA'}
+                                    </span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Lock size={16} className="text-slate-600 group-hover:text-cyan-200" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            const CarouselRow = ({ title, items, scrollRef }) => {
+                if (!items || items.length === 0) return null;
+                return (
+                    <div className="mb-10 group/row">
+                        <div className="flex items-center justify-between mb-3 px-2">
+                            <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                                {title} <ChevronRight size={16} className="text-slate-500" />
+                            </h3>
+                        </div>
+                        <div className="relative">
+                            <button onClick={() => scroll(scrollRef, 'left')} className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+                                <ChevronLeft size={32} />
+                            </button>
+                            <div ref={scrollRef} className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2" style={{ scrollbarWidth: 'none' }}>
+                                {items.map((subject) => (
+                                    <StratCard key={subject.id} subject={subject} />
+                                ))}
+                                <div className="w-8 flex-shrink-0" />
+                            </div>
+                            <button onClick={() => scroll(scrollRef, 'right')} className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+                                <ChevronRight size={32} />
+                            </button>
+                        </div>
+                    </div>
+                );
+            };
+
+            return (
+                <div className="animate-fade-in -mt-4">
+                    {/* Banner Principal Estratégia */}
+                    <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-teal-900 via-cyan-900 to-blue-950 border border-cyan-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
+                        <div className="flex items-center gap-4">
+                            <div className="relative w-full h-40 md:h-32 rounded-xl overflow-hidden shadow-lg border border-cyan-500/20">
+                                <img src="Cursos/Estrategia/estrategia.png" className="w-full h-full object-cover" alt="Estratégia MED" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div>
+                                <div className="absolute bottom-4 left-4">
+                                     <button className="flex items-center gap-2 bg-white/10 hover:bg-white text-white hover:text-cyan-400 px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit">
+                                        Acessar <ChevronRight size={16} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="relative w-full md:w-96 group mt-4 md:mt-0">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-cyan-200/50 group-focus-within:text-cyan-400 transition-colors" size={18} />
+                            <input 
+                                type="text" 
+                                placeholder="Buscar no Estratégia MED..." 
+                                className="w-full bg-black/40 border border-cyan-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-cyan-100 placeholder-cyan-200/30 focus:outline-none focus:border-cyan-500/60 focus:bg-black/60 transition-all shadow-inner" 
+                                value={searchTerm} 
+                                onChange={(e) => setSearchTerm(e.target.value)} 
+                            />
+                            {searchTerm && (
+                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-200/50 hover:text-white transition-colors">
+                                    <X size={16} />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+
+                    {searchTerm ? (
+                        <div className="animate-fade-in px-2">
+                            <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
+                                <Search size={20} className="text-cyan-500" />
+                                Resultados para "{searchTerm}"
+                                <span className="text-slate-500 text-sm font-normal ml-2">({filteredSubjects.length} encontrados)</span>
+                            </h3>
+                            {filteredSubjects.length > 0 ? (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    {filteredSubjects.map(subject => (
+                                        <StratCard key={subject.id} subject={subject} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
+                                    <Search size={48} className="text-slate-700 mb-4" />
+                                    <p className="text-slate-400 font-medium text-lg">Nenhum conteúdo encontrado.</p>
+                                    <p className="text-slate-600 text-sm">Tente buscar por outro termo.</p>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <CarouselRow title="Atualizações e Modificações 2024" items={atualizacoes} scrollRef={scrollRef1} />
+                            <CarouselRow title="Cronogramas e Guias" items={cronograma} scrollRef={scrollRef2} />
+                            <CarouselRow title="Multimídia, Bônus e Simulados" items={multimidia} scrollRef={scrollRef3} />
+                            <CarouselRow title="Extensivo (Curso Principal)" items={extensivo} scrollRef={scrollRef4} />
+                            <CarouselRow title="Todos os Resumos" items={resumos} scrollRef={scrollRef5} />
                         </>
                     )}
                 </div>
@@ -1730,6 +1942,18 @@
                             );
                         }
 
+                        // --- NOVA LÓGICA: Estratégia MED ---
+                        if (selectedSubject.id === 'estrategia_main') {
+                            return (
+                                <div className="animate-fade-in pb-20">
+                                    <EstrategiaSection 
+                                        subjects={selectedSubject.subcourses}
+                                        onSubjectClick={handleCourseClick}
+                                    />
+                                </div>
+                            );
+                        }
+
                          // Check if drilling down is needed (Medcurso case) or just playing
                          // If Medcurso, we pass handleSubjectClick to drill down into folders
                          // Mantém compatibilidade com outros temas futuros se necessário
@@ -1981,7 +2205,7 @@
                             <CarouselSection 
                                 title="Cursos Principais" 
                                 icon={<MonitorPlay />}
-                                subjects={[DATA.platforms.sanar, DATA.platforms.emr, DATA.platforms.medcurso]} 
+                                subjects={[DATA.platforms.sanar, DATA.platforms.emr, DATA.platforms.medcurso, DATA.platforms.estrategia]} 
                                 onSubjectClick={(subject) => {
                                     handleSubjectClick(subject);
                                 }}
