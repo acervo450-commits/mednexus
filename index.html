@@ -248,7 +248,6 @@
                     icon: <Play size={28} fill="currentColor" />,
                     color: 'from-red-600 to-red-900',
                     image: 'Tutoria/sanarflix/Sanar.png',
-                    // Mapeamento especial para incluir as aulas nos cursos específicos
                     subcourses: SANAR_COURSES_TITLES.map((title, index) => {
                         const isLocomotor = title === "Anatomia do Sistema Locomotor";
                         const isReprodutor = title === "Sistema Reprodutor";
@@ -290,11 +289,89 @@
                     theme: 'green',
                     icon: <Stethoscope size={28} />,
                     color: 'from-emerald-600 to-emerald-900',
-                    image: 'Cursos/EMR/EMR.png', // Imagem de capa
+                    image: 'Cursos/EMR/EMR.png',
                     subcourses: EMR_MODULES.map((title, index) => ({
                         id: `emr-c-${index}`, title: title, type: 'Módulo EMR', duration: 'Aulas',
                         color: 'from-emerald-600 to-emerald-800'
                     })),
+                    problems: [], questions: []
+                },
+                medcurso: {
+                    id: 'medcurso_main',
+                    title: 'MEDCURSO',
+                    subtitle: 'Extensivo',
+                    theme: 'yellow',
+                    icon: <BookOpen size={28} />,
+                    color: 'from-yellow-600 to-yellow-800',
+                    subcourses: [
+                        {
+                            id: 'mc_cir', title: 'Cirurgia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_cir1', title: 'CIR 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_cir2', title: 'CIR 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_cir3', title: 'CIR 3 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_gas', title: 'Gastrologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_gas1', title: 'GAS 1 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_gin', title: 'Ginecologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_gin1', title: 'GIN 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_gin2', title: 'GIN 2 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_hem', title: 'Hematologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_hem1', title: 'HEM 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_hem2', title: 'HEM 2 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_nef', title: 'Nefrologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_nef1', title: 'NEFRO 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_nef2', title: 'NEFRO 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_nef3', title: 'NEFRO 3 (Aulas, Bônus)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_obs', title: 'Obstetrícia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_obs1', title: 'OBS 1 (Aulas)', type: 'Módulo' },
+                                { id: 'mc_obs2', title: 'OBS 2 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_ped', title: 'Pediatria', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_ped1', title: 'PED 1 (Aula Bônus, Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_ped2', title: 'PED 2 (Aulas)', type: 'Módulo' },
+                                { id: 'mc_ped3', title: 'PED 3 (Aula Bônus, Aulas)', type: 'Módulo' },
+                                { id: 'mc_ped4', title: 'PED 4 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_prev', title: 'Preventiva', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_prev1', title: 'PREV 1 (Aula Bônus, Aulas)', type: 'Módulo' },
+                                { id: 'mc_prev2', title: 'PREV 2 (Aulas, Bônus)', type: 'Módulo' },
+                                { id: 'mc_prev3', title: 'PREV 3 (Aulas)', type: 'Módulo' }
+                            ]
+                        },
+                        {
+                            id: 'mc_reu', title: 'Reumatologia', color: 'from-yellow-500 to-yellow-700',
+                            subcourses: [
+                                { id: 'mc_reu1', title: 'REU 1 (Aulas)', type: 'Módulo' },
+                                { id: 'mc_reu2', title: 'REU 2 (Aulas)', type: 'Módulo' }
+                            ]
+                        }
+                    ],
                     problems: [], questions: []
                 }
             },
@@ -877,20 +954,42 @@
         };
         
         const PlatformBanner = ({ title, subtitle, color, icon, theme, image, onClick }) => {
-            const gradients = theme === 'red' 
-                ? 'from-red-700 via-red-800 to-red-950 border-red-500/20 hover:border-red-500/50' 
-                : 'from-emerald-700 via-emerald-800 to-emerald-950 border-emerald-500/20 hover:border-emerald-500/50';
-            
-            const glowColor = theme === 'red' ? 'bg-red-600/20' : 'bg-emerald-600/20';
-            const iconBg = theme === 'red' ? 'text-red-700' : 'text-emerald-700';
-            const shadowColor = theme === 'red' ? 'shadow-red-900/50' : 'shadow-emerald-900/50';
-            const subTextColor = theme === 'red' ? 'text-red-200' : 'text-emerald-200';
-            const btnHoverText = theme === 'red' ? 'hover:text-red-700' : 'hover:text-emerald-700';
+            let styles = {
+                gradient: 'from-emerald-700 via-emerald-800 to-emerald-950',
+                border: 'border-emerald-500/20 hover:border-emerald-500/50',
+                glow: 'bg-emerald-600/20',
+                iconBg: 'text-emerald-700',
+                shadow: 'shadow-emerald-900/50',
+                text: 'text-emerald-200',
+                btnHover: 'hover:text-emerald-700'
+            };
+
+            if (theme === 'red') {
+                styles = {
+                    gradient: 'from-red-700 via-red-800 to-red-950',
+                    border: 'border-red-500/20 hover:border-red-500/50',
+                    glow: 'bg-red-600/20',
+                    iconBg: 'text-red-700',
+                    shadow: 'shadow-red-900/50',
+                    text: 'text-red-200',
+                    btnHover: 'hover:text-red-700'
+                };
+            } else if (theme === 'yellow') {
+                styles = {
+                    gradient: 'from-yellow-600 via-yellow-700 to-yellow-900',
+                    border: 'border-yellow-500/20 hover:border-yellow-500/50',
+                    glow: 'bg-yellow-500/20',
+                    iconBg: 'text-yellow-700',
+                    shadow: 'shadow-yellow-900/50',
+                    text: 'text-yellow-100',
+                    btnHover: 'hover:text-yellow-700'
+                };
+            }
 
             return (
                 <div 
                     onClick={onClick}
-                    className={`w-full h-64 bg-gradient-to-br ${gradients} rounded-2xl relative overflow-hidden cursor-pointer group shadow-2xl shadow-black/50 border transition-all hover:scale-[1.01]`}
+                    className={`w-full h-64 bg-gradient-to-br ${styles.gradient} ${styles.border} rounded-2xl relative overflow-hidden cursor-pointer group shadow-2xl shadow-black/50 border transition-all hover:scale-[1.01]`}
                 >
                      {image ? (
                         <div className="absolute inset-0">
@@ -903,7 +1002,7 @@
                         </div>
                      ) : (
                          <>
-                             <div className={`absolute top-0 right-0 w-[400px] h-[400px] ${theme === 'red' ? 'bg-red-600/20' : 'bg-emerald-600/20'} rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4`}></div>
+                             <div className={`absolute top-0 right-0 w-[400px] h-[400px] ${styles.glow} rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4`}></div>
                              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-black/40 rounded-full blur-[60px] translate-y-1/4 -translate-x-1/4"></div>
                              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
                          </>
@@ -912,11 +1011,11 @@
                      <div className="absolute inset-0 flex flex-col justify-end p-8 relative z-10">
                         {!image && (
                             <div className="flex items-center gap-4 mb-3">
-                                <div className={`p-3 bg-white ${iconBg} rounded-xl shadow-lg ${shadowColor} group-hover:scale-110 transition-transform duration-300`}>
+                                <div className={`p-3 bg-white ${styles.iconBg} rounded-xl shadow-lg ${styles.shadow} group-hover:scale-110 transition-transform duration-300`}>
                                     {icon}
                                 </div>
                                 <div>
-                                    <span className={`${subTextColor} font-bold tracking-widest text-xs uppercase mb-1 block`}>{subtitle}</span>
+                                    <span className={`${styles.text} font-bold tracking-widest text-xs uppercase mb-1 block`}>{subtitle}</span>
                                     <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{title}</h3>
                                 </div>
                             </div>
@@ -924,7 +1023,7 @@
                         
                         <div className="flex justify-between items-end mt-4">
                             <div className="w-full">
-                                <button className={`flex items-center gap-2 bg-white/10 hover:bg-white text-white ${btnHoverText} px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit`}>
+                                <button className={`flex items-center gap-2 bg-white/10 hover:bg-white text-white ${styles.btnHover} px-5 py-2.5 rounded-full font-bold text-sm transition-all backdrop-blur-md border border-white/20 group-hover:border-white w-fit`}>
                                     Acessar <ChevronRight size={16} />
                                 </button>
                             </div>
@@ -935,47 +1034,70 @@
         };
         
         const PlatformSection = ({ title, subtitle, subjects, theme, onSubjectClick }) => {
-            const gradient = theme === 'red' 
-                ? 'from-red-900 to-red-950 border-red-800/50' 
-                : 'from-emerald-900 to-emerald-950 border-emerald-800/50';
-            
-            const iconBg = theme === 'red' ? 'bg-red-600 shadow-red-900/50' : 'bg-emerald-600 shadow-emerald-900/50';
-            const subTextColor = theme === 'red' ? 'text-red-200' : 'text-emerald-200';
-            const cardHover = theme === 'red' 
-                ? 'hover:bg-red-600 hover:border-red-500 hover:shadow-red-900/50' 
-                : 'hover:bg-emerald-600 hover:border-emerald-500 hover:shadow-emerald-900/50';
-            const iconColor = theme === 'red' ? 'text-red-500' : 'text-emerald-500';
+            let styles = {
+                gradient: 'from-emerald-900 to-emerald-950 border-emerald-800/50',
+                iconBg: 'bg-emerald-600 shadow-emerald-900/50',
+                subTextColor: 'text-emerald-200',
+                cardHover: 'hover:bg-emerald-600 hover:border-emerald-500 hover:shadow-emerald-900/50',
+                iconColor: 'text-emerald-500',
+                glow: 'bg-emerald-600/10'
+            };
+
+            if (theme === 'red') {
+                styles = {
+                    gradient: 'from-red-900 to-red-950 border-red-800/50',
+                    iconBg: 'bg-red-600 shadow-red-900/50',
+                    subTextColor: 'text-red-200',
+                    cardHover: 'hover:bg-red-600 hover:border-red-500 hover:shadow-red-900/50',
+                    iconColor: 'text-red-500',
+                    glow: 'bg-red-600/10'
+                };
+            } else if (theme === 'yellow') {
+                 styles = {
+                    gradient: 'from-yellow-900 to-yellow-950 border-yellow-800/50',
+                    iconBg: 'bg-yellow-600 shadow-yellow-900/50',
+                    subTextColor: 'text-yellow-200',
+                    cardHover: 'hover:bg-yellow-600 hover:border-yellow-500 hover:shadow-yellow-900/50',
+                    iconColor: 'text-yellow-500',
+                    glow: 'bg-yellow-600/10'
+                };
+            }
 
             return (
-                <div className={`w-full bg-gradient-to-br ${gradient} rounded-2xl p-6 md:p-8 mb-12 shadow-2xl border relative overflow-hidden`}>
-                     <div className={`absolute top-0 right-0 w-96 h-96 ${theme === 'red' ? 'bg-red-600/10' : 'bg-emerald-600/10'} rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`}></div>
+                <div className={`w-full bg-gradient-to-br ${styles.gradient} rounded-2xl p-6 md:p-8 mb-12 shadow-2xl border relative overflow-hidden`}>
+                     <div className={`absolute top-0 right-0 w-96 h-96 ${styles.glow} rounded-full blur-3xl -translate-y-1/2 translate-x-1/2`}></div>
 
                      <div className="flex items-center gap-4 mb-6 relative z-10">
-                        <div className={`p-3 ${iconBg} rounded-xl text-white shadow-lg`}>
-                            {theme === 'red' ? <Play size={28} fill="currentColor" /> : <Stethoscope size={28} />}
+                        <div className={`p-3 ${styles.iconBg} rounded-xl text-white shadow-lg`}>
+                            {theme === 'red' ? <Play size={28} fill="currentColor" /> : theme === 'yellow' ? <BookOpen size={28} /> : <Stethoscope size={28} />}
                         </div>
                         <div>
                             <h2 className="text-3xl font-bold text-white tracking-tight">{subtitle}</h2>
-                            <p className={`${subTextColor} font-medium`}>{title}</p>
+                            <p className={`${styles.subTextColor} font-medium`}>{title}</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 relative z-10">
                         {subjects.map((subject) => {
                             const hasLessons = subject.lessons && subject.lessons.length > 0;
+                            // Check if it's a 'folder' type (has subcourses but no lessons directly)
+                            const isFolder = subject.subcourses && subject.subcourses.length > 0;
+                            
                             return (
                                 <div 
                                     key={subject.id} 
                                     onClick={() => onSubjectClick(subject)}
-                                    className={`bg-white/5 border border-white/10 rounded-xl p-4 cursor-pointer transition-all duration-300 group flex flex-col justify-between h-32 hover:-translate-y-1 hover:shadow-xl ${cardHover}`}
+                                    className={`bg-white/5 border border-white/10 rounded-xl p-4 cursor-pointer transition-all duration-300 group flex flex-col justify-between h-32 hover:-translate-y-1 hover:shadow-xl ${styles.cardHover}`}
                                 >
                                     <h3 className="text-sm font-semibold text-white/90 group-hover:text-white line-clamp-3">{subject.title}</h3>
                                     <div className="flex justify-between items-end mt-2">
                                         <span className="text-[10px] uppercase tracking-wider text-white/40 group-hover:text-white/80 font-bold">
-                                            {subject.duration}
+                                            {subject.duration || (isFolder ? 'Módulos' : '')}
                                         </span>
                                         {hasLessons ? (
-                                             <PlayCircle size={16} className={`${iconColor} group-hover:text-white transition-colors`} />
+                                             <PlayCircle size={16} className={`${styles.iconColor} group-hover:text-white transition-colors`} />
+                                        ) : isFolder ? (
+                                            <FolderOpen size={16} className={`${styles.iconColor} group-hover:text-white transition-colors`} />
                                         ) : (
                                              <Lock size={14} className="text-slate-500 group-hover:text-white/50" />
                                         )}
@@ -984,6 +1106,152 @@
                             );
                         })}
                     </div>
+                </div>
+            );
+        };
+
+        // --- NOVO COMPONENTE: MEDCURSO SECTION (NETFLIX STYLE) ---
+        const MedcursoSection = ({ onSubjectClick, subjects }) => {
+            const [searchTerm, setSearchTerm] = useState('');
+            const scrollRef1 = useRef(null);
+            const scrollRef2 = useRef(null);
+            const scrollRef3 = useRef(null);
+
+            const filteredSubjects = subjects.filter(subject => 
+                subject.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            const scroll = (ref, direction) => {
+                if (ref.current) {
+                    const scrollAmount = 600;
+                    ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+                }
+            };
+
+            // Divide subjects for visual variety (mock categories)
+            const mainSpecialties = subjects.slice(0, 6); // Cirurgia, Gastro, etc.
+            const clinicalSpecialties = subjects.slice(6); // Pediatria, Prev, etc.
+
+            const MedCard = ({ subject }) => {
+                const isFolder = subject.subcourses && subject.subcourses.length > 0;
+                return (
+                    <div 
+                        onClick={() => onSubjectClick(subject)}
+                        className="flex-shrink-0 w-[280px] h-[150px] relative rounded-lg cursor-pointer overflow-hidden group transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl hover:shadow-yellow-900/40 border border-slate-700/50 hover:border-yellow-500"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-[#2a1a0a] group-hover:from-yellow-950 group-hover:via-yellow-900 group-hover:to-yellow-800 transition-colors duration-500"></div>
+                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-yellow-500/20 to-transparent"></div>
+                        
+                        {/* Icon Background Decoration */}
+                        <div className="absolute -right-4 -bottom-4 text-white/5 group-hover:text-white/10 transition-colors transform rotate-12">
+                            <BookOpen size={100} />
+                        </div>
+
+                        <div className="absolute inset-0 p-5 flex flex-col justify-between z-10">
+                            <h3 className="text-xl font-bold text-slate-100 leading-snug line-clamp-2 group-hover:text-white drop-shadow-md">
+                                {subject.title}
+                            </h3>
+                            <div className="flex items-center justify-between mt-auto">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-[10px] font-bold tracking-wider uppercase text-yellow-500/80 bg-black/30 px-2 py-1 rounded border border-yellow-500/20 group-hover:bg-yellow-500/20 group-hover:text-yellow-200 transition-colors">
+                                        MEDCURSO
+                                    </span>
+                                </div>
+                                {isFolder ? (
+                                    <FolderOpen size={20} className="text-yellow-500 group-hover:text-white transition-colors drop-shadow-lg" />
+                                ) : (
+                                    <Lock size={16} className="text-slate-600 group-hover:text-yellow-200" />
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            const CarouselRow = ({ title, items, scrollRef }) => (
+                <div className="mb-10 group/row">
+                    <div className="flex items-center justify-between mb-3 px-2">
+                        <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
+                            {title} <ChevronRight size={16} className="text-slate-500" />
+                        </h3>
+                    </div>
+                    <div className="relative">
+                        <button onClick={() => scroll(scrollRef, 'left')} className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+                            <ChevronLeft size={32} />
+                        </button>
+                        <div ref={scrollRef} className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth px-2" style={{ scrollbarWidth: 'none' }}>
+                            {items.map((subject) => (
+                                <MedCard key={subject.id} subject={subject} />
+                            ))}
+                            <div className="w-8 flex-shrink-0" />
+                        </div>
+                        <button onClick={() => scroll(scrollRef, 'right')} className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/80 to-transparent z-20 flex items-center justify-center opacity-0 group-hover/row:opacity-100 transition-opacity duration-300 hover:bg-black/60 text-white">
+                            <ChevronRight size={32} />
+                        </button>
+                    </div>
+                </div>
+            );
+
+            return (
+                <div className="animate-fade-in -mt-4">
+                    {/* Banner Principal Medcurso */}
+                    <div className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-yellow-900 to-black border border-yellow-900/30 flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
+                        <div className="flex items-center gap-6">
+                            <div className="p-4 bg-yellow-500 rounded-xl text-yellow-950 shadow-lg shadow-yellow-500/20">
+                                <BookOpen size={40} />
+                            </div>
+                            <div>
+                                <h1 className="text-3xl font-bold text-white mb-1">MEDCURSO</h1>
+                                <p className="text-yellow-200/80 font-medium">Extensivo & Revisão</p>
+                            </div>
+                        </div>
+                        
+                        {/* Search Bar Medcurso */}
+                        <div className="relative w-full md:w-96 group mt-4 md:mt-0">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-yellow-200/50 group-focus-within:text-yellow-400 transition-colors" size={18} />
+                            <input 
+                                type="text" 
+                                placeholder="Buscar especialidades (Ex: Pediatria)..." 
+                                className="w-full bg-black/40 border border-yellow-500/30 rounded-full py-2.5 pl-10 pr-10 text-sm text-yellow-100 placeholder-yellow-200/30 focus:outline-none focus:border-yellow-500/60 focus:bg-black/60 transition-all shadow-inner" 
+                                value={searchTerm} 
+                                onChange={(e) => setSearchTerm(e.target.value)} 
+                            />
+                            {searchTerm && (
+                                <button onClick={() => setSearchTerm('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-yellow-200/50 hover:text-white transition-colors">
+                                    <X size={16} />
+                                </button>
+                            )}
+                        </div>
+                    </div>
+
+                    {searchTerm ? (
+                        <div className="animate-fade-in px-2">
+                            <h3 className="text-lg font-bold text-slate-100 mb-6 flex items-center gap-2">
+                                <Search size={20} className="text-yellow-500" />
+                                Resultados para "{searchTerm}"
+                                <span className="text-slate-500 text-sm font-normal ml-2">({filteredSubjects.length} encontrados)</span>
+                            </h3>
+                            {filteredSubjects.length > 0 ? (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                                    {filteredSubjects.map(subject => (
+                                        <MedCard key={subject.id} subject={subject} />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-20 text-center border border-dashed border-slate-800 rounded-2xl bg-slate-900/30">
+                                    <Search size={48} className="text-slate-700 mb-4" />
+                                    <p className="text-slate-400 font-medium text-lg">Nenhuma especialidade encontrada.</p>
+                                    <p className="text-slate-600 text-sm">Tente buscar por outro termo.</p>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <CarouselRow title="Grandes Áreas" items={mainSpecialties} scrollRef={scrollRef1} />
+                            <CarouselRow title="Especialidades Clínicas" items={clinicalSpecialties} scrollRef={scrollRef2} />
+                            <CarouselRow title="Todas as Matérias" items={subjects} scrollRef={scrollRef3} />
+                        </>
+                    )}
                 </div>
             );
         };
@@ -1447,6 +1715,24 @@
                             );
                         }
 
+                        // --- ALTERAÇÃO AQUI: Lógica específica para Medcurso ---
+                        if (selectedSubject.id === 'medcurso_main') {
+                            return (
+                                <div className="animate-fade-in pb-20">
+                                    <MedcursoSection 
+                                        subjects={selectedSubject.subcourses}
+                                        onSubjectClick={handleSubjectClick}
+                                    />
+                                </div>
+                            );
+                        }
+
+                         // Check if drilling down is needed (Medcurso case) or just playing
+                         // If Medcurso, we pass handleSubjectClick to drill down into folders
+                         // Mantém compatibilidade com outros temas futuros se necessário
+                         const isFolderNavigation = selectedSubject.id === 'medcurso_main'; // redundante agora mas seguro
+                         const clickHandler = isFolderNavigation ? handleSubjectClick : handleCourseClick;
+
                          return (
                             <div className="animate-fade-in pb-20">
                                 <PlatformSection 
@@ -1454,7 +1740,7 @@
                                     subtitle={selectedSubject.subtitle}
                                     subjects={selectedSubject.subcourses}
                                     theme={selectedSubject.theme}
-                                    onSubjectClick={handleCourseClick}
+                                    onSubjectClick={clickHandler}
                                 />
                             </div>
                          );
@@ -1692,7 +1978,7 @@
                             <CarouselSection 
                                 title="Cursos Principais" 
                                 icon={<MonitorPlay />}
-                                subjects={[DATA.platforms.sanar, DATA.platforms.emr]} 
+                                subjects={[DATA.platforms.sanar, DATA.platforms.emr, DATA.platforms.medcurso]} 
                                 onSubjectClick={(subject) => {
                                     handleSubjectClick(subject);
                                 }}
