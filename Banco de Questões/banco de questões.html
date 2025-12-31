@@ -898,26 +898,12 @@
             if (typeof lucide !== 'undefined') lucide.createIcons();
             updateZenUI();
         }
-
-        function updateZenUI() {
-            if (state.viewMode !== 'zen') return;
-            const percent = ((state.currentZenIndex + 1) / state.examQuestions.length) * 100;
-            document.getElementById('zen-progress-bar').style.width = `${percent}%`;
-            document.getElementById('zen-current-q').innerText = `Questão ${state.currentZenIndex + 1}`;
-            document.getElementById('zen-total-q').innerText = `de ${state.examQuestions.length}`;
-            document.getElementById('zen-counter').innerText = `${state.currentZenIndex + 1} / ${state.examQuestions.length}`;
-            document.getElementById('btn-zen-prev').disabled = state.currentZenIndex === 0;
-            document.getElementById('btn-zen-next').disabled = state.currentZenIndex === state.examQuestions.length - 1;
-        }
-
-        function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
-        function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
-
-        // --- PDF ---
+        // --- PDF GENERATION WITH LOGO ---
+        // Helper to fetch image and convert to Data URL
         function getImageDataUrl(url) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.crossOrigin = "Anonymous";
+                img.crossOrigin = "Anonymous"; // Try to handle CORS
                 img.src = url;
                 img.onload = () => {
                     const canvas = document.createElement("canvas");
@@ -929,7 +915,7 @@
                 };
                 img.onerror = (e) => {
                     console.warn("Could not load image for PDF", e);
-                    resolve(null);
+                    resolve(null); // Fallback if image fails
                 };
             });
         }
@@ -939,29 +925,39 @@
                 alert("Erro: Biblioteca PDF ainda carregando. Tente novamente em alguns segundos.");
                 return;
             }
+
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
+            
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
             const margin = 20;
-            let y = 30;
+            let y = 30; // Posição vertical inicial
             
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
+            // 1. Fetch Logo Específica para o PDF (DIFERENTE DO SITE)
+            // Convertendo o link blob para raw para funcionar o fetch
+            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/logo%20pdf.png";
             const logoData = await getImageDataUrl(logoUrl);
 
+            // Função para adicionar Marca D'água, Logo e Cabeçalho em cada página
             function addPageDecorations() {
+                // Marca D'água
                 doc.saveGraphicsState();
-                doc.setTextColor(230, 230, 230);
+                doc.setTextColor(230, 230, 230); // Cinza bem claro
                 doc.setFontSize(60);
                 doc.setFont("helvetica", "bold");
+                // Rotaciona e centraliza
                 doc.text("MEDNEXUS", pageWidth / 2, pageHeight / 2, { align: "center", angle: 45 });
                 doc.restoreGraphicsState();
 
+                // Cabeçalho
                 if (logoData) {
-                    const imgWidth = 30; 
-                    const imgHeight = 10;
-                    doc.addImage(logoData, 'PNG', margin, 10, imgWidth, imgHeight);
+                    // Add Image Logo
+                    const imgWidth = 40; // Aumentei um pouco para a nova logo (geralmente horizontal)
+                    const imgHeight = 12; // approximate aspect ratio
+                    doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
                 } else {
+                    // Fallback Text if image fails
                     doc.setFontSize(14);
                     doc.setTextColor(0, 102, 204);
                     doc.setFont("helvetica", "bold");
@@ -974,11 +970,15 @@
                 const headerText = "Banco de Questões Personalizado";
                 const textWidth = doc.getTextWidth(headerText);
                 doc.text(headerText, pageWidth - margin - textWidth, 18);
+                
                 doc.setDrawColor(200);
                 doc.line(margin, 22, pageWidth - margin, 22);
             }
 
+            // Inicia o documento
             addPageDecorations();
+            
+            // Título do Caderno
             y = 35;
             doc.setFontSize(18);
             doc.setTextColor(0);
