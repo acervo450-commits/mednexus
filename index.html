@@ -216,6 +216,33 @@
             { section: "🧠 Neurologia e Outros", title: "Urticária", videoId: "IXDeepnvlUU" }
         ];
 
+        // --- DADOS DAS AULAS: HEMATOLOGIA MEDCURSO (HEMO 1) ---
+        const HEMO1_MEDCURSO_SECTIONS = [
+            {
+                title: "📘 Aulas – HEMO 1",
+                lessons: [
+                    { title: "Abordagem inicial da anemia", videoId: "ry9k2BrTWF0" },
+                    { title: "Anemia ferropriva", videoId: "85Zywh2Mv4U" },
+                    { title: "Anemia de doença crônica", videoId: "Trp5lccS-ns" },
+                    { title: "Anemias megaloblásticas", videoId: "l7yDItDeUq4" },
+                    { title: "Anemias hemolíticas – Parte 1", videoId: "Se0CUfV8oeY" },
+                    { title: "Anemias hemolíticas – Parte 2", videoId: "FiulhCUX_JA" }
+                ]
+            },
+            {
+                title: "⭐ Aulas Bônus – HEMO 1",
+                lessons: [
+                    { title: "Mielodisplasia", videoId: "sOtqMnvzpAc" },
+                    { title: "Anemia sideroblástica", videoId: "U3oAk1_vwoI" },
+                    { title: "Anemia aplásica", videoId: "2C-yOFyOApE" },
+                    { title: "Hemoglobinúria Paroxística Noturna", videoId: "aN7lq7Q01Q8" }
+                ]
+            }
+        ];
+
+        // Achata as seções para criar uma lista contínua de reprodução
+        const HEMO1_MEDCURSO_FLAT = HEMO1_MEDCURSO_SECTIONS.flatMap(section => section.lessons);
+
         // --- DADOS DA BIBLIOTECA ---
         const LIBRARY_DATA = [
             {
@@ -367,7 +394,13 @@
                         {
                             id: 'mc_hem', title: 'Hematologia', color: 'from-yellow-500 to-yellow-700',
                             subcourses: [
-                                { id: 'mc_hem1', title: 'HEM 1 (Aulas, Bônus)', type: 'Módulo' },
+                                { 
+                                    id: 'mc_hem1', 
+                                    title: 'HEM 1 (Aulas, Bônus)', 
+                                    type: 'Módulo',
+                                    lessons: HEMO1_MEDCURSO_FLAT,
+                                    sections: HEMO1_MEDCURSO_SECTIONS
+                                },
                                 { id: 'mc_hem2', title: 'HEM 2 (Aulas, Bônus)', type: 'Módulo' }
                             ]
                         },
