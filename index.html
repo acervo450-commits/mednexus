@@ -240,8 +240,13 @@
             }
         ];
 
-        // Achata as seções para criar uma lista contínua de reprodução
-        const HEMO1_MEDCURSO_FLAT = HEMO1_MEDCURSO_SECTIONS.flatMap(section => section.lessons);
+        // Achata as seções para criar uma lista contínua de reprodução, mas preservando o nome da seção
+        const HEMO1_MEDCURSO_FLAT = HEMO1_MEDCURSO_SECTIONS.flatMap(section => 
+            section.lessons.map(lesson => ({
+                ...lesson,
+                section: section.title
+            }))
+        );
 
         // --- DADOS DA BIBLIOTECA ---
         const LIBRARY_DATA = [
