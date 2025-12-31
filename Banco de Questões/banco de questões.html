@@ -139,6 +139,7 @@
             <!-- Logo & Nav -->
             <div class="flex items-center gap-4">
                 <div id="header-logo-area" class="flex items-center gap-2 cursor-pointer" onclick="resetToDashboard()">
+                    <!-- NOVA LOGO ATUALIZADA -->
                     <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png" 
                          alt="MEDNEXUS" 
                          class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
@@ -376,7 +377,7 @@
             { id: 18, name: 'Módulo 18 — Sinais e Sintomas Dermatológicos', cycle: 'clinico' }
         ];
 
-        // --- BASE DE DADOS: MÓDULO 7 (BÁSICO) ---
+        // --- BASE DE DADOS (34 QUESTÕES) ---
         const REAL_QUESTIONS = [
             { id: '1', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O controle central do ciclo menstrual reside no hipotálamo, especificamente no núcleo arqueado. Sobre a secreção do Hormônio Liberador de Gonadotrofina (GnRH), assinale a alternativa que descreve corretamente sua característica fundamental para a manutenção da função do eixo:', options: ['Sua secreção deve ser contínua e linear para manter os níveis estáveis de FSH e LH.', 'A liberação ocorre em pulsos rítmicos; uma secreção contínua levaria à desensibilização (down-regulation) dos receptores hipofisários.', 'O GnRH é secretado exclusivamente em resposta ao pico de progesterona na fase lútea.', 'A pulsatilidade do GnRH é controlada diretamente pelos níveis de inibina B, sem influência neural.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A secreção pulsátil do GnRH é essencial para evitar a desensibilização dos receptores hipofisários.' },
             { id: '2', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A teoria das "Duas Células, Duas Gonadotrofinas" explica a produção de estrogênio no folículo ovariano. Qual é a função específica das Células da Teca neste processo?', options: ['Converter androgênios em estradiol através da enzima aromatase.', 'Produzir progesterona para sustentar o corpo lúteo inicial.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do LH.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do FSH.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. As células da teca, sob estímulo do LH, produzem androgênios que serão convertidos em estrogênio na granulosa.' },
@@ -421,7 +422,7 @@
             subTopics: [],
             usePBL: false,
             pblModules: [],
-            pblProblem: null, // Novo filtro de problema
+            pblProblem: null, 
             filters: { unanswered: true, wrong: false },
             limit: 10,
             viewMode: 'list',
@@ -435,18 +436,30 @@
 
         // --- 3. INICIALIZAÇÃO ---
         function init() {
-            generateMockDB();
-            renderCycles();
-            renderContentArea();
-            renderStatusFilters();
-            updateCounter();
-            lucide.createIcons();
+            try {
+                generateMockDB();
+                renderCycles();
+                renderContentArea();
+                renderStatusFilters();
+                updateCounter();
+                
+                // Tenta carregar ícones com segurança
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                } else {
+                    console.warn("Lucide icons not loaded yet.");
+                }
+            } catch (e) {
+                console.error("Initialization error:", e);
+                alert("Ocorreu um erro ao carregar o banco de questões. Verifique o console.");
+            }
         }
 
         function generateMockDB() {
             let mocks = [];
             state.db = [...REAL_QUESTIONS, ...mocks];
-            document.getElementById('total-db-count').innerText = state.db.length;
+            const counterEl = document.getElementById('total-db-count');
+            if(counterEl) counterEl.innerText = state.db.length;
         }
 
         // --- 4. RENDERIZAÇÃO DASHBOARD ---
@@ -464,16 +477,13 @@
                     <p class="text-xs text-slate-500">${c.description}</p>
                 </button>
             `).join('');
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function renderContentArea() {
             const container = document.getElementById('content-area');
             if (state.usePBL) {
-                // Filtra módulos pelo ciclo selecionado
                 const relevantModules = ALL_PBL_MODULES.filter(m => m.cycle === state.cycle);
-                
-                // Verifica se Módulo 7 está selecionado para mostrar o subfiltro de problemas
                 const isMod7Selected = state.pblModules.includes('Módulo 7 — Concepção, Formação do Ser Humano e Gestação');
 
                 let html = `
@@ -489,7 +499,6 @@
                     </div>
                 `;
 
-                // Renderiza subfiltro de Problemas se Mod 7 selecionado
                 if (isMod7Selected) {
                     html += `
                         <div class="mt-4 pt-4 border-t border-slate-700/50 slide-up bg-slate-900/40 p-4 rounded-lg border border-purple-500/20">
@@ -513,12 +522,11 @@
 
             } else {
                 const disciplines = DISCIPLINES[state.cycle];
-                const allSelected = state.disciplines.length === disciplines.length;
                 let html = `
                     <div class="flex justify-between items-center mb-4 fade-in">
                         <p class="text-sm text-slate-400">Disciplinas: </p>
                         <button onclick="toggleAllDisciplines()" class="text-xs font-medium text-sky-400 hover:underline">
-                            ${allSelected ? 'Desmarcar todas' : 'Selecionar todas'}
+                            ${state.disciplines.length === disciplines.length ? 'Desmarcar todas' : 'Selecionar todas'}
                         </button>
                     </div>
                     <div class="flex flex-wrap gap-2 mb-6">
@@ -556,7 +564,7 @@
                 }
                 container.innerHTML = html;
             }
-            lucide.createIcons();
+            if (typeof lucide !== 'undefined') lucide.createIcons();
         }
 
         function renderStatusFilters() {
@@ -609,7 +617,6 @@
         function togglePBL(mod) {
             if (state.pblModules.includes(mod)) {
                 state.pblModules = state.pblModules.filter(m => m !== mod);
-                // Se desmarcar M7, limpa filtro de problema
                 if (mod === 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação') state.pblProblem = null;
             } else {
                 state.pblModules.push(mod);
@@ -618,7 +625,7 @@
         }
         function setProblem(num) {
             state.pblProblem = num;
-            renderContentArea(); // Re-render to update active state of buttons
+            renderContentArea();
             updateCounter();
         }
         function toggleFilter(key) { state.filters[key] = !state.filters[key]; renderStatusFilters(); updateCounter(); }
@@ -651,7 +658,6 @@
                     if (state.pblModules.length > 0 && !state.pblModules.includes(q.pblModule)) return false;
                     if (!state.pblModules.length && !q.pblModule) return false;
                     
-                    // Lógica de Problemas Específicos do Módulo 7
                     if (state.pblProblem !== null && q.pblModule === 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação') {
                         if (q.problem !== state.pblProblem) return false;
                     }
@@ -681,7 +687,7 @@
             }
         }
 
-        // --- EXAM LOGIC & INTERACTIVITY ---
+        // --- EXAM LOGIC ---
         function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
         function startExam() {
@@ -730,10 +736,8 @@
 
         function selectOption(qId, index) {
             if (state.userAnswers[qId]?.submitted) return;
-
             if (!state.userAnswers[qId]) state.userAnswers[qId] = { selected: null, submitted: false };
             state.userAnswers[qId].selected = index;
-
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -744,7 +748,6 @@
                 return;
             }
             state.userAnswers[qId].submitted = true;
-            
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -754,7 +757,7 @@
             const container = document.getElementById(`q-card-${qId}`);
             if (container) {
                 container.outerHTML = renderQuestionHTML(q, index);
-                lucide.createIcons();
+                if (typeof lucide !== 'undefined') lucide.createIcons();
             }
         }
 
@@ -877,12 +880,44 @@
             `;
         }
 
-        // --- PDF GENERATION WITH LOGO ---
-        // Helper to fetch image and convert to Data URL
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const label = document.getElementById('exam-mode-label');
+            if (state.viewMode === 'list') {
+                label.innerText = 'Lista Completa';
+                document.getElementById('zen-controls').classList.add('hidden');
+                document.getElementById('zen-progress-container').classList.add('hidden');
+                container.innerHTML = state.examQuestions.map((q, i) => renderQuestionHTML(q, i)).join('<div class="h-8"></div>');
+            } else {
+                label.innerText = 'Modo Zen';
+                document.getElementById('zen-controls').classList.remove('hidden');
+                document.getElementById('zen-progress-container').classList.remove('hidden');
+                const q = state.examQuestions[state.currentZenIndex];
+                container.innerHTML = renderQuestionHTML(q, state.currentZenIndex);
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            updateZenUI();
+        }
+
+        function updateZenUI() {
+            if (state.viewMode !== 'zen') return;
+            const percent = ((state.currentZenIndex + 1) / state.examQuestions.length) * 100;
+            document.getElementById('zen-progress-bar').style.width = `${percent}%`;
+            document.getElementById('zen-current-q').innerText = `Questão ${state.currentZenIndex + 1}`;
+            document.getElementById('zen-total-q').innerText = `de ${state.examQuestions.length}`;
+            document.getElementById('zen-counter').innerText = `${state.currentZenIndex + 1} / ${state.examQuestions.length}`;
+            document.getElementById('btn-zen-prev').disabled = state.currentZenIndex === 0;
+            document.getElementById('btn-zen-next').disabled = state.currentZenIndex === state.examQuestions.length - 1;
+        }
+
+        function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
+        function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
+
+        // --- PDF ---
         function getImageDataUrl(url) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
-                img.crossOrigin = "Anonymous"; // Try to handle CORS
+                img.crossOrigin = "Anonymous";
                 img.src = url;
                 img.onload = () => {
                     const canvas = document.createElement("canvas");
@@ -894,7 +929,7 @@
                 };
                 img.onerror = (e) => {
                     console.warn("Could not load image for PDF", e);
-                    resolve(null); // Fallback if image fails
+                    resolve(null);
                 };
             });
         }
@@ -904,38 +939,29 @@
                 alert("Erro: Biblioteca PDF ainda carregando. Tente novamente em alguns segundos.");
                 return;
             }
-
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
             const margin = 20;
-            let y = 30; // Posição vertical inicial
+            let y = 30;
             
-            // 1. Fetch Logo (ATUALIZADO)
             const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
             const logoData = await getImageDataUrl(logoUrl);
 
-            // Função para adicionar Marca D'água, Logo e Cabeçalho em cada página
             function addPageDecorations() {
-                // Marca D'água
                 doc.saveGraphicsState();
-                doc.setTextColor(230, 230, 230); // Cinza bem claro
+                doc.setTextColor(230, 230, 230);
                 doc.setFontSize(60);
                 doc.setFont("helvetica", "bold");
-                // Rotaciona e centraliza
                 doc.text("MEDNEXUS", pageWidth / 2, pageHeight / 2, { align: "center", angle: 45 });
                 doc.restoreGraphicsState();
 
-                // Cabeçalho
                 if (logoData) {
-                    // Add Image Logo
-                    const imgWidth = 30; // mm
-                    const imgHeight = 10; // approximate aspect ratio
+                    const imgWidth = 30; 
+                    const imgHeight = 10;
                     doc.addImage(logoData, 'PNG', margin, 10, imgWidth, imgHeight);
                 } else {
-                    // Fallback Text if image fails
                     doc.setFontSize(14);
                     doc.setTextColor(0, 102, 204);
                     doc.setFont("helvetica", "bold");
@@ -948,38 +974,30 @@
                 const headerText = "Banco de Questões Personalizado";
                 const textWidth = doc.getTextWidth(headerText);
                 doc.text(headerText, pageWidth - margin - textWidth, 18);
-                
                 doc.setDrawColor(200);
                 doc.line(margin, 22, pageWidth - margin, 22);
             }
 
-            // Inicia o documento
             addPageDecorations();
-            
-            // Título do Caderno
             y = 35;
             doc.setFontSize(18);
-            doc.setTextColor(0); // Preto
+            doc.setTextColor(0);
             doc.setFont("helvetica", "bold");
             doc.text("Caderno de Questões", margin, y);
             y += 15;
 
             state.examQuestions.forEach((q, i) => {
-                // Verifica se cabe na página (estimativa), senão cria nova
                 if (y > pageHeight - 50) {
                     doc.addPage();
                     addPageDecorations();
                     y = 35;
                 }
-
-                // Número e Disciplina da Questão
                 doc.setFontSize(12);
                 doc.setFont("helvetica", "bold");
-                doc.setTextColor(0, 102, 204); // Azul MedNexus
+                doc.setTextColor(0, 102, 204);
                 doc.text(`Questão ${i + 1} - ${q.discipline} (${q.subTopic})`, margin, y);
                 y += 8;
 
-                // Enunciado
                 doc.setFontSize(11);
                 doc.setFont("helvetica", "normal");
                 doc.setTextColor(0);
@@ -987,31 +1005,23 @@
                 doc.text(splitText, margin, y);
                 y += (splitText.length * 6) + 5;
 
-                // Alternativas
                 q.options.forEach((opt, idx) => {
-                    // Verifica quebra de página dentro das alternativas
                     if (y > pageHeight - 20) {
                         doc.addPage();
                         addPageDecorations();
                         y = 35;
                     }
-
                     const letter = String.fromCharCode(65 + idx);
                     const optText = `(   )  ${letter}) ${opt}`;
                     const splitOpt = doc.splitTextToSize(optText, pageWidth - (margin * 2) - 5);
-                    
                     doc.text(splitOpt, margin + 5, y);
                     y += (splitOpt.length * 6) + 2;
                 });
-
-                y += 10; // Espaço entre questões
-                
-                // Linha separadora suave
+                y += 10;
                 doc.setDrawColor(240);
                 doc.line(margin, y - 5, pageWidth - margin, y - 5);
             });
 
-            // Rodapé com data
             const date = new Date().toLocaleDateString('pt-BR');
             doc.setFontSize(8);
             doc.setTextColor(150);
@@ -1020,7 +1030,6 @@
             doc.save("caderno_mednexus.pdf");
         }
 
-        // --- SCROLL TO TOP LOGIC ---
         window.onscroll = function() {
             const btn = document.getElementById('btn-back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
