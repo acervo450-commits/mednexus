@@ -436,22 +436,15 @@
 
         // --- 3. INICIALIZAÇÃO ---
         function init() {
-            try {
-                generateMockDB();
-                renderCycles();
-                renderContentArea();
-                renderStatusFilters();
-                updateCounter();
-                
-                // Tenta carregar ícones com segurança
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                } else {
-                    console.warn("Lucide icons not loaded yet.");
-                }
-            } catch (e) {
-                console.error("Initialization error:", e);
-                alert("Ocorreu um erro ao carregar o banco de questões. Verifique o console.");
+            generateMockDB();
+            renderCycles();
+            renderContentArea();
+            renderStatusFilters();
+            updateCounter();
+            
+            // Tenta carregar ícones com segurança
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         }
 
@@ -687,7 +680,7 @@
             }
         }
 
-        // --- EXAM LOGIC ---
+        // --- EXAM LOGIC & INTERACTIVITY ---
         function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
         function startExam() {
@@ -707,6 +700,7 @@
             renderQuestions();
             updateZenUI();
             
+            // Subir automaticamente ao iniciar
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -722,6 +716,7 @@
             document.getElementById('nav-exam').classList.remove('flex');
             document.getElementById('header-logo-area').onclick = resetToDashboard;
             
+            // Subir automaticamente ao voltar
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -736,8 +731,10 @@
 
         function selectOption(qId, index) {
             if (state.userAnswers[qId]?.submitted) return;
+
             if (!state.userAnswers[qId]) state.userAnswers[qId] = { selected: null, submitted: false };
             state.userAnswers[qId].selected = index;
+
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -748,6 +745,7 @@
                 return;
             }
             state.userAnswers[qId].submitted = true;
+            
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -898,6 +896,21 @@
             if (typeof lucide !== 'undefined') lucide.createIcons();
             updateZenUI();
         }
+
+        function updateZenUI() {
+            if (state.viewMode !== 'zen') return;
+            const percent = ((state.currentZenIndex + 1) / state.examQuestions.length) * 100;
+            document.getElementById('zen-progress-bar').style.width = `${percent}%`;
+            document.getElementById('zen-current-q').innerText = `Questão ${state.currentZenIndex + 1}`;
+            document.getElementById('zen-total-q').innerText = `de ${state.examQuestions.length}`;
+            document.getElementById('zen-counter').innerText = `${state.currentZenIndex + 1} / ${state.examQuestions.length}`;
+            document.getElementById('btn-zen-prev').disabled = state.currentZenIndex === 0;
+            document.getElementById('btn-zen-next').disabled = state.currentZenIndex === state.examQuestions.length - 1;
+        }
+
+        function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
+        function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
+
         // --- PDF GENERATION WITH LOGO ---
         // Helper to fetch image and convert to Data URL
         function getImageDataUrl(url) {
@@ -935,9 +948,13 @@
             let y = 30; // Posição vertical inicial
             
             // 1. Fetch Logo Específica para o PDF (DIFERENTE DO SITE)
-            // Convertendo o link blob para raw para funcionar o fetch
             const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/logo%20pdf.png";
             const logoData = await getImageDataUrl(logoUrl);
+
+            // Configurações de fonte estilo ENEM
+            const fontMain = "times"; // Times New Roman é clássico de provas
+            const fontSizeEnunciado = 11;
+            const fontSizeAlternativa = 10;
 
             // Função para adicionar Marca D'água, Logo e Cabeçalho em cada página
             function addPageDecorations() {
@@ -981,47 +998,79 @@
             // Título do Caderno
             y = 35;
             doc.setFontSize(18);
-            doc.setTextColor(0);
+            doc.setTextColor(0); // Preto
             doc.setFont("helvetica", "bold");
             doc.text("Caderno de Questões", margin, y);
             y += 15;
 
             state.examQuestions.forEach((q, i) => {
-                if (y > pageHeight - 50) {
-                    doc.addPage();
-                    addPageDecorations();
-                    y = 35;
-                }
+                // 1. Título da Questão: "QUESTÃO N"
+                doc.setFont(fontMain, "bold");
                 doc.setFontSize(12);
-                doc.setFont("helvetica", "bold");
-                doc.setTextColor(0, 102, 204);
-                doc.text(`Questão ${i + 1} - ${q.discipline} (${q.subTopic})`, margin, y);
-                y += 8;
+                const title = `QUESTÃO ${i + 1}`;
+                
+                // Verifica espaço
+                if (y + 10 > pageHeight - margin) { doc.addPage(); addPageDecorations(); y = 35; }
+                
+                doc.text(title, margin, y);
+                
+                // Metadados discretos
+                doc.setFont(fontMain, "normal");
+                doc.setFontSize(9);
+                doc.setTextColor(100);
+                const metaText = `${q.discipline} • ${q.subTopic}`;
+                const titleWidth = doc.getTextWidth(title);
+                doc.text(metaText, margin + titleWidth + 5, y);
+                
+                y += 6;
 
-                doc.setFontSize(11);
-                doc.setFont("helvetica", "normal");
+                // 2. Enunciado
                 doc.setTextColor(0);
-                const splitText = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
-                doc.text(splitText, margin, y);
-                y += (splitText.length * 6) + 5;
+                doc.setFont(fontMain, "normal");
+                doc.setFontSize(fontSizeEnunciado);
+                
+                const splitEnunciado = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
+                
+                if (y + (splitEnunciado.length * 5) > pageHeight - margin) { doc.addPage(); addPageDecorations(); y = 35; }
+                
+                doc.text(splitEnunciado, margin, y);
+                y += (splitEnunciado.length * 5) + 4; // Espaço após enunciado
 
+                // 3. Alternativas
                 q.options.forEach((opt, idx) => {
-                    if (y > pageHeight - 20) {
-                        doc.addPage();
-                        addPageDecorations();
-                        y = 35;
-                    }
-                    const letter = String.fromCharCode(65 + idx);
-                    const optText = `(   )  ${letter}) ${opt}`;
-                    const splitOpt = doc.splitTextToSize(optText, pageWidth - (margin * 2) - 5);
-                    doc.text(splitOpt, margin + 5, y);
-                    y += (splitOpt.length * 6) + 2;
+                    const letter = String.fromCharCode(65 + idx); // A, B, C...
+                    
+                    // Prepara o texto da alternativa para ver quantas linhas ocupa
+                    // Largura disponível reduzida para dar indentação à letra
+                    const optMaxWidth = pageWidth - (margin * 2) - 8; 
+                    const splitOpt = doc.splitTextToSize(opt, optMaxWidth);
+                    const optHeight = splitOpt.length * 5;
+
+                    // Verifica quebra de página
+                    if (y + optHeight > pageHeight - margin) { doc.addPage(); addPageDecorations(); y = 35; }
+
+                    // Desenha a Letra em Negrito
+                    doc.setFont(fontMain, "bold");
+                    doc.setFontSize(fontSizeAlternativa);
+                    doc.text(letter, margin, y);
+
+                    // Desenha o Texto Normal
+                    doc.setFont(fontMain, "normal");
+                    doc.text(splitOpt, margin + 6, y); // +6mm de indentação
+
+                    y += optHeight + 2; // Espaço entre alternativas
                 });
-                y += 10;
-                doc.setDrawColor(240);
-                doc.line(margin, y - 5, pageWidth - margin, y - 5);
+
+                y += 6; // Espaço entre questões
+                
+                // Linha separadora fina
+                doc.setDrawColor(200);
+                doc.setLineWidth(0.1);
+                doc.line(margin, y, pageWidth - margin, y);
+                y += 6;
             });
 
+            // Rodapé com data
             const date = new Date().toLocaleDateString('pt-BR');
             doc.setFontSize(8);
             doc.setTextColor(150);
@@ -1030,6 +1079,7 @@
             doc.save("caderno_mednexus.pdf");
         }
 
+        // --- SCROLL TO TOP LOGIC ---
         window.onscroll = function() {
             const btn = document.getElementById('btn-back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
