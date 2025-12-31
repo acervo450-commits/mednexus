@@ -307,179 +307,116 @@
             { id: 'internato', label: 'Internato', icon: 'graduation-cap', description: 'Prática e conduta médica' },
         ];
 
+        // CONFIGURAÇÃO DAS DISCIPLINAS POR CICLO
         const DISCIPLINES = {
-            basico: ['Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 'Embriologia', 'Imunologia', 'Genética', 'Patologia Geral'],
-            clinico: ['Cardiologia', 'Pneumologia', 'Gastroenterologia', 'Nefrologia', 'Neurologia', 'Infectologia', 'Reumatologia', 'Endocrinologia', 'Hematologia', 'Psiquiatria'],
-            internato: ['Clínica Médica', 'Cirurgia Geral', 'Pediatria', 'Ginecologia e Obstetrícia', 'Medicina Preventiva', 'Medicina de Família', 'Urgência e Emergência']
+            basico: [
+                'Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 
+                'Embriologia',
+                'Imunologia', 'Genética', 'Patologia Geral'
+            ],
+            clinico: [
+                'Ginecologia', 
+                'Obstetrícia', 
+                'Cardiologia', 'Pneumologia', 'Gastroenterologia', 'Nefrologia', 
+                'Neurologia', 'Infectologia', 'Reumatologia', 'Endocrinologia', 
+                'Hematologia', 'Psiquiatria'
+            ],
+            internato: [
+                'Ginecologia', 
+                'Obstetrícia',
+                'Clínica Médica', 'Cirurgia Geral', 'Pediatria', 
+                'Medicina Preventiva', 'Medicina de Família', 'Urgência e Emergência'
+            ]
         };
 
+        // SUBTEMAS AGRUPADOS PARA MELHOR UX
         const SUB_TOPICS = {
+            // --- GINCOLOGIA ---
+            'Ginecologia': [
+                'Fisiologia Hormonal e Ciclo Menstrual', 
+                'Legislação e Planejamento Familiar',
+                'Anticoncepção e Farmacologia',
+                'Infecções em Ginecologia e Obstetrícia', 
+                'Climatério e Menopausa',
+                'Oncologia Ginecológica'
+            ],
+
+            // --- OBSTETRÍCIA ---
+            'Obstetrícia': [
+                'Modificações Fisiológicas da Gestação', 
+                'Pré-Natal e Assistência à Gestante', 
+                'Abortamento e Sangramentos da 1ª Metade', 
+                'Estática Fetal e Anatomia Obstétrica', 
+                'Mecanismo de Parto', 
+                'Fases Clínicas do Trabalho de Parto', 
+                'Parto: Vias e Assistência', 
+                'Fisiologia e Clínica do Puerpério', 
+                'Fisiologia da Lactação', 
+                'Hemorragias Puerperais', 
+                'Infecções Puerperais e Mamárias', 
+                'Saúde Pública e Mental Materna'
+            ],
+
+            // --- EMBRIOLOGIA ---
+            'Embriologia': [
+                'Gametogênese e Fecundação', 
+                'Embriogênese e Desenvolvimento Fetal', 
+                'Teratologia e Agentes Nocivos'
+            ],
+
+            // --- OUTRAS DISCIPLINAS (MANTIDAS) ---
             'Anatomia': ['Sistema Esquelético', 'Sistema Muscular', 'Neuroanatomia', 'Sistema Circulatório', 'Sistema Respiratório', 'Sistema Digestório'],
             'Fisiologia': ['Fisiologia Celular', 'Neurofisiologia', 'Cardiovascular', 'Respiratória', 'Renal', 'Endocrinologia'],
             'Cardiologia': ['Hipertensão', 'Insuficiência Cardíaca', 'Arritmias', 'Valvopatias', 'DAC']
         };
 
         const PBL_MODULES = [
-            'Mód. 1 - Concepção', 'Mód. 2 - Agressão e Defesa', 'Mód. 3 - Metabolismo', 'Mód. 4 - Cardiovascular',
-            'Mód. 5 - Respiratório', 'Mód. 6 - Mental', 'Mód. 7 - Locomoção', 'Mód. 8 - Envelhecimento'
+            'Mód. 1 - Concepção e Formação', 
+            'Mód. 2 - Agressão e Defesa', 
+            'Mód. 3 - Metabolismo', 
+            'Mód. 4 - Cardiovascular',
+            'Mód. 5 - Respiratório', 
+            'Mód. 6 - Problemas Mentais', 
+            'Mód. 7 - Percepção e Locomoção', 
+            'Mód. 8 - Envelhecimento'
         ];
 
-        // --- BASE DE DADOS PREENCHIDA COM INPUT DO USUÁRIO ---
+        // --- BASE DE DADOS PREENCHIDA COM AS 34 QUESTÕES (Ginecologia/Obstetrícia) ---
         const REAL_QUESTIONS = [
-            {
-                id: '1001', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Neuroanatomia',
-                text: 'A inervação da língua é rica e bem variada quanto à sua porção motora e sensitiva, com diferenças entre a geral – tato e temperatura – e específica – paladar. Assinale a alternativa que contenha o principal nervo responsável pela motricidade da língua e pela sensibilidade especial dos dois terços anteriores.',
-                options: [
-                    'N. hipoglosso e n. corda do tímpano.',
-                    'N. hipoglosso e n. facial.',
-                    'N. glossofaríngeo e n. hipoglosso.',
-                    'N. glossofaríngeo e n. corda do tímpano.',
-                    'N. hipoglosso e n. lingual.'
-                ],
-                correctIndex: 0,
-                difficulty: 'media', status: 'unanswered',
-                rationale: 'O nervo hipoglosso (NC XII) é o principal motor da língua. A sensibilidade especial (paladar) dos 2/3 anteriores é realizada pelo nervo corda do tímpano (ramo do NC VII - Facial).'
-            },
-            {
-                id: '1002', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Circulatório',
-                text: 'A língua apresenta uma rica vascularização necessária para o funcionamento adequado da musculatura que controla os seus movimentos. Qual é a artéria responsável pela irrigação da raiz da língua?',
-                options: [
-                    'A. sublingual.',
-                    'A. profunda da língua.',
-                    'A. lingual.',
-                    'Aa. dorsais da língua.',
-                    'A. sublingual e a. profunda da língua.'
-                ],
-                correctIndex: 3,
-                difficulty: 'dificil', status: 'unanswered',
-                rationale: 'As artérias dorsais da língua (ramos da a. lingual) são responsáveis por vascularizar a raiz da língua e a tonsila palatina.'
-            },
-            {
-                id: '1003', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Muscular',
-                text: 'A musculatura intrínseca da língua é importante, em especial, na alteração do formato da língua porque eles não se inserem em ossos. Assinale a alternativa incorreta acerca deles.',
-                options: [
-                    'O músculo longitudinal superior está localizado inferiormente à túnica mucosa do dorso da língua, curvando a língua longitudinalmente para cima e elevando o seu ápice.',
-                    'O músculo transverso está localizado inferiormente ao longitudinal superior e suas fibras estão dispostas no eixo laterolateral da língua.',
-                    'O músculo vertical tem suas fibras interpostas com o transverso e atua no achatamento da língua.',
-                    'O músculo longitudinal inferior está localizado inferiormente ao longitudinal superior e tem as mesmas funções.',
-                    'A atuação conjunta dos músculos vertical e transverso resulta em um alongamento e estreitamento da língua, podendo empurrá-la contra os dentes incisivos.'
-                ],
-                correctIndex: 3,
-                difficulty: 'media', status: 'unanswered',
-                rationale: 'A alternativa D está incorreta porque o músculo longitudinal inferior encurta a língua e abaixa o ápice, enquanto o superior eleva o ápice.'
-            },
-            {
-                id: '1004', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Muscular',
-                text: 'A musculatura extrínseca da língua é importante em especial na alteração de sua posição e eles se originam a partir de um osso. Assinale a alternativa correta acerca deles.',
-                options: [
-                    'O músculo genioglosso é o único que não é inervado pelo nervo hipoglosso (NC XII), mas apresenta importante função como músculo longitudinal interno.',
-                    'O músculo genioglosso ocupa um espaço relativamente pequeno da língua e insere-se na espinha geniculada da mandíbula.',
-                    'O músculo hioglosso insere-se na região lateral da língua e atua para a sua protusão e elevação de suas laterais.',
-                    'O músculo estiloglosso tem origem no processo estiloide e insere-se lateralmente na língua, auxiliando na elevação de suas laterais e retração.',
-                    'O principal músculo extrínseco é o longitudinal superior, que atua para curvar a língua longitudinalmente para cima.'
-                ],
-                correctIndex: 3,
-                difficulty: 'media', status: 'unanswered',
-                rationale: 'O estiloglosso origina-se no processo estiloide e atua retraindo a língua e elevando suas laterais.'
-            },
-            {
-                id: '1005', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Muscular',
-                text: 'A língua é, essencialmente, um órgão muscular recoberto por uma túnica mucosa. Essa característica faz com que a sua musculatura seja um componente muito importante para a sua função. Assinale a alternativa correta acerca da musculatura lingual.',
-                options: [
-                    'Há a musculatura extrínseca da língua formada por músculos que se originam exteriormente e a sua única função é de mudança do formato da língua.',
-                    'A principal função dos músculos intrínsecos da língua é a alteração de sua posição.',
-                    'O funcionamento dos músculos da língua é complexo e não podem ser resumidos a ações simples, podendo ter funções diferentes e antagônicas em suas partes.',
-                    'Um dos músculos intrínsecos é o genioglosso, que compõe a maior parte da língua e apresenta formato de leque.',
-                    'Um dos músculos extrínsecos é o longitudinal superior, que constitui à camada fina de músculos orientada longitudinalmente localizada abaixo da túnica mucosa no dorso da língua.'
-                ],
-                correctIndex: 2,
-                difficulty: 'facil', status: 'unanswered',
-                rationale: 'A musculatura lingual é complexa, com ações combinadas para movimentos precisos da fala e deglutição, não se limitando a ações isoladas simples.'
-            },
-            {
-                id: '1006', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Digestório',
-                text: 'Qual das estruturas abaixo corresponde a uma projeção existente na túnica mucosa do assoalho da cavidade oral abaixo da face inferior da língua? Essa estrutura está associada ao frênulo lingual e apresenta o óstio do ducto salivar submandibular.',
-                options: [
-                    'Sulco terminal da língua.',
-                    'Sulco mediano.',
-                    'Papila sublingual.',
-                    'Papilas circunvaladas.',
-                    'Papilas fungiformes.'
-                ],
-                correctIndex: 2,
-                difficulty: 'facil', status: 'unanswered',
-                rationale: 'A papila sublingual (ou carúncula sublingual) é onde se abrem os ductos das glândulas submandibulares.'
-            },
-            {
-                id: '1007', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Respiratório',
-                text: 'O palato mole fica suspenso e tem a sua posição controlada pela ação de músculos, que permitem com que ele bloqueie a comunicação entre as cavidades provisoriamente. Assinale a alternativa incorreta acerca desse tópico.',
-                options: [
-                    'O palato mole bloqueia, durante a deglutição, a comunicação entre a orofaringe e a nasofaringe.',
-                    'O músculo palatoglosso forma o arco palatino mais anterior e é um dos músculos extrínsecos da língua.',
-                    'O músculo palatofaríngeo forma o arco palatino mais posterior e atua como um músculo longitudinal da faringe.',
-                    'O músculo tensor do véu palatino também age na abertura da tuba auditiva.',
-                    'O músculo tensor do véu palatino atua na elevação do palato mole durante a deglutição para impedir com que o alimento passe para as cavidades nasais.'
-                ],
-                correctIndex: 4,
-                difficulty: 'media', status: 'unanswered',
-                rationale: 'A alternativa incorreta é a E, pois quem eleva o palato mole é o músculo *levantador* do véu palatino, não o tensor.'
-            },
-            {
-                id: '1008', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Muscular',
-                text: 'A faringe apresenta uma parede muscular forte capaz de realizar a condução do bolo alimentar e ar, além de projetar a voz para alterá-la. Assinale a alternativa incorreta acerca dessa musculatura.',
-                options: [
-                    'O músculo estilofaríngeo entra na camada interna na abertura entre os músculos constritores superior e médio.',
-                    'O único músculo da faringe que recebe inervação motora pelo n. glossofaríngeo é o músculo estilofaríngeo.',
-                    'Os músculos longitudinais da camada interna se unem próximos à sua inserção, inserindo-se em conjunto nas margens posterior e superior da cartilagem tireóidea.',
-                    'O músculo salpingofaríngeo é um dos componentes da camada externa da faringe, atuando na elevação da laringe.',
-                    'A atuação dos músculos constritores da faringe é na formação de uma crista peristáltica para empurrar o bolo alimentar ao esôfago.'
-                ],
-                correctIndex: 3,
-                difficulty: 'dificil', status: 'unanswered',
-                rationale: 'O músculo salpingofaríngeo pertence à camada *interna* (longitudinal) da musculatura da faringe, não à externa.'
-            },
-            {
-                id: '1009', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Neuroanatomia',
-                text: 'Qual dos seguintes nervos é o principal responsável pela inervação sensitiva da faringe?',
-                options: [
-                    'N. glossofaríngeo.',
-                    'N. facial.',
-                    'N. hipoglosso.',
-                    'N. vago.',
-                    'N. acessório.'
-                ],
-                correctIndex: 0,
-                difficulty: 'facil', status: 'unanswered',
-                rationale: 'O nervo glossofaríngeo (NC IX) fornece a maior parte da inervação sensitiva da mucosa da faringe.'
-            },
-            {
-                id: '1010', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Digestório',
-                text: 'A deglutição é um processo anatomicamente complexo que envolve a coordenação de várias estruturas faríngeas e laríngeas. Assinale a alternativa correta acerca desse processo.',
-                options: [
-                    'O primeiro passo é a compressão do bolo alimentar contra o palato duro.',
-                    'A posição primária do palato antes da deglutição é estar aberto e com bloqueio da nasofaringe.',
-                    'Há contração dos músculos faríngeos longitudinais e supra-hioideos para o rebaixamento da laringe.',
-                    'Há contração sequencial involuntária dos três músculos constritores que empurra o bolo para o esôfago.',
-                    'Os músculos constritores da faringe atuam simultaneamente para a diminuição da luz da faringe.'
-                ],
-                correctIndex: 3,
-                difficulty: 'media', status: 'unanswered',
-                rationale: 'Na fase faríngea, ocorre uma onda peristáltica sequencial dos músculos constritores (superior, médio e inferior) para propelir o bolo.'
-            },
-            {
-                id: '1011', cycle: 'basico', discipline: 'Anatomia', subTopic: 'Sistema Digestório',
-                text: 'A faringe estende-se desde a sua comunicação com as cavidades nasais até o início do esôfago. Quais são os seus limites superior e inferior?',
-                options: [
-                    'Base do crânio e margem superior do osso hioide.',
-                    'Margem inferior da cartilagem cricoidea e margem inferior da vértebra C VI.',
-                    'Margem superior da vértebra C III e margem inferior da vértebra C VII.',
-                    'Osso palatino e margem superior do osso hioide.',
-                    'Base do crânio e margem inferior da vértebra C VI.'
-                ],
-                correctIndex: 4,
-                difficulty: 'facil', status: 'unanswered',
-                rationale: 'A faringe se estende da base do crânio até a margem inferior da cartilagem cricoide, que corresponde ao nível da vértebra C6.'
-            }
+            { id: '1', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O controle central do ciclo menstrual reside no hipotálamo, especificamente no núcleo arqueado. Sobre a secreção do Hormônio Liberador de Gonadotrofina (GnRH), assinale a alternativa que descreve corretamente sua característica fundamental para a manutenção da função do eixo:', options: ['Sua secreção deve ser contínua e linear para manter os níveis estáveis de FSH e LH.', 'A liberação ocorre em pulsos rítmicos; uma secreção contínua levaria à desensibilização (down-regulation) dos receptores hipofisários.', 'O GnRH é secretado exclusivamente em resposta ao pico de progesterona na fase lútea.', 'A pulsatilidade do GnRH é controlada diretamente pelos níveis de inibina B, sem influência neural.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A secreção pulsátil do GnRH é essencial para evitar a desensibilização dos receptores hipofisários.' },
+            { id: '2', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'A teoria das "Duas Células, Duas Gonadotrofinas" explica a produção de estrogênio no folículo ovariano. Qual é a função específica das Células da Teca neste processo?', options: ['Converter androgênios em estradiol através da enzima aromatase.', 'Produzir progesterona para sustentar o corpo lúteo inicial.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do LH.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do FSH.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. As células da teca, sob estímulo do LH, produzem androgênios que serão convertidos em estrogênio na granulosa.' },
+            { id: '3', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'As Células da Granulosa desempenham um papel crucial na foliculogênese. Por que elas dependem das Células da Teca para produzir estradiol?', options: ['Porque as Células da Granulosa não possuem receptores para FSH.', 'Porque elas não possuem a enzima aromatase necessária para a conversão final.', 'Porque elas não conseguem produzir os androgênios precursores, pois não possuem as enzimas necessárias para essa etapa inicial.', 'Porque o LH inibe a produção de estradiol diretamente na Granulosa.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. As células da granulosa carecem das enzimas para a síntese de androgênios, dependendo da teca para fornecê-los.' },
+            { id: '4', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual enzima, induzida pelo FSH nas células da granulosa, é responsável pela conversão de androstenediona e testosterona em estradiol?', options: ['5-alfa-redutase.', 'Aromatase.', 'Colesterol desmolase.', '17-hidroxilase.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. A enzima aromatase converte androgênios em estrogênios.' },
+            { id: '5', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Para que ocorra o Pico de LH e a consequente ovulação, é necessário um evento específico de feedback positivo. Quais são as condições críticas de nível de estradiol e duração necessárias para disparar este evento?', options: ['Estradiol > 100 pg/mL por 24 horas.', 'Estradiol > 200 pg/mL por cerca de 50 horas.', 'Estradiol > 400 pg/mL por 12 horas.', 'Queda abrupta do estradiol seguida de aumento de progesterona.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Níveis sustentados de estradiol acima de 200 pg/mL por cerca de 50h desencadeiam o feedback positivo do LH.' },
+            { id: '6', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O pico de LH desencadeia uma série de eventos que culminam na ovulação. Dentre os eventos citados abaixo, qual NÃO é desencadeado diretamente por este pico?', options: ['Retomada da meiose do oócito (de prófase I para metáfase II).', 'Produção de enzimas proteolíticas como a colagenase.', 'Início da secreção de FSH para recrutamento da próxima coorte folicular.', 'Ruptura folicular e liberação do ovócito.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. O pico de LH promove a maturação e ruptura folicular, mas o recrutamento da próxima coorte é dependente de FSH na fase seguinte.' },
+            { id: '7', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Cronologicamente, quanto tempo após o início do pico de LH ocorre a ovulação?', options: ['2 a 4 horas.', '10 a 12 horas.', '16 a 32 horas.', '48 a 72 horas.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. A ovulação ocorre tipicamente 32 a 36 horas após o início do pico de LH (ou 10-12h após o pico máximo).' },
+            { id: '8', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Se não houver fecundação, o corpo lúteo degenera. Qual é o mecanismo fisiológico imediato que leva à menstruação (descamação endometrial)?', options: ['Aumento súbito de FSH causando necrose tecidual.', 'Queda abrupta da progesterona causando constrição das artérias espiraladas e isquemia.', 'Excesso de produção de hCG pelo endométrio não receptivo.', 'Inibição direta do endométrio pela prolactina.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A queda da progesterona leva à vasoconstrição das artérias espiraladas e isquemia do endométrio funcional.' },
+            { id: '9', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'A Lei 14.443/2022 trouxe mudanças significativas para o planejamento familiar no Brasil. Em relação ao consentimento para esterilização cirúrgica (laqueadura ou vasectomia), o que mudou?', options: ['O consentimento do cônjuge continua obrigatório apenas para mulheres.', 'O consentimento do cônjuge continua obrigatório apenas para homens.', 'A autorização do cônjuge foi dispensada, tornando a decisão um ato personalíssimo.', 'É necessária a autorização de uma junta médica em caso de discordância conjugal.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. A nova lei dispensa o consentimento do cônjuge para a esterilização voluntária.' },
+            { id: '10', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual é a nova idade mínima para realização de esterilização cirúrgica voluntária no Brasil, segundo a Lei 14.443/2022?', options: ['18 anos.', '21 anos.', '25 anos.', '30 anos.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. A idade mínima foi reduzida para 21 anos.' },
+            { id: '11', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Existe uma exceção à regra da idade mínima para esterilização cirúrgica. Em qual situação uma pessoa com menos de 21 anos pode realizar o procedimento?', options: ['Se tiver autorização judicial.', 'Se tiver o consentimento dos pais.', 'Se tiver pelo menos dois filhos vivos.', 'Se for casada civilmente há mais de 2 anos.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Ter pelo menos dois filhos vivos permite a esterilização antes dos 21 anos.' },
+            { id: '12', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Sobre a realização de laqueadura durante o período de parto, o que determina a legislação atual (Lei 14.443/2022)?', options: ['É estritamente proibida, devido ao risco de arrependimento puerperal.', 'É permitida apenas se a paciente tiver tido cesáreas anteriores sucessivas.', 'É permitida, desde que a vontade tenha sido manifestada com no mínimo 60 dias de antecedência.', 'É permitida sem restrições de prazo, bastando o consentimento verbal na hora do parto.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. É permitida no parto, desde que respeitado o prazo de 60 dias entre a manifestação da vontade e o ato cirúrgico.' },
+            { id: '13', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Segundo os Critérios Médicos de Elegibilidade da OMS, como é definida a Categoria 4?', options: ['Uma condição em que as vantagens do método superam os riscos teóricos ou comprovados.', 'Uma condição onde os riscos teóricos ou comprovados superam as vantagens.', 'Uma condição que representa um risco inaceitável à saúde se o método for utilizado (contraindicação absoluta).', 'Uma condição para a qual não há restrições ao uso do método.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Categoria 4 indica risco inaceitável (contraindicação absoluta).' },
+            { id: '14', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual das situações abaixo representa um exemplo clássico de Categoria 4 da OMS para o uso de contraceptivos contendo estrogênio?', options: ['Tabagismo em mulheres com menos de 35 anos.', 'História familiar de câncer de mama.', 'Enxaqueca com aura (focal).', 'Obesidade (IMC > 30).'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Enxaqueca com aura é Categoria 4 para estrogênios devido ao risco elevado de AVC.' },
+            { id: '15', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O uso de pílulas combinadas em lactantes entre 6 semanas e 6 meses pós-parto é classificado como Categoria 3. O que isso significa na prática clínica?', options: ['O método é a primeira escolha.', 'O método não deve ser usado, pois os riscos superam os benefícios, a menos que não haja outra opção disponível.', 'O uso é irrestrito e seguro.', 'É uma contraindicação absoluta e fatal.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Categoria 3 indica que os riscos superam os benefícios.' },
+            { id: '16', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual é o principal mecanismo de ação do Dispositivo Intrauterino (DIU) de Cobre?', options: ['Inibição da ovulação através da liberação sistêmica de íons.', 'Atrofia severa do endométrio impedindo a nidação.', 'Criação de um ambiente intrauterino hostil via íons de cobre, que possuem ação espermicida e impedem a fertilização.', 'Espessamento do muco cervical sem afetar a motilidade dos espermatozoides.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. O cobre cria um ambiente inflamatório estéril e espermicida.' },
+            { id: '17', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Sobre o SIU de Levonorgestrel (Mirena), é correto afirmar que:', options: ['Ele inibe a ovulação em 100% das usuárias.', 'A amenorreia observada é causada pela inibição total do eixo hipotálamo-hipófise.', 'Atua localmente atrofiando o endométrio e espessando o muco cervical; a anovulação ocorre em apenas 20-30% das usuárias.', 'Seu mecanismo principal é espermicida, similar ao cobre.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. O efeito é principalmente local; a maioria das usuárias continua ovulando.' },
+            { id: '18', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O Acetato de Medroxiprogesterona de Depósito (injetável trimestral) está associado a alguns efeitos adversos específicos devido à sua alta potência na inibição do eixo. Qual das opções abaixo cita corretamente esses efeitos?', options: ['Aumento excessivo da densidade mineral óssea e retorno imediato da fertilidade.', 'Redução reversível da densidade mineral óssea e retorno tardio da fertilidade (9 a 12 meses).', 'Aumento do risco de câncer de ovário e retorno da fertilidade em 1 mês.', 'Hiperplasia endometrial e sangramento excessivo.'], correctIndex: 1, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: B. Pode causar perda óssea reversível e atraso no retorno da fertilidade.' },
+            { id: '19', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'No diagnóstico da sífilis, os testes treponêmicos e não-treponêmicos têm funções distintas. Qual é a principal característica dos testes treponêmicos (ex: Teste Rápido, FTA-Abs)?', options: ['São utilizados quantitativamente para controle de cura.', 'Negativam alguns meses após o tratamento eficaz.', 'Permanecem positivos por toda a vida (cicatriz sorológica) na maioria dos casos.', 'Estão sujeitos ao efeito prozona em altas titulações.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Testes treponêmicos tendem a permanecer positivos (cicatriz sorológica).' },
+            { id: '20', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O que é o "Efeito Prozona" que pode ocorrer no diagnóstico da sífilis secundária?', options: ['Um falso-positivo causado por reação cruzada com outras doenças.', 'Um falso-negativo no teste não-treponêmico (VDRL) devido ao excesso de anticorpos na amostra não diluída.', 'A reativação da sífilis após tratamento inadequado.', 'A positividade persistente mesmo após a cura bacteriológica.'], correctIndex: 1, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: B. Excesso de anticorpos impede a aglutinação visível (falso-negativo).' },
+            { id: '21', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Para o controle de cura da sífilis, qual tipo de teste é o indicado?', options: ['Teste Rápido.', 'FTA-Abs.', 'ELISA.', 'VDRL (Teste não-treponêmico).'], correctIndex: 3, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: D. VDRL é quantitativo e seus títulos caem com a cura.' },
+            { id: '22', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual é o esquema de tratamento recomendado pelo Ministério da Saúde para um paciente diagnosticado com Sífilis Latente Tardia (mais de 1 ano de evolução) ou de duração ignorada?', options: ['Penicilina Benzatina 2,4 milhões UI, dose única.', 'Penicilina Benzatina 2,4 milhões UI, semanal, por 3 semanas (Total: 7,2 milhões UI).', 'Ceftriaxona 1g dose única.', 'Doxiciclina 100mg por 7 dias.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Sífilis tardia requer 3 doses semanais de 2,4 milhões UI.' },
+            { id: '23', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Para o tratamento da Sífilis Recente (Primária, Secundária ou Latente < 1 ano), a dose recomendada de Penicilina Benzatina é:', options: ['1,2 milhão UI, dose única.', '2,4 milhões UI, dose única.', '4,8 milhões UI, divididas em duas doses.', '7,2 milhões UI, divididas em três semanas.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. Sífilis recente é tratada com dose única de 2,4 milhões UI.' },
+            { id: '24', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'No manejo sindrômico ou etiológico de uretrites/cervicites causadas por Gonorreia e Clamídia, qual é o tratamento preferencial atual?', options: ['Ciprofloxacino 500mg VO dose única.', 'Penicilina Benzatina 2,4 milhões UI.', 'Ceftriaxona 500mg IM + Azitromicina 1g VO.', 'Metronidazol 2g VO dose única.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Cobre Neisseria gonorrhoeae (Ceftriaxona) e Chlamydia trachomatis (Azitromicina).' },
+            { id: '25', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Sobre a infecção aguda pelo HIV e o diagnóstico, o termo "janela imunológica" refere-se a:', options: ['Período em que o vírus está latente e não é transmissível.', 'Intervalo entre a infecção e a detecção de anticorpos ou antígenos pelos testes diagnósticos.', 'Período em que o paciente apresenta sintomas de gripe forte.', 'Tempo necessário para o vírus destruir todo o sistema imune.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. É o tempo até o teste virar positivo após a exposição.' },
+            { id: '26', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Os testes de HIV de 4ª geração representaram um avanço significativo no diagnóstico precoce. O que eles detectam que permite reduzir a janela imunológica para cerca de 15-20 dias?', options: ['Apenas anticorpos IgG e IgM.', 'O RNA viral diretamente.', 'O antígeno p24 simultaneamente aos anticorpos.', 'A transcriptase reversa viral.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Detectam anticorpos e o antígeno p24 (viral).' },
+            { id: '27', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'De acordo com os fluxogramas de diagnóstico do HIV no Brasil, se um teste de triagem (ex: teste rápido ou imunoensaio) for reagente, qual é a conduta imediata?', options: ['Iniciar o tratamento antirretroviral imediatamente, sem novos exames.', 'Repetir o mesmo teste em 30 dias.', 'Realizar um teste confirmatório mais específico (como Western Blot, Imunoblot ou teste molecular) para descartar falso-positivos.', 'Considerar o paciente negativo se ele for assintomático.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Um teste reagente exige confirmação com outro método.' },
+            { id: '28', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'O tratamento das parcerias sexuais é obrigatório em casos de ISTs como clamídia e gonorreia. Qual é o principal objetivo dessa medida?', options: ['Apenas reduzir a ansiedade do parceiro.', 'Quebrar a cadeia de transmissão e evitar a reinfecção do paciente tratado (efeito "ping-pong").', 'Cumprir uma exigência burocrática da notificação compulsória.', 'Garantir a esterilidade do casal.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. Evitar a reinfecção (efeito pingue-pongue) e transmissão.' },
+            { id: '29', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Na farmacologia, o uso de análogos de GnRH de forma contínua é utilizado para tratar endometriose e puberdade precoce. Qual mecanismo fisiológico explica a eficácia desse tratamento?', options: ['Estímulo da pulsatilidade natural.', 'Aumento da sensibilidade dos receptores hipofisários.', 'Desensibilização (down-regulation) dos receptores e bloqueio da liberação de gonadotrofinas.', 'Conversão periférica de GnRH em estrogênio.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. A exposição contínua ao GnRH dessensibiliza a hipófise, inibindo FSH/LH.' },
+            { id: '30', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'A exigência de autorização do cônjuge para procedimentos de esterilização na lei antiga (9.263/1996) era frequentemente criticada. Qual termo era utilizado pelos críticos para descrever essa submissão da autonomia corporal da mulher?', options: ['Proteção familiar.', 'Tutela conjugal ou servidão patriarcal.', 'Responsabilidade compartilhada.', 'Consentimento informado mútuo.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. Era vista como uma tutela indevida sobre o corpo da mulher.' },
+            { id: '31', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Por que o estrogênio é contraindicado (Categoria 4) em pacientes com enxaqueca com aura?', options: ['Porque aumenta a frequência das crises de dor.', 'Porque anula o efeito dos analgésicos.', 'Devido ao risco sinérgico elevado de Acidente Vascular Cerebral (AVC) isquêmico.', 'Porque causa hipotensão severa nessas pacientes.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. A combinação aumenta drasticamente o risco de AVC isquêmico.' },
+            { id: '32', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'A Lei 14.443/2022 mantém um prazo mínimo de reflexão entre a manifestação da vontade de esterilização e a cirurgia. Qual é a duração desse prazo e seu objetivo?', options: ['30 dias, para agendamento hospitalar.', '60 dias, visando garantir o consentimento informado e reduzir riscos de arrependimento.', '90 dias, para avaliação psicológica obrigatória.', '180 dias, para tentativa de outros métodos reversíveis.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. O prazo legal é de 60 dias para reflexão.' },
+            { id: '33', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual hormônio é responsável por estimular as células da granulosa a produzirem a enzima aromatase?', options: ['LH.', 'FSH.', 'GnRH.', 'Progesterona.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. O FSH estimula a atividade da aromatase na granulosa.' },
+            { id: '34', cycle: 'clinico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Mód. 7 - Percepção e Locomoção', text: 'Qual é a única droga considerada segura e eficaz para prevenir a transmissão vertical da sífilis (sífilis congênita) durante a gestação?', options: ['Doxiciclina.', 'Eritromicina.', 'Ceftriaxona.', 'Penicilina Benzatina.'], correctIndex: 3, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: D. Apenas a Penicilina trata a mãe e o feto adequadamente.' }
         ];
 
         // --- 2. STATE ---
@@ -511,7 +448,7 @@
         }
 
         function generateMockDB() {
-            // BASE PREENCHIDA COM QUESTÕES REAIS
+            // BASE PREENCHIDA
             let mocks = [];
             state.db = [...REAL_QUESTIONS, ...mocks];
             document.getElementById('total-db-count').innerText = state.db.length;
@@ -568,6 +505,8 @@
                         `).join('')}
                     </div>
                 `;
+                
+                // Renderização Dinâmica dos Subtópicos
                 const relevantSubTopics = state.disciplines.filter(d => SUB_TOPICS[d]);
                 if (relevantSubTopics.length > 0) {
                     html += `
