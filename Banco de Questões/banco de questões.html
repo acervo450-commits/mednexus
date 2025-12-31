@@ -958,26 +958,7 @@
         function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
 
         // --- PDF GENERATION WITH LOGO ---
-        // Helper to fetch image and convert to Data URL
-        function getImageDataUrl(url) {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.crossOrigin = "Anonymous"; // Try to handle CORS
-                img.src = url;
-                img.onload = () => {
-                    const canvas = document.createElement("canvas");
-                    canvas.width = img.width;
-                    canvas.height = img.height;
-                    const ctx = canvas.getContext("2d");
-                    ctx.drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL("image/png"));
-                };
-                img.onerror = (e) => {
-                    console.warn("Could not load image for PDF", e);
-                    resolve(null); // Fallback if image fails
-                };
-            });
-        }
+        // (Função getImageDataUrl removida pois não será mais usada)
 
         async function downloadPDF() {
             if (!window.jspdf) {
@@ -998,10 +979,6 @@
             const colorAccent = [2, 132, 199];   // Sky 600 (Destaques)
             const colorText = [33, 33, 33];      // Texto Principal
 
-            // 1. Fetch Logo Específica para o PDF (ATUALIZADO PARA 2.0)
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/logo_pdf2.0.png";
-            const logoData = await getImageDataUrl(logoUrl);
-
             // Fontes: Helvetica para titulos (Moderno), Times para texto (Prova)
             const fontDisplay = "helvetica";
             const fontBody = "times";
@@ -1014,18 +991,22 @@
                 doc.setFillColor(...colorPrimary);
                 doc.rect(0, 0, pageWidth, 28, 'F'); // Barra superior
 
-                // Logo no Cabeçalho
-                if (logoData) {
-                    // Ajuste de proporção para a logo oficial
-                    const imgWidth = 35; 
-                    const imgHeight = 12; 
-                    doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
-                } else {
-                    doc.setFont(fontDisplay, "bold");
-                    doc.setFontSize(18);
-                    doc.setTextColor(255, 255, 255);
-                    doc.text("MEDNEXUS", margin, 19);
-                }
+                // --- LOGO CRIADA MANUALMENTE (Vector) ---
+                // Ícone: Quadrado arredondado azul claro
+                doc.setFillColor(...colorAccent);
+                doc.roundedRect(margin, 7, 10, 10, 2, 2, 'F'); // x, y, w, h, rx, ry
+                
+                // Símbolo: Letra 'M' estilizada dentro do quadrado
+                doc.setTextColor(255, 255, 255);
+                doc.setFont(fontDisplay, "bold");
+                doc.setFontSize(9);
+                doc.text("M", margin + 3.2, 13.5);
+
+                // Texto da Logo: "MEDNEXUS"
+                doc.setFontSize(16);
+                doc.setTextColor(255, 255, 255);
+                doc.text("MEDNEXUS", margin + 14, 14);
+                // ----------------------------------------
 
                 // Texto do Cabeçalho à direita
                 doc.setFont(fontDisplay, "bold");
