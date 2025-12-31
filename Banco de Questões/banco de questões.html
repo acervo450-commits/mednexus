@@ -944,7 +944,7 @@
             
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
-            const margin = 15; // Margem otimizada
+            const margin = 15; 
             let y = 0; 
             
             // Paleta de Cores do Curso
@@ -952,8 +952,8 @@
             const colorAccent = [2, 132, 199];   // Sky 600 (Destaques)
             const colorText = [33, 33, 33];      // Texto Principal
 
-            // 1. Fetch Logo Específica
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/logo%20pdf.png";
+            // 1. Fetch Logo Oficial do Site (REVERTIDO)
+            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
             const logoData = await getImageDataUrl(logoUrl);
 
             // Fontes: Helvetica para titulos (Moderno), Times para texto (Prova)
@@ -970,9 +970,10 @@
 
                 // Logo no Cabeçalho
                 if (logoData) {
-                    const imgWidth = 45; 
-                    const imgHeight = 13; 
-                    doc.addImage(logoData, 'PNG', margin, 7, imgWidth, imgHeight);
+                    // Ajuste de proporção para a logo oficial (BQ.png)
+                    const imgWidth = 35; 
+                    const imgHeight = 12; 
+                    doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
                 } else {
                     doc.setFont(fontDisplay, "bold");
                     doc.setFontSize(18);
