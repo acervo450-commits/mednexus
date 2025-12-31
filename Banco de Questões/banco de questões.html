@@ -952,8 +952,8 @@
             const colorAccent = [2, 132, 199];   // Sky 600 (Destaques)
             const colorText = [33, 33, 33];      // Texto Principal
 
-            // 1. Fetch Logo Oficial do Site (REVERTIDO)
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
+            // 1. Fetch Logo Específica para o PDF (ATUALIZADO PARA 2.0)
+            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/logo_pdf2.0.png";
             const logoData = await getImageDataUrl(logoUrl);
 
             // Fontes: Helvetica para titulos (Moderno), Times para texto (Prova)
@@ -970,7 +970,7 @@
 
                 // Logo no Cabeçalho
                 if (logoData) {
-                    // Ajuste de proporção para a logo oficial (BQ.png)
+                    // Ajuste de proporção para a logo oficial
                     const imgWidth = 35; 
                     const imgHeight = 12; 
                     doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
