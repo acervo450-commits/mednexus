@@ -139,6 +139,7 @@
             <!-- Logo & Nav -->
             <div class="flex items-center gap-4">
                 <div id="header-logo-area" class="flex items-center gap-2 cursor-pointer" onclick="resetToDashboard()">
+                    <!-- NOVA LOGO ATUALIZADA -->
                     <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png" 
                          alt="MEDNEXUS" 
                          class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
@@ -328,7 +329,7 @@
             basico: [
                 'Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 
                 'Embriologia', 'Imunologia', 'Genética', 'Patologia Geral',
-                'Ginecologia', 'Farmacologia', 'Saúde Coletiva', 'Obstetrícia' // Adicionado Obstetrícia para Módulo 7
+                'Ginecologia', 'Farmacologia', 'Saúde Coletiva', 'Obstetrícia' 
             ],
             clinico: [
                 'Ginecologia', 
@@ -1032,6 +1033,39 @@
                 </div>
             `;
         }
+
+        function renderQuestions() {
+            const container = document.getElementById('questions-container');
+            const label = document.getElementById('exam-mode-label');
+            if (state.viewMode === 'list') {
+                label.innerText = 'Lista Completa';
+                document.getElementById('zen-controls').classList.add('hidden');
+                document.getElementById('zen-progress-container').classList.add('hidden');
+                container.innerHTML = state.examQuestions.map((q, i) => renderQuestionHTML(q, i)).join('<div class="h-8"></div>');
+            } else {
+                label.innerText = 'Modo Zen';
+                document.getElementById('zen-controls').classList.remove('hidden');
+                document.getElementById('zen-progress-container').classList.remove('hidden');
+                const q = state.examQuestions[state.currentZenIndex];
+                container.innerHTML = renderQuestionHTML(q, state.currentZenIndex);
+            }
+            if (typeof lucide !== 'undefined') lucide.createIcons();
+            updateZenUI();
+        }
+
+        function updateZenUI() {
+            if (state.viewMode !== 'zen') return;
+            const percent = ((state.currentZenIndex + 1) / state.examQuestions.length) * 100;
+            document.getElementById('zen-progress-bar').style.width = `${percent}%`;
+            document.getElementById('zen-current-q').innerText = `Questão ${state.currentZenIndex + 1}`;
+            document.getElementById('zen-total-q').innerText = `de ${state.examQuestions.length}`;
+            document.getElementById('zen-counter').innerText = `${state.currentZenIndex + 1} / ${state.examQuestions.length}`;
+            document.getElementById('btn-zen-prev').disabled = state.currentZenIndex === 0;
+            document.getElementById('btn-zen-next').disabled = state.currentZenIndex === state.examQuestions.length - 1;
+        }
+
+        function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
+        function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
 
         // --- PDF GENERATION WITH LOGO ---
         // Helper to fetch image and convert to Data URL
