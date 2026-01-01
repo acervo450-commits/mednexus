@@ -1032,10 +1032,9 @@
             // Paleta de Cores do Curso
             const colorPrimary = [15, 23, 42];   // Slate 900 (Cabeçalho)
             const colorAccent = [2, 132, 199];   // Sky 600 (Destaques)
-            const colorText = [33, 33, 33];      // Texto Principal
 
-            // 1. Fetch Logo Específica para o PDF (ATUALIZADO PARA 2.0)
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/logo_pdf2.0.png";
+            // 1. Fetch Logo Oficial do Site
+            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
             const logoData = await getImageDataUrl(logoUrl);
 
             // Fontes: Helvetica para titulos (Moderno), Times para texto (Prova)
@@ -1050,9 +1049,8 @@
                 doc.setFillColor(...colorPrimary);
                 doc.rect(0, 0, pageWidth, 28, 'F'); // Barra superior
 
-                // Logo no Cabeçalho
+                // Logo no Cabeçalho (Retangular - Original)
                 if (logoData) {
-                    // Ajuste de proporção para a logo oficial
                     const imgWidth = 35; 
                     const imgHeight = 12; 
                     doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
@@ -1079,18 +1077,31 @@
                 doc.text("MEDNEXUS", pageWidth / 2, pageHeight / 2, { align: "center", angle: 45 });
                 doc.restoreGraphicsState();
 
-                // Rodapé
+                // --- RODAPÉ ---
                 doc.setDrawColor(200);
-                doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
+                doc.line(margin, pageHeight - 25, pageWidth - margin, pageHeight - 25);
                 
+                // Texto do Rodapé
                 doc.setFont(fontDisplay, "normal");
                 doc.setFontSize(8);
                 doc.setTextColor(100);
                 const date = new Date().toLocaleDateString('pt-BR');
-                doc.text(`Gerado em ${date} • Material Exclusivo MEDNEXUS`, margin, pageHeight - 7);
+                doc.text(`Gerado em ${date} • Material Exclusivo MEDNEXUS`, margin, pageHeight - 18);
                 
                 const pageStr = `Página ${pageNumber}`;
-                doc.text(pageStr, pageWidth - margin - doc.getTextWidth(pageStr), pageHeight - 7);
+                doc.text(pageStr, pageWidth - margin - doc.getTextWidth(pageStr), pageHeight - 18);
+
+                // Logo no Rodapé (Quadrada e Maior)
+                if (logoData) {
+                    // Força proporção quadrada (w=h) e tamanho maior que o cabeçalho (22x22mm)
+                    const footerLogoSize = 22; 
+                    // Centralizado horizontalmente no rodapé
+                    const xPos = (pageWidth - footerLogoSize) / 2;
+                    // Posicionado abaixo da linha do rodapé
+                    const yPos = pageHeight - 24; 
+                    
+                    doc.addImage(logoData, 'PNG', xPos, yPos, footerLogoSize, footerLogoSize);
+                }
                 
                 pageNumber++;
             }
@@ -1104,9 +1115,8 @@
             doc.setFontSize(14);
             doc.setTextColor(...colorPrimary);
             
-            // Subtítulo dinâmico (ex: CICLO BÁSICO - GINECOLOGIA)
+            // Subtítulo dinâmico
             let cycleLabel = state.cycle === 'basico' ? 'CICLO BÁSICO' : state.cycle === 'clinico' ? 'CICLO CLÍNICO' : 'INTERNATO';
-            // Pega a primeira disciplina selecionada para o título, ou "GERAL"
             let discLabel = state.disciplines.length > 0 ? state.disciplines[0].toUpperCase() : "GERAL";
             if (state.disciplines.length > 1) discLabel += " E OUTRAS";
             
@@ -1121,8 +1131,8 @@
 
             // LOOP DE QUESTÕES
             state.examQuestions.forEach((q, i) => {
-                // Verificar espaço na página
-                if (y > pageHeight - 40) {
+                // Verificar espaço na página (considerando rodapé maior)
+                if (y > pageHeight - 50) {
                     doc.addPage();
                     addPageLayout();
                     y = 40;
@@ -1137,26 +1147,24 @@
                 doc.setTextColor(255, 255, 255);
                 doc.text(`QUESTÃO ${i + 1}`, margin + 2, y);
 
-                // Metadados (Disciplina | Assunto)
+                // Metadados
                 doc.setFont(fontDisplay, "bold");
                 doc.setFontSize(8);
-                doc.setTextColor(120); // Cinza
-                // Limitar tamanho do subtópico para não quebrar
+                doc.setTextColor(120); 
                 let metaText = `${q.discipline}  |  ${q.subTopic}`;
                 if (metaText.length > 65) metaText = metaText.substring(0, 62) + "...";
                 doc.text(metaText.toUpperCase(), margin + 28, y);
 
                 y += 8;
 
-                // 2. Enunciado (Fonte Serifada estilo Prova)
+                // 2. Enunciado
                 doc.setFont(fontBody, "normal");
                 doc.setFontSize(11);
-                doc.setTextColor(0); // Preto
+                doc.setTextColor(0); 
                 
                 const splitEnunciado = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
                 
-                // Checa se o enunciado inteiro cabe, se não, quebra página
-                if (y + (splitEnunciado.length * 5) > pageHeight - 20) {
+                if (y + (splitEnunciado.length * 5) > pageHeight - 35) {
                     doc.addPage();
                     addPageLayout();
                     y = 40;
@@ -1178,33 +1186,31 @@
 
                 // 3. Alternativas
                 q.options.forEach((opt, idx) => {
-                    const letter = String.fromCharCode(65 + idx); // A, B, C...
-                    
+                    const letter = String.fromCharCode(65 + idx); 
                     const optMaxWidth = pageWidth - (margin * 2) - 8; 
                     const splitOpt = doc.splitTextToSize(opt, optMaxWidth);
                     const optHeight = splitOpt.length * 5;
 
-                    // Quebra de página suave dentro das alternativas
-                    if (y + optHeight > pageHeight - 15) {
+                    if (y + optHeight > pageHeight - 30) {
                         doc.addPage();
                         addPageLayout();
                         y = 40;
                     }
 
-                    // Letra (Negrito, Cor de Destaque)
+                    // Letra
                     doc.setFont(fontBody, "bold");
-                    doc.setTextColor(...colorPrimary); // Azul escuro
+                    doc.setTextColor(...colorPrimary); 
                     doc.text(letter, margin, y);
 
-                    // Texto da Alternativa
+                    // Texto
                     doc.setFont(fontBody, "normal");
-                    doc.setTextColor(40); // Cinza muito escuro
+                    doc.setTextColor(40); 
                     doc.text(splitOpt, margin + 7, y);
 
-                    y += optHeight + 2; // Espaço entre opções
+                    y += optHeight + 2; 
                 });
 
-                y += 8; // Espaço entre questões
+                y += 8; 
             });
 
             doc.save("caderno_mednexus.pdf");
