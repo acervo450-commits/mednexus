@@ -1049,11 +1049,11 @@
                 doc.setFillColor(...colorPrimary);
                 doc.rect(0, 0, pageWidth, 28, 'F'); // Barra superior
 
-                // Logo no Cabeçalho (Retangular - Original)
+                // Logo no Cabeçalho (Quadrada)
                 if (logoData) {
-                    const imgWidth = 35; 
-                    const imgHeight = 12; 
-                    doc.addImage(logoData, 'PNG', margin, 8, imgWidth, imgHeight);
+                    const imgSize = 20; // 20x20mm (Quadrado)
+                    // Centralizar verticalmente na barra de 28mm: (28 - 20) / 2 = 4
+                    doc.addImage(logoData, 'PNG', margin, 4, imgSize, imgSize);
                 } else {
                     doc.setFont(fontDisplay, "bold");
                     doc.setFontSize(18);
@@ -1079,29 +1079,19 @@
 
                 // --- RODAPÉ ---
                 doc.setDrawColor(200);
-                doc.line(margin, pageHeight - 25, pageWidth - margin, pageHeight - 25);
+                doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
                 
                 // Texto do Rodapé
                 doc.setFont(fontDisplay, "normal");
                 doc.setFontSize(8);
                 doc.setTextColor(100);
                 const date = new Date().toLocaleDateString('pt-BR');
-                doc.text(`Gerado em ${date} • Material Exclusivo MEDNEXUS`, margin, pageHeight - 18);
+                doc.text(`Gerado em ${date} • Material Exclusivo MEDNEXUS`, margin, pageHeight - 7);
                 
                 const pageStr = `Página ${pageNumber}`;
-                doc.text(pageStr, pageWidth - margin - doc.getTextWidth(pageStr), pageHeight - 18);
+                doc.text(pageStr, pageWidth - margin - doc.getTextWidth(pageStr), pageHeight - 7);
 
-                // Logo no Rodapé (Quadrada e Maior)
-                if (logoData) {
-                    // Força proporção quadrada (w=h) e tamanho maior que o cabeçalho (22x22mm)
-                    const footerLogoSize = 22; 
-                    // Centralizado horizontalmente no rodapé
-                    const xPos = (pageWidth - footerLogoSize) / 2;
-                    // Posicionado abaixo da linha do rodapé
-                    const yPos = pageHeight - 24; 
-                    
-                    doc.addImage(logoData, 'PNG', xPos, yPos, footerLogoSize, footerLogoSize);
-                }
+                // (Logo do rodapé removida conforme solicitado)
                 
                 pageNumber++;
             }
@@ -1131,8 +1121,8 @@
 
             // LOOP DE QUESTÕES
             state.examQuestions.forEach((q, i) => {
-                // Verificar espaço na página (considerando rodapé maior)
-                if (y > pageHeight - 50) {
+                // Verificar espaço na página
+                if (y > pageHeight - 40) {
                     doc.addPage();
                     addPageLayout();
                     y = 40;
@@ -1164,7 +1154,7 @@
                 
                 const splitEnunciado = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
                 
-                if (y + (splitEnunciado.length * 5) > pageHeight - 35) {
+                if (y + (splitEnunciado.length * 5) > pageHeight - 20) {
                     doc.addPage();
                     addPageLayout();
                     y = 40;
@@ -1191,7 +1181,7 @@
                     const splitOpt = doc.splitTextToSize(opt, optMaxWidth);
                     const optHeight = splitOpt.length * 5;
 
-                    if (y + optHeight > pageHeight - 30) {
+                    if (y + optHeight > pageHeight - 15) {
                         doc.addPage();
                         addPageLayout();
                         y = 40;
