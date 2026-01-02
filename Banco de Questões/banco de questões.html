@@ -139,7 +139,7 @@
             <!-- Logo & Nav -->
             <div class="flex items-center gap-4">
                 <div id="header-logo-area" class="flex items-center gap-2 cursor-pointer" onclick="resetToDashboard()">
-                    <!-- NOVA LOGO ATUALIZADA -->
+                    <!-- LOGO -->
                     <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png" 
                          alt="MEDNEXUS" 
                          class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
@@ -176,14 +176,14 @@
                 </div>
             </div>
 
-            <!-- User Profile -->
+            <!-- User Profile (Atualizado para 2026) -->
             <div class="flex items-center gap-4">
                 <div class="text-right hidden sm:block">
-                    <p class="text-sm text-white font-medium">Dr. Rafael</p>
-                    <p class="text-xs text-slate-500">Plano Extensivo 2024</p>
+                    <p class="text-sm text-white font-medium">Doutor(a)</p>
+                    <p class="text-xs text-slate-500">Plano Extensivo 2026</p>
                 </div>
                 <div class="w-9 h-9 rounded-full bg-slate-700 border border-slate-600 flex items-center justify-center text-xs font-bold text-white">
-                    DR
+                    MD
                 </div>
             </div>
         </div>
@@ -288,7 +288,7 @@
             </div>
         </div>
 
-        <!-- EXAM VIEW (Hidden by default) -->
+        <!-- EXAM VIEW (Oculto por padrão) -->
         <div id="exam-view" class="hidden fade-in max-w-4xl mx-auto">
             <div id="exam-header" class="text-center mb-8">
                 <h2 class="text-2xl font-bold text-white">Caderno de Questões</h2>
@@ -324,7 +324,6 @@
             { id: 'internato', label: 'Internato', icon: 'graduation-cap', description: 'Prática e conduta médica' },
         ];
 
-        // CONFIGURAÇÃO DAS DISCIPLINAS POR CICLO
         const DISCIPLINES = {
             basico: [
                 'Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 
@@ -378,7 +377,7 @@
             { id: 18, name: 'Módulo 18 — Sinais e Sintomas Dermatológicos', cycle: 'clinico' }
         ];
 
-        // --- BASE DE DADOS COMPLETA (173 QUESTÕES) ---
+        // --- BASE DE DADOS COMPLETA (173 QUESTÕES RESTAURADAS) ---
         const REAL_QUESTIONS = [
             // PROBLEMA 1 (34 Questões)
             { id: '1', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O controle central do ciclo menstrual reside no hipotálamo, especificamente no núcleo arqueado. Sobre a secreção do Hormônio Liberador de Gonadotrofina (GnRH), assinale a alternativa que descreve corretamente sua característica fundamental para a manutenção da função do eixo:', options: ['Sua secreção deve ser contínua e linear para manter os níveis estáveis de FSH e LH.', 'A liberação ocorre em pulsos rítmicos; uma secreção contínua levaria à desensibilização (down-regulation) dos receptores hipofisários.', 'O GnRH é secretado exclusivamente em resposta ao pico de progesterona na fase lútea.', 'A pulsatilidade do GnRH é controlada diretamente pelos níveis de inibina B, sem influência neural.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A secreção pulsátil do GnRH é essencial para evitar a desensibilização dos receptores hipofisários.' },
@@ -464,11 +463,11 @@
             { id: '77', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Queixas de pirose (azia) e constipação são frequentes na gravidez. Qual é a causa fisiológica primária desses sintomas?', options: ['Compressão mecânica do estômago pelo feto apenas.', 'Ação da progesterona, que relaxa o esfíncter esofágico inferior e reduz a motilidade intestinal.', 'Aumento da acidez gástrica induzido pelo estrogênio.', 'Diminuição da absorção de água no cólon.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '78', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'No exame físico da gestante, a coloração violácea/cianótica da mucosa vaginal e vulvar devido à hiperemia é conhecida como:', options: ['Sinal de Hegar.', 'Sinal de Goodell.', 'Sinal de Chadwick (ou Jacquemier).', 'Sinal de Piskacek.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '79', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O Sinal de Hegar, importante no diagnóstico clínico de gravidez, refere-se a:', options: ['Amolecimento do istmo uterino, permitindo mobilidade entre colo e corpo.', 'Assimetria uterina no local da nidação.', 'Amolecimento da cérvice uterina.', 'Preenchimento dos fundos de saco vaginais.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A.' },
-            { id: '80', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Uma gestante relata que a data da sua última menstruação (DUM) foi dia 13/09/2024. Utilizando a Regra de Naegele (Dia + 7 / Mês - 3 ou +9), qual é a Data Provável do Parto (DPP)?', options: ['20/05/2025.', '20/06/2025.', '13/06/2025.', '06/06/2025.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
+            { id: '80', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Uma gestante relata que a data da sua última menstruação (DUM) foi dia 13/09/2026. Utilizando a Regra de Naegele (Dia + 7 / Mês - 3 ou +9), qual é a Data Provável do Parto (DPP)?', options: ['20/05/2027.', '20/06/2027.', '13/06/2027.', '06/06/2027.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '81', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Se a Data da Última Menstruação (DUM) for desconhecida ou incerta, qual é o exame padrão-ouro para definir a Idade Gestacional?', options: ['Altura uterina.', 'Ultrassonografia de 1º trimestre (medida do Comprimento Cabeça-Nádega - CCN).', 'Ultrassonografia de 3º trimestre (medida do Fêmur).', 'Dosagem quantitativa de Beta-hCG.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '82', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Dentre os exames de rotina do 1º trimestre (entrada no pré-natal), qual das alternativas contém apenas exames recomendados pelo Ministério da Saúde?', options: ['Tipagem Sanguínea, Ecocardiograma fetal e TSH.', 'Hemograma, VDRL, Anti-HIV, Glicemia jejum, Toxoplasmose e Urina I.', 'Cariótipo fetal, Colposcopia e Cultura de Orofaringe.', 'Curva glicêmica (TOTG), USG 4D e Dosagem de Progesterona.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '83', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é o momento recomendado para a realização do Teste Oral de Tolerância à Glicose (TOTG 75g) para rastreio universal de Diabetes Gestacional?', options: ['Na primeira consulta, independentemente da IG.', 'Entre 16 e 20 semanas.', 'Entre 24 e 28 semanas.', 'Apenas após 32 semanas.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
-            { id: '84', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A pesquisa de Estreptococo do Grupo B (EGB) através de cultura vaginal/anal deve ser realizada preferencialmente em qual período?', options: ['No início do pré-natal.', 'Entre 20 e 24 semanas.', 'Entre 35 e 37 semanas.', 'Apenas no momento do parto.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
+            { id: '84', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Pesquisa de Estreptococo do Grupo B (EGB) através de cultura vaginal/anal deve ser realizada preferencialmente em qual período?', options: ['No início do pré-natal.', 'Entre 20 e 24 semanas.', 'Entre 35 e 37 semanas.', 'Apenas no momento do parto.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '85', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Sobre a vacinação na gestação, qual das seguintes vacinas é contraindicada por ser composta de vírus vivos atenuados?', options: ['Influenza.', 'Tríplice Viral (Sarampo, Caxumba e Rubéola).', 'Hepatite B.', 'dTpa (Difteria, Tétano e Coqueluche acelular).'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '86', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A vacina dTpa é recomendada a partir da 20ª semana a cada gestação. Qual é o objetivo principal desta estratégia?', options: ['Proteger a mãe contra o tétano neonatal.', 'Transferir anticorpos contra a coqueluche para o feto, protegendo-o nos primeiros meses de vida.', 'Imunizar a mãe contra difteria de forma definitiva.', 'Evitar o parto prematuro.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '87', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A gravidez na adolescência (10 a 19 anos) é considerada de alto risco. Dentre os riscos biológicos aumentados nesta faixa etária, destacam-se:', options: ['Diabetes tipo 2 e hipotireoidismo.', 'Placenta prévia e macrossomia fetal.', 'Toxemia Gravídica (Pré-eclâmpsia), Anemia e Desproporção Céfalo-Pélvica (em <15 anos).', 'Gestação pós-termo e polidrâmnio.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
@@ -487,7 +486,7 @@
             { id: '100', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Parto: Vias e Assistência', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Uma laceração de 4º grau no parto vaginal envolve a lesão de qual estrutura crítica, aumentando o risco de incontinência?', options: ['Músculo bulbocavernoso.', 'Pele do períneo apenas.', 'Mucosa retal.', 'Uretra.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '101', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Além dos riscos biológicos, a gravidez na adolescência está fortemente associada a impactos sociais. Qual das opções abaixo é uma consequência comum citada?', options: ['Aumento da escolaridade materna.', 'Melhoria da renda familiar.', 'Abandono escolar e perpetuação do ciclo de pobreza.', 'Maior adesão ao pré-natal em comparação a adultas.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '102', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O débito cardíaco materno aumenta significativamente na gestação (30-50%). Em qual momento ele atinge seu pico máximo?', options: ['No início do primeiro trimestre.', 'No final do segundo trimestre.', 'Imediatamente após a concepção.', 'No puerpério tardio.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
-            { id: '103', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Ao calcular a idade gestacional, a Regra de Naegele é usada para estimar a DPP. Se a DUM for 01/01/2024, qual a DPP? (Dica: Dia+7, Mês-3 ou +9).', options: ['08/09/2024.', '08/10/2024.', '01/10/2024.', '08/08/2024.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
+            { id: '103', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Ao calcular a idade gestacional, a Regra de Naegele é usada para estimar a DPP. Se a DUM for 01/01/2026, qual a DPP? (Dica: Dia+7, Mês-3 ou +9).', options: ['08/09/2026.', '08/10/2026.', '01/10/2026.', '08/08/2026.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
 
             // PROBLEMA 4 (34 Questões)
             { id: '104', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Estática Fetal e Anatomia Obstétrica', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O crânio fetal possui pontos de referência cruciais para o diagnóstico obstétrico. A "Grande Fontanela" ou Fontanela Bregmática é caracterizada por:', options: ['Ter forma triangular e ser o encontro de 3 suturas.', 'Ter forma losangular e ser formada pelo encontro das suturas sagital, metópica e coronais.', 'Estar localizada na região posterior do crânio.', 'Ser o ponto de referência das apresentações fletidas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
@@ -580,35 +579,25 @@
             currentZenIndex: 0,
             eliminatedOptions: {}, 
             userAnswers: {}, 
-            db: []
+            db: REAL_QUESTIONS
         };
 
         // --- 3. INICIALIZAÇÃO ---
         function init() {
             try {
-                generateMockDB();
+                const counterEl = document.getElementById('total-db-count');
+                if(counterEl) counterEl.innerText = state.db.length;
                 renderCycles();
                 renderContentArea();
                 renderStatusFilters();
                 updateCounter();
                 
-                // Tenta carregar ícones com segurança
                 if (typeof lucide !== 'undefined') {
                     lucide.createIcons();
-                } else {
-                    console.warn("Lucide icons not loaded yet.");
                 }
             } catch (e) {
                 console.error("Initialization error:", e);
-                alert("Ocorreu um erro ao carregar o banco de questões. Verifique o console.");
             }
-        }
-
-        function generateMockDB() {
-            let mocks = [];
-            state.db = [...REAL_QUESTIONS, ...mocks];
-            const counterEl = document.getElementById('total-db-count');
-            if(counterEl) counterEl.innerText = state.db.length;
         }
 
         // --- 4. RENDERIZAÇÃO DASHBOARD ---
@@ -836,7 +825,7 @@
             }
         }
 
-        // --- EXAM LOGIC & INTERACTIVITY ---
+        // --- EXAM LOGIC ---
         function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
         function startExam() {
@@ -855,8 +844,6 @@
 
             renderQuestions();
             updateZenUI();
-            
-            // Subir automaticamente ao iniciar
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -871,8 +858,6 @@
             document.getElementById('nav-exam').classList.add('hidden');
             document.getElementById('nav-exam').classList.remove('flex');
             document.getElementById('header-logo-area').onclick = resetToDashboard;
-            
-            // Subir automaticamente ao voltar
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -887,10 +872,8 @@
 
         function selectOption(qId, index) {
             if (state.userAnswers[qId]?.submitted) return;
-
             if (!state.userAnswers[qId]) state.userAnswers[qId] = { selected: null, submitted: false };
             state.userAnswers[qId].selected = index;
-
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -901,7 +884,6 @@
                 return;
             }
             state.userAnswers[qId].submitted = true;
-            
             const qIndex = state.examQuestions.findIndex(q => q.id === qId);
             refreshQuestionCard(qId, qIndex);
         }
@@ -918,7 +900,6 @@
         function renderQuestionHTML(q, index) {
             const letters = ['A', 'B', 'C', 'D', 'E'];
             const eliminated = state.eliminatedOptions[q.id] || [];
-            
             const answerState = state.userAnswers[q.id] || { selected: null, submitted: false };
             const { selected, submitted } = answerState;
 
@@ -969,8 +950,7 @@
                                     letterClasses += "border-slate-600 text-slate-400 group-hover:border-sky-500 group-hover:text-sky-500";
                                     textClasses += "text-slate-300 group-hover:text-white";
                                 }
-                            } 
-                            else {
+                            } else {
                                 if (isCorrect) {
                                     cardClasses += "opt-correct";
                                     textClasses += "text-green-100 font-medium";
@@ -1017,7 +997,7 @@
                                 </button>
                             </div>
                         ` : `
-                            <div class="fade-in animate-in slide-in-from-top-2">
+                            <div class="fade-in">
                                 <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 relative overflow-hidden">
                                     <div class="absolute left-0 top-0 bottom-0 w-1 ${selected === q.correctIndex ? 'bg-green-500' : 'bg-red-500'}"></div>
                                     <h4 class="text-sm font-bold uppercase tracking-wider mb-2 ${selected === q.correctIndex ? 'text-green-400' : 'text-red-400'}">
@@ -1067,232 +1047,94 @@
         function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
         function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
 
-        // --- PDF GENERATION WITH LOGO ---
-        // Helper to fetch image and convert to Data URL
+        // --- PDF GENERATION ---
         function getImageDataUrl(url) {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 const img = new Image();
-                img.crossOrigin = "Anonymous"; // Try to handle CORS
+                img.crossOrigin = "Anonymous";
                 img.src = url;
                 img.onload = () => {
                     const canvas = document.createElement("canvas");
-                    canvas.width = img.width;
-                    canvas.height = img.height;
+                    canvas.width = img.width; canvas.height = img.height;
                     const ctx = canvas.getContext("2d");
                     ctx.drawImage(img, 0, 0);
                     resolve(canvas.toDataURL("image/png"));
                 };
-                img.onerror = (e) => {
-                    console.warn("Could not load image for PDF", e);
-                    resolve(null); // Fallback if image fails
-                };
+                img.onerror = () => resolve(null);
             });
         }
 
         async function downloadPDF() {
-            if (!window.jspdf) {
-                alert("Erro: Biblioteca PDF ainda carregando. Tente novamente em alguns segundos.");
-                return;
-            }
-
+            if (!window.jspdf) return;
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
             const margin = 15; 
             let y = 0; 
-            
-            // Paleta de Cores do Curso
-            const colorPrimary = [15, 23, 42];   // Slate 900 (Cabeçalho)
-            const colorAccent = [2, 132, 199];   // Sky 600 (Destaques)
-
-            // 1. Fetch Logo Oficial do Site
+            const colorPrimary = [15, 23, 42];
+            const colorAccent = [2, 132, 199];
             const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
             const logoData = await getImageDataUrl(logoUrl);
-
-            // Fontes: Helvetica para titulos (Moderno), Times para texto (Prova)
-            const fontDisplay = "helvetica";
-            const fontBody = "times";
-
             let pageNumber = 1;
 
-            // Função para desenhar o layout base de cada página
             function addPageLayout() {
-                // CABEÇALHO SÓLIDO (Estilo Curso)
                 doc.setFillColor(...colorPrimary);
-                doc.rect(0, 0, pageWidth, 28, 'F'); // Barra superior
-
-                // Logo no Cabeçalho (Quadrada)
-                if (logoData) {
-                    const imgSize = 20; // 20x20mm (Quadrado)
-                    // Centralizar verticalmente na barra de 28mm: (28 - 20) / 2 = 4
-                    doc.addImage(logoData, 'PNG', margin, 4, imgSize, imgSize);
-                } else {
-                    doc.setFont(fontDisplay, "bold");
-                    doc.setFontSize(18);
-                    doc.setTextColor(255, 255, 255);
-                    doc.text("MEDNEXUS", margin, 19);
-                }
-
-                // Texto do Cabeçalho à direita
-                doc.setFont(fontDisplay, "bold");
+                doc.rect(0, 0, pageWidth, 28, 'F');
+                if (logoData) doc.addImage(logoData, 'PNG', margin, 4, 20, 20);
+                doc.setFont("helvetica", "bold");
                 doc.setFontSize(10);
                 doc.setTextColor(255, 255, 255);
-                const headerTitle = "CADERNO DE QUESTÕES";
-                const titleWidth = doc.getTextWidth(headerTitle);
-                doc.text(headerTitle, pageWidth - margin - titleWidth, 18);
-
-                // Marca D'água Sutil
-                doc.saveGraphicsState();
-                doc.setTextColor(245, 245, 245);
-                doc.setFontSize(55);
-                doc.setFont(fontDisplay, "bold");
-                doc.text("MEDNEXUS", pageWidth / 2, pageHeight / 2, { align: "center", angle: 45 });
-                doc.restoreGraphicsState();
-
-                // --- RODAPÉ ---
+                doc.text("CADERNO DE QUESTÕES", pageWidth - margin - 50, 18);
                 doc.setDrawColor(200);
                 doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
-                
-                // Texto do Rodapé
-                doc.setFont(fontDisplay, "normal");
                 doc.setFontSize(8);
                 doc.setTextColor(100);
-                const date = new Date().toLocaleDateString('pt-BR');
-                doc.text(`Gerado em ${date} • Material Exclusivo MEDNEXUS`, margin, pageHeight - 7);
-                
-                const pageStr = `Página ${pageNumber}`;
-                doc.text(pageStr, pageWidth - margin - doc.getTextWidth(pageStr), pageHeight - 7);
-
-                // (Logo do rodapé removida conforme solicitado)
-                
-                pageNumber++;
+                doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} • Material MEDNEXUS`, margin, pageHeight - 7);
+                doc.text(`Página ${pageNumber++}`, pageWidth - margin - 15, pageHeight - 7);
             }
 
-            // --- INÍCIO DO CONTEÚDO ---
             addPageLayout();
-            y = 40; // Margem superior após header
-
-            // Título Interno
-            doc.setFont(fontDisplay, "bold");
+            y = 40;
             doc.setFontSize(14);
             doc.setTextColor(...colorPrimary);
-            
-            // Subtítulo dinâmico
-            let cycleLabel = state.cycle === 'basico' ? 'CICLO BÁSICO' : state.cycle === 'clinico' ? 'CICLO CLÍNICO' : 'INTERNATO';
-            let discLabel = state.disciplines.length > 0 ? state.disciplines[0].toUpperCase() : "GERAL";
-            if (state.disciplines.length > 1) discLabel += " E OUTRAS";
-            
-            doc.text(`${cycleLabel} - ${discLabel}`, margin, y);
+            doc.text("REVISÃO DE QUESTÕES - MEDNEXUS", margin, y);
             y += 8;
-
-            // Linha decorativa
             doc.setDrawColor(...colorAccent);
-            doc.setLineWidth(0.5);
             doc.line(margin, y, pageWidth - margin, y);
             y += 12;
 
-            // LOOP DE QUESTÕES
             state.examQuestions.forEach((q, i) => {
-                // Verificar espaço na página
-                if (y > pageHeight - 40) {
-                    doc.addPage();
-                    addPageLayout();
-                    y = 40;
-                }
-
-                // 1. Tag da Questão (Número)
+                if (y > pageHeight - 40) { doc.addPage(); addPageLayout(); y = 40; }
                 doc.setFillColor(...colorAccent);
                 doc.roundedRect(margin, y - 4.5, 24, 6, 1, 1, 'F');
-                
-                doc.setFont(fontDisplay, "bold");
                 doc.setFontSize(9);
                 doc.setTextColor(255, 255, 255);
                 doc.text(`QUESTÃO ${i + 1}`, margin + 2, y);
-
-                // Metadados
-                doc.setFont(fontDisplay, "bold");
-                doc.setFontSize(8);
-                doc.setTextColor(120); 
-                let metaText = `${q.discipline}  |  ${q.subTopic}`;
-                if (metaText.length > 65) metaText = metaText.substring(0, 62) + "...";
-                doc.text(metaText.toUpperCase(), margin + 28, y);
-
                 y += 8;
-
-                // 2. Enunciado
-                doc.setFont(fontBody, "normal");
+                doc.setFont("times", "normal");
                 doc.setFontSize(11);
                 doc.setTextColor(0); 
-                
                 const splitEnunciado = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
-                
-                if (y + (splitEnunciado.length * 5) > pageHeight - 20) {
-                    doc.addPage();
-                    addPageLayout();
-                    y = 40;
-                    // Repete cabeçalho se quebrou
-                    doc.setFillColor(...colorAccent);
-                    doc.roundedRect(margin, y - 4.5, 24, 6, 1, 1, 'F');
-                    doc.setFont(fontDisplay, "bold");
-                    doc.setFontSize(9);
-                    doc.setTextColor(255, 255, 255);
-                    doc.text(`QUESTÃO ${i + 1}`, margin + 2, y);
-                    y += 8;
-                    doc.setFont(fontBody, "normal");
-                    doc.setFontSize(11);
-                    doc.setTextColor(0);
-                }
-
                 doc.text(splitEnunciado, margin, y);
                 y += (splitEnunciado.length * 5) + 3;
-
-                // 3. Alternativas
                 q.options.forEach((opt, idx) => {
-                    const letter = String.fromCharCode(65 + idx); 
-                    const optMaxWidth = pageWidth - (margin * 2) - 8; 
-                    const splitOpt = doc.splitTextToSize(opt, optMaxWidth);
-                    const optHeight = splitOpt.length * 5;
-
-                    if (y + optHeight > pageHeight - 15) {
-                        doc.addPage();
-                        addPageLayout();
-                        y = 40;
-                    }
-
-                    // Letra
-                    doc.setFont(fontBody, "bold");
-                    doc.setTextColor(...colorPrimary); 
-                    doc.text(letter, margin, y);
-
-                    // Texto
-                    doc.setFont(fontBody, "normal");
-                    doc.setTextColor(40); 
-                    doc.text(splitOpt, margin + 7, y);
-
-                    y += optHeight + 2; 
+                    const splitOpt = doc.splitTextToSize(`${String.fromCharCode(65 + idx)}) ${opt}`, pageWidth - (margin * 2) - 8);
+                    if (y + (splitOpt.length * 5) > pageHeight - 15) { doc.addPage(); addPageLayout(); y = 40; }
+                    doc.text(splitOpt, margin, y);
+                    y += (splitOpt.length * 5) + 2;
                 });
-
-                y += 8; 
+                y += 8;
             });
-
             doc.save("caderno_mednexus.pdf");
         }
 
-        // --- SCROLL TO TOP LOGIC ---
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
         window.onscroll = function() {
             const btn = document.getElementById('btn-back-to-top');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                btn.classList.remove('hidden-scroll');
-            } else {
-                btn.classList.add('hidden-scroll');
-            }
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) btn.classList.remove('hidden-scroll');
+            else btn.classList.add('hidden-scroll');
         };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
         window.onload = init;
     </script>
