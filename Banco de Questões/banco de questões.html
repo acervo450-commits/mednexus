@@ -39,44 +39,20 @@
     </script>
 
     <style>
-        /* Estilos Customizados */
         body {
             background-color: #0f172a;
             color: #cbd5e1;
             -webkit-font-smoothing: antialiased;
         }
-        
-        /* Scrollbar personalizada */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-        /* Animações simples */
-        .fade-in {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-        .slide-up {
-            animation: slideUp 0.4s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        .slide-up { animation: slideUp 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
         .active-cycle {
             background-color: rgba(14, 165, 233, 0.1);
@@ -85,80 +61,35 @@
         }
         .active-cycle h3 { color: white; }
         .active-cycle .icon-box { background-color: #0ea5e9; color: white; }
+        .chip-selected { background-color: #0284c7; color: white; border-color: #0ea5e9; }
+        .option-eliminated { opacity: 0.5; text-decoration: line-through; background-color: rgba(15, 23, 42, 0.5); }
 
-        .chip-selected {
-            background-color: #0284c7;
-            color: white;
-            border-color: #0ea5e9;
-        }
+        .opt-correct { background-color: rgba(34, 197, 94, 0.15) !important; border-color: #22c55e !important; }
+        .opt-correct .opt-letter { background-color: #22c55e; border-color: #22c55e; color: white; }
+        .opt-wrong { background-color: rgba(239, 68, 68, 0.15) !important; border-color: #ef4444 !important; }
+        .opt-wrong .opt-letter { background-color: #ef4444; border-color: #ef4444; color: white; }
         
-        .option-eliminated {
-            opacity: 0.5;
-            text-decoration: line-through;
-            background-color: rgba(15, 23, 42, 0.5);
-        }
-
-        /* Estilos de Feedback */
-        .opt-correct {
-            background-color: rgba(34, 197, 94, 0.15) !important;
-            border-color: #22c55e !important;
-        }
-        .opt-correct .opt-letter {
-            background-color: #22c55e;
-            border-color: #22c55e;
-            color: white;
-        }
-        
-        .opt-wrong {
-            background-color: rgba(239, 68, 68, 0.15) !important;
-            border-color: #ef4444 !important;
-        }
-        .opt-wrong .opt-letter {
-            background-color: #ef4444;
-            border-color: #ef4444;
-            color: white;
-        }
-        
-        /* Botão Scroll Top */
-        #btn-back-to-top {
-            transition: all 0.3s ease-in-out;
-            transform: translateY(0);
-        }
-        #btn-back-to-top.hidden-scroll {
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(20px);
-        }
+        #btn-back-to-top { transition: all 0.3s ease-in-out; transform: translateY(0); }
+        #btn-back-to-top.hidden-scroll { opacity: 0; pointer-events: none; transform: translateY(20px); }
     </style>
 </head>
 <body class="selection:bg-sky-500/30 relative">
 
-    <!-- HEADER (Fixo) -->
     <header class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-[1400px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-            <!-- Logo & Nav -->
             <div class="flex items-center gap-4">
                 <div id="header-logo-area" class="flex items-center gap-2 cursor-pointer" onclick="resetToDashboard()">
-                    <!-- LOGO -->
-                    <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png" 
-                         alt="MEDNEXUS" 
-                         class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
+                    <img src="https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png" alt="MEDNEXUS" class="h-10 w-auto object-contain hover:opacity-90 transition-opacity">
                 </div>
-                
                 <div class="h-6 w-px bg-slate-800 mx-2 hidden sm:block"></div>
-                
                 <div id="nav-dashboard" class="flex items-center gap-2 text-sm">
-                    <span class="text-sky-500 font-semibold bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">
-                        Banco de Questões
-                    </span>
+                    <span class="text-sky-500 font-semibold bg-sky-500/10 px-3 py-1 rounded-full border border-sky-500/20">Banco de Questões</span>
                 </div>
-
                 <div id="nav-exam" class="hidden items-center gap-4 w-full">
                     <button onclick="exitExam()" class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
                         <i data-lucide="arrow-left" class="w-5 h-5"></i>
                         <span class="font-medium">Sair</span>
                     </button>
-                    
                     <div id="zen-progress-container" class="hidden flex-1 max-w-md mx-4 md:block">
                         <div class="flex justify-between text-xs text-slate-400 mb-1">
                             <span id="zen-current-q">Questão 1</span>
@@ -168,45 +99,35 @@
                             <div id="zen-progress-bar" class="h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
                         </div>
                     </div>
-
                     <button onclick="downloadPDF()" class="ml-auto flex items-center gap-2 px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition-all text-sm">
                         <i data-lucide="download" class="w-4 h-4"></i>
                         <span class="hidden sm:inline">Baixar PDF</span>
                     </button>
                 </div>
             </div>
-
-            <!-- User Profile -->
             <div class="flex items-center gap-4">
                 <div class="text-right hidden sm:block">
                     <p class="text-sm text-white font-medium">Doutor(a)</p>
                     <p class="text-xs text-slate-500">Plano Extensivo 2026</p>
                 </div>
-                <div class="w-9 h-9 rounded-full bg-slate-700 border border-slate-600 flex items-center justify-center text-xs font-bold text-white">
-                    MD
-                </div>
+                <div class="w-9 h-9 rounded-full bg-slate-700 border border-slate-600 flex items-center justify-center text-xs font-bold text-white">MD</div>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="pt-24 pb-12 px-4 md:px-6 max-w-[1400px] mx-auto min-h-screen">
-        
-        <!-- DASHBOARD VIEW -->
         <div id="dashboard-view" class="grid grid-cols-1 lg:grid-cols-3 gap-8 fade-in">
-            <!-- Coluna Esquerda: Configurações -->
             <div class="lg:col-span-2 space-y-8 pb-20 lg:pb-0">
                 <div class="mb-6 flex justify-between items-end flex-wrap gap-4">
                     <div>
                         <h1 class="text-3xl font-bold text-white mb-2">Configure seu Treino</h1>
                         <p class="text-slate-400">Base de dados atualizada: <span class="text-sky-400 font-mono font-bold" id="total-db-count">0</span> questões disponíveis.</p>
                     </div>
-                    <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
+                    <div class="flex items-center gap-2 px-3 py-1.5 bg-green-500/10 border border-green-500/20 rounded-full">
                         <i data-lucide="database" class="w-3.5 h-3.5 text-green-500"></i>
                         <span class="text-xs font-medium text-green-400">Banco Atualizado</span>
                     </div>
                 </div>
-
                 <section>
                     <div class="flex items-center gap-2 mb-4 text-sky-400">
                         <i data-lucide="layers" class="w-4.5 h-4.5"></i>
@@ -214,9 +135,7 @@
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="cycles-container"></div>
                 </section>
-
                 <section class="bg-slate-800/20 border border-slate-800 rounded-2xl p-6 relative overflow-hidden transition-all">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-slate-800/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                     <div class="flex items-center justify-between mb-6 relative z-10 flex-wrap gap-4">
                         <div class="flex items-center gap-2 text-sky-400">
                             <i data-lucide="book-open" class="w-4.5 h-4.5"></i>
@@ -230,8 +149,6 @@
                     <div id="content-area" class="relative z-10"></div>
                 </section>
             </div>
-
-            <!-- Coluna Direita: Resumo Sticky -->
             <div class="lg:col-span-1">
                 <div class="sticky top-24 space-y-4">
                     <div class="bg-slate-850 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
@@ -248,13 +165,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="bg-gradient-to-br from-sky-900/20 to-slate-850 border border-sky-500/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden">
-                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl"></div>
                         <div class="text-center mb-6 relative z-10">
                             <span class="text-slate-400 text-sm font-medium">Questões Encontradas</span>
                             <div id="q-counter" class="text-5xl font-bold text-white mt-1 tracking-tighter tabular-nums transition-all">0</div>
-                            <p class="text-xs text-sky-400 mt-2 font-medium">Baseado na sua seleção</p>
                         </div>
                         <div class="mb-4 relative z-10">
                             <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wider text-center">Modo de Exibição</label>
@@ -280,15 +194,13 @@
                             </div>
                         </div>
                         <button onclick="startExam()" id="btn-generate" class="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg bg-slate-800 text-slate-500 cursor-not-allowed" disabled>
-                            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
-                            GERAR CADERNO
+                            <i data-lucide="play" class="w-4 h-4 fill-current"></i> GERAR CADERNO
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- EXAM VIEW (Oculto por padrão) -->
         <div id="exam-view" class="hidden fade-in max-w-4xl mx-auto">
             <div id="exam-header" class="text-center mb-8">
                 <h2 class="text-2xl font-bold text-white">Caderno de Questões</h2>
@@ -308,16 +220,13 @@
             </div>
         </div>
 
-        <!-- Botão Voltar ao Topo -->
         <button id="btn-back-to-top" onclick="scrollToTop()" class="hidden-scroll fixed bottom-6 right-6 p-3 bg-sky-600 text-white rounded-full shadow-lg hover:bg-sky-500 z-50 flex items-center justify-center border border-sky-400/20">
             <i data-lucide="arrow-up" class="w-6 h-6"></i>
         </button>
-
     </main>
 
-    <!-- SCRIPTS LÓGICA DO APP -->
     <script>
-        // --- 1. DADOS (Config) ---
+        // --- 1. CONFIGURAÇÕES E DADOS ---
         const CYCLES = [
             { id: 'basico', label: 'Ciclo Básico', icon: 'beaker', description: 'Módulos 1 ao 12' },
             { id: 'clinico', label: 'Ciclo Clínico', icon: 'stethoscope', description: 'Módulos 13 em diante' },
@@ -325,25 +234,9 @@
         ];
 
         const DISCIPLINES = {
-            basico: [
-                'Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 
-                'Embriologia', 'Imunologia', 'Genética', 'Patologia Geral',
-                'Ginecologia', 'Farmacologia', 'Saúde Coletiva', 'Obstetrícia',
-                'Pediatria'
-            ],
-            clinico: [
-                'Ginecologia', 
-                'Obstetrícia', 
-                'Cardiologia', 'Pneumologia', 'Gastroenterologia', 'Nefrologia', 
-                'Neurologia', 'Infectologia', 'Reumatologia', 'Endocrinologia', 
-                'Hematologia', 'Psiquiatria', 'Pediatria'
-            ],
-            internato: [
-                'Ginecologia', 
-                'Obstetrícia',
-                'Clínica Médica', 'Cirurgia Geral', 'Pediatria', 
-                'Medicina Preventiva', 'Medicina de Família', 'Urgência e Emergência'
-            ]
+            basico: ['Anatomia', 'Fisiologia', 'Histologia', 'Bioquímica', 'Embriologia', 'Imunologia', 'Genética', 'Patologia Geral', 'Ginecologia', 'Farmacologia', 'Saúde Coletiva', 'Obstetrícia', 'Pediatria'],
+            clinico: ['Ginecologia', 'Obstetrícia', 'Cardiologia', 'Pneumologia', 'Gastroenterologia', 'Nefrologia', 'Neurologia', 'Infectologia', 'Reumatologia', 'Endocrinologia', 'Hematologia', 'Psiquiatria', 'Pediatria'],
+            internato: ['Ginecologia', 'Obstetrícia', 'Clínica Médica', 'Cirurgia Geral', 'Pediatria', 'Medicina Preventiva', 'Medicina de Família', 'Urgência e Emergência']
         };
 
         const SUB_TOPICS = {
@@ -355,7 +248,12 @@
             'Anatomia': ['Sistema Esquelético', 'Sistema Muscular', 'Neuroanatomia', 'Sistema Circulatório', 'Sistema Respiratório', 'Sistema Digestório'],
             'Cardiologia': ['Hipertensão', 'Insuficiência Cardíaca', 'Arritmias', 'Valvopatias', 'DAC'],
             'Embriologia': ['Gametogênese e Fecundação', 'Embriogênese e Desenvolvimento Fetal', 'Teratologia e Agentes Nocivos'],
-            'Pediatria': ['Triagem Neonatal', 'Clampeamento do Cordão', 'Passos Iniciais', 'Reanimação Neonatal', 'Boletim de Apgar', 'Cuidados de Rotina', 'VPP - Técnica', 'Massagem Cardíaca']
+            'Pediatria': [
+                'Triagem Neonatal', 'Clampeamento do Cordão', 'Passos Iniciais', 'Reanimação Neonatal', 'Boletim de Apgar', 'Cuidados de Rotina', 'VPP - Técnica', 'Massagem Cardíaca',
+                'Icterícia - Metabolismo', 'Icterícia - Classificação', 'Icterícia - Diagnóstico', 'Icterícia - Tratamento', 'Icterícia - Riscos', 'Icterícia - Fototerapia',
+                'Hematologia - Vitamina K', 'Hematologia - Profilaxia', 'Doença Hemorrágica', 'Vitaminas - Vitamina A', 
+                'Imunologia - Inata', 'Imunologia - Anticorpos', 'Imunologia - Aleitamento', 'Imunologia - Barreiras', 'Imunologia - Hipogamaglobulinemia'
+            ]
         };
 
         const ALL_PBL_MODULES = [
@@ -379,9 +277,9 @@
             { id: 18, name: 'Módulo 18 — Sinais e Sintomas Dermatológicos', cycle: 'clinico' }
         ];
 
-        // --- BASE DE DADOS COMPLETA (205 QUESTÕES) ---
+        // --- 2. BASE DE DADOS COMPLETA (236 QUESTÕES) ---
         const REAL_QUESTIONS = [
-            // MÓDULO 7 - PROBLEMA 1 (34 Questões)
+            // MÓDULO 7 - PROBLEMA 1 (1-34)
             { id: '1', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O controle central do ciclo menstrual reside no hipotálamo, especificamente no núcleo arqueado. Sobre a secreção do Hormônio Liberador de Gonadotrofina (GnRH), assinale a alternativa que descreve corretamente sua característica fundamental para a manutenção da função do eixo:', options: ['Sua secreção deve ser contínua e linear para manter os níveis estáveis de FSH e LH.', 'A liberação ocorre em pulsos rítmicos; uma secreção contínua levaria à desensibilização (down-regulation) dos receptores hipofisários.', 'O GnRH é secretado exclusivamente em resposta ao pico de progesterona na fase lútea.', 'A pulsatilidade do GnRH é controlada diretamente pelos níveis de inibina B, sem influência neural.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A secreção pulsátil do GnRH é essencial para evitar a desensibilização dos receptores hipofisários.' },
             { id: '2', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A teoria das "Duas Células, Duas Gonadotrofinas" explica a produção de estrogênio no folículo ovariano. Qual é a função específica das Células da Teca neste processo?', options: ['Converter androgênios em estradiol através da enzima aromatase.', 'Produzir progesterona para sustentar o corpo lúteo inicial.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do LH.', 'Captar colesterol e convertê-lo em androgênios sob estímulo do FSH.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. As células da teca, sob estímulo do LH, produzem androgênios que serão convertidos em estrogênio na granulosa.' },
             { id: '3', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'As Células da Granulosa desempenham um papel crucial na foliculogênese. Por que elas dependem das Células da Teca para produzir estradiol?', options: ['Porque as Células da Granulosa não possuem receptores para FSH.', 'Porque elas não possuem a enzima aromatase necessária para a conversão final.', 'Porque elas não conseguem produzir os androgênios precursores, pois não possuem as enzimas necessárias para essa etapa inicial.', 'Porque o LH inibe a produção de estradiol diretamente na Granulosa.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. As células da granulosa carecem das enzimas para a síntese de androgênios, dependendo da teca para fornecê-los.' },
@@ -394,7 +292,7 @@
             { id: '10', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é a nova idade mínima para realização de esterilização cirúrgica voluntária no Brasil, segundo a Lei 14.443/2022?', options: ['18 anos.', '21 anos.', '25 anos.', '30 anos.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. A idade mínima foi reduzida para 21 anos.' },
             { id: '11', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Existe uma exceção à regra da idade mínima para esterilização cirúrgica. Em qual situação uma pessoa com menos de 21 anos pode realizar o procedimento?', options: ['Se tiver autorização judicial.', 'Se tiver o consentimento dos pais.', 'Se tiver pelo menos dois filhos vivos.', 'Se for casada civilmente há mais de 2 anos.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Ter pelo menos dois filhos vivos permite a esterilização antes dos 21 anos.' },
             { id: '12', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Sobre a realização de laqueadura durante o período de parto, o que determina a legislação atual (Lei 14.443/2022)?', options: ['É estritamente proibida, devido ao risco de arrependimento puerperal.', 'É permitida apenas se a paciente tiver tido cesáreas anteriores sucessivas.', 'É permitida, desde que a vontade tenha sido manifestada com no mínimo 60 dias de antecedência.', 'É permitida sem restrições de prazo, bastando o consentimento verbal na hora do parto.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. É permitida no parto, desde que respeitado o prazo de 60 dias entre a manifestação da vontade e o ato cirúrgico.' },
-            { id: '13', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Segundo os Critérios Médievos de Elegibilidade da OMS, como é definida a Categoria 4?', options: ['Uma condição em que as vantagens do método superam os riscos teóricos ou comprovados.', 'Uma condição onde os riscos teóricos ou comprovados superam as vantagens.', 'Uma condição que representa um risco inaceitável à saúde se o método for utilizado (contraindicação absoluta).', 'Uma condição para a qual não há restrições ao uso do método.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Categoria 4 indica risco inaceitável (contraindicação absoluta).' },
+            { id: '13', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Segundo os Critérios Médicos de Elegibilidade da OMS, como é definida a Categoria 4?', options: ['Uma condição em que as vantagens do método superam os riscos teóricos ou comprovados.', 'Uma condição onde os riscos teóricos ou comprovados superam as vantagens.', 'Uma condição que representa um risco inaceitável à saúde se o método for utilizado (contraindicação absoluta).', 'Uma condição para a qual não há restrições ao uso do método.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Categoria 4 indica risco inaceitável (contraindicação absoluta).' },
             { id: '14', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual das situações abaixo representa um exemplo clássico de Categoria 4 da OMS para o uso de contraceptivos contendo estrogênio?', options: ['Tabagismo em mulheres com menos de 35 anos.', 'História familiar de câncer de mama.', 'Enxaqueca com aura (focal).', 'Obesidade (IMC > 30).'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Enxaqueca com aura é Categoria 4 para estrogênios devido ao risco elevado de AVC.' },
             { id: '15', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O uso de pílulas combinadas em lactantes entre 6 semanas e 6 meses pós-parto é classificado como Categoria 3. O que isso significa na prática clínica?', options: ['O método é a primeira escolha.', 'O método não deve ser usado, pois os riscos superam os benefícios, a menos que não haja outra opção disponível.', 'O uso é irrestrito e seguro.', 'É uma contraindicação absoluta e fatal.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Categoria 3 indica que os riscos superam os benefícios.' },
             { id: '16', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é o principal mecanismo de ação do Dispositivo Intrauterino (DIU) de Cobre?', options: ['Inibição da ovulação através da liberação sistêmica de íons.', 'Atrofia severa do endométrio impedindo a nidação.', 'Criação de um ambiente intrauterino hostil via íons de cobre, que possuem ação espermicida e impedem a fertilização.', 'Espessamento do muco cervical sem afetar a motilidade dos espermatozoides.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. O cobre cria um ambiente inflamatório estéril e espermicida.' },
@@ -415,9 +313,9 @@
             { id: '31', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Anticoncepção e Farmacologia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Por que o estrogênio é contraindicado (Categoria 4) em pacientes com enxaqueca com aura?', options: ['Porque aumenta a frequência das crises de dor.', 'Porque anula o efeito dos analgésicos.', 'Devido ao risco sinérgico elevado de Acidente Vascular Cerebral (AVC) isquêmico.', 'Porque causa hipotensão severa nessas pacientes.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. A combinação aumenta drasticamente o risco de AVC isquêmico.' },
             { id: '32', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Legislação e Planejamento Familiar', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A Lei 14.443/2022 mantém um prazo mínimo de reflexão entre a manifestação da vontade de esterilização e a cirurgia. Qual é a duração desse prazo e seu objetivo?', options: ['30 dias, para agendamento hospitalar.', '60 dias, visando garantir o consentimento informado e reduzir riscos de arrependimento.', '90 dias, para avaliação psicológica obrigatória.', '180 dias, para tentativa de outros métodos reversíveis.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. O prazo legal é de 60 dias para reflexão.' },
             { id: '33', problem: 1, cycle: 'basico', discipline: 'Fisiologia', subTopic: 'Fisiologia Hormonal e Ciclo Menstrual', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual hormônio é responsável por estimular as células da granulosa a produzirem a enzima aromatase?', options: ['LH.', 'FSH.', 'GnRH.', 'Progesterona.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. O FSH estimula a atividade da aromatase na granulosa.' },
-            { id: '34', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é a única droga considerada segura e eficaz para prevenir a transmissão vertical da sífilis (sífilis congênita) durante a gestação?', options: ['Doxiciclina.', 'Eritromicina.', 'Ceftriaxona.', 'Penicilina Benzatina.'], correctIndex: 3, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: D. Apenas a Penicilina trata a mãe e o feto adequadamente.' },
+            { id: '34', problem: 1, cycle: 'basico', discipline: 'Ginecologia', subTopic: 'Infecções em Ginecologia e Obstetrícia', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é the única droga considerada segura e eficaz para prevenir a transmissão vertical da sífilis (sífilis congênita) durante a gestação?', options: ['Doxiciclina.', 'Eritromicina.', 'Ceftriaxona.', 'Penicilina Benzatina.'], correctIndex: 3, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: D. Apenas a Penicilina trata a mãe e o feto adequadamente.' },
 
-            // MÓDULO 7 - PROBLEMA 2 (35 Questões)
+            // MÓDULO 7 - PROBLEMA 2 (35-69)
             { id: '35', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Gametogênese e Fecundação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A ovogênese difere da espermatogênese por apresentar períodos de latência (paradas) na meiose. Em qual fase da divisão celular o ovócito primário estaciona desde a vida fetal até a puberdade?', options: ['Metáfase II.', 'Prófase I.', 'Telófase I.', 'Anáfase II.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '36', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Gametogênese e Fecundação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A conclusão da Meiose II no ovócito secundário é um evento condicional. O que é estritamente necessário para que essa etapa se complete?', options: ['O pico de LH.', 'A ovulação.', 'A fertilização pelo espermatozoide.', 'A implantação no endométrio.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '37', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Gametogênese e Fecundação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Além da motilidade flagelar própria, qual fator auxilia o transporte dos espermatozoides até a ampola da tuba uterina?', options: ['A gravidade.', 'Os batimentos ciliares da tuba em direção ao útero.', 'Contrações uterinas estimuladas por prostaglandinas presentes no plasma seminal.', 'A atração quimiotáxica exclusiva do ovário esquerdo.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
@@ -436,7 +334,7 @@
             { id: '50', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A exposição a teratógenos durante as duas primeiras semanas de desenvolvimento (período pré-embrionário) geralmente resulta em qual desfecho?', options: ['Malformações cardíacas graves.', 'Fenômeno do "tudo ou nada" (perda gestacional ou recuperação total).', 'Defeitos de fechamento do tubo neural.', 'Retardo de crescimento intrauterino apenas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '51', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A "Tríade de Sabin", composta por hidrocefalia, calcificações intracranianas difusas e coriorretinite, é característica de qual infecção congênita?', options: ['Rubéola.', 'Citomegalovírus.', 'Toxoplasmose.', 'Sífilis.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '52', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A Síndrome da Rubéola Congênita é classicamente identificada pela "Tríade de Gregg". Quais são os componentes desta tríade?', options: ['Microcefalia, hepatoesplenomegalia e pênfigo palmoplantar.', 'Catarata/microftalmia, surdez neurossensorial e cardiopatia (persistência do canal arterial).', 'Hidrocefalia, calcificações e coriorretinite.', 'Rinite, periostite e dentes de Hutchinson.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
-            { id: '53', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é o principal agente viral causador de retardo mental e surdez congênita, frequentemente associado a calcificações periventriculares?', options: ['Zika Vírus.', 'Vírus Herpes Simples.', 'Citomegalovírus (CMV).', 'Parvovírus B19.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
+            { id: '53', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é the principal agente viral causador de retardo mental e surdez congênita, frequentemente associado a calcificações periventriculares?', options: ['Zika Vírus.', 'Vírus Herpes Simples.', 'Citomegalovírus (CMV).', 'Parvovírus B19.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '54', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Teratologia e Agentes Nocivos', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Por que as lesões destrutivas da Sífilis Congênita (como nariz em sela e dentes de Hutchinson) são consideradas tardias ou menos frequentes no início da gestação?', options: ['Porque o T. pallidum não é patogênico no primeiro trimestre.', 'Porque a espiroqueta geralmente só ultrapassa a barreira placentária após a atrofia do citotrofoblasto (16ª-20ª semana).', 'Porque o tratamento materno é sempre eficaz no início.', 'Porque o feto possui imunidade natural até a 20ª semana.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '55', problem: 2, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Abortamento e Sangramentos da 1ª Metade', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Tecnicamente, qual é a definição de abortamento baseada na Idade Gestacional (IG) e peso fetal?', options: ['Interrupção antes de 28 semanas ou peso < 1000g.', 'Interrupção antes de 20-22 semanas ou peso < 500g.', 'Interrupção antes de 12 semanas apenas.', 'Interrupção em qualquer idade gestacional se o feto não sobreviver.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '56', problem: 2, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Abortamento e Sangramentos da 1ª Metade', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é a causa mais frequente de abortamentos espontâneos no primeiro trimestre (cerca de 60% dos casos)?', options: ['Insuficiência istmo-cervical.', 'Infecções maternas.', 'Anomalias cromossômicas (aneuploidias).', 'Trauma abdominal.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C.' },
@@ -454,7 +352,7 @@
             { id: '68', problem: 2, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Abortamento e Sangramentos da 1ª Metade', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A Síndrome Antifosfolipídio (SAF) é uma causa tratável de abortamento habitual. Qual é o mecanismo fisiopatológico básico que leva à perda gestacional nestes casos?', options: ['Infecção crônica do endométrio.', 'Trombose dos vasos placentários e infartos, prejudicando a perfusão.', 'Má formação fetal genética.', 'Incompetência do colo uterino.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '69', problem: 2, cycle: 'basico', discipline: 'Embriologia', subTopic: 'Gametogênese e Fecundação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A enzima acrosina, liberada durante a reação acrossômica, tem a função principal de:', options: ['Digerir a membrana plasmática do ovócito.', 'Digerir a matriz da zona pelúcida, facilitando a penetração.', 'Bloquear outros espermatozoides.', 'Ativar o metabolismo do ovócito.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
 
-            // MÓDULO 7 - PROBLEMA 3 (34 Questões)
+            // MÓDULO 7 - PROBLEMA 3 (70-103) - MANUTENÇÃO COMPLETA
             { id: '70', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Durante a gestação, o sistema cardiovascular sofre profundas alterações para suprir a demanda fetal. Sobre a volemia materna, é correto afirmar que:', options: ['Ocorre uma hipovolemia fisiológica para evitar sobrecarga cardíaca.', 'O volume plasmático aumenta proporcionalmente à massa eritrocitária, mantendo o hematócrito estável.', 'Ocorre uma hipervolemia de 40-45%, onde o aumento do volume plasmático supera o da massa eritrocitária, resultando em hemodiluição (anemia fisiológica).', 'A volemia permanece inalterada até o momento do parto.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '71', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A pressão arterial (PA) da gestante tende a apresentar um comportamento específico ao longo dos trimestres. Qual é o padrão fisiológico esperado?', options: ['Aumento progressivo desde o primeiro trimestre até o parto.', 'Diminuição no 1º e 2º trimestres devido à vasodilatação periférica, retornando aos níveis pré-gravídicos no 3º trimestre.', 'Mantém-se inalterada durante toda a gestação devido aos mecanismos compensatórios renais.', 'Diminuição apenas no 3º trimestre devido à compressão da veia cava.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '72', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A "Síndrome da Hipotensão Supina" é um evento comum na gestação avançada. Qual é o mecanismo fisiopatológico responsável por este quadro?', options: ['Vasodilatação excessiva causada pela progesterona.', 'Compressão da aorta abdominal pelo útero, reduzindo o fluxo arterial.', 'Compressão da veia cava inferior pelo útero gravídico em decúbito dorsal, reduzindo o retorno venoso.', 'Hipoglicemia reativa devido ao consumo fetal.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C.' },
@@ -490,7 +388,7 @@
             { id: '102', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Modificações Fisiológicas da Gestação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O débito cardíaco materno aumenta significativamente na gestação (30-50%). Em qual momento ele atinge seu pico máximo?', options: ['No início do primeiro trimestre.', 'No final do segundo trimestre.', 'Imediatamente após a concepção.', 'No puerpério tardio.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '103', problem: 3, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Pré-Natal e Assistência à Gestante', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Ao calcular a idade gestacional, a Regra de Naegele é usada para estimar a DPP. Se a DUM for 01/01/2026, qual a DPP? (Dica: Dia+7, Mês-3 ou +9).', options: ['08/09/2026.', '08/10/2026.', '01/10/2026.', '08/08/2026.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
 
-            // MÓDULO 7 - PROBLEMA 4 (34 Questões)
+            // MÓDULO 7 - PROBLEMA 4 (104-137)
             { id: '104', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Estática Fetal e Anatomia Obstétrica', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O crânio fetal possui pontos de referência cruciais para o diagnóstico obstétrico. A "Grande Fontanela" ou Fontanela Bregmática é caracterizada por:', options: ['Ter forma triangular e ser o encontro de 3 suturas.', 'Ter forma losangular e ser formada pelo encontro das suturas sagital, metópica e coronais.', 'Estar localizada na região posterior do crânio.', 'Ser o ponto de referência das apresentações fletidas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B.' },
             { id: '105', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Estática Fetal e Anatomia Obstétrica', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual sutura craniana separa os dois ossos parietais seguindo a linha anteroposterior?', options: ['Coronal.', 'Metópica.', 'Lambdoide.', 'Sagital.'], correctIndex: 3, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: D.' },
             { id: '106', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Estática Fetal e Anatomia Obstétrica', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Na estática fetal, como é definido o conceito de "Situação"?', options: ['Relação das partes fetais entre si (ex: fletida).', 'Relação do maior eixo fetal com o maior eixo materno (útero).', 'Parte fetal que ocupa a área do estreito superior.', 'Relação do dorso fetal com o lado direito ou esquerdo da mãe.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B.' },
@@ -526,7 +424,7 @@
             { id: '136', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Estática Fetal e Anatomia Obstétrica', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Quando o eixo fetal é perpendicular ao eixo materno (Situação Transversa), qual é a apresentação fetal correspondente?', options: ['Cefálica.', 'Pélvica.', 'Córmica (Ombro/Acrômio).', 'Podálica.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C.' },
             { id: '137', problem: 4, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Mecanismo de Parto', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Em uma variedade de posição OEA (Occipito-Esquerda-Anterior), quantos graus a cabeça deve rodar internamente para alcançar a posição OP (Occipito-Púbica)?', options: ['45 graus.', '90 graus.', '135 graus.', '180 graus.'], correctIndex: 0, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: A.' },
 
-            // MÓDULO 7 - PROBLEMA 5 (36 Questões)
+            // MÓDULO 7 - PROBLEMA 5 (138-173)
             { id: '138', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia e Clínica do Puerpério', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O puerpério é o período de retorno do organismo materno às condições pré-gravídicas. Qual é a duração média cronológica considerada para este período?', options: ['30 dias.', '42 dias (6 semanas).', '3 meses.', '1 ano.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. O puerpério dura em média 6 semanas (42 dias).' },
             { id: '139', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia e Clínica do Puerpério', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O Puerpério Imediato compreende um período de grandes transformações e maiores riscos de complicações como hemorragias. Qual é o intervalo de tempo que define esta fase?', options: ['As primeiras 24 horas apenas.', 'Do 1º ao 10º dia pós-parto.', 'Do 11º ao 45º dia pós-parto.', 'Até o retorno da menstruação.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. O puerpério imediato vai do 1º ao 10º dia.' },
             { id: '140', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia e Clínica do Puerpério', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A involução uterina é um marcador clínico importante. Imediatamente após a saída da placenta, onde se encontra o fundo uterino e qual a taxa média de descida diária?', options: ['Na sínfise púbica; desce 2 cm/dia.', 'No apêndice xifoide; desce 1 cm/dia.', 'Na cicatriz umbilical; desce aproximadamente 1 cm/dia.', 'Intrapélvico; não é palpável.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. O fundo uterino fica na cicatriz umbilical após o parto e desce ~1cm/dia.' },
@@ -540,7 +438,7 @@
             { id: '148', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia da Lactação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Durante uma mamada, a composição do leite muda. O leite posterior (do final da mamada) é caracterizado por ter maior concentração de:', options: ['Água.', 'Lactose.', 'Gordura, promovendo saciedade.', 'Imunoglobulinas.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Leite posterior é rico em gordura.' },
             { id: '149', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia da Lactação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A "Apojadura" ou descida do leite ocorre geralmente entre o 3º e 5º dia pós-parto. Qual sintoma é comumente associado a este evento fisiológico?', options: ['Febre alta e calafrios.', 'Ingurgitamento mamário fisiológico.', 'Fissura mamilar.', 'Ausência total de leite.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. Mamas cheias e quentes (ingurgitamento fisiológico).' },
             { id: '150', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é a definição volumétrica de Hemorragia Pós-Parto (HPP) em um parto vaginal?', options: ['Perda > 300 ml.', 'Perda > 500 ml.', 'Perda > 1000 ml.', 'Perda > 1500 ml.'], correctIndex: 1, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: B. HPP vaginal é > 500ml.' },
-            { id: '151', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Dentre os "4 T\'s" da etiologia da hemorragia puerperal, qual é a principal causa, responsável por cerca de 70% dos casos?', options: ['Trauma (lacerações).', 'Tecido (restos placentários).', 'Trombina (coagulopatias).', 'Tônus (Atonia Uterina).'], correctIndex: 3, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: D. Atonia Uterina é the principal causa.' },
+            { id: '151', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Dentre os "4 T\'s" da etiologia da hemorragia puerperal, qual é a principal causa, responsável por cerca de 70% dos casos?', options: ['Trauma (lacerações).', 'Tecido (restos placentários).', 'Trombina (coagulopatias).', 'Tônus (Atonia Uterina).'], correctIndex: 3, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: D. Atonia Uterina é a principal causa.' },
             { id: '152', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Quais são fatores de risco clássicos para Atonia Uterina (Tônus)?', options: ['Nuliparidade e feto pequeno para a idade gestacional.', 'Sobredistensão uterina (gêmeos, polidrâmnio), multiparidade e trabalho de parto prolongado.', 'Cesárea anterior e placenta prévia.', 'Pré-eclâmpsia leve.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Sobredistensão e exaustão uterina predispõem à atonia.' },
             { id: '153', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'O "T" de "Tecido" na classificação etiológica da hemorragia refere-se a:', options: ['Rotura uterina.', 'Coagulopatias como Von Willebrand.', 'Retenção de restos placentários/coágulos ou acretismo placentário.', 'Lacerações do trajeto.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. Tecido refere-se à retenção placentária.' },
             { id: '154', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Qual é a primeira linha de manejo medicamentoso e mecânico para a Atonia Uterina?', options: ['Histerectomia imediata.', 'Massagem uterina bimanual + Ocitocina.', 'Transfusão de plaquetas.', 'Curetagem uterina.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Massagem e ocitocina são as medidas iniciais.' },
@@ -564,42 +462,75 @@
             { id: '172', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Fisiologia da Lactação', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'A fase de desenvolvimento da glândula mamária que ocorre durante a gestação, sob ação de estrogênio, progesterona e hPL, é chamada de:', options: ['Lactogênese.', 'Galactopoiese.', 'Mammogênese.', 'Apojadura.'], correctIndex: 2, difficulty: 'dificil', status: 'unanswered', rationale: 'Gabarito: C. Mammogênese é o desenvolvimento estrutural da mama.' },
             { id: '173', problem: 5, cycle: 'basico', discipline: 'Obstetrícia', subTopic: 'Hemorragias Puerperais', pblModule: 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação', text: 'Para uma cesariana, qual é o volume de perda sanguínea que define a Hemorragia Pós-Parto?', options: ['> 500 ml.', '> 750 ml.', '> 1000 ml.', '> 2000 ml.'], correctIndex: 2, difficulty: 'facil', status: 'unanswered', rationale: 'Gabarito: C. HPP na cesárea é > 1000ml.' },
 
-            // NOVO: MÓDULO 8 - PROBLEMA 1 (32 Questões Adicionadas)
-            { id: '174', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Triagem Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Ao nascimento de um recém-nascido (RN), a decisão de manter o bebê junto à mãe ou levá-lo à mesa de reanimação baseia-se em três perguntas fundamentais. Quais são elas?', options: ['Gestação a termo? O líquido amniótico é claro? Tem bom tônus muscular?', 'Gestação a termo? Está respirando ou chorando? Tem bom tônus muscular?', 'O peso é adequado? Está respirando ou chorando? A frequência cardíaca é > 100 bpm?', 'Gestação a termo? Tem mecônio? A mãe fez pré-natal?'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Ao nascimento, avalia-se: Gestação a termo? Está respirando ou chorando? Tem bom tônus muscular?' },
-            { id: '175', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Clampeamento do Cordão', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Para um RN com boa vitalidade (respondeu "Sim" às três perguntas iniciais), recomenda-se o clampeamento tardio do cordão umbilical. Qual é o tempo recomendado e o principal benefício dessa prática?', options: ['30 a 60 segundos; previne icterícia.', '1 a 3 minutos; aumenta os estoques de ferro e previne anemia nos primeiros meses.', 'Imediatamente após o nascimento; evita policitemia.', 'Após 5 minutos; melhora o vínculo mãe-bebê.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. 1 a 3 minutos; aumenta os estoques de ferro e previne anemia nos primeiros meses.' },
-            { id: '176', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Clampeamento do Cordão', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Em qual das situações abaixo o clampeamento do cordão umbilical deve ser imediato, independentemente da vitalidade fetal?', options: ['Prematuridade tardia.', 'Cesariana eletiva.', 'Placenta prévia ou descolamento prematuro de placenta (DPP).', 'Presença de mecônio fluido.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Patologias placentárias exigem clampeamento imediato por risco de sangramento.' },
-            { id: '177', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Os "Passos Iniciais" da estabilização devem ser realizados no chamado "Minuto de Ouro". Qual é o tempo máximo ideal para completar esses passos e reavaliar o RN?', options: ['15 segundos.', '30 segundos.', '60 segundos.', '90 segundos.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Os passos iniciais devem ser concluídos em aproximadamente 30 segundos.' },
-            { id: '178', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A hipotermia é prejudicial ao recém-nascido. Qual é a faixa de temperatura ambiente recomendada para a sala de parto e reanimação?', options: ['20-22°C.', '23-26°C.', '26-28°C.', '18-21°C.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Recomenda-se manter a sala entre 23-26°C.' },
-            { id: '179', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a sequência correta do mnemônico "A.P.A.S." utilizado nos passos iniciais da reanimação?', options: ['Aspirar, Posicionar, Aquecer, Secar.', 'Aquecer, Posicionar, Aspirar (se necessário), Secar.', 'Avaliar, Palpar, Auscultar, Segurar.', 'Aquecer, Pesar, Aspirar, Sondar.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Aquecer, Posicionar, Aspirar (se necessário) e Secar.' },
-            { id: '180', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O posicionamento correto da cabeça do RN é crucial para a permeabilidade das vias aéreas. Como deve ser esse posicionamento?', options: ['Flexão máxima do pescoço (queixo no peito).', 'Hiperextensão acentuada.', 'Leve extensão ("posição olfativa").', 'Rotação lateral para a direita.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Leve extensão ou posição olfativa.' },
-            { id: '181', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A aspiração de vias aéreas não é rotineira. Quando indicada (obstrução por secreção), qual deve ser a ordem correta?', options: ['Narinas primeiro, depois a boca.', 'Boca primeiro, depois as narinas.', 'Apenas a boca.', 'Apenas as narinas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Boca primeiro, depois narinas, para evitar que o RN aspire secreção da boca se inspirar ao ser tocado no nariz.' },
-            { id: '182', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Após os passos iniciais, qual parâmetro fisiológico é o principal determinante para a decisão de iniciar a reanimação (Ventilação com Pressão Positiva)?', options: ['Saturação de Oxigênio.', 'Cor da pele (cianose).', 'Frequência Cardíaca.', 'Pressão Arterial.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. A frequência cardíaca é o parâmetro mais importante.' },
-            { id: '183', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Quais são as indicações precisas para iniciar a Ventilação com Pressão Positiva (VPP) nos primeiros 60 segundos de vida?', options: ['Cianose central persistente apenas.', 'Apneia, respiração irregular (gasping) ou Frequência Cardíaca < 100 bpm.', 'Frequência Cardíaca < 60 bpm apenas.', 'Baixo peso ao nascer.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Apneia, gasping ou FC < 100 bpm são indicações de VPP.' },
-            { id: '184', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Ao iniciar a VPP em um RN ≥ 34 semanas, qual concentração de oxigênio (FiO2) deve ser utilizada inicialmente?', options: ['100% (Oxigênio puro).', '50%.', '21% (Ar ambiente).', '10%.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Inicia-se com FiO2 de 21% em RN ≥ 34 semanas.' },
-            { id: '185', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Para a monitorização correta da saturação de oxigênio pré-ductal durante a reanimação, onde deve ser instalado o sensor do oxímetro de pulso?', options: ['No membro superior esquerdo.', 'No membro superior direito.', 'Em qualquer membro inferior.', 'No lóbulo da orelha.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Pulso radial direito (pré-ductal).' },
-            { id: '186', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'VPP - Técnica', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é o ritmo recomendado para a realização da Ventilação com Pressão Positiva?', options: ['"Aperta / Solta".', '"Aperta / Solta / Solta" (40 a 60 movimentos/minuto).', '"Aperta / Aperta / Solta".', '"Um / Dois / Três / Ventila".'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Aperta / Solta / Solta, garantindo 40-60 incursões por minuto.' },
-            { id: '187', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Se após iniciar a VPP a frequência cardíaca não subir, deve-se checar a técnica de ventilação utilizando o mnemônico MR. SOPA. O que significam as letras "M" e "R"?', options: ['Massagem cardíaca e Respiração.', 'Medicação e Reavaliação.', 'Máscara (ajustar) e Reposicionar a cabeça.', 'Monitorização e Raio-X.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Máscara (ajustar) e Reposicionar a cabeça.' },
-            { id: '188', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No protocolo MR. SOPA de correção da ventilação, o que indica a letra "O"?', options: ['Oxigênio a 100%.', 'Boca Aberta (Oral).', 'Oximetria.', 'Observação.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Boca Aberta (Open mouth).' },
-            { id: '189', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a indicação precisa para iniciar a Massagem Cardíaca externa no recém-nascido?', options: ['Assim que o bebê nasce em apneia.', 'FC < 100 bpm após os passos iniciais.', 'FC < 60 bpm após 30 segundos de VPP efetiva (com intubação).', 'FC < 80 bpm com cianose.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Inicia-se massagem se FC < 60 bpm após VPP efetiva.' },
-            { id: '190', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a técnica preferencial para a realização da massagem cardíaca neonatal?', options: ['Técnica dos dois dedos (indicador e médio).', 'Técnica dos dois polegares no terço inferior do esterno.', 'Compressão com a palma da mão.', 'Compressão no lado esquerdo do tórax.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Técnica dos dois polegares é a mais efetiva.' },
-            { id: '191', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Durante a reanimação cardiopulmonar avançada (massagem + ventilação), qual é a relação compressão:ventilação correta?', options: ['15:2.', '30:2.', '3:1 (Três compressões para uma ventilação).', '1:1.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Relação de 3:1 na neonatologia.' },
-            { id: '192', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Quando a massagem cardíaca é iniciada, a concentração de oxigênio (FiO2) deve ser ajustada para:', options: ['Manter em 21%.', 'Aumentar para 40%.', 'Aumentar para 100%.', 'Depende exclusivamente da saturação no momento.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Iniciada a massagem, a FiO2 deve ser de 100%.' },
-            { id: '193', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a droga de escolha na reanimação neonatal se a frequência cardíaca permanecer < 60 bpm apesar de ventilação e massagem adequadas?', options: ['Atropina.', 'Naloxona.', 'Bicarbonato de Sódio.', 'Adrenalina.'], correctIndex: 3, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: D. Adrenalina é a droga de escolha.' },
-            { id: '194', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O Boletim de Apgar é uma ferramenta importante na neonatologia. Qual é a sua função principal no contexto da sala de parto?', options: ['Decidir o início da reanimação.', 'Avaliar retrospectivamente a vitalidade e a resposta às manobras.', 'Diagnosticar a causa da asfixia.', 'Determinar a idade gestacional.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. O Apgar não deve ser usado para iniciar reanimação, apenas para avaliar a resposta.' },
-            { id: '195', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Um recém-nascido apresenta: Frequência Cardíaca de 90 bpm, respiração lenta/irregular, alguma flexão de membros, careta à estimulação e corpo róseo com extremidades cianóticas (acrocianose). Qual é a pontuação de Apgar?', options: ['3.', '4.', '5.', '6.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Nota: FC<100 (1) + Resp. Lenta (1) + Flexão (1) + Careta (1) + Acrocianose (1) = 5.' },
-            { id: '196', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No Boletim de Apgar, uma Frequência Cardíaca > 100 bpm recebe qual pontuação?', options: ['0.', '1.', '2.', '3.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. FC > 100 bpm vale 2 pontos.' },
-            { id: '197', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Cuidados de Rotina', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A administração de Vitamina K (Fitomenadiona) 1 mg intramuscular ao nascer tem como objetivo prevenir:', options: ['Icterícia Neonatal.', 'Doença Hemorrágica do Recém-Nascido.', 'Infecção ocular.', 'Raquitismo.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Previne sangramentos por deficiência de vitamina K.' },
-            { id: '198', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Cuidados de Rotina', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O Método de Credé, realizado com Nitrato de Prata a 1% (ou PVPI/eritromicina), visa prevenir qual patologia?', options: ['Conjuntivite química.', 'Catarata congênita.', 'Oftalmia Neonatal (cegueira) por gonococo.', 'Glaucoma.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Prevenção de oftalmia gonocócica.' },
-            { id: '199', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Triagem Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A presença de mecônio no líquido amniótico altera a conduta inicial de um RN que nasce vigoroso (respirando e com bom tônus)?', options: ['Sim, deve ser intubado imediatamente para aspirar a traqueia.', 'Sim, deve ter o cordão clampeado imediatamente.', 'Não, o RN pode ir para o contato pele a pele com a mãe.', 'Não, mas deve ser levado à mesa de reanimação para observação.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. Nota: A apostila indica clampeamento imediato se RN "muito deprimido" ou patologias placentárias; se vigoroso, segue fluxo normal.' },
-            { id: '200', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O "Ouro da Reanimação Neonatal", considerado o procedimento mais importante e efetivo, é:', options: ['A intubação traqueal.', 'A massagem cardíaca.', 'A Ventilação com Pressão Positiva (VPP).', 'O uso de Adrenalina.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C. A VPP é o procedimento que mais salva vidas na reanimação.' },
-            { id: '201', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Por que se deve evitar a aspiração vigorosa e rotineira da faringe posterior no RN?', options: ['Pode causar laringoespasmo e bradicardia vagal.', 'Aumenta o risco de infecção.', 'Não remove secreções adequadamente.', 'Pode causar hipertensão pulmonar.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A. A estimulação vagal pode causar bradicardia acentuada.' },
-            { id: '202', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No mnemônico MR. SOPA, a letra "A" refere-se a considerar uma via aérea alternativa. Qual procedimento isso implica geralmente?', options: ['Traqueostomia.', 'Intubação Orotraqueal (IOT) ou Máscara Laríngea.', 'Cateter nasal de oxigênio.', 'CPAP nasal.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Via aérea alternativa significa IOT ou máscara laríngea.' },
-            { id: '203', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a recomendação para o passo "Secar" em prematuros extremos (<34 semanas)?', options: ['Secar vigorosamente com dois campos.', 'Não secar; envolver o corpo em saco plástico transparente para evitar perda de calor.', 'Secar apenas a cabeça.', 'Dar banho morno imediatamente.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Prematuros extremos não são secos; vão direto para o saco plástico sob calor radiante.' },
-            { id: '204', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Se o Apgar for menor que 7 no 5º minuto, qual é a conduta em relação à avaliação do escore?', options: ['Parar de avaliar.', 'Continuar avaliando a cada 5 minutos (até 20 minutos de vida).', 'Avaliar a cada hora.', 'Repetir imediatamente.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. Deve-se continuar avaliando até 20 min se persistir baixo.' },
-            { id: '205', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A via preferencial para administração de adrenalina na sala de parto, quando o acesso venoso é necessário, é:', options: ['Veia periférica no braço.', 'Veia umbilical.', 'Intraóssea.', 'Intramuscular.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B. A veia umbilical é o acesso de escolha na reanimação em sala de parto.' }
+            // MÓDULO 8 - PROBLEMA 1 (174-205)
+            { id: '174', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Triagem Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Ao nascimento de um recém-nascido (RN), a decisão de manter o bebê junto à mãe ou levá-lo à mesa de reanimação baseia-se em três perguntas fundamentais. Quais são elas?', options: ['Gestação a termo? O líquido amniótico é claro? Tem bom tônus muscular?', 'Gestação a termo? Está respirando ou chorando? Tem bom tônus muscular?', 'O peso é adequado? Está respirando ou chorando? A frequência cardíaca é > 100 bpm?', 'Gestação a termo? Tem mecônio? A mãe fez pré-natal?'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '175', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Clampeamento do Cordão', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Para um RN com boa vitalidade (respondeu "Sim" às três perguntas iniciais), recomenda-se o clampeamento tardio do cordão umbilical. Qual é o tempo recomendado e o principal benefício dessa prática?', options: ['30 a 60 segundos; previne icterícia.', '1 a 3 minutos; aumenta os estoques de ferro e previne anemia nos primeiros meses.', 'Imediatamente após o nascimento; evita policitemia.', 'Após 5 minutos; melhora o vínculo mãe-bebê.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '176', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Clampeamento do Cordão', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Em qual das situações abaixo o clampeamento do cordão umbilical deve ser imediato, independentemente da vitalidade fetal?', options: ['Prematuridade tardia.', 'Cesariana eletiva.', 'Placenta prévia ou descolamento prematuro de placenta (DPP).', 'Presença de mecônio fluido.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '177', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Os "Passos Iniciais" da estabilização devem ser realizados no chamado "Minuto de Ouro". Qual é o tempo máximo ideal para completar esses passos e reavaliar o RN?', options: ['15 segundos.', '30 segundos.', '60 segundos.', '90 segundos.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '178', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A hipotermia é prejudicial ao recém-nascido. Qual é a faixa de temperatura ambiente recomendada para a sala de parto e reanimação?', options: ['20-22°C.', '23-26°C.', '26-28°C.', '18-21°C.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '179', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a sequência correta do mnemônico "A.P.A.S." utilizado nos passos iniciais da reanimação?', options: ['Aspirar, Posicionar, Aquecer, Secar.', 'Aquecer, Posicionar, Aspirar (se necessário), Secar.', 'Avaliar, Palpar, Auscultar, Segurar.', 'Aquecer, Pesar, Aspirar, Sondar.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '180', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O posicionamento correto da cabeça do RN é crucial para a permeabilidade das vias aéreas. Como deve ser esse posicionamento?', options: ['Flexão máxima do pescoço (queixo no peito).', 'Hiperextensão acentuada.', 'Leve extensão ("posição olfativa").', 'Rotação lateral para a direita.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '181', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A aspiração de vias aéreas não é rotineira. Quando indicada (obstrução por secreção), qual deve ser a ordem correta?', options: ['Narinas primeiro, depois a boca.', 'Boca primeiro, depois as narinas.', 'Apenas a boca.', 'Apenas as narinas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '182', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Após os passos iniciais, qual parâmetro fisiológico é o principal determinante para a decisão de iniciar a reanimação (Ventilação com Pressão Positiva)?', options: ['Saturação de Oxigênio.', 'Cor da pele (cianose).', 'Frequência Cardíaca.', 'Pressão Arterial.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '183', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Quais são as indicações precisas para iniciar a Ventilação com Pressão Positiva (VPP) nos primeiros 60 segundos de vida?', options: ['Cianose central persistente apenas.', 'Apneia, respiração irregular (gasping) ou Frequência Cardíaca < 100 bpm.', 'Frequência Cardíaca < 60 bpm apenas.', 'Baixo peso ao nascer.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '184', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Ao iniciar a VPP em um RN ≥ 34 semanas, qual concentração de oxigênio (FiO2) deve ser utilizada inicialmente?', options: ['100% (Oxigênio puro).', '50%.', '21% (Ar ambiente).', '10%.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '185', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Para a monitorização correta da saturação de oxigênio pré-ductal durante a reanimação, onde deve ser instalado o sensor do oxímetro de pulso?', options: ['No membro superior esquerdo.', 'No membro superior direito.', 'Em qualquer membro inferior.', 'No lóbulo da orelha.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '186', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'VPP - Técnica', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é o ritmo recomendado para a realização da Ventilação com Pressão Positiva?', options: ['"Aperta / Solta".', '"Aperta / Solta / Solta" (40 a 60 movimentos/minuto).', '"Aperta / Aperta / Solta".', '"Um / Dois / Três / Ventila".'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '187', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Se após iniciar a VPP a frequência cardíaca não subir, deve-se checar a técnica de ventilação utilizando o mnemônico MR. SOPA. O que significam as letras "M" e "R"?', options: ['Massagem cardíaca e Respiração.', 'Medicação e Reavaliação.', 'Máscara (ajustar) e Reposicionar a cabeça.', 'Monitorização e Raio-X.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '188', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No protocolo MR. SOPA de correção da ventilação, o que indica a letra "O"?', options: ['Oxigênio a 100%.', 'Boca Aberta (Oral).', 'Oximetria.', 'Observação.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '189', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a indicação precisa para iniciar a Massagem Cardíaca externa no recém-nascido?', options: ['Assim que o bebê nasce em apneia.', 'FC < 100 bpm após os passos iniciais.', 'FC < 60 bpm após 30 segundos de VPP efetiva (com intubação).', 'FC < 80 bpm com cianose.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '190', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a técnica preferencial para a realização da massagem cardíaca neonatal?', options: ['Técnica dos dois dedos (indicador e médio).', 'Técnica dos dois polegares no terço inferior do esterno.', 'Compressão com a palma da mão.', 'Compressão no lado esquerdo do tórax.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '191', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Massagem Cardíaca', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Durante a reanimação cardiopulmonar avançada (massagem + ventilação), qual é a relação compressão:ventilação correta?', options: ['15:2.', '30:2.', '3:1 (Três compressões para uma ventilação).', '1:1.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '192', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Quando a massagem cardíaca é iniciada, a concentração de oxigênio (FiO2) deve ser ajustada para:', options: ['Manter em 21%.', 'Aumentar para 40%.', 'Aumentar para 100%.', 'Depende exclusivamente da saturação no momento.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '193', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a droga de escolha na reanimação neonatal se a frequência cardíaca permanecer < 60 bpm apesar de ventilação e massagem adequadas?', options: ['Atropina.', 'Naloxona.', 'Bicarbonato de Sódio.', 'Adrenalina.'], correctIndex: 3, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: D' },
+            { id: '194', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O Boletim de Apgar é uma ferramenta importante na neonatologia. Qual é a sua função principal no contexto da sala de parto?', options: ['Decidir o início da reanimação.', 'Avaliar retrospectivamente a vitalidade e a resposta às manobras.', 'Diagnosticar a causa da asfixia.', 'Determinar a idade gestacional.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '195', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Um recém-nascido apresenta: Frequência Cardíaca de 90 bpm, respiração lenta/irregular, alguma flexão de membros, careta à estimulação e corpo róseo com extremidades cianóticas (acrocianose). Qual é a pontuação de Apgar?', options: ['3.', '4.', '5.', '6.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C Nota: FC<100 (1) + Resp. Lenta (1) + Flexão (1) + Careta (1) + Acrocianose (1) = 5.' },
+            { id: '196', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No Boletim de Apgar, uma Frequência Cardíaca > 100 bpm recebe qual pontuação?', options: ['0.', '1.', '2.', '3.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '197', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Cuidados de Rotina', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A administração de Vitamina K (Fitomenadiona) 1 mg intramuscular ao nascer tem como objetivo prevenir:', options: ['Icterícia Neonatal.', 'Doença Hemorrágica do Recém-Nascido.', 'Infecção ocular.', 'Raquitismo.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '198', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Cuidados de Rotina', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O Método de Credé, realizado com Nitrato de Prata a 1% (ou PVPI/eritromicina), visa prevenir qual patologia?', options: ['Conjuntivite química.', 'Catarata congênita.', 'Oftalmia Neonatal (cegueira) por gonococo.', 'Glaucoma.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '199', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Triagem Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A presença de mecônio no líquido amniótico altera a conduta inicial de um RN que nasce vigoroso (respirando e com bom tônus)?', options: ['Sim, deve ser intubado imediatamente para aspirar a traqueia.', 'Sim, deve ter o cordão clampeado imediatamente.', 'Não, o RN pode ir para o contato pele a pele com a mãe.', 'Não, mas deve ser levado à mesa de reanimação para observação.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C Nota: A apostila indica clampeamento imediato se RN "muito deprimido" ou patologias placentárias; se vigoroso, segue fluxo normal.' },
+            { id: '200', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O "Ouro da Reanimação Neonatal", considerado o procedimento mais importante e efetivo, é:', options: ['A intubação traqueal.', 'A massagem cardíaca.', 'A Ventilação com Pressão Positiva (VPP).', 'O uso de Adrenalina.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '201', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Por que se deve evitar a aspiração vigorosa e rotineira da faringe posterior no RN?', options: ['Pode causar laringoespasmo e bradicardia vagal.', 'Aumenta o risco de infecção.', 'Não remove secreções adequadamente.', 'Pode causar hipertensão pulmonar.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A' },
+            { id: '202', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No mnemônico MR. SOPA, a letra "A" refere-se a considerar uma via aérea alternativa. Qual procedimento isso implica geralmente?', options: ['Traqueostomia.', 'Intubação Orotraqueal (IOT) ou Máscara Laríngea.', 'Cateter nasal de oxigênio.', 'CPAP nasal.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '203', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Passos Iniciais', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a recomendação para o passo "Secar" em prematuros extremos (<34 semanas)?', options: ['Secar vigorosamente com dois campos.', 'Não secar; envolver o corpo em saco plástico transparente para evitar perda de calor.', 'Secar apenas a cabeça.', 'Dar banho morno imediatamente.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '204', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Boletim de Apgar', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Se o Apgar for menor que 7 no 5º minuto, qual é a conduta em relação à avaliação do escore?', options: ['Parar de avaliar.', 'Continuar avaliando a cada 5 minutos (até 20 minutos de vida).', 'Avaliar a cada hora.', 'Repetir imediatamente.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '205', problem: 1, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Reanimação Neonatal', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A via preferencial para administração de adrenalina na sala de parto, quando o acesso venoso é necessário, é:', options: ['Veia periférica no braço.', 'Veia umbilical.', 'Intraóssea.', 'Intramuscular.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+
+            // MÓDULO 8 - PROBLEMA 2 (206-236)
+            { id: '206', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Metabolismo', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A produção elevada de bilirrubina no recém-nascido é um fator predisponente para a icterícia. Qual é a principal causa fisiológica desse aumento na produção?', options: ['Maior capacidade de conjugação hepática.', 'Ausência de circulação êntero-hepática.', 'Maior massa eritrocitária e menor meia-vida das hemácias (70-90 dias) em comparação ao adulto.', 'Baixa ingestão de líquidos nas primeiras horas.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '207', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Metabolismo', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'No fígado, a conversão da Bilirrubina Indireta (lipossolúvel) em Bilirrubina Direta (hidrossolúvel) é mediada por qual enzima, que se encontra imatura no recém-nascido?', options: ['Beta-glicuronidase.', 'Glicuroniltransferase.', 'Heme-oxigenase.', 'Biliverdina redutase.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '208', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Metabolismo', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O ciclo êntero-hepático da bilirrubina é exacerbado no neonato. Qual enzima, presente na mucosa intestinal e no leite materno, é responsável por desconjugar a bilirrubina, permitindo sua reabsorção?', options: ['Glicuroniltransferase.', 'Lactase.', 'Beta-glicuronidase.', 'Lipase.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '209', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Classificação', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A Icterícia Fisiológica é um evento comum no recém-nascido a termo. Qual é a sua característica cronológica típica?', options: ['Início nas primeiras 24 horas de vida.', 'Início após 24 horas, com pico entre o 3º e 5º dia.', 'Persistência por mais de 30 dias.', 'Início tardio após a segunda semana de vida.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '210', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Classificação', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual dos sinais abaixo é um critério de alerta para Icterícia Patológica?', options: ['Aparecimento nas primeiras 24 horas de vida.', 'Níveis de bilirrubina estáveis.', 'Resolução espontânea em 5 dias.', 'Aparecimento no 3º dia de vida.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A' },
+            { id: '211', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Classificação', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A "Icterícia do Aleitamento" (Breastfeeding Jaundice) ocorre na primeira semana de vida e tem uma etiologia distinta da "Icterícia do Leite Materno". Qual é a causa principal da Icterícia do Aleitamento?', options: ['Fatores intrínsecos do leite que inibem a conjugação.', 'Falha na amamentação (baixa ingestão/desidratação), levando ao aumento da circulação êntero-hepática.', 'Hemólise por incompatibilidade sanguínea.', 'Infecção neonatal.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '212', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Classificação', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A Icterícia do Leite Materno (Breast Milk Jaundice) é caracterizada por:', options: ['Ocorrer nas primeiras 24h devido à hemólise.', 'Ser causada pela perda de peso excessiva do bebê.', 'Ser tardia (após a 1ª semana), causada por fatores no leite que aumentam o ciclo êntero-hepático, em bebês saudáveis e ganhando peso.', 'Exigir a suspensão definitiva da amamentação.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '213', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Diagnóstico', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'As Zonas de Kramer são utilizadas para estimar visualmente o nível de bilirrubina. A icterícia que atinge até a região do umbigo corresponde a qual zona e nível aproximado?', options: ['Zona 1 (~6 mg/dL).', 'Zona 2 (~9 mg/dL).', 'Zona 3 (~12 mg/dL).', 'Zona 4 (~15 mg/dL).'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '214', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Diagnóstico', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A presença de icterícia nas palmas das mãos e plantas dos pés (Zona 5 de Kramer) sugere níveis de bilirrubina superiores a:', options: ['9 mg/dL.', '12 mg/dL.', '15 mg/dL.', '20 mg/dL.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '215', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Tratamento', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é o mecanismo de ação da fototerapia no tratamento da hiperbilirrubinemia?', options: ['Aumenta a conjugação hepática através da indução enzimática.', 'Converte a bilirrubina tóxica em isômeros hidrossolúveis (lumirrubina) através da luz, permitindo excreção sem conjugação.', 'Bloqueia a reabsorção intestinal de bilirrubina.', 'Destrói as hemácias velhas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '216', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Hematologia - Vitamina K', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A Vitamina K é um cofator essencial para a ativação de quais fatores de coagulação?', options: ['I, II, V e VIII.', 'II, VII, IX e X.', 'III, V, XI e XII.', 'Apenas Fator VIII e IX.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '217', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Hematologia - Vitamina K', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Por que o recém-nascido é particularmente vulnerável à deficiência de Vitamina K?', options: ['Porque o leite materno é excessivamente rico na vitamina, causando toxicidade.', 'Devido à alta transferência placentária que inibe a produção endógena.', 'Devido ao intestino estéril ao nascer (ausência de síntese bacteriana) e baixa transferência placentária.', 'Devido à maturação precoce do fígado.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '218', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Hematologia - Profilaxia', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é a medida profilática padrão realizada ao nascimento para prevenir a Doença Hemorrágica do Recém-Nascido?', options: ['Transfusão de plasma fresco congelado.', 'Administração de 1 mg de Vitamina K intramuscular.', 'Suplementação oral de ferro.', 'Banho de luz.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '219', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Doença Hemorrágica', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A forma tardia da Doença Hemorrágica do RN (2ª a 12ª semana) é considerada mais grave devido ao alto risco de:', options: ['Sangramento umbilical leve.', 'Hemorragia intracraniana.', 'Sangramento gengival.', 'Epistaxe.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '220', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Vitaminas - Vitamina A', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A deficiência de Vitamina A afeta a integridade dos epitélios e a visão. Qual é um sinal patognomônico ocular dessa carência?', options: ['Catarata congênita.', 'Glaucoma.', 'Manchas de Bitot (placas de queratina na conjuntiva).', 'Estrabismo.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '221', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Vitaminas - Vitamina A', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A queratomalácia, consequência grave da avitaminose A, caracteriza-se por:', options: ['Endurecimento do cristalino.', 'Amolecimento e ulceração da córnea, podendo levar à cegueira irreversível.', 'Inflamação da retina.', 'Perda da visão de cores apenas.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '222', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Inata', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O sistema imune inato do recém-nascido apresenta algumas limitações funcionais. Uma delas é a deficiência no sistema complemento (níveis baixos de C3), o que prejudica qual processo?', options: ['A produção de anticorpos.', 'A opsonização de bactérias encapsuladas.', 'A maturação dos linfócitos T.', 'A barreira da pele.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '223', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Anticorpos', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A Hipogamaglobulinemia Transitória da Infância ("vale" imunológico) ocorre devido ao catabolismo dos anticorpos maternos transferidos via placenta antes que a produção própria do bebê seja suficiente. Em qual período esse vale é mais acentuado?', options: ['Na primeira semana de vida.', 'Entre o 3º e o 6º mês de vida.', 'Após 1 ano de idade.', 'Durante a vida intrauterina.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '224', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Aleitamento', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'O leite materno desempenha um papel imunológico crucial ao fornecer uma imunoglobulina que não atravessa a barreira placentária. Qual é ela?', options: ['IgG.', 'IgM.', 'IgA Secretora.', 'IgE.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '225', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Riscos', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A principal preocupação clínica com a hiperbilirrubinemia neonatal grave é o risco de neurotoxicidade pelo depósito de bilirrubina no cérebro. Como é chamada essa condição?', options: ['Hidropsia fetal.', 'Kernicterus.', 'Doença da Membrana Hialina.', 'Síndrome deaspiração meconial.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '226', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Metabolismo', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A bilirrubina indireta circula no sangue ligada a qual proteína plasmática para chegar ao fígado?', options: ['Globulina.', 'Albumina.', 'Hemoglobina.', 'Ferritina.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '227', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Diagnóstico', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A Zona 3 de Kramer refere-se à coloração amarelada (icterícia) atingindo qual parte do corpo?', options: ['Cabeça e pescoço.', 'Até o umbigo.', 'Até os joelhos.', 'Mãos e pés.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '228', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Fototerapia', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Na fototerapia, a luz azul converte a bilirrubina indireta em uma substância hidrossolúvel chamada:', options: ['Biliverdina.', 'Urobilinogênio.', 'Lumirrubina.', 'Estercobilina.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '229', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Hematologia - Vitamina K', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual a dose recomendada de Fitomenadiona (Vitamina K) para a profilaxia da doença hemorrágica ao nascimento?', options: ['0,1 mg.', '1,0 mg.', '5,0 mg.', '10 mg.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '230', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Vitaminas - Vitamina A', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual é considerado um sintoma precoce da deficiência de Vitamina A (Xeroftalmia)?', options: ['Cegueira noturna.', 'Queratomalácia.', 'Cegueira total.', 'Ulceração da córnea.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A' },
+            { id: '231', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Inata', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Além dos níveis baixos de complemento, qual outra característica funcional limita a imunidade inata do recém-nascido?', options: ['Ausência total de neutrófilos.', 'Pele excessivamente espessa.', 'Quimiotaxia e fagocitose reduzidas de neutrófilos e macrófagos.', 'Excesso de acidez gástrica.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '232', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Anticorpos', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Durante a gestação, a transferência de IgG materna para o feto ocorre principalmente em qual período?', options: ['Primeiro trimestre.', 'Segundo trimestre.', 'Terceiro trimestre.', 'Durante o parto apenas.'], correctIndex: 2, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: C' },
+            { id: '233', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Classificação', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Uma icterícia que surge no primeiro dia de vida e apresenta aumento rápido da bilirrubina (>5 mg/dL/dia) deve ser considerada:', options: ['Icterícia Fisiológica.', 'Icterícia Patológica.', 'Icterícia do Leite Materno.', 'Icterícia do Aleitamento.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '234', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Icterícia - Metabolismo', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A meia-vida das hemácias no recém-nascido é de aproximadamente:', options: ['30 a 40 dias.', '70 a 90 dias.', '120 dias.', '150 dias.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' },
+            { id: '235', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Barreiras', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'Qual estrutura atua como uma barreira física de proteção mecânica e antimicrobiana na pele do recém-nascido?', options: ['Vernix caseoso.', 'Lanugo.', 'Milium.', 'Mancha mongólica.'], correctIndex: 0, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: A' },
+            { id: '236', problem: 2, cycle: 'basico', discipline: 'Pediatria', subTopic: 'Imunologia - Hipogamaglobulinemia', pblModule: 'Módulo 8 — Crescimento e Desenvolvimento da Criança', text: 'A hipogamaglobulinemia transitória da infância deixa o lactente mais suscetível a quais agentes infecciosos, como o Vírus Sincicial Respiratório (VSR)?', options: ['Apenas fungos.', 'Bactérias e vírus.', 'Apenas parasitas intestinais.', 'Nenhuma suscetibilidade aumentada.'], correctIndex: 1, difficulty: 'media', status: 'unanswered', rationale: 'Gabarito: B' }
         ];
 
-        // --- 2. STATE ---
+        // --- 3. ESTADO DA APLICAÇÃO ---
         const state = {
             cycle: 'basico', 
             disciplines: [],
@@ -618,7 +549,7 @@
             db: REAL_QUESTIONS
         };
 
-        // --- 3. INICIALIZAÇÃO ---
+        // --- 4. FUNÇÕES DE INICIALIZAÇÃO E UI ---
         function init() {
             try {
                 const counterEl = document.getElementById('total-db-count');
@@ -627,16 +558,10 @@
                 renderContentArea();
                 renderStatusFilters();
                 updateCounter();
-                
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
-            } catch (e) {
-                console.error("Initialization error:", e);
-            }
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            } catch (e) { console.error(e); }
         }
 
-        // --- 4. RENDERIZAÇÃO DASHBOARD ---
         function renderCycles() {
             const container = document.getElementById('cycles-container');
             container.innerHTML = CYCLES.map(c => `
@@ -645,7 +570,6 @@
                         <div class="icon-box p-2 rounded-lg transition-colors ${state.cycle === c.id ? '' : 'bg-slate-700 text-slate-400 group-hover:text-slate-200'}">
                             <i data-lucide="${c.icon}" class="w-5 h-5"></i>
                         </div>
-                        ${state.cycle === c.id ? '<div class="w-5 h-5 bg-sky-500 rounded-full flex items-center justify-center"><i data-lucide="check" class="w-3 h-3 text-white"></i></div>' : ''}
                     </div>
                     <h3 class="font-semibold mb-1 ${state.cycle === c.id ? 'text-white' : 'text-slate-300 group-hover:text-white'}">${c.label}</h3>
                     <p class="text-xs text-slate-500">${c.description}</p>
@@ -658,9 +582,7 @@
             const container = document.getElementById('content-area');
             if (state.usePBL) {
                 const relevantModules = ALL_PBL_MODULES.filter(m => m.cycle === state.cycle);
-                const isMod7Selected = state.pblModules.includes('Módulo 7 — Concepção, Formação do Ser Humano e Gestação');
-                const isMod8Selected = state.pblModules.includes('Módulo 8 — Crescimento e Desenvolvimento da Criança');
-
+                
                 let html = `
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 fade-in mb-6">
                         ${relevantModules.map(mod => `
@@ -674,29 +596,30 @@
                     </div>
                 `;
 
-                if (isMod7Selected || isMod8Selected) {
-                    const problems = isMod7Selected ? [1, 2, 3, 4, 5] : [1];
-                    const modName = isMod7Selected ? 'Módulo 7' : 'Módulo 8';
+                const isMod7 = state.pblModules.includes('Módulo 7 — Concepção, Formação do Ser Humano e Gestação');
+                const isMod8 = state.pblModules.includes('Módulo 8 — Crescimento e Desenvolvimento da Criança');
+
+                if (isMod7 || isMod8) {
+                    let problems = [];
+                    let modName = "";
+                    if (isMod7) { problems = [1, 2, 3, 4, 5]; modName = "Módulo 7"; }
+                    else if (isMod8) { problems = [1, 2]; modName = "Módulo 8"; }
+
                     html += `
                         <div class="mt-4 pt-4 border-t border-slate-700/50 slide-up bg-slate-900/40 p-4 rounded-lg border border-purple-500/20">
                             <h3 class="text-sm font-bold text-purple-400 mb-3 flex items-center gap-2">
                                 <i data-lucide="list-tree" class="w-4 h-4"></i> Filtrar por Problema (${modName})
                             </h3>
                             <div class="flex flex-wrap gap-2">
-                                <button onclick="setProblem(null)" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.pblProblem === null ? 'bg-purple-600 text-white border-purple-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'}">
-                                    Todos os Problemas
-                                </button>
+                                <button onclick="setProblem(null)" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.pblProblem === null ? 'bg-purple-600 text-white border-purple-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'}">Todos os Problemas</button>
                                 ${problems.map(num => `
-                                    <button onclick="setProblem(${num})" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.pblProblem === num ? 'bg-purple-600 text-white border-purple-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'}">
-                                        Problema ${num}
-                                    </button>
+                                    <button onclick="setProblem(${num})" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.pblProblem === num ? 'bg-purple-600 text-white border-purple-500' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'}">Problema ${num}</button>
                                 `).join('')}
                             </div>
                         </div>
                     `;
                 }
                 container.innerHTML = html;
-
             } else {
                 const disciplines = DISCIPLINES[state.cycle];
                 let html = `
@@ -708,13 +631,10 @@
                     </div>
                     <div class="flex flex-wrap gap-2 mb-6">
                         ${disciplines.map(disc => `
-                            <button onclick="toggleDiscipline('${disc}')" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.disciplines.includes(disc) ? 'chip-selected shadow-md' : 'bg-slate-800/50 text-slate-400 border-slate-700 hover:border-slate-600 hover:text-slate-200'}">
-                                ${disc}
-                            </button>
+                            <button onclick="toggleDiscipline('${disc}')" class="px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${state.disciplines.includes(disc) ? 'chip-selected shadow-md' : 'bg-slate-800/50 text-slate-400 border-slate-700 hover:border-slate-600 hover:text-slate-200'}">${disc}</button>
                         `).join('')}
                     </div>
                 `;
-                
                 const relevantSubTopics = state.disciplines.filter(d => SUB_TOPICS[d]);
                 if (relevantSubTopics.length > 0) {
                     html += `
@@ -728,9 +648,7 @@
                                         <span class="text-xs font-bold text-sky-400 uppercase tracking-wide mb-2 block">${disc}</span>
                                         <div class="flex flex-wrap gap-2">
                                             ${SUB_TOPICS[disc].map(sub => `
-                                                <button onclick="toggleSubTopic('${sub}')" class="px-3 py-1.5 rounded-lg text-[10px] font-medium border transition-all ${state.subTopics.includes(sub) ? 'bg-sky-600 text-white border-sky-500' : 'bg-slate-900/80 text-slate-400 border-slate-700 hover:text-slate-200'}">
-                                                    ${sub}
-                                                </button>
+                                                <button onclick="toggleSubTopic('${sub}')" class="px-3 py-1.5 rounded-lg text-[10px] font-medium border transition-all ${state.subTopics.includes(sub) ? 'bg-sky-600 text-white border-sky-500' : 'bg-slate-900/80 text-slate-400 border-slate-700 hover:text-slate-200'}">${sub}</button>
                                             `).join('')}
                                         </div>
                                     </div>
@@ -762,52 +680,17 @@
             `;
         }
 
-        // --- LÓGICA DE INTERAÇÃO ---
-        function selectCycle(id) {
-            state.cycle = id; 
-            state.disciplines = []; 
-            state.subTopics = []; 
-            state.pblModules = []; 
-            state.pblProblem = null;
-            state.usePBL = false;
-            renderCycles(); renderContentArea(); updateCounter();
-        }
-        function setMode(mode) {
-            state.usePBL = (mode === 'pbl');
-            document.getElementById('btn-mode-trad').className = !state.usePBL ? 'px-3 py-1.5 text-xs font-medium rounded-md transition-all bg-slate-700 text-white shadow' : 'px-3 py-1.5 text-xs font-medium rounded-md transition-all text-slate-500 hover:text-slate-300';
-            document.getElementById('btn-mode-pbl').className = state.usePBL ? 'px-3 py-1.5 text-xs font-medium rounded-md transition-all bg-purple-600 text-white shadow' : 'px-3 py-1.5 text-xs font-medium rounded-md transition-all text-slate-500 hover:text-slate-300';
-            renderContentArea(); updateCounter();
-        }
-        function toggleDiscipline(disc) {
-            if (state.disciplines.includes(disc)) state.disciplines = state.disciplines.filter(d => d !== disc); else state.disciplines.push(disc);
-            renderContentArea(); updateCounter();
-        }
-        function toggleAllDisciplines() {
-            const all = DISCIPLINES[state.cycle];
-            if (state.disciplines.length === all.length) { state.disciplines = []; state.subTopics = []; } else state.disciplines = [...all];
-            renderContentArea(); updateCounter();
-        }
-        function toggleSubTopic(sub) {
-            if (state.subTopics.includes(sub)) state.subTopics = state.subTopics.filter(s => s !== sub); else state.subTopics.push(sub);
-            renderContentArea(); updateCounter();
-        }
-        function togglePBL(mod) {
-            if (state.pblModules.includes(mod)) {
-                state.pblModules = state.pblModules.filter(m => m !== mod);
-                if (mod === 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação' || mod === 'Módulo 8 — Crescimento e Desenvolvimento da Criança') state.pblProblem = null;
-            } else {
-                state.pblModules.push(mod);
-            }
-            renderContentArea(); updateCounter();
-        }
-        function setProblem(num) {
-            state.pblProblem = num;
-            renderContentArea();
-            updateCounter();
-        }
+        // --- 5. LÓGICA DE FILTRAGEM E EVENTOS ---
+        function selectCycle(id) { state.cycle = id; state.disciplines = []; state.subTopics = []; state.pblModules = []; state.pblProblem = null; state.usePBL = false; renderCycles(); renderContentArea(); updateCounter(); }
+        function setMode(mode) { state.usePBL = (mode === 'pbl'); renderContentArea(); updateCounter(); }
+        function toggleDiscipline(disc) { if (state.disciplines.includes(disc)) state.disciplines = state.disciplines.filter(d => d !== disc); else state.disciplines.push(disc); renderContentArea(); updateCounter(); }
+        function toggleAllDisciplines() { const all = DISCIPLINES[state.cycle]; if (state.disciplines.length === all.length) { state.disciplines = []; state.subTopics = []; } else state.disciplines = [...all]; renderContentArea(); updateCounter(); }
+        function toggleSubTopic(sub) { if (state.subTopics.includes(sub)) state.subTopics = state.subTopics.filter(s => s !== sub); else state.subTopics.push(sub); renderContentArea(); updateCounter(); }
+        function togglePBL(mod) { if (state.pblModules.includes(mod)) { state.pblModules = state.pblModules.filter(m => m !== mod); state.pblProblem = null; } else { state.pblModules.push(mod); } renderContentArea(); updateCounter(); }
+        function setProblem(num) { state.pblProblem = num; updateCounter(); renderContentArea(); }
         function toggleFilter(key) { state.filters[key] = !state.filters[key]; renderStatusFilters(); updateCounter(); }
-        function setViewMode(mode) {
-            state.viewMode = mode;
+        function setViewMode(mode) { 
+            state.viewMode = mode; 
             const btnList = document.getElementById('btn-view-list');
             const btnZen = document.getElementById('btn-view-zen');
             if(mode === 'list') {
@@ -818,35 +701,36 @@
                 btnList.className = "p-3 rounded-lg border bg-slate-800 border-slate-700 text-slate-500 flex flex-col items-center gap-2 transition-all hover:bg-slate-700";
             }
         }
-        function changeLimit(delta) {
-            let newVal = state.limit + delta;
-            if (newVal < 5) newVal = 5; if (newVal > state.filteredQuestions.length) newVal = state.filteredQuestions.length; if (state.filteredQuestions.length === 0) newVal = 0;
-            state.limit = newVal; document.getElementById('q-limit-input').value = newVal;
-        }
-        function manualLimitChange(val) {
-            let num = parseInt(val); if (!num || num < 1) num = 5; state.limit = num; updateCounter();
-        }
+        function changeLimit(delta) { let newVal = state.limit + delta; if (newVal < 5) newVal = 5; if (newVal > state.filteredQuestions.length) newVal = state.filteredQuestions.length; state.limit = newVal; document.getElementById('q-limit-input').value = newVal; }
+        function manualLimitChange(val) { let num = parseInt(val); if (!num || num < 1) num = 5; state.limit = num; updateCounter(); }
 
-        // --- FILTRAGEM ---
         function updateCounter() {
             const filtered = state.db.filter(q => {
+                // Ciclo
                 if (q.cycle !== state.cycle) return false;
+                
+                // Módulos / Disciplinas
                 if (state.usePBL) {
                     if (state.pblModules.length > 0 && !state.pblModules.includes(q.pblModule)) return false;
-                    if (!state.pblModules.length && !q.pblModule) return false;
-                    
-                    if (state.pblProblem !== null && (q.pblModule === 'Módulo 7 — Concepção, Formação do Ser Humano e Gestação' || q.pblModule === 'Módulo 8 — Crescimento e Desenvolvimento da Criança')) {
-                        if (q.problem !== state.pblProblem) return false;
-                    }
+                    if (state.pblProblem !== null && q.problem !== state.pblProblem) return false;
                 } else {
-                    if (state.disciplines.length > 0) {
-                        if (!state.disciplines.includes(q.discipline)) return false;
-                        if (state.subTopics.length > 0 && !state.subTopics.includes(q.subTopic)) return false;
-                    }
+                    if (state.disciplines.length > 0 && !state.disciplines.includes(q.discipline)) return false;
+                    if (state.subTopics.length > 0 && !state.subTopics.includes(q.subTopic)) return false;
                 }
-                if (!state.filters.unanswered && q.status === 'unanswered') return false;
+
+                // Filtros de Estado (Unanswered / Wrong)
+                // Se ambos ativos, mostra questões que atendem a pelo menos um
+                if (state.filters.unanswered && state.filters.wrong) {
+                    if (q.status !== 'unanswered' && q.status !== 'wrong') return false;
+                } else if (state.filters.unanswered) {
+                    if (q.status !== 'unanswered') return false;
+                } else if (state.filters.wrong) {
+                    if (q.status !== 'wrong') return false;
+                }
+
                 return true;
             });
+
             state.filteredQuestions = filtered;
             document.getElementById('q-counter').innerText = filtered.length;
             const btn = document.getElementById('btn-generate');
@@ -854,17 +738,14 @@
                 btn.disabled = false;
                 btn.className = "w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg bg-sky-500 hover:bg-sky-400 text-white hover:shadow-sky-500/25 hover:-translate-y-1 cursor-pointer";
                 if (state.limit > filtered.length) state.limit = filtered.length;
-                if (state.limit === 0) state.limit = Math.min(10, filtered.length);
                 document.getElementById('q-limit-input').value = state.limit;
             } else {
                 btn.disabled = true;
                 btn.className = "w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all shadow-lg bg-slate-800 text-slate-500 cursor-not-allowed";
-                state.limit = 0;
-                document.getElementById('q-limit-input').value = 0;
             }
         }
 
-        // --- EXAM LOGIC ---
+        // --- 6. EXAME E PDF Profissional ---
         function shuffle(array) { return array.sort(() => Math.random() - 0.5); }
 
         function startExam() {
@@ -873,30 +754,22 @@
             state.currentZenIndex = 0;
             state.eliminatedOptions = {};
             state.userAnswers = {}; 
-
             document.getElementById('dashboard-view').classList.add('hidden');
             document.getElementById('exam-view').classList.remove('hidden');
-            document.getElementById('header-logo-area').onclick = null;
             document.getElementById('nav-dashboard').classList.add('hidden');
             document.getElementById('nav-exam').classList.remove('hidden');
             document.getElementById('nav-exam').classList.add('flex');
-
             renderQuestions();
-            updateZenUI();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function exitExam() {
-            if(confirm('Deseja sair do caderno? O progresso não salvo será perdido.')) resetToDashboard();
-        }
-
+        function exitExam() { if(confirm('Deseja sair?')) resetToDashboard(); }
         function resetToDashboard() {
             document.getElementById('dashboard-view').classList.remove('hidden');
             document.getElementById('exam-view').classList.add('hidden');
             document.getElementById('nav-dashboard').classList.remove('hidden');
             document.getElementById('nav-exam').classList.add('hidden');
             document.getElementById('nav-exam').classList.remove('flex');
-            document.getElementById('header-logo-area').onclick = resetToDashboard;
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -904,42 +777,42 @@
             if (!state.eliminatedOptions[qId]) state.eliminatedOptions[qId] = [];
             const list = state.eliminatedOptions[qId];
             if (list.includes(optIdx)) state.eliminatedOptions[qId] = list.filter(i => i !== optIdx); else state.eliminatedOptions[qId].push(optIdx);
-            
-            const qIndex = state.examQuestions.findIndex(q => q.id === qId);
-            refreshQuestionCard(qId, qIndex);
+            refreshQuestionCard(qId, state.examQuestions.findIndex(q => q.id === qId));
         }
 
         function selectOption(qId, index) {
             if (state.userAnswers[qId]?.submitted) return;
             if (!state.userAnswers[qId]) state.userAnswers[qId] = { selected: null, submitted: false };
             state.userAnswers[qId].selected = index;
-            const qIndex = state.examQuestions.findIndex(q => q.id === qId);
-            refreshQuestionCard(qId, qIndex);
+            refreshQuestionCard(qId, state.examQuestions.findIndex(q => q.id === qId));
         }
 
         function submitAnswer(qId) {
-            if (!state.userAnswers[qId] || state.userAnswers[qId].selected === null) {
-                return;
-            }
+            if (!state.userAnswers[qId] || state.userAnswers[qId].selected === null) return;
             state.userAnswers[qId].submitted = true;
-            const qIndex = state.examQuestions.findIndex(q => q.id === qId);
-            refreshQuestionCard(qId, qIndex);
+            
+            // Atualizar status no banco global para simular persistência na sessão
+            const qIdx = state.db.findIndex(x => x.id === qId);
+            const qExam = state.examQuestions.find(x => x.id === qId);
+            if (state.userAnswers[qId].selected === qExam.correctIndex) {
+                state.db[qIdx].status = 'answered';
+            } else {
+                state.db[qIdx].status = 'wrong';
+            }
+
+            refreshQuestionCard(qId, state.examQuestions.findIndex(q => q.id === qId));
         }
 
         function refreshQuestionCard(qId, index) {
             const q = state.examQuestions.find(q => q.id === qId);
             const container = document.getElementById(`q-card-${qId}`);
-            if (container) {
-                container.outerHTML = renderQuestionHTML(q, index);
-                if (typeof lucide !== 'undefined') lucide.createIcons();
-            }
+            if (container) { container.outerHTML = renderQuestionHTML(q, index); if (typeof lucide !== 'undefined') lucide.createIcons(); }
         }
 
         function renderQuestionHTML(q, index) {
             const letters = ['A', 'B', 'C', 'D', 'E'];
             const eliminated = state.eliminatedOptions[q.id] || [];
-            const answerState = state.userAnswers[q.id] || { selected: null, submitted: false };
-            const { selected, submitted } = answerState;
+            const { selected, submitted } = state.userAnswers[q.id] || { selected: null, submitted: false };
 
             return `
                 <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-2xl relative fade-in" id="q-card-${q.id}">
@@ -951,102 +824,39 @@
                             </div>
                             <h3 class="text-slate-400 text-sm font-mono mt-1">Questão #${q.id}</h3>
                         </div>
-                        <div class="flex items-center gap-2">
-                             ${q.difficulty === 'facil' ? '<span class="text-xs font-bold text-green-400 bg-green-400/10 px-2 py-1 rounded">Fácil</span>' : ''}
-                             ${q.difficulty === 'media' ? '<span class="text-xs font-bold text-yellow-400 bg-yellow-400/10 px-2 py-1 rounded">Média</span>' : ''}
-                             ${q.difficulty === 'dificil' ? '<span class="text-xs font-bold text-red-400 bg-red-400/10 px-2 py-1 rounded">Difícil</span>' : ''}
-                        </div>
                     </div>
-
                     <div class="mb-8">
-                        <p class="text-lg text-slate-200 leading-relaxed font-medium">
-                            <span class="text-slate-500 font-bold mr-2">${index + 1}.</span> ${q.text}
-                        </p>
+                        <p class="text-lg text-slate-200 leading-relaxed font-medium"><span class="text-slate-500 font-bold mr-2">${index + 1}.</span> ${q.text}</p>
                     </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="options-container-${q.id}">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         ${q.options.map((opt, i) => {
                             const isElim = eliminated.includes(i);
                             const isSelected = selected === i;
                             const isCorrect = i === q.correctIndex;
-                            
                             let cardClasses = "relative p-4 rounded-xl border transition-all flex items-start gap-4 group cursor-pointer ";
-                            let letterClasses = "w-8 h-8 min-w-[2rem] rounded-full border flex items-center justify-center font-bold transition-colors ";
-                            let textClasses = "text-sm md:text-base leading-relaxed flex-1 ";
-                            
                             if (!submitted) {
-                                if (isElim) {
-                                    cardClasses += "bg-slate-900/30 border-slate-800 opacity-60 option-eliminated";
-                                    letterClasses += "border-slate-700 text-slate-600";
-                                    textClasses += "line-through text-slate-600";
-                                } else if (isSelected) {
-                                    cardClasses += "bg-sky-500/10 border-sky-500 shadow-sm";
-                                    letterClasses += "bg-sky-500 border-sky-500 text-white";
-                                    textClasses += "text-white font-medium";
-                                } else {
-                                    cardClasses += "bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 hover:border-slate-500";
-                                    letterClasses += "border-slate-600 text-slate-400 group-hover:border-sky-500 group-hover:text-sky-500";
-                                    textClasses += "text-slate-300 group-hover:text-white";
-                                }
+                                if (isElim) cardClasses += "bg-slate-900/30 opacity-60 option-eliminated";
+                                else if (isSelected) cardClasses += "bg-sky-500/10 border-sky-500 shadow-sm";
+                                else cardClasses += "bg-slate-800/50 border-slate-700 hover:bg-slate-700/50";
                             } else {
-                                if (isCorrect) {
-                                    cardClasses += "opt-correct";
-                                    textClasses += "text-green-100 font-medium";
-                                } else if (isSelected && !isCorrect) {
-                                    cardClasses += "opt-wrong";
-                                    textClasses += "text-red-100";
-                                } else {
-                                    cardClasses += "bg-slate-900/40 border-slate-800 opacity-50";
-                                    letterClasses += "border-slate-700 text-slate-600";
-                                    textClasses += "text-slate-500";
-                                }
+                                if (isCorrect) cardClasses += "opt-correct";
+                                else if (isSelected && !isCorrect) cardClasses += "opt-wrong";
+                                else cardClasses += "bg-slate-900/40 opacity-50";
                             }
-
-                            return `
-                                <div id="opt-${q.id}-${i}" 
-                                     onclick="selectOption('${q.id}', ${i})"
-                                     class="${cardClasses}">
-                                    
-                                    <div class="opt-letter ${letterClasses}">
-                                        ${letters[i]}
-                                    </div>
-                                    
-                                    <p class="opt-text ${textClasses}">
-                                        ${opt}
-                                    </p>
-
-                                    ${!submitted ? `
-                                    <button onclick="event.stopPropagation(); toggleElimination('${q.id}', ${i})" 
-                                            class="eye-btn absolute top-2 right-2 p-1.5 rounded-full transition-all text-slate-600 hover:text-red-400 hover:bg-slate-700 ${isElim ? 'text-red-500 bg-red-500/10' : ''}">
-                                        <i data-lucide="${isElim ? 'eye-off' : 'eye'}" class="eye-icon w-4 h-4"></i>
-                                    </button>
-                                    ` : ''}
-                                </div>
-                            `
+                            return `<div onclick="selectOption('${q.id}', ${i})" class="${cardClasses}">
+                                <div class="opt-letter w-8 h-8 rounded-full border flex items-center justify-center font-bold">${letters[i]}</div>
+                                <p class="flex-1 text-sm md:text-base">${opt}</p>
+                                ${!submitted ? `<button onclick="event.stopPropagation(); toggleElimination('${q.id}', ${i})" class="absolute top-2 right-2 p-1.5 rounded-full text-slate-600 hover:text-red-400"><i data-lucide="${isElim ? 'eye-off' : 'eye'}" class="w-4 h-4"></i></button>` : ''}
+                            </div>`;
                         }).join('')}
                     </div>
-
                     <div class="mt-8 pt-6 border-t border-slate-700/50">
-                        ${!submitted ? `
-                            <div class="flex justify-end gap-3">
-                                <button onclick="submitAnswer('${q.id}')" 
-                                        class="bg-sky-600 hover:bg-sky-500 text-white px-8 py-2.5 rounded-lg font-bold shadow-lg shadow-sky-900/20 transition-all">
-                                    Responder
-                                </button>
-                            </div>
-                        ` : `
-                            <div class="fade-in">
-                                <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 relative overflow-hidden">
-                                    <div class="absolute left-0 top-0 bottom-0 w-1 ${selected === q.correctIndex ? 'bg-green-500' : 'bg-red-500'}"></div>
-                                    <h4 class="text-sm font-bold uppercase tracking-wider mb-2 ${selected === q.correctIndex ? 'text-green-400' : 'text-red-400'}">
-                                        ${selected === q.correctIndex ? 'Resposta Correta!' : 'Resposta Incorreta'}
-                                    </h4>
-                                    <p class="text-slate-300 text-sm leading-relaxed">
-                                        ${q.rationale}
-                                    </p>
-                                </div>
-                            </div>
-                        `}
+                        ${!submitted ? `<div class="flex justify-end"><button onclick="submitAnswer('${q.id}')" class="bg-sky-600 hover:bg-sky-500 text-white px-8 py-2.5 rounded-lg font-bold">Responder</button></div>` : `
+                            <div class="bg-slate-900/60 border border-slate-700/50 rounded-xl p-5 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 ${selected === q.correctIndex ? 'bg-green-500' : 'bg-red-500'}"></div>
+                                <h4 class="text-sm font-bold uppercase tracking-wider mb-2 ${selected === q.correctIndex ? 'text-green-400' : 'text-red-400'}">${selected === q.correctIndex ? 'Resposta Correta!' : 'Resposta Incorreta'}</h4>
+                                <p class="text-slate-300 text-sm leading-relaxed">${q.rationale}</p>
+                            </div>`}
                     </div>
                 </div>
             `;
@@ -1064,19 +874,15 @@
                 label.innerText = 'Modo Zen';
                 document.getElementById('zen-controls').classList.remove('hidden');
                 document.getElementById('zen-progress-container').classList.remove('hidden');
-                const q = state.examQuestions[state.currentZenIndex];
-                container.innerHTML = renderQuestionHTML(q, state.currentZenIndex);
+                container.innerHTML = renderQuestionHTML(state.examQuestions[state.currentZenIndex], state.currentZenIndex);
+                updateZenUI();
             }
             if (typeof lucide !== 'undefined') lucide.createIcons();
-            updateZenUI();
         }
 
         function updateZenUI() {
-            if (state.viewMode !== 'zen') return;
             const percent = ((state.currentZenIndex + 1) / state.examQuestions.length) * 100;
             document.getElementById('zen-progress-bar').style.width = `${percent}%`;
-            document.getElementById('zen-current-q').innerText = `Questão ${state.currentZenIndex + 1}`;
-            document.getElementById('zen-total-q').innerText = `de ${state.examQuestions.length}`;
             document.getElementById('zen-counter').innerText = `${state.currentZenIndex + 1} / ${state.examQuestions.length}`;
             document.getElementById('btn-zen-prev').disabled = state.currentZenIndex === 0;
             document.getElementById('btn-zen-next').disabled = state.currentZenIndex === state.examQuestions.length - 1;
@@ -1085,86 +891,77 @@
         function zenNext() { if (state.currentZenIndex < state.examQuestions.length - 1) { state.currentZenIndex++; renderQuestions(); window.scrollTo(0,0); } }
         function zenPrev() { if (state.currentZenIndex > 0) { state.currentZenIndex--; renderQuestions(); window.scrollTo(0,0); } }
 
-        // --- PDF GENERATION ---
-        function getImageDataUrl(url) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.crossOrigin = "Anonymous";
-                img.src = url;
-                img.onload = () => {
-                    const canvas = document.createElement("canvas");
-                    canvas.width = img.width; canvas.height = img.height;
-                    const ctx = canvas.getContext("2d");
-                    ctx.drawImage(img, 0, 0);
-                    resolve(canvas.toDataURL("image/png"));
-                };
-                img.onerror = () => resolve(null);
-            });
-        }
-
+        // --- PDF GENERATION Profissional ---
         async function downloadPDF() {
             if (!window.jspdf) return;
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             const pageWidth = doc.internal.pageSize.getWidth();
             const pageHeight = doc.internal.pageSize.getHeight();
-            const margin = 15; 
-            let y = 0; 
+            const margin = 15;
             const colorPrimary = [15, 23, 42];
             const colorAccent = [2, 132, 199];
-            const logoUrl = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
-            const logoData = await getImageDataUrl(logoUrl);
             let pageNumber = 1;
 
-            function addPageLayout() {
+            const getLogo = () => new Promise(res => {
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = "https://raw.githubusercontent.com/acervo450-commits/mednexus/main/Banco%20de%20Quest%C3%B5es/BQ.png";
+                img.onload = () => {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = img.width; canvas.height = img.height;
+                    canvas.getContext("2d").drawImage(img, 0, 0);
+                    res(canvas.toDataURL("image/png"));
+                };
+                img.onerror = () => res(null);
+            });
+
+            const logoData = await getLogo();
+
+            const addHeader = () => {
                 doc.setFillColor(...colorPrimary);
-                doc.rect(0, 0, pageWidth, 28, 'F');
-                if (logoData) doc.addImage(logoData, 'PNG', margin, 4, 20, 20);
+                doc.rect(0, 0, pageWidth, 25, 'F');
+                if (logoData) doc.addImage(logoData, 'PNG', margin, 5, 15, 15);
                 doc.setFont("helvetica", "bold");
-                doc.setFontSize(10);
                 doc.setTextColor(255, 255, 255);
-                doc.text("CADERNO DE QUESTÕES", pageWidth - margin - 50, 18);
-                doc.setDrawColor(200);
-                doc.line(margin, pageHeight - 12, pageWidth - margin, pageHeight - 12);
+                doc.setFontSize(12);
+                doc.text("CADERNO DE QUESTÕES - MEDNEXUS", margin + 20, 15);
                 doc.setFontSize(8);
-                doc.setTextColor(100);
-                doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} • Material MEDNEXUS`, margin, pageHeight - 7);
-                doc.text(`Página ${pageNumber++}`, pageWidth - margin - 15, pageHeight - 7);
+                doc.text(`Gerado em ${new Date().toLocaleDateString('pt-BR')} • Página ${pageNumber++}`, pageWidth - margin - 45, 15);
             }
 
-            addPageLayout();
-            y = 40;
-            doc.setFontSize(14);
-            doc.setTextColor(...colorPrimary);
-            doc.text("REVISÃO DE QUESTÕES - MEDNEXUS", margin, y);
-            y += 8;
-            doc.setDrawColor(...colorAccent);
-            doc.line(margin, y, pageWidth - margin, y);
-            y += 12;
+            addHeader();
+            let y = 35;
 
             state.examQuestions.forEach((q, i) => {
-                if (y > pageHeight - 40) { doc.addPage(); addPageLayout(); y = 40; }
+                if (y > pageHeight - 40) { doc.addPage(); addHeader(); y = 35; }
+                
+                // Questão Label
                 doc.setFillColor(...colorAccent);
-                doc.roundedRect(margin, y - 4.5, 24, 6, 1, 1, 'F');
-                doc.setFontSize(9);
+                doc.roundedRect(margin, y, 25, 6, 1, 1, 'F');
                 doc.setTextColor(255, 255, 255);
-                doc.text(`QUESTÃO ${i + 1}`, margin + 2, y);
-                y += 8;
+                doc.setFontSize(9);
+                doc.text(`QUESTÃO ${i + 1}`, margin + 2, y + 4.5);
+                
+                y += 10;
+                doc.setTextColor(0);
                 doc.setFont("times", "normal");
                 doc.setFontSize(11);
-                doc.setTextColor(0); 
-                const splitEnunciado = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
-                doc.text(splitEnunciado, margin, y);
-                y += (splitEnunciado.length * 5) + 3;
+                const splitText = doc.splitTextToSize(q.text, pageWidth - (margin * 2));
+                doc.text(splitText, margin, y);
+                y += (splitText.length * 5) + 5;
+
                 q.options.forEach((opt, idx) => {
-                    const splitOpt = doc.splitTextToSize(`${String.fromCharCode(65 + idx)}) ${opt}`, pageWidth - (margin * 2) - 8);
-                    if (y + (splitOpt.length * 5) > pageHeight - 15) { doc.addPage(); addPageLayout(); y = 40; }
-                    doc.text(splitOpt, margin, y);
+                    const optText = `${String.fromCharCode(65 + idx)}) ${opt}`;
+                    const splitOpt = doc.splitTextToSize(optText, pageWidth - (margin * 2) - 5);
+                    if (y + (splitOpt.length * 5) > pageHeight - 15) { doc.addPage(); addHeader(); y = 35; }
+                    doc.text(splitOpt, margin + 2, y);
                     y += (splitOpt.length * 5) + 2;
                 });
                 y += 8;
             });
-            doc.save("caderno_mednexus.pdf");
+
+            doc.save("caderno_mednexus_questoes.pdf");
         }
 
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
