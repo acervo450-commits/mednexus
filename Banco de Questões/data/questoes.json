@@ -1,0 +1,2960 @@
+[
+  {
+    "id": 0,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "Tradicional",
+    "modulo": "Módulo I — Introdução à Medicina",
+    "tema": "Ética e Profissionalismo",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "De acordo com os princípios da bioética, qual conceito define a obrigação do médico de agir no melhor interesse do paciente e maximizar os benefícios?",
+    "alternativas": {
+      "A": "Autonomia",
+      "B": "Não maleficência",
+      "C": "Beneficência",
+      "D": "Justiça"
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 1,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Ciclo Menstrual",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O controle central do ciclo menstrual reside no hipotálamo, especificamente no núcleo arqueado. Sobre a secreção do Hormônio Liberador de Gonadotrofina (GnRH), assinale a alternativa que descreve corretamente sua característica fundamental para a manutenção da função do eixo:",
+    "alternativas": {
+      "A": "Sua secreção deve ser contínua e linear para manter os níveis estáveis de FSH e LH.",
+      "B": "A liberação ocorre em pulsos rítmicos; uma secreção contínua levaria à desensibilização (down-regulation) dos receptores hipofisários.",
+      "C": "O GnRH é secretado exclusivamente em resposta ao pico de progesterona na fase lútea.",
+      "D": "A pulsatilidade do GnRH é controlada diretamente pelos níveis de inibina B, sem influência neural."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 2,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Ovariana",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "A teoria das \"Duas Células, Duas Gonadotrofinas\" explica a produção de estrogênio no folículo ovariano. Qual é a função específica das Células da Teca neste processo?",
+    "alternativas": {
+      "A": "Converter androgênios em estradiol através da enzima aromatase.",
+      "B": "Produzir progesterona para sustentar o corpo lúteo inicial.",
+      "C": "Captar colesterol e convertê-lo em androgênios sob estímulo do LH.",
+      "D": "Captar colesterol e convertê-lo em androgênios sob estímulo do FSH."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 3,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Ovariana",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "As Células da Granulosa desempenham um papel crucial na foliculogênese. Por que elas dependem das Células da Teca para produzir estradiol?",
+    "alternativas": {
+      "A": "Porque as Células da Granulosa não possuem receptores para FSH.",
+      "B": "Porque elas não possuem a enzima aromatase necessária para the conversão final.",
+      "C": "Porque elas não conseguem produzir os androgênios precursores, pois não possuem as enzimas necessárias para essa etapa inicial.",
+      "D": "Porque o LH inibe a produção de estradiol diretamente na Granulosa."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 4,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Ciclo Menstrual",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual enzima, induzida pelo FSH nas células da granulosa, é responsável pela conversão de androstenediona e testosterona em estradiol?",
+    "alternativas": {
+      "A": "5-alfa-redutase.",
+      "B": "Aromatase.",
+      "C": "Colesterol desmolase.",
+      "D": "17-hidroxilase."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 5,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Feedback Hormonal",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Para que ocorra o Pico de LH e a consequente ovulação, é necessário um evento específico de feedback positivo. Quais são as condições críticas de nível de estradiol e duração necessárias para disparar este evento?",
+    "alternativas": {
+      "A": "Estradiol > 100 pg/mL por 24 horas.",
+      "B": "Estradiol > 200 pg/mL por cerca de 50 horas.",
+      "C": "Estradiol > 400 pg/mL por 12 horas.",
+      "D": "Queda abrupta do estradiol seguida de aumento de progesterona."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 6,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Ovulação",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O pico de LH desencadeia uma série de eventos que culminam na ovulação. Dentre os eventos citados abaixo, qual NÃO é desencadeado diretamente por este pico?",
+    "alternativas": {
+      "A": "Retomada da meiose do oócito (de prófase I para metáfase II).",
+      "B": "Produção de enzimas proteolíticas como a colagenase.",
+      "C": "Início da secreção de FSH para recrutamento da próxima coorte folicular.",
+      "D": "Ruptura folicular e liberação do ovócito."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 7,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Ovulação",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Cronologicamente, quanto tempo após o início do pico de LH ocorre a ovulação?",
+    "alternativas": {
+      "A": "2 a 4 horas.",
+      "B": "10 a 12 horas.",
+      "C": "16 a 32 horas.",
+      "D": "48 a 72 horas."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 8,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Ciclo Menstrual",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Se não houver fecundação, o corpo lúteo degenera. Qual é o mecanismo fisiológico imediato que leva à menstruação (descamação endometrial)?",
+    "alternativas": {
+      "A": "Aumento súbito de FSH causando necrose tecidual.",
+      "B": "Queda abrupta da progesterona causando constrição das artérias espiraladas e isquemia.",
+      "C": "Excesso de produção de hCG pelo endométrio não receptivo.",
+      "D": "Inibição direta do endométrio pela prolactina."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 9,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação - Lei 14.443/2022",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "A Lei 14.443/2022 trouxe mudanças significativas para o planejamento familiar no Brasil. Em relação ao consentimento para esterilização cirúrgica (laqueadura ou vasectomia), o que mudou?",
+    "alternativas": {
+      "A": "O consentimento do cônjuge continua obrigatório apenas para mulheres.",
+      "B": "O consentimento do cônjuge continua obrigatório apenas para homens.",
+      "C": "A autorização do cônjuge foi dispensada, tornando a decisão um ato personalíssimo.",
+      "D": "É necessária a autorização de uma junta médica em caso de discordância conjugal."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 10,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação - Lei 14.443/2022",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a nova idade mínima para realização de esterilização cirúrgica voluntária no Brasil, segundo a Lei 14.443/2022?",
+    "alternativas": {
+      "A": "18 anos.",
+      "B": "21 anos.",
+      "C": "25 anos.",
+      "D": "30 anos."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 11,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação - Planejamento Familiar",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Existe uma exceção à regra da idade mínima para esterilização cirúrgica. Em qual situação uma pessoa com menos de 21 anos pode realizar o procedimento?",
+    "alternativas": {
+      "A": "Se tiver autorização judicial.",
+      "B": "Se tiver o consentimento dos pais.",
+      "C": "Se tiver pelo menos dois filhos vivos.",
+      "D": "Se for casada civilmente há mais de 2 anos."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 12,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação - Planejamento Familiar",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre a realização de laqueadura durante o período de parto, o que determina a legislação atual (Lei 14.443/2022)?",
+    "alternativas": {
+      "A": "É estritamente proibida, devido ao risco de arrependimento puerperal.",
+      "B": "É permitida apenas se a paciente tiver tido cesáreas anteriores sucessivas.",
+      "C": "É permitida, desde que a vontade tenha sido manifestada com no mínimo 60 dias de antecedência.",
+      "D": "É permitida sem restrições de prazo, bastando o consentimento verbal na hora do parto."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 13,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Critérios de Elegibilidade OMS",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Segundo os Critérios Médicos de Elegibilidade da OMS, como é definida a Categoria 4?",
+    "alternativas": {
+      "A": "Uma condição em que as vantagens do método superam os riscos teóricos ou comprovados.",
+      "B": "Uma condição onde os riscos teóricos ou comprovados superam as vantagens.",
+      "C": "Uma condição que representa um risco inaceitável à saúde se o método for utilizado (contraindicação absoluta).",
+      "D": "Uma condição para a qual não há restrições ao uso do método."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 14,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Critérios de Elegibilidade OMS",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual das situações abaixo representa um exemplo clássico de Categoria 4 da OMS para o uso de contraceptivos contendo estrogênio?",
+    "alternativas": {
+      "A": "Tabagismo em mulheres com menos de 35 anos.",
+      "B": "História familiar de câncer de mama.",
+      "C": "Enxaqueca com aura (focal).",
+      "D": "Obesidade (IMC > 30)."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 15,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Critérios de Elegibilidade OMS",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O uso de pílulas combinadas em lactantes entre 6 semanas e 6 meses pós-parto é classificado como Categoria 3. O que isso significa na prática clínica?",
+    "alternativas": {
+      "A": "O método é a primeira escolha.",
+      "B": "O método não deve ser usado, pois os riscos superam os benefícios, a menos que não haja outra opção disponível.",
+      "C": "O uso é irrestrito e seguro.",
+      "D": "É uma contraindicação absoluta e fatal."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 16,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Contracepção - DIU",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o principal mecanismo de ação do Dispositivo Intrauterino (DIU) de Cobre?",
+    "alternativas": {
+      "A": "Inibição da ovulação através da liberação sistêmica de íons.",
+      "B": "Atrofia severa do endométrio impedindo a nidação.",
+      "C": "Criação de um ambiente intrauterino hostil via íons de cobre, que possuem ação espermicida e impedem a fertilização.",
+      "D": "Espessamento do muco cervical sem afetar a motilidade dos espermatozoides."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 17,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Contracepção - SIU Mirena",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre o SIU de Levonorgestrel (Mirena), é correto afirmar que:",
+    "alternativas": {
+      "A": "Ele inibe a ovulação em 100% das usuárias.",
+      "B": "A amenorreia observada é causada pela inibição total do eixo hipotálamo-hipófise.",
+      "C": "Atua localmente atrofiando o endométrio e espessando o muco cervical; a anovulação ocorre em apenas 20-30% das usuárias.",
+      "D": "Seu mecanismo principal é espermicida, similar ao cobre."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 18,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Contracepção - Injetáveis",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O Acetato de Medroxiprogesterona de Depósito (injetável trimestral) está associado a alguns efeitos adversos específicos devido à sua alta potência na inibição do eixo. Qual das opções abaixo cita corretamente esses efeitos?",
+    "alternativas": {
+      "A": "Aumento excessivo da densidade mineral óssea e retorno imediato da fertilidade.",
+      "B": "Redução reversível da densidade mineral óssea e retorno tardio da fertilidade (9 a 12 meses).",
+      "C": "Aumento do risco de câncer de ovário e retorno da fertilidade em 1 mês.",
+      "D": "Hiperplasia endometrial e sangramento excessivo."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 19,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Sífilis",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "No diagnóstico da sífilis, os testes treponêmicos e não-treponêmicos têm funções distintas. Qual é a principal característica dos testes treponêmicos (ex: Teste Rápido, FTA-Abs)?",
+    "alternativas": {
+      "A": "São utilizados quantitativamente para controle de cura.",
+      "B": "Negativam alguns meses após o tratamento eficaz.",
+      "C": "Permanecem positivos por toda a vida (cicatriz sorológica) na maioria dos casos.",
+      "D": "Estão sujeitos ao efeito prozona em altas titulações."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 20,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Sífilis",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O que é o \"Efeito Prozona\" que pode ocorrer no diagnóstico da sífilis secundária?",
+    "alternativas": {
+      "A": "Um falso-positivo causado por reação cruzada com outras doenças.",
+      "B": "Um falso-negativo no teste não-treponêmico (VDRL) devido ao excesso de anticorpos na amostra não diluída.",
+      "C": "A reativação da sífilis após tratamento inadequado.",
+      "D": "A positividade persistente mesmo após a cura bacteriológica."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 21,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Sífilis",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Para o controle de cura da sífilis, qual tipo de teste é o indicado?",
+    "alternativas": {
+      "A": "Teste Rápido.",
+      "B": "FTA-Abs.",
+      "C": "ELISA.",
+      "D": "VDRL (Teste não-treponêmico)."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 22,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Tratamento",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o esquema de tratamento recomendado pelo Ministério da Saúde para um paciente diagnosticado com Sífilis Latente Tardia (mais de 1 ano de evolução) ou de duração ignorada?",
+    "alternativas": {
+      "A": "Penicilina Benzatina 2,4 milhões UI, dose única.",
+      "B": "Penicilina Benzatina 2,4 milhões UI, semanal, por 3 semanas (Total: 7,2 milhões UI).",
+      "C": "Ceftriaxona 1g dose única.",
+      "D": "Doxiciclina 100mg por 7 dias."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 23,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Tratamento",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Para o tratamento da Sífilis Recente (Primária, Secundária ou Latente < 1 ano), a dose recomendada de Penicilina Benzatina é:",
+    "alternativas": {
+      "A": "1,2 milhão UI, dose única.",
+      "B": "2,4 milhões UI, dose única.",
+      "C": "4,8 milhões UI, divididas em duas doses.",
+      "D": "7,2 milhões UI, divididas em três semanas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 24,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Tratamento",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "No manejo sindrômico ou etiológico de uretrites/cervicites causadas por Gonorreia e Clamídia, qual é o tratamento preferencial atual?",
+    "alternativas": {
+      "A": "Ciprofloxacino 500mg VO dose única.",
+      "B": "Penicilina Benzatina 2,4 milhões UI.",
+      "C": "Ceftriaxona 500mg IM + Azitromicina 1g VO.",
+      "D": "Metronidazol 2g VO dose única."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 25,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - HIV",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre a infecção aguda pelo HIV e o diagnóstico, o termo \"janela imunológica\" refere-se a:",
+    "alternativas": {
+      "A": "Período em que o vírus está latente e não é transmissível.",
+      "B": "Intervalo entre a infecção e a detecção de anticorpos ou antígenos pelos testes diagnósticos.",
+      "C": "Período em que o paciente apresenta sintomas de gripe forte.",
+      "D": "Tempo necessário para o vírus destruir todo o sistema imune."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 26,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - HIV",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Os testes de HIV de 4ª geração representaram um avanço significativo no diagnóstico precoce. O que eles detectam que permite reduzir a janela imunológica para cerca de 15-20 dias?",
+    "alternativas": {
+      "A": "Apenas anticorpos IgG e IgM.",
+      "B": "O RNA viral diretamente.",
+      "C": "O antígeno p24 simultaneamente aos anticorpos.",
+      "D": "A transcriptase reversa viral."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 27,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - HIV",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "De acordo com os fluxogramas de diagnóstico do HIV no Brasil, se um teste de triagem (ex: teste rápido ou imunoensaio) for reagente, qual é a conduta imediata?",
+    "alternativas": {
+      "A": "Iniciar o tratamento antirretroviral imediatamente, sem novos exames.",
+      "B": "Repetir o mesmo teste em 30 dias.",
+      "C": "Realizar um teste confirmatório mais específico (como Western Blot, Imunoblot ou teste molecular) para descartar falso-positivos.",
+      "D": "Considerar o paciente negativo se ele for assintomático."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 28,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Tratamento",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "O tratamento das parcerias sexuais é obrigatório em casos de ISTs como clamídia e gonorreia. Qual é o principal objetivo dessa medida?",
+    "alternativas": {
+      "A": "Apenas reduzir a axiedade do parceiro.",
+      "B": "Quebrar a cadeia de transmissão e evitar a reinfecção do paciente tratado (efeito \"ping-pong\").",
+      "C": "Cumprir uma exigência burocrática da notificação compulsória.",
+      "D": "Garantir a esterilidade do casal."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 29,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Hormonal",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Na farmacologia, o uso de análogos de GnRH de forma contínua é utilizado para tratar endometriose e puberdade precoce. Qual mecanismo fisiológico explica a eficácia desse tratamento?",
+    "alternativas": {
+      "A": "Estímulo da pulsatilidade natural.",
+      "B": "Aumento da sensibilidade dos receptores hipofisários.",
+      "C": "Desensibilização (down-regulation) dos receptores e bloqueio da liberação de gonadotrofinas.",
+      "D": "Conversão periférica de GnRH em estrogênio."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 30,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "A exigência de autorização do cônjuge para procedimentos de esterilização na lei antiga (9.263/1996) era frequentemente criticada. Qual termo era utilizado pelos críticos para descrever essa submissão da autonomia corporal da mulher?",
+    "alternativas": {
+      "A": "Proteção familiar.",
+      "B": "Tutela conjugal ou servidão patriarcal.",
+      "C": "Responsabilidade compartilhada.",
+      "D": "Consentimento informado mútuo."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 31,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Farmacologia - Contraindicações",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Por que o estrogênio é contraindicado (Categoria 4) em pacientes com enxaqueca com aura?",
+    "alternativas": {
+      "A": "Porque aumenta a frequência das crises de dor.",
+      "B": "Porque anula o efeito dos analgésicos.",
+      "C": "Devido ao risco sinérgico elevado de Acidente Vascular Cerebral (AVC) isquêmico.",
+      "D": "Porque causa hipotensão severa nessas pacientes."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 32,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Legislação - Prazos",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "A Lei 14.443/2022 mantém um prazo mínimo de reflexão entre a manifestação da vontade de esterilização e a cirurgia. Qual é a duração desse prazo e seu objetivo?",
+    "alternativas": {
+      "A": "30 dias, para agendamento hospitalar.",
+      "B": "60 dias, visando garantir o consentimento informado e reduzir riscos de arrependimento.",
+      "C": "90 dias, para avaliação psicológica obrigatória.",
+      "D": "180 dias, para tentativa de outros métodos reversíveis."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 33,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia - Foliculogênese",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual hormônio é responsável por estimular as células da granulosa a produzirem a enzima aromatase?",
+    "alternativas": {
+      "A": "LH.",
+      "B": "FSH.",
+      "C": "GnRH.",
+      "D": "Progesterona."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 34,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infectologia - Tratamento",
+    "problema": 1,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a única droga considerada segura e eficaz para prevenir a transmissão vertical da sífilis (sífilis congênita) durante a gestação?",
+    "alternativas": {
+      "A": "Doxiciclina.",
+      "B": "Eritromicina.",
+      "C": "Ceftriaxona.",
+      "D": "Penicilina Benzatina."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 35,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Gametogênese",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A ovogênese difere da espermatogênese por apresentar períodos de latência (paradas) na meiose. Em qual fase da divisão celular o ovócito primário estaciona desde a vida fetal até a puberdade?",
+    "alternativas": {
+      "A": "Metáfase II.",
+      "B": "Prófase I.",
+      "C": "Telófase I.",
+      "D": "Anáfase II."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 36,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Gametogênese",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A conclusão da Meiose II no ovócito secundário é um evento condicional. O que é estritamente necessário para que essa etapa se complete?",
+    "alternativas": {
+      "A": "O pico de LH.",
+      "B": "A ovulação.",
+      "C": "A fertilização pelo espermatozoide.",
+      "D": "A implantação no endométrio."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 37,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia da Fecundação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Além da motilidade flagelar própria, qual fator auxilia o transporte dos espermatozoides até a ampola da tuba uterina?",
+    "alternativas": {
+      "A": "A gravidade.",
+      "B": "Os batimentos ciliares da tuba em direção ao útero.",
+      "C": "Contrações uterinas estimuladas por prostaglandinas presentes no plasma seminal.",
+      "D": "A atração quimiotáxica exclusiva do ovário esquerdo."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 38,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia da Fecundação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Antes de ser capaz de fertilizar o ovócito, o espermatozoide deve passar por um processo fisiológico de cerca de 7 horas, que envolve a remoção de glicoproteínas da membrana. Qual é o nome desse processo?",
+    "alternativas": {
+      "A": "Reação Acrossômica.",
+      "B": "Capacitação.",
+      "C": "Reação Cortical.",
+      "D": "Espermiogênese."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 39,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia da Fecundação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A reação acrossômica é mediada pela ligação a qual receptor específico na zona pelúcida?",
+    "alternativas": {
+      "A": "ZP1.",
+      "B": "ZP2.",
+      "C": "ZP3.",
+      "D": "Integrina beta."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 40,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia da Fecundação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o principal mecanismo biológico que previne a poliespermia (entrada de mais de um espermatozoide) logo após a fusão das membranas?",
+    "alternativas": {
+      "A": "Reação Cortical (ou Zonal), com liberação de enzimas lisossomais.",
+      "B": "Degeneração imediata da zona pelúcida.",
+      "C": "Apoptose dos espermatozoides supranumerários.",
+      "D": "Fechamento do canal cervical."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 41,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - 1ª Semana",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "No 4º dia do desenvolvimento, ao entrar na cavidade uterina, a mórula desenvolve uma cavidade cheia de fluido, diferenciando-se em duas populações celulares principais: embrioblasto e trofoblasto. Qual é o nome desta estrutura?",
+    "alternativas": {
+      "A": "Zigoto.",
+      "B": "Gástrula.",
+      "C": "Blastocisto.",
+      "D": "Nêurula."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 42,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - Implantação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "O trofoblasto diferencia-se em duas camadas para iniciar a nidação. Qual camada é responsável pela invasão direta do endométrio e produção inicial de hCG?",
+    "alternativas": {
+      "A": "Citotrofoblasto.",
+      "B": "Sinciciotrofoblasto.",
+      "C": "Epiblasto.",
+      "D": "Mesoderma extraembrionário."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 43,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - 2ª Semana",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A segunda semana é conhecida como a formação do disco bilaminar. Quais são os dois folhetos que compõem este disco?",
+    "alternativas": {
+      "A": "Ectoderma e Mesoderma.",
+      "B": "Epiblasto e Hipoblasto.",
+      "C": "Citotrofoblasto e Sinciciotrofoblasto.",
+      "D": "Endoderma e Ectoderma."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 44,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - 3ª Semana",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o evento marco da terceira semana de desenvolvimento, responsável pela conversão do disco bilaminar em trilaminar (Ectoderma, Mesoderma e Endoderma)?",
+    "alternativas": {
+      "A": "Neurulação.",
+      "B": "Gastrulação.",
+      "C": "Clivagem.",
+      "D": "Dobramento."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 45,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - 3ª Semana",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Durante a neurulação, qual estrutura é responsável por induzir o ectoderma sobrejacente a formar a placa neural e, consequentemente, o tubo neural?",
+    "alternativas": {
+      "A": "Linha primitiva.",
+      "B": "Notocorda.",
+      "C": "Saco vitelino.",
+      "D": "Alantoide."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 46,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - Organogênese",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "O período da 4ª à 8ª semana é crítico para a morfogênese. Qual evento, ocorrendo ao final da 8ª semana, é um marco da separação dos dedos das mãos e pés?",
+    "alternativas": {
+      "A": "Necrose isquêmica.",
+      "B": "Apoptose das membranas interdigitais.",
+      "C": "Expansão do mesênquima.",
+      "D": "Ação mecânica do líquido amniótico."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 47,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Classificação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Na classificação das anomalias congênitas, como é definido o termo \"Malformação\"?",
+    "alternativas": {
+      "A": "Uma destruição de tecido que era previamente normal (ex: por bandas amnióticas).",
+      "B": "Um defeito intrínseco na programação do desenvolvimento de um órgão ou parte dele.",
+      "C": "Uma alteração na forma ou posição de uma estrutura por forças mecânicas.",
+      "D": "Um padrão de anomalias múltiplas sem causa conhecida."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 48,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Classificação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A amputação de um membro fetal causada por bandas amnióticas é um exemplo clássico de:",
+    "alternativas": {
+      "A": "Malformação.",
+      "B": "Disrupção.",
+      "C": "Deformidade.",
+      "D": "Síndrome genética."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 49,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Classificação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Um pé torto congênito causado pela compressão uterina em casos de oligodramnia (pouco líquido amniótico) é classificado como:",
+    "alternativas": {
+      "A": "Deformidade.",
+      "B": "Malformação.",
+      "C": "Mutação.",
+      "D": "Displasia."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 50,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Período Crítico",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A exposição a teratógenos durante as duas primeiras semanas de desenvolvimento (período pré-embrionário) geralmente resulta em qual desfecho?",
+    "alternativas": {
+      "A": "Malformações cardíacas graves.",
+      "B": "Fenômeno do \"tudo ou nada\" (perda gestacional ou recuperação total).",
+      "C": "Defeitos de fechamento do tubo neural.",
+      "D": "Retardo de crescimento intrauterino apenas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 51,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Infecções",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A \"Tríade de Sabin\", composta por hidrocefalia, calcificações intracranianas difusas e coriorretinite, é característica de qual infecção congênita?",
+    "alternativas": {
+      "A": "Rubéola.",
+      "B": "Citomegalovírus.",
+      "C": "Toxoplasmose.",
+      "D": "Sífilis."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 52,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Infecções",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A Síndrome da Rubéola Congênita é classicamente identificada pela \"Tríade de Gregg\". Quais são os componentes desta tríade?",
+    "alternativas": {
+      "A": "Microcefalia, hepatoesplenomegalia e pênfigo palmoplantar.",
+      "B": "Catarata/microftalmia, surdez neurossensorial e cardiopatia (persistência do canal arterial).",
+      "C": "Hidrocefalia, calcificações e coriorretinite.",
+      "D": "Rinite, periostite e dentes de Hutchinson."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 53,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Infecções",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o principal agente viral causador de retardo mental e surdez congênita, frequentemente associado a calcificações periventriculares?",
+    "alternativas": {
+      "A": "Zika Vírus.",
+      "B": "Vírus Herpes Simples.",
+      "C": "Citomegalovírus (CMV).",
+      "D": "Parvovírus B19."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 54,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Infecções",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Por que as lesões destrutivas da Sífilis Congênita (como nariz em sela e dentes de Hutchinson) são consideradas tardias ou menos frequentes no início da gestação?",
+    "alternativas": {
+      "A": "Porque o T. pallidum não é patogênico no primeiro trimestre.",
+      "B": "Porque a espiroqueta geralmente só ultrapassa a barreira placentária após a atrofia do citotrofoblasto (16ª-20ª semana).",
+      "C": "Porque o tratamento materno é sempre eficaz no início.",
+      "D": "Porque o feto possui imunidade natural até a 20ª semana."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 55,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Definição",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Tecnicamente, qual é a definição de abortamento baseada na Idade Gestacional (IG) e peso fetal?",
+    "alternativas": {
+      "A": "Interrupção antes de 28 semanas ou peso < 1000g.",
+      "B": "Interrupção antes de 20-22 semanas ou peso < 500g.",
+      "C": "Interrupção antes de 12 semanas apenas.",
+      "D": "Interrupção em qualquer idade gestacional se o feto não sobreviver."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 56,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Etiologia",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a causa mais frequente de abortamentos espontâneos no primeiro trimestre (cerca de 60% dos casos)?",
+    "alternativas": {
+      "A": "Insuficiência istmo-cervical.",
+      "B": "Infecções maternas.",
+      "C": "Anomalias cromossômicas (aneuploidias).",
+      "D": "Trauma abdominal."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 57,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Etiologia",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Dentre as anomalias cromossômicas encontradas em abortos, qual é a anomalia isolada mais frequente?",
+    "alternativas": {
+      "A": "Trissomia do 21.",
+      "B": "Trissomia do 18.",
+      "C": "Triploidia.",
+      "D": "Síndrome de Turner (45,X0)."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 58,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Clínica",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Uma gestante apresenta sangramento genital discreto (\"borra de café\") e cólicas leves. Ao exame, o colo uterino encontra-se fechado e o ultrassom confirma embrião vivo. Qual é o diagnóstico?",
+    "alternativas": {
+      "A": "Abortamento Inevitável.",
+      "B": "Ameaça de Abortamento.",
+      "C": "Abortamento Retido.",
+      "D": "Gravidez Ectópica."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 59,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Clínica",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "No diagnóstico diferencial clínico, qual é o sinal determinante que classifica um abortamento como \"Inevitável\" ou \"Incompleto\" em oposição à \"Ameaça\"?",
+    "alternativas": {
+      "A": "A intensidade da dor.",
+      "B": "A cor do sangramento.",
+      "C": "O colo uterino aberto (dilatado).",
+      "D": "A presença de febre."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 60,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Conduta",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a conduta recomendada para um caso de Abortamento Incompleto (sangramento contínuo, colo aberto, restos ovulares no útero)?",
+    "alternativas": {
+      "A": "Repouso absoluto e progesterona.",
+      "B": "Esvaziamento uterino cirúrgico imediato (AMIU ou Curetagem).",
+      "C": "Aguardar expulsão espontânea por 4 semanas.",
+      "D": "Antibioticoterapia isolada."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 61,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Clínica",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Como é caracterizado o Abortamento Retido?",
+    "alternativas": {
+      "A": "Expulsão total do concepto com fechamento posterior do colo.",
+      "B": "Regressão dos sintomas gravídicos, colo fechado e ausência de batimentos cardíacos fetais (BCF) ao ultrassom.",
+      "C": "Sangramento vivo intenso com dilatação total do colo.",
+      "D": "Presença de secreção purulenta e febre."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 62,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento - Conduta",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Diante de um Abortamento Infectado, qual deve ser a abordagem terapêutica imediata?",
+    "alternativas": {
+      "A": "Apenas curetagem uterina.",
+      "B": "Antibioticoterapia de amplo espectro seguida de esvaziamento uterino.",
+      "C": "Apenas antibioticoterapia oral e alta médica.",
+      "D": "Histerectomia total em todos os casos."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 63,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento Habitual",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A Insuficiência Istmo-Cervical é uma causa anatômica importante de abortamento habitual. Qual é a característica clínica típica dessas perdas?",
+    "alternativas": {
+      "A": "Ocorrem no primeiro trimestre com muita cólica.",
+      "B": "São perdas tardias (segundo trimestre), indolores e com expulsão de feto vivo/normal.",
+      "C": "Estão sempre associadas a infecções.",
+      "D": "São causadas por trombofilias."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 64,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Teratologia - Zika",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "O Zika Vírus apresenta intenso neurotropismo. Qual é a anomalia congênita mais marcante associada a esta infecção?",
+    "alternativas": {
+      "A": "Macrocefalia.",
+      "B": "Microcefalia grave com calcificações subcorticais e artrogripose.",
+      "C": "Anencefalia.",
+      "D": "Espinha bífida."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 65,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - Organogênese",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Qual sinal de maturação esquelética ocorre e pode ser identificado ao final da 8ª semana do desenvolvimento embrionário?",
+    "alternativas": {
+      "A": "Ossificação completa do crânio.",
+      "B": "Início da ossificação primária do fêmur.",
+      "C": "Formação total da coluna vertebral óssea.",
+      "D": "Fusão das epífises ósseas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 66,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Embriogênese - 2ª Semana",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Durante a formação do disco bilaminar, qual cavidade se forma em relação direta com as células do Epiblasto?",
+    "alternativas": {
+      "A": "Saco Vitelino (Vesícula vitelina).",
+      "B": "Cavidade Amniótica.",
+      "C": "Celoma Extraembrionário.",
+      "D": "Blastocisto."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 67,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Gametogênese",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "Quantos espermatozoides funcionais (espermátides) são gerados a partir de um único espermatócito primário?",
+    "alternativas": {
+      "A": "1.",
+      "B": "2.",
+      "C": "4.",
+      "D": "8."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 68,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Abortamento Habitual",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A Síndrome Antifosfolipídio (SAF) é uma causa tratável de abortamento habitual. Qual é o mecanismo fisiopatológico básico que leva à perda gestacional nestes casos?",
+    "alternativas": {
+      "A": "Infecção crônica do endométrio.",
+      "B": "Trombose dos vasos placentários e infartos, prejudicando a perfusão.",
+      "C": "Má formação fetal genética.",
+      "D": "Incompetência do colo uterino."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 69,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia da Fecundação",
+    "problema": 2,
+    "status": "Nao Respondida",
+    "enunciado": "A enzima acrosina, liberada durante a reação acrossômica, tem a função principal de:",
+    "alternativas": {
+      "A": "Digerir a membrana plasmática do ovócito.",
+      "B": "Digerir a matriz da zona pelúcida, facilitando a penetração.",
+      "C": "Bloquear outros espermatozoides.",
+      "D": "Ativar o metabolismo do ovócito."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 70,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Cardiovascular",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Durante a gestação, o sistema cardiovascular sofre profundas alterações para suprir a demanda fetal. Sobre a volemia materna, é correto afirmar que:",
+    "alternativas": {
+      "A": "Ocorre uma hipovolemia fisiológica para evitar sobrecarga cardíaca.",
+      "B": "O volume plasmático aumenta proporcionalmente à massa eritrocitária, mantendo o hematócrito estável.",
+      "C": "Ocorre uma hipervolemia de 40-45%, onde o aumento do volume plasmático supera o da massa eritrocitária, resultando em hemodiluição (anemia fisiológica).",
+      "D": "A volemia permanece inalterada até o momento do parto."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 71,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Cardiovascular",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A pressão arterial (PA) da gestante tende a apresentar um comportamento específico ao longo dos trimestres. Qual é o padrão fisiológico esperado?",
+    "alternativas": {
+      "A": "Aumento progressivo desde o primeiro trimestre até o parto.",
+      "B": "Diminuição no 1º e 2º trimestres devido à vasodilatação periférica, retornando aos níveis pré-gravídicos no 3º trimestre.",
+      "C": "Mantém-se inalterada durante toda a gestação devido aos mecanismos compensatórios renais.",
+      "D": "Diminuição apenas no 3º trimestre devido à compressão da veia cava."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 72,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Cardiovascular",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A \"Síndrome da Hipotensão Supina\" é um evento comum na gestação avançada. Qual é o mecanismo fisiopatológico responsável por este quadro?",
+    "alternativas": {
+      "A": "Vasodilatação excessiva causada pela progesterona.",
+      "B": "Compressão da aorta abdominal pelo útero, reduzindo o fluxo arterial.",
+      "C": "Compressão da veia cava inferior pelo útero gravídico em decúbito dorsal, retornando venoso.",
+      "D": "Hipoglicemia reativa devido ao consumo fetal."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 73,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Hematológica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O estado de coagulação na gravidez é descrito como de \"hipercoagulabilidade fisiológica\". Qual é o objetivo biológico dessa alteração e qual seu risco associado?",
+    "alternativas": {
+      "A": "Prevenir hemorragia no parto; aumenta o risco de tromboembolismo.",
+      "B": "Facilitar a passagem de sangue pela placenta; aumenta o risco de hemorragia.",
+      "C": "Reduzir a viscosidade sanguínea; aumenta o risco de anemia.",
+      "D": "Combater infecções puerperais; não possui riscos associados."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 74,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Respiratória",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "As alterações respiratórias na gestação incluem uma hiperventilação induzida pela progesterona. Qual é a consequência gasométrica desse fenômeno?",
+    "alternativas": {
+      "A": "Acidose respiratória compensada.",
+      "B": "Alcalose respiratória compensada (queda da PCO2), facilitando a transferência de CO2 do feto para a mãe.",
+      "C": "Acidose metabólica devido ao acúmulo de ácido lático.",
+      "D": "Aumento do volume residual pulmonar."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 75,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Renal",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre as modificações do sistema renal e urinário, assinale a alternativa correta:",
+    "alternativas": {
+      "A": "A Taxa de Filtração Glomerular (TFG) diminui, elevando a creatinina sérica.",
+      "B": "Ocorre dilatação ureteral (hidronefrose fisiológica), mais comum à direita, predispondo à estase urinária e pielonefrite.",
+      "C": "Há uma perda excessiva de sódio, exigindo suplementação salina.",
+      "D": "A progesterona aumenta o tônus vesical, prevenindo infecções."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 76,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Metabólica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A gestação é considerada um estado \"diabetogênico\", especialmente na segunda metade. Quais hormônios são responsáveis por aumentar a resistência à insulina materna?",
+    "alternativas": {
+      "A": "Insulina fetal e glucagon.",
+      "B": "Ocitocina e prolactina.",
+      "C": "Lactogênio Placentário (hPL), cortisol e progesterona.",
+      "D": "Estradiol e hCG."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 77,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Digestória",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Queixas de pirose (azia) e constipação são frequentes na gravidez. Qual é a causa fisiológica primária desses sintomas?",
+    "alternativas": {
+      "A": "Compressão mecânica do estômago pelo feto apenas.",
+      "B": "Ação da progesterona, que relaxa o esfíncter esofágico inferior e reduz a motilidade intestinal.",
+      "C": "Aumento da acidez gástrica induzido pelo estrogênio.",
+      "D": "Diminuição da absorção de água no cólon."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 78,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Semiolgia Obstétrica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "No exame físico da gestante, a coloração violácea/cianótica da mucosa vaginal e vulvar devido à hiperemia é conhecida como:",
+    "alternativas": {
+      "A": "Sinal de Hegar.",
+      "B": "Sinal de Goodell.",
+      "C": "Sinal de Chadwick (ou Jacquemier).",
+      "D": "Sinal de Piskacek."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 79,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Semiolgia Obstétrica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O Sinal de Hegar, importante no diagnóstico clínico de gravidez, refere-se a:",
+    "alternativas": {
+      "A": "Amolecimento do istmo uterino, permitindo mobilidade entre colo e corpo.",
+      "B": "Assimetria uterina no local da nidação.",
+      "C": "Amolecimento da cérvice uterina.",
+      "D": "Preenchimento dos fundos de saco vaginais."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 80,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Cálculos",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Uma gestante relata que a data da sua última menstruação (DUM) foi dia 13/09/2024. Utilizando a Regra de Naegele (Dia + 7 / Mês - 3 ou +9), qual é a Data Provável do Parto (DPP)?",
+    "alternativas": {
+      "A": "20/05/2025.",
+      "B": "20/06/2025.",
+      "C": "13/06/2025.",
+      "D": "06/06/2025."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 81,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Datação",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Se a Data da Última Menstruação (DUM) for desconhecida ou incerta, qual é o exame padrão-ouro para definir a Idade Gestacional?",
+    "alternativas": {
+      "A": "Altura uterina.",
+      "B": "Ultrassonografia de 1º trimestre (medida do Comprimento Cabeça-Nádega - CCN).",
+      "C": "Ultrassonografia de 3º trimestre (medida do Fêmur).",
+      "D": "Dosagem quantitativa de Beta-hCG."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 82,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Exames",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Dentre os exames de rotina do 1º trimestre (entrada no pré-natal), qual das alternativas contém apenas exames recomendados pelo Ministério da Saúde?",
+    "alternativas": {
+      "A": "Tipagem Sanguínea, Ecocardiograma fetal e TSH.",
+      "B": "Hemograma, VDRL, Anti-HIV, Glicemia jejum, Toxoplasmose e Urina I.",
+      "C": "Cariótipo fetal, Colposcopia e Cultura de Orofaringe.",
+      "D": "Curva glicêmica (TOTG), USG 4D e Dosagem de Progesterona."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 83,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Exames",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o momento recomendado para a realização do Teste Oral de Tolerância à Glicose (TOTG 75g) para rastreio universal de Diabetes Gestacional?",
+    "alternativas": {
+      "A": "Na primeira consulta, independentemente da IG.",
+      "B": "Entre 16 e 20 semanas.",
+      "C": "Entre 24 e 28 semanas.",
+      "D": "Apenas após 32 semanas."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 84,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Exames",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A pesquisa de Estreptococo do Grupo B (EGB) através de cultura vaginal/anal deve ser realizada preferencialmente em qual período?",
+    "alternativas": {
+      "A": "No início do pré-natal.",
+      "B": "Entre 20 e 24 semanas.",
+      "C": "Entre 35 e 37 semanas.",
+      "D": "Apenas no momento do parto."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 85,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Vacinação",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre a vacinação na gestação, qual das seguintes vacinas é contraindicada por ser composta de vírus vivos atenuados?",
+    "alternativas": {
+      "A": "Influenza.",
+      "B": "Tríplice Viral (Sarampo, Caxumba e Rubéola).",
+      "C": "Hepatite B.",
+      "D": "dTpa (Difteria, Tétano e Coqueluche acelular)."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 86,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Vacinação",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A vacina dTpa é recomendada a partir da 20ª semana a cada gestação. Qual é o objetivo principal desta estratégia?",
+    "alternativas": {
+      "A": "Proteger a mãe contra o tétano neonatal.",
+      "B": "Transferir anticorpos contra a coqueluche para o feto, protegendo-o nos primeiros meses de vida.",
+      "C": "Imunizar a mãe contra difteria de forma definitiva.",
+      "D": "Evitar o parto prematuro."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 87,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Gestação na Adolescência",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A gravidez na adolescência (10 a 19 anos) é considerada de alto risco. Dentre os riscos biológicos aumentados nesta faixa etária, destacam-se:",
+    "alternativas": {
+      "A": "Diabetes tipo 2 e hipotireoidismo.",
+      "B": "Placenta prévia e macrossomia fetal.",
+      "C": "Toxemia Gravídica (Pré-eclâmpsia), Anemia e Desproporção Céfalo-Pélvica (em <15 anos).",
+      "D": "Gestação pós-termo e polidrâmnio."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 88,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto Vaginal",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O parto vaginal apresenta diversos benefícios fisiológicos para o recém-nascido. Um deles é:",
+    "alternativas": {
+      "A": "Ausência total de dor.",
+      "B": "Expulsão do líquido pulmonar fetal devido à compressão torácica durante a passagem pelo canal de parto.",
+      "C": "Menor contato com a microbiota materna.",
+      "D": "Aceleração da icterícia neonatal."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 89,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Lacerações",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Como é classificada uma laceração perineal que atinge o esfíncter anal externo, mas preserva a mucosa retal?",
+    "alternativas": {
+      "A": "1º Grau.",
+      "B": "2º Grau.",
+      "C": "3º Grau.",
+      "D": "4º Grau."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 90,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Contraindicações",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Qual das situações abaixo representa uma contraindicação absoluta ao parto vaginal?",
+    "alternativas": {
+      "A": "Feto com circular de cordão.",
+      "B": "Placenta prévia total.",
+      "C": "Gestação gemelar com ambos cefálicos.",
+      "D": "Cesárea anterior única."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 91,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Cesárea",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A cesariana é uma cirurgia fundamental para salvar vidas em situações específicas. Qual das alternativas lista indicações reais para o procedimento?",
+    "alternativas": {
+      "A": "Desejo materno sem indicação clínica e feto pequeno.",
+      "B": "Prolapso de cordão, Descolamento Prematuro de Placenta (DPP) e Sofrimento fetal agudo.",
+      "C": "Circular de cordão e idade materna avançada.",
+      "D": "Bacia androide sem prova de trabalho de parto."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 92,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Cesárea",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Em gestantes portadoras de HIV, quando a cesariana eletiva é indicada para reduzir a transmissão vertical?",
+    "alternativas": {
+      "A": "Em todos os casos, independentemente da carga viral.",
+      "B": "Quando a carga viral for indetectável.",
+      "C": "Quando a carga viral for elevada (>1.000 cópias) perto do parto.",
+      "D": "Apenas se houver coinfecção com Hepatite B."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 93,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Renal",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A estase urinária na gestação, fator de risco para infecções, ocorre devido à compressão uterina e ao relaxamento muscular. Qual hormônio é o principal responsável por esse relaxamento da musculatura lisa ureteral?",
+    "alternativas": {
+      "A": "Estradiol.",
+      "B": "Prolactina.",
+      "C": "Progesterona.",
+      "D": "Aldosterona."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 94,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O Ministério da Saúde recomenda um número mínimo de consultas de pré-natal para considerar a assistência adequada. Qual é esse número?",
+    "alternativas": {
+      "A": "4 consultas.",
+      "B": "6 consultas.",
+      "C": "8 consultas.",
+      "D": "10 consultas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 95,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Metabólica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O cálcio é crucial para o feto. Como o organismo materno supre essa demanda sem causar descalcificação óssea significativa na mãe?",
+    "alternativas": {
+      "A": "Aumentando a reabsorção renal de cálcio.",
+      "B": "Retirando cálcio dos dentes maternos.",
+      "C": "Dobrando a absorção intestinal de cálcio mediada pelo aumento da Vitamina D.",
+      "D": "Diminuindo a excreção de cálcio pelo suor."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 96,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Exames",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A urocultura é solicitada no primeiro trimestre mesmo em pacientes sem sintomas urinários. Qual é o objetivo desse rastreio?",
+    "alternativas": {
+      "A": "Diagnosticar câncer de bexiga.",
+      "B": "Identificar e tratar bacteriúria assintomática para prevenir pielonefrite e parto prematuro.",
+      "C": "Avaliar a função renal.",
+      "D": "Verificar a presença de glicose na urina."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 97,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Complicações",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "A \"iteratividade\" (duas ou mais cesáreas prévias) é uma indicação relativa para nova cesárea. Qual é o principal risco associado ao parto vaginal nesses casos?",
+    "alternativas": {
+      "A": "Prolapso uterino.",
+      "B": "Rotura uterina.",
+      "C": "Atonia uterina.",
+      "D": "Embolia amniótica."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 98,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Vacinação",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o esquema recomendado para a vacina de Influenza na gestação?",
+    "alternativas": {
+      "A": "Dose única apenas no primeiro trimestre.",
+      "B": "Dose única anual, em qualquer idade gestacional.",
+      "C": "Duas doses com intervalo de 30 dias.",
+      "D": "Contraindicada na gestação."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 99,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Semiolgia Obstétrica",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O Sinal de Nobile-Budin, verificado no toque vaginal, refere-se a:",
+    "alternativas": {
+      "A": "Percepção do pulso arterial vaginal.",
+      "B": "Preenchimento dos fundos de saco vaginais pelo útero globoso.",
+      "C": "Dor à mobilização do colo.",
+      "D": "Saída de colostro pela papila."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 100,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Parto - Lacerações",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Uma laceração de 4º grau no parto vaginal envolve a lesão de qual estrutura crítica, aumentando o risco de incontinência?",
+    "alternativas": {
+      "A": "Músculo bulbocavernoso.",
+      "B": "Pele do períneo apenas.",
+      "C": "Mucosa retal.",
+      "D": "Uretra."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 101,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Gestação na Adolescência",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Além dos riscos biológicos, a gravidez na adolescência está fortemente associada a impactos sociais. Qual das opções abaixo é uma consequência comum citada?",
+    "alternativas": {
+      "A": "Aumento da escolaridade materna.",
+      "B": "Melhoria da renda familiar.",
+      "C": "Abandono escolar e perpetuação do ciclo de pobreza.",
+      "D": "Maior adesão ao pré-natal em comparação a adultas."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 102,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Cardiovascular",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "O débito cardíaco materno aumenta significativamente na gestação (30-50%). Em qual momento ele atinge seu pico máximo?",
+    "alternativas": {
+      "A": "No início do primeiro trimestre.",
+      "B": "No final do segundo trimestre.",
+      "C": "Imediatamente após a concepção.",
+      "D": "No puerpério tardio."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 103,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Pré-Natal - Cálculos",
+    "problema": 3,
+    "status": "Nao Respondida",
+    "enunciado": "Ao calcular a idade gestacional, a Regra de Naegele é usada para estimar a DPP. Se a DUM for 01/01/2024, qual a DPP? (Dica: Dia+7, Mês-3 ou +9).",
+    "alternativas": {
+      "A": "08/09/2024.",
+      "B": "08/10/2024.",
+      "C": "01/10/2024.",
+      "D": "08/08/2024."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 104,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Anatomia",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O crânio fetal possui pontos de referência cruciais para o diagnóstico obstétrico. A \"Grande Fontanela\" ou Fontanela Bregmática é caracterizada por:",
+    "alternativas": {
+      "A": "Ter forma triangular e ser o encontro de 3 suturas.",
+      "B": "Ter forma losangular e ser formada pelo encontro das suturas sagital, metópica e coronais.",
+      "C": "Estar localizada na região posterior do crânio.",
+      "D": "Ser o ponto de referência das apresentações fletidas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 105,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Anatomia",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Qual sutura craniana separa os dois ossos parietais seguindo a linha anteroposterior?",
+    "alternativas": {
+      "A": "Coronal.",
+      "B": "Metópica.",
+      "C": "Lambdoide.",
+      "D": "Sagital."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 106,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Definições",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Na estática fetal, como é definido o conceito de \"Situação\"?",
+    "alternativas": {
+      "A": "Relação das partes fetais entre si (ex: fletida).",
+      "B": "Relação do maior eixo fetal com o maior eixo materno (útero).",
+      "C": "Parte fetal que ocupa a área do estreito superior.",
+      "D": "Relação do dorso fetal com o lado direito ou esquerdo da mãe."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 107,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Apresentação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Nas apresentações cefálicas defletidas de 1º grau, qual é o ponto de referência fetal utilizado para determinar a variedade de posição?",
+    "alternativas": {
+      "A": "Occipício (Lambda).",
+      "B": "Glabela (Naso).",
+      "C": "Bregma.",
+      "D": "Mento (Queixo)."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 108,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Apresentação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Quando o ponto de referência fetal é o Mento (queixo), estamos diante de qual tipo de apresentação?",
+    "alternativas": {
+      "A": "Cefálica fletida.",
+      "B": "Cefálica defletida de 1º grau (Bregma).",
+      "C": "Cefálica defletida de 2º grau (Fronte).",
+      "D": "Cefálica defletida de 3º grau (Face)."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 109,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Planos de De Lee",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Nos Planos de De Lee, utilizados para avaliar a altura da apresentação, o \"Ponto Zero\" (0) corresponde a qual referência anatômica materna?",
+    "alternativas": {
+      "A": "Borda superior da sínfise púbica.",
+      "B": "Espinhas isquiáticas.",
+      "C": "Promontório sacral.",
+      "D": "Introito vaginal."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 110,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Insinuação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O movimento acessório de flexão da cabeça fetal durante a insinuação tem um objetivo mecânico específico. Qual é ele?",
+    "alternativas": {
+      "A": "Aumentar a velocidade de descida.",
+      "B": "Substituir diâmetros maiores (occipitofrontal) por menores (suboccipitobregmático).",
+      "C": "Permitir a rotação externa imediata.",
+      "D": "Proteger os olhos do feto."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 111,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Insinuação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Quando a sutura sagital do feto está equidistante do púbis e do sacro maternos, dizemos que ocorreu:",
+    "alternativas": {
+      "A": "Assinclitismo Anterior.",
+      "B": "Assinclitismo Posterior.",
+      "C": "Sinclitismo.",
+      "D": "Deflexão."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 112,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Assinclitismo",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O Assinclitismo Posterior, também conhecido como Obliquidade de Litzmann, ocorre quando:",
+    "alternativas": {
+      "A": "A sutura sagital está próxima ao sacro e o parietal anterior desce primeiro.",
+      "B": "A sutura sagital está centralizada.",
+      "C": "A sutura sagital está próxima ao púbis e o parietal posterior desce primeiro.",
+      "D": "A cabeça fetal está defletida."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 113,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Assinclitismo",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O Assinclitismo Anterior é historicamente conhecido pelo epônimo:",
+    "alternativas": {
+      "A": "Obliquidade de Litzmann.",
+      "B": "Obliquidade de Nägele.",
+      "C": "Manobra de Bracht.",
+      "D": "Movimento de Zweifel."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 114,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Rotação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "No segundo tempo do mecanismo de parto (descida e rotação interna), qual é o objetivo da rotação interna da cabeça fetal?",
+    "alternativas": {
+      "A": "Alinhar o maior diâmetro fetal (anteroposterior) com o maior diâmetro da saída pélvica (anteroposterior).",
+      "B": "Alinhar os ombros no diâmetro transverso.",
+      "C": "Posicionar o occipício para o sacro materno (rotação para sacra) na maioria dos casos.",
+      "D": "Impedir a flexão da cabeça."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 115,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Desprendimento",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O desprendimento cefálico ocorre através de um movimento de alavanca onde o suboccipício se apoia no arco púbico. Que movimento é esse?",
+    "alternativas": {
+      "A": "Flexão máxima.",
+      "B": "Rotação lateral.",
+      "C": "Deflexão (extensão).",
+      "D": "Abdução."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 116,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Restituição",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Após o desprendimento da cabeça, ela realiza um giro espontâneo para o lado onde estava o dorso fetal. Este movimento é chamado de:",
+    "alternativas": {
+      "A": "Rotação Interna.",
+      "B": "Assinclitismo.",
+      "C": "Insinuação.",
+      "D": "Restituição (Rotação Externa)."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 117,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Espáduas",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "No desprendimento das espáduas (ombros), qual é a sequência fisiológica usual?",
+    "alternativas": {
+      "A": "Ombro posterior primeiro, depois ombro anterior.",
+      "B": "Ombro anterior (sob o púbis) primeiro, depois ombro posterior.",
+      "C": "Ambos os ombros saem simultaneamente.",
+      "D": "Rotação para posição sacra e saída posterior."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 118,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - Pródromos",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O período premonitório (pródromos) antecede o trabalho de parto franco. Qual das alternativas NÃO é uma característica desta fase?",
+    "alternativas": {
+      "A": "Descida do fundo uterino com melhora respiratória.",
+      "B": "Eliminação do tampão mucoso.",
+      "C": "Aumento das contrações de Braxton-Hicks.",
+      "D": "Dilatação cervical rápida e regular de 1cm por hora."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 119,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - 1º Período",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O 1º Período do parto é conhecido como período de Dilatação. A fase ativa do trabalho de parto é geralmente caracterizada por uma dilatação cervical a partir de:",
+    "alternativas": {
+      "A": "2 cm.",
+      "B": "4 cm.",
+      "C": "6 cm.",
+      "D": "9 cm."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 120,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - 1º Período",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre o fenômeno do apagamento (esvaecimento) do colo uterino, qual a diferença entre primíparas e multíparas?",
+    "alternativas": {
+      "A": "Multíparas apagam totalmente antes de começar a dilatar.",
+      "B": "Primíparas dilatam totalmente antes de começar a apagar.",
+      "C": "Primíparas apagam (encurtam) o colo primeiro, para depois dilatar; Multíparas fazem os dois processos simultaneamente.",
+      "D": "Não há diferença fisiológica entre os grupos."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 121,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - 2º Período",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O 2º Período do parto (Expulsão) é clinicamente caracterizado pela presença de:",
+    "alternativas": {
+      "A": "Contrações de Braxton-Hicks.",
+      "B": "Dilatação total e puxos (esforço voluntário + contração uterina).",
+      "C": "Saída da placenta.",
+      "D": "Formação da bolsa das águas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 122,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - 3º Período",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O 3º Período do parto é denominado Dequitação ou Secundamento. Qual é o tempo máximo considerado fisiológico para a expulsão da placenta?",
+    "alternativas": {
+      "A": "5 minutos.",
+      "B": "10 minutos.",
+      "C": "30 minutos.",
+      "D": "60 minutos."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 123,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - Dequitação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "No mecanismo de dequitação tipo Baudelocque-Schultze, a placenta desprende-se:",
+    "alternativas": {
+      "A": "Pela borda lateral/inferior.",
+      "B": "Pela parte central, saindo pela face fetal (brilhante) com sangramento visível apenas após a saída (\"guarda-chuva\").",
+      "C": "Pela parte marginal, saindo pela face materna (cotilédones) com sangramento prévio.",
+      "D": "Fragmentada em pedaços."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 124,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fases Clínicas - Dequitação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O mecanismo de Baudelocque-Duncan, presente em cerca de 25% dos casos, caracteriza-se por:",
+    "alternativas": {
+      "A": "Saída da face fetal primeiro.",
+      "B": "Ausência de sangramento.",
+      "C": "Descolamento marginal, saída pela face materna e sangramento exteriorizado antes/durante a saída da placenta.",
+      "D": "Retenção placentária obrigatória."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 125,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Período de Greenberg",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "O 4º Período do parto, ou Período de Greenberg, compreende:",
+    "alternativas": {
+      "A": "A primeira hora pós-parto, sendo o momento crítico para hemostasia.",
+      "B": "O período de dilatação total.",
+      "C": "As primeiras 24 horas do recém-nascido.",
+      "D": "A fase latente do trabalho de parto."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 126,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Período de Greenberg",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o primeiro mecanismo de hemostasia uterina, conhecido como \"Ligaduras Vivas de Pinard\"?",
+    "alternativas": {
+      "A": "Trombotamponagem (coagulação).",
+      "B": "Miotamponagem (contração tônica das fibras musculares estrangulando os vasos).",
+      "C": "Sutura cirúrgica.",
+      "D": "Indiferença miouterina."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 127,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Período de Greenberg",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Durante o Período de Greenberg, a fase de \"Indiferença Miouterina\" representa um momento de risco. Por quê?",
+    "alternativas": {
+      "A": "O útero sofre espasmos dolorosos.",
+      "B": "Ocorre um relaxamento fisiológico onde o útero se torna apático, podendo acumular sangue se a miotamponagem falhar.",
+      "C": "Ocorre a formação excessiva de trombos.",
+      "D": "O colo uterino se fecha completamente."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 128,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Período de Greenberg",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "A hemostasia definitiva e a segurança clínica no 4º período são confirmadas pela presença do \"Globo de Segurança de Pinard\". Isso corresponde a qual fase?",
+    "alternativas": {
+      "A": "Miotamponagem inicial.",
+      "B": "Trombotamponagem.",
+      "C": "Contração Uterina Fixa.",
+      "D": "Indiferença Miouterina."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 129,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Posição",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Se no toque vaginal o obstetra palpa a pequena fontanela (Lambda) voltada para a eminência ileopectínea esquerda da mãe, qual é a variedade de posição?",
+    "alternativas": {
+      "A": "ODP (Occipito-Direita-Posterior).",
+      "B": "OEA (Occipito-Esquerda-Anterior).",
+      "C": "OET (Occipito-Esquerda-Transversa).",
+      "D": "OP (Occipito-Púbica)."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 130,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Insinuação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Qual diâmetro da cabeça fetal é considerado o \"menor\" e mais favorável para a insinuação em apresentações fletidas?",
+    "alternativas": {
+      "A": "Occipitofrontal (11 cm).",
+      "B": "Biparietal.",
+      "C": "Suboccipitobregmático (9,5 cm).",
+      "D": "Occipitomentoniano."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 131,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Apresentação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "A apresentação pélvica pode ser classificada de diferentes formas. Na apresentação pélvica incompleta modo nádegas (agrípa), o feto apresenta:",
+    "alternativas": {
+      "A": "Pernas fletidas e pés junto às nádegas.",
+      "B": "Pernas estendidas para cima, com apenas as nádegas ocupando o estreito superior.",
+      "C": "Um pé prolapsado.",
+      "D": "Cabeça defletida."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 132,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Anatomia",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "A fontanela Lambdoide (Pequena Fontanela) é o ponto de referência das apresentações fletidas. Qual é a sua forma geométrica e quantas suturas a formam?",
+    "alternativas": {
+      "A": "Losangular; 4 suturas.",
+      "B": "Triangular; 3 suturas (sagital e lambdoides).",
+      "C": "Circular; sem suturas.",
+      "D": "Quadrada; 4 suturas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 133,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Planos de De Lee",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Uma altura da apresentação classificada como \"+3\" nos Planos de De Lee indica que a apresentação está:",
+    "alternativas": {
+      "A": "Alta e móvel, acima das espinhas isquiáticas.",
+      "B": "Encaixada no nível zero.",
+      "C": "Baixa, abaixo das espinhas isquiáticas, próxima ou no período expulsivo.",
+      "D": "Flutuante fora da pelve."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 134,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Nomenclatura",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Na nomenclatura das variedades de posição, o que significa a sigla \"ODP\"?",
+    "alternativas": {
+      "A": "Occipito-Direita-Púbica.",
+      "B": "Occipito-Direita-Posterior.",
+      "C": "Occipito-Direita-Profunda.",
+      "D": "Occipito-Dorsal-Posterior."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 135,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Sequência",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a ordem cronológica correta dos tempos principais do mecanismo de parto?",
+    "alternativas": {
+      "A": "Desprendimento -> Rotação Interna -> Insinuação.",
+      "B": "Insinuação -> Descida/Rotação Interna -> Desprendimento (Deflexão) -> Restitution.",
+      "C": "Rotação Externa -> Descida -> Insinuação.",
+      "D": "Descida -> Insinuação -> Desprendimento."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 136,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Estática Fetal - Apresentação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Quando o eixo fetal é perpendicular ao eixo materno (Situação Transversa), qual é a apresentação fetal correspondente?",
+    "alternativas": {
+      "A": "Cefálica.",
+      "B": "Pélvica.",
+      "C": "Córmica (Ombro/Acrômio).",
+      "D": "Podálica."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 137,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mecanismo de Parto - Rotação",
+    "problema": 4,
+    "status": "Nao Respondida",
+    "enunciado": "Em uma variedade de posição OEA (Occipito-Esquerda-Anterior), quantos graus a cabeça deve rodar internamente para alcançar a posição OP (Occipito-Púbica)?",
+    "alternativas": {
+      "A": "45 graus.",
+      "B": "90 graus.",
+      "C": "135 graus.",
+      "D": "180 graus."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 138,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Puerpério",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O puerpério é o período de retorno do organismo materno às condições pré-gravídicas. Qual é a duração média cronológica considerada para este período?",
+    "alternativas": {
+      "A": "30 dias.",
+      "B": "42 dias (6 semanas).",
+      "C": "3 meses.",
+      "D": "1 ano."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 139,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Puerpério",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O Puerpério Imediato compreende um período de grandes transformações e maiores riscos de complicações como hemorragias. Qual é o intervalo de tempo que define esta fase?",
+    "alternativas": {
+      "A": "As primeiras 24 horas apenas.",
+      "B": "Do 1º ao 10º dia pós-parto.",
+      "C": "Do 11º ao 45º dia pós-parto.",
+      "D": "Até o retorno da menstruação."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 140,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Puerpério",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A involução uterina é um marcador clínico importante. Imediatamente após a saída da placenta, onde se encontra o fundo uterino e qual a taxa média de descida diária?",
+    "alternativas": {
+      "A": "Na sínfise púbica; desce 2 cm/dia.",
+      "B": "No apêndice xifoide; desce 1 cm/dia.",
+      "C": "Na cicatriz umbilical; desce aproximadamente 1 cm/dia.",
+      "D": "Intrapélvico; não é palpável."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 141,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Puerpério - Lóquios",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Sobre a evolução dos lóquios (lochia), como é caracterizada a Lochia Rubra e em qual período ela ocorre?",
+    "alternativas": {
+      "A": "Secreção branco-amarelada, após o 10º dia.",
+      "B": "Secreção serossanguinolenta, do 4º ao 10º dia.",
+      "C": "Secreção vermelho vivo, podendo conter pequenos coágulos, do 1º ao 3º dia.",
+      "D": "Secreção purulenta e fétida, indicando infecção imediata."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 142,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia do Puerpério - Lóquios",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A partir do 10º dia pós-parto, a secreção vaginal torna-se branco-amarelada, cremosa e rica em leucócitos. Qual é o nome dessa fase loquial?",
+    "alternativas": {
+      "A": "Lochia Rubra.",
+      "B": "Lochia Serosa.",
+      "C": "Lochia Alba.",
+      "D": "Lochia Purnulenta."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 143,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Sistêmica",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "No puerpério imediato, o hemograma pode apresentar alterações fisiológicas que não devem ser confundidas com infecção. Qual é o limite de leucócitos considerado normal nessa fase, desde que sem desvio à esquerda?",
+    "alternativas": {
+      "A": "Até 10.000/mm³.",
+      "B": "Até 15.000/mm³.",
+      "C": "Até 25.000/mm³.",
+      "D": "Até 40.000/mm³."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 144,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Hormônios",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A produção e a ejeção do leite são controladas por hormônios distintos. Qual hormônio é responsável pela produção do leite e é estimulado pela sucção?",
+    "alternativas": {
+      "A": "Ocitocina.",
+      "B": "Prolactina.",
+      "C": "Estrogênio.",
+      "D": "Progesterona."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 145,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Hormônios",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Ocitocina, secretada pela neuro-hipófise, tem qual função primordial na amamentação?",
+    "alternativas": {
+      "A": "Produção de gordura no leite.",
+      "B": "Inibição da ovulação.",
+      "C": "Ejeção do leite através da contração das células mioepiteliais.",
+      "D": "Crescimento ductal mamário."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 146,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Fisiologia",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O que desencadeia a Lactogênese (início da secreção láctea) logo após o parto?",
+    "alternativas": {
+      "A": "O aumento do estrogênio.",
+      "B": "A queda abrupta da progesterona, que deixa de inibir a prolactina.",
+      "C": "A primeira sucção do bebê.",
+      "D": "A administração de ocitocina exógena."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 147,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Composição",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O colostro, produzido nos primeiros dias (1-5 dias), difere do leite maduro. Qual é sua principal característica imunológica?",
+    "alternativas": {
+      "A": "Rico em IgA secretora (\"primeira vacina\").",
+      "B": "Rico em IgG transplacentária.",
+      "C": "Pobre em proteínas.",
+      "D": "Altíssimo teor de gordura."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 148,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Composição",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Durante uma mamada, a composição do leite muda. O leite posterior (do final da mamada) é caracterizado por ter maior concentração de:",
+    "alternativas": {
+      "A": "Água.",
+      "B": "Lactose.",
+      "C": "Gordura, promovendo saciedade.",
+      "D": "Imunoglobulinas."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 149,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Fisiologia",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A \"Apojadura\" ou descida do leite ocorre geralmente entre o 3º e 5º dia pós-parto. Qual sintoma é comumente associado a este evento fisiológico?",
+    "alternativas": {
+      "A": "Febre alta e calafrios.",
+      "B": "Ingurgitamento mamário fisiológico.",
+      "C": "Fissura mamilar.",
+      "D": "Ausência total de leite."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 150,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a definição volumétrica de Hemorragia Pós-Parto (HPP) em um parto vaginal?",
+    "alternativas": {
+      "A": "Perda > 300 ml.",
+      "B": "Perda > 500 ml.",
+      "C": "Perda > 1000 ml.",
+      "D": "Perda > 1500 ml."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 151,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Dentre os \"4 T's\" da etiologia da hemorragia puerperal, qual é a principal causa, responsável por cerca de 70% dos casos?",
+    "alternativas": {
+      "A": "Trauma (lacerações).",
+      "B": "Tecido (restos placentários).",
+      "C": "Trombina (coagulopatias).",
+      "D": "Tônus (Atonia Uterina)."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 152,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Quais são fatores de risco clássicos para Atonia Uterina (Tônus)?",
+    "alternativas": {
+      "A": "Nuliparidade e feto pequeno para a idade gestacional.",
+      "B": "Sobredistensão uterina (gêmeos, polidrâmnio), multiparidade e trabalho de parto prolongado.",
+      "C": "Cesárea anterior e placenta prévia.",
+      "D": "Pré-eclâmpsia leve."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 153,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O \"T\" de \"Tecido\" na classificação etiológica da hemorragia refere-se a:",
+    "alternativas": {
+      "A": "Rotura uterina.",
+      "B": "Coagulopatias como Von Willebrand.",
+      "C": "Retenção de restos placentários/coágulos ou acretismo placentário.",
+      "D": "Lacerações do trajeto."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 154,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto - Manejo",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a primeira linha de manejo medicamentoso e mecânico para a Atonia Uterina?",
+    "alternativas": {
+      "A": "Histerectomia imediata.",
+      "B": "Massagem uterina bimanual + Ocitocina.",
+      "C": "Transfusão de plaquetas.",
+      "D": "Curetagem uterina."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 155,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infecção Puerperal",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a definição clínica padrão de infecção puerperal?",
+    "alternativas": {
+      "A": "Qualquer febre isolada no primeiro dia pós-parto.",
+      "B": "Febre (> 38ºC) por 2 dias consecutivos nos primeiros 10 dias pós-parto, excluindo as primeiras 24 horas.",
+      "C": "Febre persistente por mais de 20 dias.",
+      "D": "Presença de lóquios serosos."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 156,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infecção Puerperal",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Endometrite é a infecção do revestimento uterino. Qual é o principal fator de risco para o seu desenvolvimento?",
+    "alternativas": {
+      "A": "Parto vaginal espontâneo.",
+      "B": "Multiparidade.",
+      "C": "Cesariana.",
+      "D": "Amamentação exclusiva."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 157,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infecção Puerperal",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Tríade de Bumm é característica da Endometrite Puerperal. Quais são seus componentes?",
+    "alternativas": {
+      "A": "Hipertensão, proteinúria e edema.",
+      "B": "Útero doloroso/amolecido, subinvolução uterina e lóquios fétidos/purulentos.",
+      "C": "Febre, calafrios e dor mamária.",
+      "D": "Hemorragia, taquicardia e hipotensão."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 158,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infecção Puerperal - Tratamento",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o esquema antibiótico padrão-ouro para o tratamento da endometrite puerperal?",
+    "alternativas": {
+      "A": "Amoxicilina via oral.",
+      "B": "Ceftriaxona isolada.",
+      "C": "Clindamicina + Gentamicina endovenosas.",
+      "D": "Ciprofloxacino."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 159,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mastite",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A mastite puerperal é uma infecção frequente. Qual é o agente etiológico mais comum e qual é a porta de entrada típica?",
+    "alternativas": {
+      "A": "Escherichia coli; ductos lactíferos.",
+      "B": "Staphylococcus aureus; fissuras mamárias por pega incorreta.",
+      "C": "Streptococcus agalactiae; corrente sanguínea.",
+      "D": "Candida albicans; boca do bebê."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 160,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mastite - Manejo",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Diante de um quadro de mastite infecciosa sem abscesso, qual a conduta em relação à amamentação?",
+    "alternativas": {
+      "A": "Suspender imediatamente e secar o leite.",
+      "B": "Suspender temporariamente apenas na mama afetada.",
+      "C": "Manter a amamentação (ou ordenha) para esvaziar a mama, associada a antibióticos.",
+      "D": "Internar o recém-nascido para profilaxia."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 161,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Saúde Mental",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Disforia Puerperal (Maternity Blues) é muito comum (50-80%). Quais são suas características principais?",
+    "alternativas": {
+      "A": "Início tardio (após 1 mês), anedonia grave e risco de suicídio.",
+      "B": "Início precoce (3º-4º dia), choro fácil, tristeza leve, labilidade emocional e caráter autolimitado (desaparece em 2 semanas).",
+      "C": "Delírios e alucinações visuais.",
+      "D": "Rejeição total ao recém-nascido."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 162,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Saúde Mental",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Psicose Puerperal é uma emergência psiquiátrica rara (0,1-0,2%). O quadro clínico inclui:",
+    "alternativas": {
+      "A": "Tristeza leve e passageira.",
+      "B": "Preocupação excessiva com a estética.",
+      "C": "Delírios, alucinações, confusão mental e risco de suicídio/infanticídio.",
+      "D": "Insônia leve apenas."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 163,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mortalidade Materna",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é a definição de Morte Materna?",
+    "alternativas": {
+      "A": "Morte de mulher em idade fértil.",
+      "B": "Morte de mulher durante a gestação ou até 42 dias após o término, devida a causas relacionadas ou agravadas pela gravidez (excluindo causas acidentais).",
+      "C": "Morte de mulher até 1 ano após o parto.",
+      "D": "Morte fetal intrauterina."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 164,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mortalidade Materna",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Como são classificadas as mortes resultantes de complicações obstétricas diretas (gravidez, parto, puerpério) ou de intervenções incorretas?",
+    "alternativas": {
+      "A": "Morte Obstétrica Indireta.",
+      "B": "Morte Obstétrica Direta.",
+      "C": "Morte Acidental.",
+      "D": "Morte Tardia."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 165,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Mortalidade Materna",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual das alternativas abaixo é um exemplo de causa de Morte Obstétrica Indireta?",
+    "alternativas": {
+      "A": "Hemorragia Pós-Parto.",
+      "B": "Infecção Puerperal.",
+      "C": "Eclâmpsia.",
+      "D": "Cardiopatia prévia agravada pela gestação."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 166,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Galactopoiese",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A manutenção da produção de leite (Galactopoiese) depende essencialmente de qual fator mecânico/fisiológico?",
+    "alternativas": {
+      "A": "Ingestão de cerveja preta.",
+      "B": "Esvaziamento da mama pela sucção (\"mama vazia estimula produção\").",
+      "C": "Uso de compressas quentes.",
+      "D": "Suplementação de cálcio."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 167,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Puerpério - Classificação",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "O Puerpério Tardio compreende qual intervalo de tempo?",
+    "alternativas": {
+      "A": "1º ao 10º dia.",
+      "B": "11º ao 45º dia.",
+      "C": "A partir do 45º dia.",
+      "D": "Primeiros 3 meses."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 168,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Infecção - Mastite",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Diferente da mastite, o ingurgitamento mamário fisiológico geralmente apresenta-se como:",
+    "alternativas": {
+      "A": "Unilateral e com pus.",
+      "B": "Bilateral, com melhora após ordenha/mamada e sem sinais flogísticos infecciosos intensos.",
+      "C": "Com necrose tecidual.",
+      "D": "Indolor."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 169,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia - Etiologia",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Em relação aos \"4 T's\", coagulopatias prévias (como Von Willebrand) ou adquiridas (como CIVD) classificam-se como problemas de:",
+    "alternativas": {
+      "A": "Tônus.",
+      "B": "Trauma.",
+      "C": "Tecido.",
+      "D": "Trombina."
+    },
+    "gabarito": "D"
+  },
+  {
+    "id": 170,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Saúde Mental",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A Depressão Pós-Parto difere do \"Blues\" por:",
+    "alternativas": {
+      "A": "Ser mais leve e rápida.",
+      "B": "Surgir em semanas, com anedonia, culpa e risco ao vínculo mãe-bebê, exigindo tratamento (psicoterapia/fármacos).",
+      "C": "Causar alucinações.",
+      "D": "Acometer 100% das puérperas."
+    },
+    "gabarito": "B"
+  },
+  {
+    "id": 171,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Fisiologia Sistêmica - Ovulação",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Qual é o mecanismo pelo qual a lactação exclusiva atua como método contraceptivo (amenorreia lactacional)?",
+    "alternativas": {
+      "A": "A prolactina elevada suprime o GnRH, inibindo a ovulação.",
+      "B": "A ocitocina destrói os folículos ovarianos.",
+      "C": "O leite contém hormônios anti-ovulatórios.",
+      "D": "O útero atrófico impede a nidação."
+    },
+    "gabarito": "A"
+  },
+  {
+    "id": 172,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Lactação - Fases",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "A fase de desenvolvimento da glândula mamária que ocorre durante a gestação, sob ação de estrogênio, progesterona e hPL, é chamada de:",
+    "alternativas": {
+      "A": "Lactogênese.",
+      "B": "Galactopoiese.",
+      "C": "Mammogênese.",
+      "D": "Apojadura."
+    },
+    "gabarito": "C"
+  },
+  {
+    "id": 173,
+    "ciclo": "Ciclo Básico",
+    "modalidade": "PBL",
+    "modulo": "Módulo 7 — Concepção, formação do ser humano e gestação",
+    "tema": "Hemorragia Pós-Parto",
+    "problema": 5,
+    "status": "Nao Respondida",
+    "enunciado": "Para uma cesariana, qual é o volume de perda sanguínea que define a Hemorragia Pós-Parto?",
+    "alternativas": {
+      "A": "> 500 ml.",
+      "B": "> 750 ml.",
+      "C": "> 1000 ml.",
+      "D": "> 2000 ml."
+    },
+    "gabarito": "C"
+  }
+]
